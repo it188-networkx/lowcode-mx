@@ -1,0 +1,118 @@
+{
+  "layoutID": "398211607475257345",
+  "pageID": "398211531625463809",
+  "parentID": "0",
+  "namespaceID": "398089654563307521",
+  "weight": 1,
+  "handle": "primary",
+  "meta": {
+    "title": "Stock Statistics",
+    "script": "",
+    "description": "",
+    "scriptEnabled": false
+  },
+  "config": {
+    "buttons": {
+      "new": {
+        "label": "",
+        "enabled": true
+      },
+      "back": {
+        "label": "",
+        "enabled": true
+      },
+      "edit": {
+        "label": "",
+        "enabled": true
+      },
+      "clone": {
+        "label": "",
+        "enabled": true
+      },
+      "delete": {
+        "label": "",
+        "enabled": true
+      },
+      "submit": {
+        "label": "",
+        "enabled": true
+      }
+    },
+    "useTitle": false,
+    "visibility": {
+      "expression": ""
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-197e10oiinbhlz9h42ms"
+      },
+      "xywh": [
+        0,
+        0,
+        12,
+        35
+      ],
+      "blockID": "2"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-44yhye1rj8jlz9h51ev"
+      },
+      "xywh": [
+        12,
+        0,
+        12,
+        35
+      ],
+      "blockID": "3"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-0rrju278s3aqlz9h5xe4"
+      },
+      "xywh": [
+        24,
+        0,
+        12,
+        35
+      ],
+      "blockID": "4"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-5uthlw4rbolz9h6vpl"
+      },
+      "xywh": [
+        36,
+        0,
+        12,
+        35
+      ],
+      "blockID": "5"
+    },
+    {
+      "meta": {
+        "json": "{\n  \"type\": \"page\",\n  \"body\": [\n    {\n      \"type\": \"crud\",\n      \"id\": \"u:a78922c4aaa1\",\n      \"mode\": \"table\",\n      \"dsType\": \"api\",\n      \"syncLocation\": false,\n      \"primaryField\": \"id\",\n      \"loadType\": \"pagination\",\n      \"api\": {\n        \"url\": \"/compose/query/data\",\n        \"method\": \"post\",\n        \"requestAdaptor\": \"\",\n        \"adaptor\": \"\",\n        \"messages\": {},\n        \"dataType\": \"json\",\n        \"sendOn\": \"\",\n        \"silent\": false,\n        \"replaceData\": false,\n        \"data\": {\n          \"name\": \"getStockCount\",\n          \"params\": {\n            \"deviceId\": \"${deviceId}\",\n            \"wareHouseName\": \"${wareHouseName}\",\n            \"assetName\": \"${model}\"\n          }\n        }\n      },\n      \"footerToolbar\": [\n        {\n          \"type\": \"flex\",\n          \"direction\": \"row\",\n          \"justify\": \"flex-start\",\n          \"alignItems\": \"stretch\",\n          \"style\": {\n            \"position\": \"static\"\n          },\n          \"items\": [\n            {\n              \"type\": \"container\",\n              \"align\": \"left\",\n              \"body\": [],\n              \"wrapperBody\": false,\n              \"style\": {\n                \"flexGrow\": 1,\n                \"flex\": \"1 1 auto\",\n                \"position\": \"static\",\n                \"display\": \"flex\",\n                \"flexBasis\": \"auto\",\n                \"flexDirection\": \"row\",\n                \"flexWrap\": \"nowrap\",\n                \"alignItems\": \"stretch\",\n                \"justifyContent\": \"flex-start\"\n              },\n              \"id\": \"u:587b754773c2\"\n            },\n            {\n              \"type\": \"container\",\n              \"align\": \"right\",\n              \"body\": [\n                {\n                  \"type\": \"pagination\",\n                  \"behavior\": \"Pagination\",\n                  \"perPage\": 10,\n                  \"perPageAvailable\": [\n                    10,\n                    20,\n                    50,\n                    100\n                  ],\n                  \"align\": \"right\",\n                  \"id\": \"u:cf1490d02bd0\"\n                }\n              ],\n              \"wrapperBody\": false,\n              \"style\": {\n                \"flexGrow\": 1,\n                \"flex\": \"1 1 auto\",\n                \"position\": \"static\",\n                \"display\": \"flex\",\n                \"flexBasis\": \"auto\",\n                \"flexDirection\": \"row\",\n                \"flexWrap\": \"nowrap\",\n                \"alignItems\": \"stretch\",\n                \"justifyContent\": \"flex-end\"\n              },\n              \"id\": \"u:a11290c96d81\"\n            }\n          ],\n          \"id\": \"u:8a9f6b946de9\"\n        }\n      ],\n      \"columns\": [\n        {\n          \"label\": \"Warehouse Name\",\n          \"type\": \"text\",\n          \"name\": \"wareHouseName\",\n          \"id\": \"u:4c5f7c1f18fd\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Asset ID\",\n          \"type\": \"text\",\n          \"name\": \"deviceId\",\n          \"id\": \"u:e9a7e72670e4\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Asset Name\",\n          \"type\": \"text\",\n          \"name\": \"model\",\n          \"id\": \"u:a0e35a0a953a\",\n          \"inline\": true,\n          \"onEvent\": {\n            \"click\": {\n              \"weight\": 0,\n              \"actions\": [\n                {\n                  \"ignoreError\": false,\n                  \"actionType\": \"url\",\n                  \"args\": {\n                    \"url\": \"/maxims/compose/ns/wms/pages/398232858923106305/record/$modelRecordId\",\n                    \"params\": {\n                      \"warehouse\": \"$wareHouseRecordId\"\n                    },\n                    \"blank\": false\n                  }\n                }\n              ]\n            }\n          },\n          \"className\": \"font-bold text-info\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Total\",\n          \"type\": \"text\",\n          \"name\": \"total\",\n          \"id\": \"u:dfb354d370dc\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Available\",\n          \"type\": \"text\",\n          \"name\": \"availableTotal\",\n          \"id\": \"u:a51c300557a9\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Disposal\",\n          \"type\": \"text\",\n          \"name\": \"disposalTotal\",\n          \"id\": \"u:06ee50047278\",\n          \"placeholder\": \"-\",\n          \"toggled\": false\n        },\n        {\n          \"label\": \"Installed\",\n          \"type\": \"text\",\n          \"name\": \"installedTotal\",\n          \"id\": \"u:1a7cf29c4d4f\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Picked\",\n          \"type\": \"text\",\n          \"name\": \"pickedTotal\",\n          \"id\": \"u:f7ebf20deee4\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Prepared\",\n          \"type\": \"text\",\n          \"name\": \"preparedTotal\",\n          \"id\": \"u:bd5f25c086ee\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Repairing\",\n          \"type\": \"text\",\n          \"name\": \"repairingTotal\",\n          \"id\": \"u:6d8616e5268d\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"Return\",\n          \"type\": \"text\",\n          \"name\": \"returnTotal\",\n          \"id\": \"u:c4ab91244091\",\n          \"placeholder\": \"-\"\n        },\n        {\n          \"label\": \"modelRecordId\",\n          \"type\": \"text\",\n          \"name\": \"modelRecordId\",\n          \"id\": \"u:eb6cef6e5de2\",\n          \"inline\": true,\n          \"visible\": false\n        },\n        {\n          \"label\": \"wareHouseRecordId\",\n          \"type\": \"text\",\n          \"name\": \"wareHouseRecordId\",\n          \"id\": \"u:abb753d22f16\",\n          \"inline\": true,\n          \"visible\": false\n        }\n      ],\n      \"editorSetting\": {\n        \"mock\": {\n          \"enable\": true,\n          \"maxDisplayRows\": 5\n        }\n      },\n      \"bulkActions\": [],\n      \"perPageAvailable\": [],\n      \"messages\": {},\n      \"name\": \"getStockCount\",\n      \"params\": {},\n      \"filterSettingSource\": [\n        \"availableTotal\",\n        \"deviceId\",\n        \"disposalTotal\",\n        \"installedTotal\",\n        \"model\",\n        \"modelRecordId\",\n        \"pickedTotal\",\n        \"preparedTotal\",\n        \"repairingTotal\",\n        \"returnTotal\",\n        \"total\",\n        \"wareHouseName\",\n        \"wareHouseRecordId\"\n      ],\n      \"keepItemSelectionOnPageChange\": false,\n      \"perPageField\": \"perPage\",\n      \"filterEnabledList\": [\n        {\n          \"label\": \"wareHouseName\",\n          \"value\": \"wareHouseName\"\n        },\n        {\n          \"label\": \"deviceId\",\n          \"value\": \"deviceId\"\n        },\n        {\n          \"label\": \"model\",\n          \"value\": \"model\"\n        }\n      ],\n      \"filter\": {\n        \"title\": \"查询条件\",\n        \"columnCount\": 4,\n        \"mode\": \"horizontal\",\n        \"body\": [\n          {\n            \"type\": \"input-text\",\n            \"label\": \"Warehouse Name\",\n            \"name\": \"wareHouseName\",\n            \"id\": \"u:f569652253c5\",\n            \"clearable\": true,\n            \"themeCss\": {\n              \"labelClassName\": {\n                \"font:default\": {\n                  \"fontSize\": \"var(--fonts-size-9)\"\n                }\n              }\n            }\n          },\n          {\n            \"type\": \"input-text\",\n            \"label\": \"Asset ID\",\n            \"name\": \"deviceId\",\n            \"id\": \"u:8fd672e5527d\",\n            \"clearable\": true,\n            \"themeCss\": {\n              \"labelClassName\": {\n                \"font:default\": {\n                  \"fontSize\": \"var(--fonts-size-11)\"\n                }\n              }\n            }\n          },\n          {\n            \"type\": \"input-text\",\n            \"label\": \"Asset Name\",\n            \"name\": \"model\",\n            \"id\": \"u:600fefc79906\",\n            \"clearable\": true,\n            \"themeCss\": {\n              \"labelClassName\": {\n                \"font:default\": {\n                  \"fontSize\": \"var(--fonts-size-11)\"\n                }\n              }\n            }\n          },\n          {\n            \"type\": \"submit\",\n            \"label\": \"搜索\",\n            \"primary\": true,\n            \"id\": \"u:2801b0407bc2\",\n            \"onEvent\": {\n              \"click\": {\n                \"weight\": 0,\n                \"actions\": [\n                  {\n                    \"ignoreError\": false,\n                    \"actionType\": \"ajax\",\n                    \"outputVar\": \"responseResult\",\n                    \"options\": {},\n                    \"api\": {\n                      \"url\": \"/compose/query/data\",\n                      \"method\": \"post\",\n                      \"requestAdaptor\": \"\",\n                      \"adaptor\": \"\",\n                      \"messages\": {},\n                      \"dataType\": \"json\",\n                      \"data\": {\n                        \"name\": \"getStockCount\",\n                        \"params\": {\n                          \"deviceId\": \"${deviceId}\",\n                          \"wareHouseName\": \"${wareHouseName}\",\n                          \"assetName\": \"${model}\"\n                        }\n                      }\n                    }\n                  }\n                ]\n              }\n            }\n          }\n        ],\n        \"id\": \"u:465f578c73e4\",\n        \"feat\": \"Insert\",\n        \"autoFocus\": false,\n        \"actions\": [],\n        \"wrapWithPanel\": false,\n        \"affixFooter\": true,\n        \"submitOnChange\": false\n      }\n    }\n  ],\n  \"id\": \"u:ecf8a0d30ac6\",\n  \"childFrame\": true,\n  \"asideResizor\": false,\n  \"pullRefresh\": {\n    \"disabled\": true\n  },\n  \"regions\": [\n    \"body\",\n    \"toolbar\",\n    \"header\"\n  ],\n  \"toolbar\": []\n}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-r58y8szasuflzcb1uad"
+      },
+      "xywh": [
+        0,
+        35,
+        48,
+        61
+      ],
+      "blockID": "6"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-07-10T08:01:32.000Z",
+  "updatedAt": "2025-01-09T14:34:08.000Z"
+}

@@ -1,0 +1,397 @@
+{
+  "pageID": "409824987079245825",
+  "selfID": "409824987078197249",
+  "namespaceID": "409824987081211905",
+  "moduleID": "0",
+  "handle": "Group",
+  "config": {
+    "navItem": {
+      "icon": {
+        "src": "",
+        "type": "link"
+      },
+      "expanded": false
+    }
+  },
+  "blocks": [
+    {
+      "kind": "RecordList",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-d6iky1kl1sgm00dn8ab"
+      },
+      "xywh": [
+        0,
+        0,
+        48,
+        80
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "2",
+      "options": {
+        "fields": [
+          {
+            "kind": "String",
+            "name": "name",
+            "label": "Name",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "409824987076100097",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Select",
+            "name": "groupType",
+            "label": "Group Type",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "409824987076231169",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "options": [
+                {
+                  "text": "User Group",
+                  "value": "User Group"
+                },
+                {
+                  "text": "Support Group",
+                  "value": "Support Group"
+                }
+              ],
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "groupManager",
+            "label": "Group Manager",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "409824987075903489",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "kind": "String",
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "moduleID": "409824987082522625",
+              "prefilter": "realUser is not null and enabledFlag = true",
+              "colorField": "",
+              "isCheckbox": false,
+              "labelField": "name",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Bool",
+            "name": "enabledFlag",
+            "label": "Status",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "409824987075969025",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "switch": false,
+              "trueLabel": "Active",
+              "falseLabel": "Inactive",
+              "description": {
+                "view": ""
+              }
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [
+              {
+                "name": ""
+              }
+            ],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "description",
+            "label": "Description",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "409824987076165633",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          }
+        ],
+        "perPage": 20,
+        "presort": "createdAt DESC",
+        "editable": false,
+        "isToEdit": false,
+        "moduleID": "409824987082653697",
+        "draggable": false,
+        "prefilter": "",
+        "editFields": [],
+        "hideHeader": false,
+        "hidePaging": false,
+        "hideSearch": false,
+        "selectMode": "multi",
+        "selectable": true,
+        "allowExport": true,
+        "hideSorting": false,
+        "refreshRate": 0,
+        "showRefresh": false,
+        "linkToParent": false,
+        "openInNewTab": false,
+        "filterPresets": [],
+        "hideAddButton": false,
+        "hideFiltering": false,
+        "magnifyOption": "",
+        "showTotalCount": true,
+        "hideImportButton": false,
+        "selectionButtons": [],
+        "fullPageNavigation": true,
+        "customFilterPresets": false,
+        "recordDisplayOption": "sameTab",
+        "hideRecordEditButton": false,
+        "hideRecordViewButton": false,
+        "bulkRecordEditEnabled": true,
+        "hideRecordCloneButton": false,
+        "hideRecordDeleteButton": false,
+        "inlineRecordEditEnabled": false,
+        "showRecordPerPageOption": true,
+        "hideRecordReminderButton": false,
+        "showDeletedRecordsOption": false,
+        "hideConfigureFieldsButton": true,
+        "enableRecordPageNavigation": false,
+        "hideRecordPermissionsButton": false,
+        "recordSelectorDisplayOption": "sameTab",
+        "hideRecordEditButtonValidators": "",
+        "hideRecordViewButtonValidators": "",
+        "hideRecordCloneButtonValidators": "",
+        "hideRecordDeleteButtonValidators": "",
+        "hideRecordReminderButtonValidators": "",
+        "hideRecordPermissionsButtonValidators": ""
+      }
+    }
+  ],
+  "meta": {
+    "newTab": false,
+    "newTabLink": "",
+    "allowPersonalLayouts": false
+  },
+  "visible": true,
+  "weight": 54,
+  "createdAt": "2024-09-28T06:09:30Z",
+  "title": "Group",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true,
+  "updatedAt": "2024-10-28T06:03:32Z"
+}

@@ -1,0 +1,208 @@
+{
+  "workflows": [
+    {
+      "workflowID": "398962065600937985",
+      "handle": "",
+      "enabled": false,
+      "meta": {
+        "name": "user  register workflow",
+        "visual": null,
+        "description": "当记录创建时，发送邮件提醒"
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2048,
+                2096,
+                200,
+                80
+              ],
+              "value": "expression",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"Welcome \"+username +\"!\"",
+              "type": "String",
+              "target": "username"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "xywh": [
+                2096,
+                2328,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "8",
+          "results": [],
+          "arguments": null
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "14",
+              "xywh": [
+                2112,
+                1888,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "xywh": [
+                2456,
+                1904,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "17",
+          "results": [],
+          "arguments": null
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "13",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "6"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "16",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": null
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "14"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "18",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": null
+            },
+            "description": ""
+          },
+          "childID": "17",
+          "parentID": "14"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "398962856663449601",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "14",
+          "meta": {
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2056,
+                1760,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "15",
+                      "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": null
+                    },
+                    "description": ""
+                  },
+                  "childID": "14",
+                  "parentID": "4"
+                }
+              ],
+              "value": "Send Email",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          }
+        }
+      ],
+      "runAs": "398935072234799105",
+      "ownedBy": "398935072234799105",
+      "createdAt": "2024-07-15T09:34:56.000Z",
+      "updatedAt": "2024-08-13T10:33:08.000Z"
+    }
+  ]
+}

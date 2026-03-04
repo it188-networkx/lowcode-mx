@@ -1,0 +1,902 @@
+{
+  "pageID": "398207009628880897",
+  "selfID": "0",
+  "namespaceID": "398089654563307521",
+  "moduleID": "0",
+  "handle": "home",
+  "config": {
+    "navItem": {
+      "icon": {
+        "src": "",
+        "type": "link"
+      },
+      "expanded": false
+    }
+  },
+  "blocks": [
+    {
+      "kind": "Chart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-4tyhybwu5sllyzad80j"
+      },
+      "xywh": [
+        20,
+        0,
+        28,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "申请状态统计",
+      "blockID": "5",
+      "options": {
+        "chartID": "400199218565742593",
+        "drillDown": {
+          "blockID": "",
+          "enabled": false
+        },
+        "refreshRate": 0,
+        "showRefresh": false,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Chart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-zot6w9nhr9hlyzaf8yk"
+      },
+      "xywh": [
+        0,
+        0,
+        10,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "库存状态统计",
+      "blockID": "6",
+      "options": {
+        "chartID": "400199729952063489",
+        "drillDown": {
+          "blockID": "",
+          "enabled": false
+        },
+        "refreshRate": 0,
+        "showRefresh": false,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "RecordList",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-lp4hyd4r1vjlyzag6l4"
+      },
+      "xywh": [
+        0,
+        68,
+        48,
+        50
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "所有申请",
+      "blockID": "8",
+      "options": {
+        "fields": [
+          {
+            "kind": "String",
+            "name": "no",
+            "label": "订单号",
+            "width": 130,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "isName": false,
+            "fieldID": "398092057412894721",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "rule": {
+                "digit": "4",
+                "start": "1",
+                "select": 0,
+                "timeZone": "",
+                "fixedChar": "BZ",
+                "dateFormat": "20060102",
+                "resetFrequency": "2"
+              },
+              "clearCopy": false,
+              "maxLength": "",
+              "multiLine": false,
+              "isPassword": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Select",
+            "name": "status",
+            "label": "状态",
+            "width": 130,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "isName": false,
+            "fieldID": "399260546802712577",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "timeZone": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "options": [
+                {
+                  "text": "提交申请",
+                  "value": "1"
+                },
+                {
+                  "text": "待审批",
+                  "value": "2"
+                },
+                {
+                  "text": "已审批",
+                  "value": "3"
+                },
+                {
+                  "text": "已备货",
+                  "value": "4"
+                },
+                {
+                  "text": "已发货",
+                  "value": "5"
+                },
+                {
+                  "text": "已安装",
+                  "value": "6"
+                },
+                {
+                  "text": "取消",
+                  "value": "7"
+                },
+                {
+                  "text": "DN已签收",
+                  "value": "8"
+                },
+                {
+                  "text": "DN送达美心",
+                  "value": "9"
+                },
+                {
+                  "text": "拒绝",
+                  "value": "0"
+                },
+                {
+                  "text": "归还",
+                  "value": "10"
+                }
+              ],
+              "clearCopy": false,
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "isUniqueMultiValue": true
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "1"
+              }
+            ],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Select",
+            "name": "priority",
+            "label": "优先级",
+            "width": 130,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "isName": false,
+            "fieldID": "399266189047496705",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "timeZone": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "options": [
+                {
+                  "text": "低",
+                  "value": "1"
+                },
+                {
+                  "text": "中",
+                  "value": "2"
+                },
+                {
+                  "text": "高",
+                  "value": "3"
+                }
+              ],
+              "clearCopy": false,
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Select",
+            "name": "purpose",
+            "label": "用途",
+            "width": 130,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "isName": false,
+            "fieldID": "399264480791429121",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "timeZone": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "options": [
+                {
+                  "text": "Project",
+                  "value": "1"
+                },
+                {
+                  "text": "MA",
+                  "value": "2"
+                },
+                {
+                  "text": "Onloan",
+                  "value": "3"
+                },
+                {
+                  "text": "Sales Request",
+                  "value": "4"
+                },
+                {
+                  "text": "DOA",
+                  "value": "5"
+                }
+              ],
+              "clearCopy": false,
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "chargeCode",
+            "label": "计费代码",
+            "width": 130,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "isName": false,
+            "fieldID": "398398556966223873",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "timeZone": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "clearCopy": false,
+              "maxLength": "",
+              "multiLine": false,
+              "isPassword": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "shopName",
+            "label": "店铺名称",
+            "width": 130,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "isName": false,
+            "fieldID": "399264480808140801",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "kind": "",
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "timeZone": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "notLink": false,
+              "presort": "createdAt DESC",
+              "moduleID": "399102533831753729",
+              "clearCopy": false,
+              "colorField": "",
+              "isCheckbox": false,
+              "labelField": "shop_name",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "hideSorting": false,
+              "namespaceID": "0",
+              "queryFields": [
+                "shop_name"
+              ],
+              "selectDefault": false,
+              "multiDelimiter": "\n",
+              "slaNoPrefilter": false,
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": false,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          }
+        ],
+        "isTree": false,
+        "perPage": 20,
+        "presort": "createdAt DESC",
+        "editable": false,
+        "isToEdit": false,
+        "moduleID": "398091869508075521",
+        "draggable": false,
+        "incidence": false,
+        "prefilter": "",
+        "editFields": [],
+        "hideHeader": false,
+        "hidePaging": false,
+        "hideSearch": false,
+        "selectMode": "multi",
+        "selectable": false,
+        "allowExport": false,
+        "hideSorting": false,
+        "namespaceID": "398089654563307521",
+        "refreshRate": 0,
+        "showRefresh": false,
+        "isToViewList": [],
+        "linkToParent": false,
+        "openInNewTab": false,
+        "filterPresets": [],
+        "hideAddButton": true,
+        "hideFiltering": false,
+        "magnifyOption": "",
+        "showTotalCount": false,
+        "hideImportButton": true,
+        "selectionButtons": [],
+        "EnableHoverEffect": false,
+        "fullPageNavigation": false,
+        "customFilterPresets": false,
+        "recordDisplayOption": "sameTab",
+        "hideRecordEditButton": false,
+        "hideRecordViewButton": false,
+        "bulkRecordEditEnabled": false,
+        "hideRecordCloneButton": false,
+        "hideRecordDeleteButton": false,
+        "hideRecordPinnedButton": false,
+        "inlineRecordEditEnabled": false,
+        "showRecordPerPageOption": false,
+        "hideRecordReminderButton": false,
+        "showDeletedRecordsOption": false,
+        "hideConfigureFieldsButton": true,
+        "enableRecordPageNavigation": false,
+        "hideRecordPermissionsButton": false,
+        "recordSelectorDisplayOption": "sameTab",
+        "hideRecordEditButtonValidators": "",
+        "hideRecordViewButtonValidators": "",
+        "hideRecordCloneButtonValidators": "",
+        "hideRecordDeleteButtonValidators": "",
+        "hideRecordPinnedButtonValidators": "",
+        "hideRecordReminderButtonValidators": "",
+        "hideRecordPermissionsButtonValidators": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Chart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-pzof1el0wcrlyzh7m2u"
+      },
+      "xywh": [
+        10,
+        0,
+        10,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "店铺分类",
+      "blockID": "9",
+      "options": {
+        "chartID": "400239753376563201",
+        "drillDown": {
+          "blockID": "",
+          "enabled": false
+        },
+        "refreshRate": 0,
+        "showRefresh": false,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Chart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-zmqucah7wiklzw3yiz2"
+      },
+      "xywh": [
+        10,
+        30,
+        10,
+        29
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "转仓申请",
+      "blockID": "10",
+      "options": {
+        "chartID": "403562453118222337",
+        "drillDown": {
+          "blockID": "",
+          "enabled": false
+        },
+        "refreshRate": 0,
+        "showRefresh": false,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Chart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-umcag7jo3wlzw3z7vk"
+      },
+      "xywh": [
+        0,
+        30,
+        10,
+        29
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "资产清单",
+      "blockID": "11",
+      "options": {
+        "chartID": "403563903882690561",
+        "drillDown": {
+          "blockID": "",
+          "enabled": false
+        },
+        "refreshRate": 0,
+        "showRefresh": false,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Calendar",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-jif6p23zwlzw3zvh7"
+      },
+      "xywh": [
+        20,
+        30,
+        28,
+        29
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "12",
+      "options": {
+        "feeds": [
+          {
+            "allDay": false,
+            "options": {
+              "color": "#0B344E",
+              "moduleID": "0",
+              "prefilter": ""
+            },
+            "endField": "",
+            "resource": "system:reminder",
+            "startField": "",
+            "titleField": ""
+          }
+        ],
+        "header": {
+          "views": [
+            "timeGridDay",
+            "timeGridWeek",
+            "listMonth",
+            "dayGridMonth"
+          ]
+        },
+        "locale": "en-gb",
+        "defaultView": "dayGridMonth",
+        "refreshRate": 0,
+        "showRefresh": false,
+        "magnifyOption": "",
+        "eventDisplayOption": "modal"
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "newTab": false,
+    "isToEdit": false,
+    "localTab": false,
+    "newTabLink": "",
+    "localPageID": "",
+    "btnVisibleKey": "",
+    "allowPersonalLayouts": false
+  },
+  "visible": true,
+  "weight": 1,
+  "createdAt": "2024-07-10T07:45:59Z",
+  "title": "首页",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true,
+  "updatedAt": "2025-11-04T15:51:13Z"
+}

@@ -1,0 +1,777 @@
+{
+  "workflows": [
+    {
+      "workflowID": "469545054263115777",
+      "handle": "itsm-download-center-send-email",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "itsm-download-center-send-email",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "5",
+              "xywh": [
+                2424,
+                1800,
+                200,
+                80
+              ],
+              "value": "声明赋值",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "5",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.address",
+              "type": "Any",
+              "target": "downloadUrl"
+            },
+            {
+              "expr": "record.createdBy",
+              "type": "Any",
+              "target": "createdBy"
+            },
+            {
+              "expr": "record.values.filename",
+              "type": "Any",
+              "target": "fileName"
+            },
+            {
+              "expr": "DOMAIN+HTTP_BASE_URL+\"compose/ns/\"+namespace.slug+\"/pages/462456542269603841\"",
+              "type": "Any",
+              "target": "url"
+            },
+            {
+              "expr": "record.values.status",
+              "type": "Any",
+              "target": "statusCode"
+            },
+            {
+              "expr": "record.values.error",
+              "type": "Any",
+              "target": "errorMessage"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "usersLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "xywh": [
+                2424,
+                1992,
+                200,
+                80
+              ],
+              "value": "查询用户",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "8",
+          "results": [
+            {
+              "expr": "user",
+              "type": "User",
+              "target": "user"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "createdBy",
+              "type": "ID",
+              "target": "lookup"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "xywh": [
+                2424,
+                2168,
+                200,
+                80
+              ],
+              "value": "查询用户是否存在",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "11",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "14",
+              "xywh": [
+                2816,
+                2168,
+                200,
+                80
+              ],
+              "value": "用户邮箱",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "user.email",
+              "type": "Any",
+              "target": "userEmail"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "15",
+              "xywh": [
+                2424,
+                2376,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "15",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "19",
+              "xywh": [
+                2816,
+                2360,
+                200,
+                80
+              ],
+              "value": "判断状态",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "19",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "templatesRender",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "21",
+              "xywh": [
+                3168,
+                2360,
+                200,
+                80
+              ],
+              "value": "Template render success",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "21",
+          "results": [
+            {
+              "expr": "document",
+              "type": "RenderedDocument",
+              "target": "content"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"itsm-download-success\"",
+              "type": "Handle",
+              "target": "lookup"
+            },
+            {
+              "type": "String",
+              "value": "text/html",
+              "target": "documentType"
+            },
+            {
+              "expr": "{\n  \"fileName\": fileName,\n  \"downloadLink\": downloadUrl,\n  \"downloadCenterLink\": url\n}",
+              "type": "Vars",
+              "target": "variables"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "emailMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "27",
+              "xywh": [
+                3512,
+                2360,
+                200,
+                80
+              ],
+              "value": "Email builder success",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "27",
+          "results": [
+            {
+              "expr": "message",
+              "type": "EmailMessage",
+              "target": "email"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Report ready to be downloaded\"",
+              "type": "String",
+              "target": "subject"
+            },
+            {
+              "expr": "userEmail",
+              "type": "String",
+              "target": "to"
+            },
+            {
+              "expr": "content.document",
+              "type": "Reader",
+              "target": "html"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "emailSendMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "29",
+              "xywh": [
+                3816,
+                2360,
+                200,
+                80
+              ],
+              "value": "Email sender success",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "29",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "email",
+              "type": "EmailMessage",
+              "target": "message"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "templatesRender",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "31",
+              "xywh": [
+                3168,
+                2552,
+                200,
+                80
+              ],
+              "value": "Template render fail",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "31",
+          "results": [
+            {
+              "expr": "document",
+              "type": "RenderedDocument",
+              "target": "content"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"itsm-download-fail\"",
+              "type": "Handle",
+              "target": "lookup"
+            },
+            {
+              "type": "String",
+              "value": "text/html",
+              "target": "documentType"
+            },
+            {
+              "expr": "{\n  \"fileName\": fileName,\n  \"errorMessage\": errorMessage,\n  \"downloadCenterLink\": url\n}",
+              "type": "Vars",
+              "target": "variables"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "emailMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "33",
+              "xywh": [
+                3512,
+                2552,
+                200,
+                80
+              ],
+              "value": "Email builder fail",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "33",
+          "results": [
+            {
+              "expr": "message",
+              "type": "EmailMessage",
+              "target": "email"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Report export unsuccessful\"",
+              "type": "String",
+              "target": "subject"
+            },
+            {
+              "expr": "userEmail",
+              "type": "String",
+              "target": "to"
+            },
+            {
+              "expr": "content.document",
+              "type": "Reader",
+              "target": "html"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "emailSendMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "35",
+              "xywh": [
+                3816,
+                2552,
+                200,
+                80
+              ],
+              "value": "Email sender fail",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "35",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "email",
+              "type": "EmailMessage",
+              "target": "message"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "37",
+              "xywh": [
+                4144,
+                2472,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "37",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "5"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "12",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "11",
+          "parentID": "8"
+        },
+        {
+          "expr": "!isNil(user) && !isEmpty(user.email)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "16",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "14",
+          "parentID": "11"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "15",
+          "parentID": "11"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "20",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "19",
+          "parentID": "14"
+        },
+        {
+          "expr": "statusCode == \"2\"",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "23",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "21",
+          "parentID": "19"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "28",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "27",
+          "parentID": "21"
+        },
+        {
+          "expr": "statusCode == \"3\"",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "32",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "31",
+          "parentID": "19"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "34",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "33",
+          "parentID": "31"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "36",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "35",
+          "parentID": "33"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "38",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "37",
+          "parentID": "29"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "40",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "37",
+          "parentID": "35"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "41",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "29",
+          "parentID": "27"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "469545054263246849",
+          "resourceType": "compose:record",
+          "eventType": "afterCreateAndUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "downCenter"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "5",
+          "meta": {
+            "days": "",
+            "hours": "",
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2080,
+                1800,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "6",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "5",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Compose record - afterCreateAndUpdate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "endTime": "0001-01-01T00:00:00Z",
+            "minutes": "",
+            "moduleID": "",
+            "timeNode": "",
+            "condition": null,
+            "namespace": "",
+            "startTime": "0001-01-01T00:00:00Z",
+            "timeRepeat": "",
+            "description": "",
+            "namespaceID": "",
+            "endTimeCondition": {
+              "kind": "",
+              "name": "",
+              "type": "",
+              "value": null,
+              "oldName": "",
+              "operator": "",
+              "variable": "",
+              "operators": null
+            },
+            "startTimeCondition": {
+              "kind": "",
+              "name": "",
+              "type": "",
+              "value": null,
+              "oldName": "",
+              "operator": "",
+              "variable": "",
+              "operators": null
+            }
+          }
+        }
+      ],
+      "ownedBy": "469237068726468609",
+      "createdAt": "2025-11-14T05:53:27.000Z",
+      "updatedAt": "2025-11-14T06:00:49.000Z"
+    }
+  ]
+}

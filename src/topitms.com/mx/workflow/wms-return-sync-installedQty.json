@@ -1,0 +1,381 @@
+{
+  "workflows": [
+    {
+      "workflowID": "411570628253122561",
+      "handle": "wms-return-sync-installedQty",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "wms-return-sync-installedQty",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2520,
+                2512,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "3",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "applicationDetail.values.installedQty - 1",
+              "type": "Any",
+              "target": "applicationDetail.values.installedQty"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2504,
+                2712,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "applicationDetail",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2528,
+                2328,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "applicationDetail"
+            }
+          ],
+          "arguments": [
+            {
+              "type": "Handle",
+              "value": "service_application_detail",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.values.applicationDetail",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "xywh": [
+                2512,
+                1928,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "7",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "xywh": [
+                2512,
+                2128,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "8",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "14",
+              "xywh": [
+                2856,
+                2504,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "16",
+              "xywh": [
+                3208,
+                2496,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "16",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "expr": "record.values.status == 5 && oldRecord.values.status != 5",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "8"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "10",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "7",
+          "parentID": "8"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "14",
+          "parentID": "6"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "12",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "4",
+          "parentID": "3"
+        },
+        {
+          "expr": "applicationDetail.values.installedQty > 0",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "15",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": null
+            },
+            "description": ""
+          },
+          "childID": "3",
+          "parentID": "14"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": null
+            },
+            "description": ""
+          },
+          "childID": "16",
+          "parentID": "14"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "411570628286480385",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "inventory_usage_records"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "wms"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "8",
+          "meta": {
+            "visual": {
+              "id": "5",
+              "xywh": [
+                2184,
+                2120,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "13",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "8",
+                  "parentID": "5"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "406522282655285249",
+      "createdAt": "2024-10-10T11:12:40.000Z",
+      "updatedAt": "2025-02-07T07:31:30.000Z"
+    }
+  ]
+}

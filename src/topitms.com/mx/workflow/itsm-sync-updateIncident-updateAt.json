@@ -1,0 +1,257 @@
+{
+  "workflows": [
+    {
+      "workflowID": "436958246159843329",
+      "handle": "itsm-sync-updateIncident-updateAt",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "itsm-sync-updateIncident-updateAt",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "3",
+              "xywh": [
+                3360,
+                2224,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "3",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "incident",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2592,
+                2000,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2992,
+                2000,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "incident"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Incident\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.values.incident",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "xywh": [
+                2600,
+                1824,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "7",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "expr": "!isEmpty(record.values.incident)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "7",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": null
+            },
+            "description": ""
+          },
+          "childID": "3",
+          "parentID": "6"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "436958246160039937",
+          "resourceType": "compose:record",
+          "eventType": "beforeCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "IncidentComment"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "5",
+              "xywh": [
+                2200,
+                2000,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "11",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "5"
+                }
+              ],
+              "value": "Compose record - beforeCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "399002713020432385",
+      "createdAt": "2025-04-03T10:31:15.000Z",
+      "updatedAt": "2025-12-22T03:43:17.000Z"
+    }
+  ]
+}

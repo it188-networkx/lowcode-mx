@@ -1,0 +1,643 @@
+{
+  "pageID": "398953122958934017",
+  "selfID": "398953328832217089",
+  "namespaceID": "398089654563307521",
+  "moduleID": "398941085792993281",
+  "handle": "inbound_detail_edit",
+  "config": {
+    "navItem": {
+      "icon": {
+        "src": "",
+        "type": "link"
+      },
+      "expanded": false
+    }
+  },
+  "blocks": [
+    {
+      "kind": "Record",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-8sqn7592nzklymped6s"
+      },
+      "xywh": [
+        0,
+        0,
+        48,
+        82
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "1",
+      "options": {
+        "fields": [
+          {
+            "kind": "Record",
+            "name": "deviceId",
+            "label": "Asset ID",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "399093886267752449",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "moduleID": "398212521531539457",
+              "isCheckbox": false,
+              "labelField": "deviceId",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "model",
+            "label": "Asset Name",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "398941092503879681",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "moduleID": "398212521531539457",
+              "prefilter": "recordID = ${record.values.deviceId}",
+              "isCheckbox": false,
+              "labelField": "model",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [
+              {
+                "name": ""
+              }
+            ],
+            "isFilterable": true,
+            "customRequired": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "warehouse",
+            "label": "Warehouse Location",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "398941096631205889",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "moduleID": "398230663909605377",
+              "isCheckbox": false,
+              "labelField": "name",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "shelf",
+            "label": "Rack Location",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "398941096631271425",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "moduleID": "398370249430269953",
+              "prefilter": "warehouseNo = ${record.values.warehouse}",
+              "isCheckbox": false,
+              "labelField": "name",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "disabled": false,
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "customRequired": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "batchNo",
+            "label": "Batch No",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "398954343920828417",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "moduleID": "398939649898184705",
+              "isCheckbox": false,
+              "labelField": "no",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "mxItNo",
+            "label": "Maxim's Asset ID",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "405479964457107457",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "DateTime",
+            "name": "warrantyEndTime",
+            "label": "Warranty EndTime",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "405479964457172993",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "format": "YYYY-MM-DD",
+              "onlyDate": false,
+              "onlyTime": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "onlyPastValues": false,
+              "outputRelative": false,
+              "onlyFutureValues": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "remark",
+            "label": "Remark",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "398941098862444545",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "qty",
+            "label": "Qty",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "399093516766150657",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "multiLine": true,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "sanitizers": [
+                "lenth(record.values.serialNo) <= record.values.qty "
+              ],
+              "customValidators": [
+                {
+                  "test": "record.values.qty<record.values.serialNo.length",
+                  "error": "qty must to granter than serialNo",
+                  "validatorID": "1"
+                }
+              ]
+            },
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "1"
+              }
+            ],
+            "isFilterable": true,
+            "customRequired": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "serialNo",
+            "label": "Serial No",
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "json": {
+                    "ident": "values"
+                  }
+                }
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "398941096631074817",
+            "isMulti": true,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "rule": {
+                "digit": "",
+                "start": "",
+                "select": "",
+                "fixedChar": "",
+                "dateFormat": "",
+                "resetFrequency": ""
+              },
+              "multiLine": true,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": ", ",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          }
+        ],
+        "jsCode": "",
+        "magnifyOption": "",
+        "referenceField": "",
+        "fieldConditions": [],
+        "inlineRecordEditEnabled": false,
+        "recordSelectorDisplayOption": "sameTab",
+        "horizontalFieldLayoutEnabled": true
+      }
+    }
+  ],
+  "meta": {
+    "newTab": false,
+    "newTabLink": "",
+    "allowPersonalLayouts": false
+  },
+  "visible": false,
+  "weight": 4,
+  "createdAt": "2024-07-15T08:24:23Z",
+  "title": "模块记录页面 \"inbound_detail\"",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true,
+  "updatedAt": "2024-11-29T08:21:15Z"
+}

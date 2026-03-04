@@ -1,0 +1,64 @@
+{
+  "layoutID": "413316487335772161",
+  "pageID": "412437053451599873",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 4,
+  "handle": "isEditUpload",
+  "meta": {
+    "title": "upload",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
+    "description": "",
+    "scriptEnabled": true
+  },
+  "config": {
+    "buttons": {
+      "new": {
+        "label": "",
+        "enabled": true
+      },
+      "back": {
+        "label": "",
+        "enabled": true
+      },
+      "edit": {
+        "label": "",
+        "enabled": true
+      },
+      "clone": {
+        "label": "",
+        "enabled": true
+      },
+      "delete": {
+        "label": "",
+        "enabled": true
+      },
+      "submit": {
+        "label": "",
+        "enabled": true
+      }
+    },
+    "useTitle": false,
+    "visibility": {
+      "expression": "isPop"
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-zp5evhm3lkm2k6mvcn"
+      },
+      "xywh": [
+        0,
+        0,
+        48,
+        82
+      ],
+      "blockID": "6"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-10-22T08:25:47.000Z",
+  "updatedAt": "2024-10-30T12:11:54.000Z"
+}

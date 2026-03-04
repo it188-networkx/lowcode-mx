@@ -1,0 +1,497 @@
+{
+  "pageID": "400980646752223233",
+  "selfID": "400980646427820033",
+  "namespaceID": "398089654563307521",
+  "moduleID": "0",
+  "handle": "",
+  "config": {
+    "navItem": {
+      "icon": {
+        "src": "",
+        "type": "link"
+      },
+      "expanded": false
+    }
+  },
+  "blocks": [
+    {
+      "kind": "RecordList",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-hnhyiauyfs5lz6ptajb"
+      },
+      "xywh": [
+        0,
+        0,
+        47,
+        80
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "付款计划",
+      "blockID": "1",
+      "options": {
+        "fields": [
+          {
+            "kind": "String",
+            "name": "code",
+            "label": "订单号",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706479105",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Record",
+            "name": "supplier",
+            "label": "供应商",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706544641",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "moduleID": "398231348403240961",
+              "labelField": "name",
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "queryFields": [],
+              "multiDelimiter": "\n",
+              "recordLabelField": "",
+              "isUniqueMultiValue": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Select",
+            "name": "status",
+            "label": "状态",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706806785",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "options": [
+                {
+                  "text": "待采购经理审核",
+                  "value": "1"
+                },
+                {
+                  "text": "待财务经理审核",
+                  "value": "2"
+                },
+                {
+                  "text": "带财务专员付款",
+                  "value": "3"
+                },
+                {
+                  "text": "已付款",
+                  "value": "4"
+                },
+                {
+                  "text": "已拒绝",
+                  "value": "5"
+                }
+              ],
+              "selectType": "default",
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "isUniqueMultiValue": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "reqPayAmount",
+            "label": "申请付款金额",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706675713",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "Number",
+            "name": "actualPaid",
+            "label": "实付金额",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706937857",
+            "isMulti": false,
+            "options": {
+              "max": 100,
+              "min": 0,
+              "hint": {
+                "view": ""
+              },
+              "format": "",
+              "prefix": "",
+              "suffix": "",
+              "display": "number",
+              "variant": "success",
+              "animated": false,
+              "precision": 3,
+              "showValue": true,
+              "thresholds": [],
+              "description": {
+                "view": ""
+              },
+              "presetFormat": "custom",
+              "showProgress": false,
+              "showRelative": true,
+              "multiDelimiter": "\n"
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "applicant",
+            "label": "申请人",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706741249",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "DateTime",
+            "name": "paymentDate",
+            "label": "付款日期",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706610177",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "format": "",
+              "onlyDate": false,
+              "onlyTime": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "onlyPastValues": false,
+              "outputRelative": false,
+              "onlyFutureValues": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "String",
+            "name": "remark",
+            "label": "备注",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "400980646706872321",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "multiLine": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "useRichTextEditor": false
+            },
+            "isSystem": false,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          },
+          {
+            "kind": "DateTime",
+            "name": "createdAt",
+            "label": "Created at",
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "usageDisclosure": "",
+                "sensitivityLevelID": "0"
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "fieldID": "0",
+            "isMulti": false,
+            "options": {
+              "hint": {
+                "view": ""
+              },
+              "format": "",
+              "onlyDate": false,
+              "onlyTime": false,
+              "description": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "onlyPastValues": false,
+              "outputRelative": false,
+              "onlyFutureValues": false
+            },
+            "isSystem": true,
+            "maxLength": 0,
+            "isRequired": false,
+            "isSortable": true,
+            "expressions": {},
+            "defaultValue": [],
+            "isFilterable": true,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true
+          }
+        ],
+        "perPage": 20,
+        "presort": "createdAt DESC",
+        "editable": false,
+        "moduleID": "400980646706413569",
+        "draggable": false,
+        "prefilter": "",
+        "editFields": [],
+        "hideHeader": false,
+        "hidePaging": false,
+        "hideSearch": false,
+        "selectMode": "multi",
+        "selectable": true,
+        "allowExport": false,
+        "hideSorting": false,
+        "refreshRate": 0,
+        "showRefresh": false,
+        "linkToParent": false,
+        "openInNewTab": false,
+        "filterPresets": [],
+        "hideAddButton": false,
+        "hideFiltering": false,
+        "magnifyOption": "",
+        "showTotalCount": false,
+        "hideImportButton": false,
+        "selectionButtons": [],
+        "fullPageNavigation": false,
+        "customFilterPresets": false,
+        "recordDisplayOption": "sameTab",
+        "hideRecordEditButton": true,
+        "hideRecordViewButton": true,
+        "bulkRecordEditEnabled": true,
+        "hideRecordCloneButton": false,
+        "inlineRecordEditEnabled": false,
+        "showRecordPerPageOption": false,
+        "hideRecordReminderButton": false,
+        "showDeletedRecordsOption": false,
+        "hideConfigureFieldsButton": true,
+        "enableRecordPageNavigation": false,
+        "hideRecordPermissionsButton": false,
+        "recordSelectorDisplayOption": "sameTab"
+      }
+    }
+  ],
+  "meta": {
+    "allowPersonalLayouts": false
+  },
+  "visible": true,
+  "weight": 4,
+  "createdAt": "2024-07-29T08:14:47Z",
+  "title": "Payment Schedule",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true,
+  "updatedAt": "2024-07-29T08:18:12Z"
+}
