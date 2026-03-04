@@ -16,7 +16,11 @@
 | Page（Block 配置） | `../../lowcode-base/corteza/block/AGENTS.md` + `../../lowcode-base/process/page/` |
 | Layout（坐标、按钮） | `../../lowcode-base/corteza/block/AGENTS.md` + `../../lowcode-base/process/layout/` |
 | Field（字段 Kind） | `../../lowcode-base/corteza/field/AGENTS.md` |
-| Workflow（触发器、步骤） | `../../lowcode-base/process/workflow/sop-workflow-add.md` |
+| Workflow（触发器、步骤） | `../../lowcode-base/corteza/field/AGENTS.md` + `../../lowcode-base/process/workflow/sop-workflow-add.md` |
+
+> ⚠️ **执行任何 SOP 操作前，必须先读取目标命名空间对应子目录的 `AGENTS.md`**（如 `src/{命名空间}/module/AGENTS.md`），以获取当前文件清单和最大 ID。
+> 读取顺序：**① 目标目录 AGENTS.md（当前状态）→ ② SOP 参考文档（操作规范）→ ③ 执行操作**。
+> 跳过第 ① 步会导致 ID 冲突或文件命名错误。
 
 ---
 
@@ -117,6 +121,23 @@ Sonyflake 简化生成方式：取同类资源中最大已有 ID + 65536。
 
 ---
 
+## 新建命名空间必须生成各子目录 AGENTS.md
+
+每个新建命名空间的 `module/`、`page/`、`layout/` 子目录下，**必须同步生成对应的 `AGENTS.md`**，内容包括：
+
+| 文件 | 必须包含的内容 |
+|------|---------------|
+| `{空间}/AGENTS.md` | 命名空间基本信息（namespaceID、简介）、菜单结构、模块/页面/布局文件数量、操作前必读文档链接 |
+| `{空间}/module/AGENTS.md` | 模块文件清单（moduleID、字段数、说明）、各模块字段表（fieldID、kind、name）、ID 生成规则 |
+| `{空间}/page/AGENTS.md` | 页面文件清单（pageID、类型、selfID、moduleID、prefilter）、Block tempID 对应关系 |
+| `{空间}/layout/AGENTS.md` | Layout 文件清单（layoutID、handle、对应 pageID）、Block tempID 对应关系、下一个可用 layoutID |
+
+> **目的**：当命名空间配置后续扩展时，AI 可直接读取对应 AGENTS.md 获取当前文件清单和 ID 上下文，无需重新扫描全目录。
+
+参考示例：[`src/fsm/`](fsm/AGENTS.md)、[`src/fsm/module/`](fsm/module/AGENTS.md)、[`src/fsm/page/`](fsm/page/AGENTS.md)、[`src/fsm/layout/`](fsm/layout/AGENTS.md)
+
+---
+
 ## 四大资源类型对比
 
 | 特性 | Module | Page | Layout | Workflow |
@@ -144,8 +165,11 @@ src/
 ├── fsm/                    ← FSM 示例命名空间（Event/Group/Team/User 管理）
 │   ├── AGENTS.md           ← FSM 总览 + ID 映射表
 │   ├── module/             ← FSM 模块 JSON（5 个）
+│   │   └── AGENTS.md       ← 模块清单 + 字段表 + ID 规则
 │   ├── page/               ← FSM 页面 JSON（12 个）
+│   │   └── AGENTS.md       ← 页面清单 + Block tempID 对应
 │   ├── layout/             ← FSM 布局 JSON（18 个）
+│   │   └── AGENTS.md       ← 布局清单 + tempID 对应 + 下一可用 ID
 │   └── block/              ← FSM Block 配置指南
 └── workflow/
     └── AGENTS.md           ← 工作流配置指南

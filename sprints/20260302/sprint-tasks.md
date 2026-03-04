@@ -25,11 +25,12 @@
 |------|--------|---------|---------|------|
 | 01 | 排查 ServiceNow 工作流配置 | `../../lowcode-base/process/workflow/sop-workflow-upd.md` | 无 | 01-servicenow-workflow-check.md |
 | 02 | 确认 1o1oSMS 短信工作流方案 | `../../lowcode-base/process/workflow/sop-workflow-add.md` | 01 完成后，取决于排查结论 | 02-1o1osms-workflow-plan.md |
+| 03 | 新建 fsm 命名空间：团队管理 + 事件管理菜单体系初始化 | `../../lowcode-base/process/module/sop-module-add.md` `../../lowcode-base/process/page/sop-page-add.md` | 无 | 03-fsm-namespace-init.md |
 
 ---
 
 ## 备注
 
-- 本次 Sprint 中无直接的模块/页面/布局新增需求
-- 2003、3001 均为 MX 项目，但配置变更范围待排查后确认
-- 下周 Sprint 若有新模块需求，参考 `../../lowcode-base/process/module/sop-module-add.md`
+- 2003、3001 均为 MX 项目，配置变更范围待排查后确认
+- 03 为本地测试需求：在 `dev.dms/mx/fsm` 新建命名空间，涉及 5 个 module、12 个 page、18 个 layout
+- fsm 命名空间已按最简原则初始化，后续扩展参考 `../../lowcode-base/process/module/sop-module-add.md`
