@@ -1,0 +1,1093 @@
+{
+  "workflows": [
+    {
+      "workflowID": "403331528014168065",
+      "handle": "wms-order-stock-108",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "wms-detail-审核通过",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "44",
+              "xywh": [
+                2656,
+                1936,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "44",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "3",
+              "type": "Any",
+              "target": "serviceR.values.status"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "45",
+              "xywh": [
+                2904,
+                1848,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "45",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "serviceApplication1"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "serviceR",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "46",
+              "xywh": [
+                2400,
+                2160,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "46",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "serviceR"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"service_application\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.recordID",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "47",
+              "xywh": [
+                2724,
+                2536,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "47",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "usage",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "continue",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "48",
+              "xywh": [
+                3776,
+                2368,
+                200,
+                80
+              ],
+              "value": "Skip current iteration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "48",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "49",
+              "xywh": [
+                2448,
+                2576,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "49",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "50",
+              "xywh": [
+                2608,
+                2280,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "50",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "51",
+              "xywh": [
+                3320,
+                2448,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "51",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "52",
+              "xywh": [
+                3920,
+                2064,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "52",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "refetchRecords",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "53",
+              "xywh": [
+                3656,
+                2064,
+                200,
+                80
+              ],
+              "value": "Refreshes all record values on the page",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "53",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "54",
+              "xywh": [
+                4168,
+                2152,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "54",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "item2",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "55",
+              "xywh": [
+                3608,
+                2264,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "55",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "item2"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "details",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "56",
+              "xywh": [
+                3936,
+                2256,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "56",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "3",
+              "type": "Any",
+              "target": "item2.values.status"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "58",
+              "xywh": [
+                3336,
+                2192,
+                200,
+                80
+              ],
+              "value": "Compose records search",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "58",
+          "results": [
+            {
+              "expr": "records",
+              "type": "ComposeRecord",
+              "target": "details"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"service_application_detail\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"no = \" + serviceApplication.recordID",
+              "type": "String",
+              "target": "query"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "59",
+              "xywh": [
+                3064,
+                2160,
+                200,
+                80
+              ],
+              "value": "Compose records search",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "59",
+          "results": [
+            {
+              "expr": "records",
+              "type": "ComposeRecord",
+              "target": "approvalUsage"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_approval_process_record\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\" relModuleId = \" + serviceApplication.moduleID + \" and moduleRecordId = \" + serviceApplication.recordID",
+              "type": "String",
+              "target": "query"
+            }
+          ]
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "60",
+              "xywh": [
+                3068,
+                2336,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "60",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "usage"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "approvalUsage",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "61",
+              "xywh": [
+                3060,
+                2528,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "61",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "3",
+              "type": "Any",
+              "target": "usage.values.progress"
+            },
+            {
+              "expr": "now()",
+              "type": "Any",
+              "target": "usage.values.handleTime"
+            }
+          ]
+        },
+        {
+          "ref": "alert",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "62",
+              "xywh": [
+                2480,
+                2432,
+                200,
+                80
+              ],
+              "value": "Prompt user with an alert",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "62",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"记录以提交\"",
+              "type": "String",
+              "target": "title"
+            },
+            {
+              "expr": "\t\"记录以提交\"",
+              "type": "String",
+              "target": "message"
+            },
+            {
+              "type": "String",
+              "value": "danger",
+              "target": "buttonVariant"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "63",
+              "xywh": [
+                2916,
+                2768,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "63",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "usage",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "64",
+              "xywh": [
+                3256,
+                2760,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "64",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "2",
+              "type": "Any",
+              "target": "usage.values.progress"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "85",
+              "xywh": [
+                3232,
+                1880,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "85",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "serviceApplication1.updatedBy",
+              "type": "Any",
+              "target": "serviceApplication1.values.approvedBy"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "86",
+              "xywh": [
+                3288,
+                2024,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "86",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "serviceApplication"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "serviceApplication1",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "65",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "45",
+          "parentID": "44"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "66",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "47",
+          "parentID": "61"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "67",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "85",
+          "parentID": "45"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "68",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "51",
+          "parentID": "60"
+        },
+        {
+          "expr": "usage.values.status == 2",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "69",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "61",
+          "parentID": "51"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "70",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "60",
+          "parentID": "59"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "71",
+              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "50",
+          "parentID": "46"
+        },
+        {
+          "expr": "serviceR.values.status == 2",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "72",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "44",
+          "parentID": "50"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "73",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "62",
+          "parentID": "50"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "74",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "49",
+          "parentID": "62"
+        },
+        {
+          "expr": "usage.values.status == 3",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "75",
+              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "64",
+          "parentID": "51"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "76",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "63",
+          "parentID": "64"
+        },
+        {
+          "expr": "usage.values.status != 2 && usage.values.status != 3",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "77",
+              "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "#3 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "48",
+          "parentID": "51"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "78",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "52",
+          "parentID": "53"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "79",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "55",
+          "parentID": "58"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "80",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "56",
+          "parentID": "55"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "81",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "54",
+          "parentID": "56"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "82",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "53",
+          "parentID": "55"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "83",
+              "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "58",
+          "parentID": "60"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "87",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "86",
+          "parentID": "85"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "88",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "59",
+          "parentID": "86"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "405040629686009857",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "wms"
+              ]
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "service_application"
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "46",
+          "meta": {
+            "visual": {
+              "id": "57",
+              "xywh": [
+                2168,
+                2376,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "84",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "46",
+                  "parentID": "57"
+                }
+              ],
+              "value": "Compose record - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "402431214453063681",
+      "createdAt": "2024-08-15T02:04:04.000Z",
+      "updatedAt": "2024-10-21T08:11:33.000Z"
+    }
+  ]
+}

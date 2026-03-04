@@ -1,0 +1,269 @@
+{
+  "workflows": [
+    {
+      "workflowID": "409968414510022657",
+      "handle": "itsm-locations-delete-record",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "itsm-locations-delete-record",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "删除locations选中记录",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "composeRecordsDelete",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2640,
+                2040,
+                200,
+                80
+              ],
+              "value": "Compose record delete",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"Locations\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"itsm\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "item",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsDelete",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "5",
+              "xywh": [
+                2960,
+                2040,
+                200,
+                80
+              ],
+              "value": "Compose record delete",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "5",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"Shop\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"itam\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "item",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "refetchRecords",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2320,
+                2360,
+                200,
+                80
+              ],
+              "value": "Refreshes all record values on the page",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "xywh": [
+                2320,
+                2192,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "11",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "item"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "selected",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "5",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "12",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "4",
+          "parentID": "11"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "13",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "11"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "409969073871650817",
+          "resourceType": "compose:page",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "page.handle",
+              "values": [
+                "Locations"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "11",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2320,
+                2040,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "14",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "11",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Compose page - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "runAs": "414150633185673217",
+      "ownedBy": "409824987139080193",
+      "createdAt": "2024-09-29T08:09:55.000Z",
+      "updatedAt": "2024-10-09T05:37:50.000Z"
+    }
+  ]
+}

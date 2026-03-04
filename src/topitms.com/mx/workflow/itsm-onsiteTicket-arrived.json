@@ -1,0 +1,493 @@
+{
+  "workflows": [
+    {
+      "workflowID": "412557561523339265",
+      "handle": "",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "itsm-onsiteTicket-arrived",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2608,
+                1976,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "22",
+              "xywh": [
+                2952,
+                1976,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "22",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"412695695221391361\"",
+              "type": "Any",
+              "target": "record.values.status"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "error",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "24",
+              "xywh": [
+                2608,
+                1792,
+                200,
+                80
+              ],
+              "value": "Stop workflow with error: \"status error\"",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "24",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"status error\"",
+              "type": "String",
+              "target": "message"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "34",
+              "xywh": [
+                3480,
+                2136,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "34",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "35",
+              "xywh": [
+                3272,
+                1976,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "35",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "refetchRecords",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "38",
+              "xywh": [
+                3176,
+                2136,
+                200,
+                80
+              ],
+              "value": "Refreshes all record values on the page",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "38",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsCreate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "41",
+              "xywh": [
+                2872,
+                2136,
+                200,
+                80
+              ],
+              "value": "Compose record create",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "41",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "incidentComment",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "42",
+              "xywh": [
+                2568,
+                2136,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "42",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"b\"",
+              "type": "Any",
+              "target": "incidentComment.values.type"
+            },
+            {
+              "expr": "\"Arrived\"",
+              "type": "Any",
+              "target": "incidentComment.values.operationDetails"
+            },
+            {
+              "expr": "record.updatedBy",
+              "type": "ID",
+              "target": "incidentComment.values.operator"
+            },
+            {
+              "expr": "record.updatedAt",
+              "type": "Any",
+              "target": "incidentComment.values.operationTime"
+            },
+            {
+              "expr": "record.values.relatedIncident",
+              "type": "Any",
+              "target": "incidentComment.values.incident"
+            },
+            {
+              "expr": "true",
+              "type": "Any",
+              "target": "incidentComment.values.isVisible"
+            },
+            {
+              "expr": "100",
+              "type": "Integer",
+              "target": "incidentComment.values.iType"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsNew",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "43",
+              "xywh": [
+                2232,
+                2136,
+                200,
+                80
+              ],
+              "value": "Compose record maker",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "43",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "incidentComment"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"IncidentComment\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"itsm\"",
+              "type": "Handle",
+              "target": "namespace"
+            }
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "expr": "record.values.status == 412695692335775745",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "32",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "22",
+          "parentID": "6"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "33",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "24",
+          "parentID": "6"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "36",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "35",
+          "parentID": "22"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "40",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "34",
+          "parentID": "38"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "44",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "42",
+          "parentID": "43"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "45",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "41",
+          "parentID": "42"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "46",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "43",
+          "parentID": "35"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "47",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "38",
+          "parentID": "41"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "412557653093449729",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "OnsiteTicket"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "6",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2232,
+                1976,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "28",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "6",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Compose record - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "runAs": "414150633185673217",
+      "ownedBy": "409985028668325889",
+      "createdAt": "2024-10-17T02:43:24.000Z",
+      "updatedAt": "2024-10-21T08:27:22.000Z"
+    }
+  ]
+}

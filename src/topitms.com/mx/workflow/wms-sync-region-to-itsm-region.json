@@ -1,0 +1,643 @@
+{
+  "workflows": [
+    {
+      "workflowID": "413455173483298817",
+      "handle": "wms-sync-region-to-itsm-region",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "wms-sync-region-to-itsm-region",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "同步仓库地址到itsm",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "composeRecordsNew",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "23",
+              "xywh": [
+                2552,
+                1944,
+                200,
+                80
+              ],
+              "value": "Compose record maker",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "23",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "warehouseRegion"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Region\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"itsm\"",
+              "type": "Handle",
+              "target": "namespace"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "24",
+              "xywh": [
+                2904,
+                1944,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "24",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.region",
+              "type": "Any",
+              "target": "warehouseRegion.values.region"
+            },
+            {
+              "expr": "record.values.code",
+              "type": "Any",
+              "target": "warehouseRegion.values.code"
+            },
+            {
+              "expr": "record.values.status",
+              "type": "Any",
+              "target": "warehouseRegion.values.status"
+            },
+            {
+              "expr": "record.recordID",
+              "type": "Any",
+              "target": "warehouseRegion.recordID"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsCreate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "25",
+              "xywh": [
+                3232,
+                1944,
+                200,
+                80
+              ],
+              "value": "Compose record create",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "25",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "warehouseRegion",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "26",
+              "xywh": [
+                3584,
+                1944,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "26",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "27",
+              "xywh": [
+                3176,
+                2112,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "27",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "region",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "28",
+              "xywh": [
+                3528,
+                2112,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "28",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsNew",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "29",
+              "xywh": [
+                2528,
+                2112,
+                200,
+                80
+              ],
+              "value": "Compose record maker",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "29",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "region"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Region\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"itsm\"",
+              "type": "Handle",
+              "target": "namespace"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "30",
+              "xywh": [
+                2848,
+                2112,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "30",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.region",
+              "type": "Any",
+              "target": "region.values.region"
+            },
+            {
+              "expr": "record.values.code",
+              "type": "Any",
+              "target": "region.values.code"
+            },
+            {
+              "expr": "record.values.status",
+              "type": "Any",
+              "target": "region.values.status"
+            },
+            {
+              "expr": "record.recordID",
+              "type": "Any",
+              "target": "region.recordID"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "32",
+              "xywh": [
+                2632,
+                1760,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "32",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "region"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Region\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"itsm\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.recordID",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "47",
+              "xywh": [
+                3032,
+                1760,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "47",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "53",
+              "xywh": [
+                2208,
+                1768,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "53",
+          "results": [],
+          "arguments": []
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "36",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "24",
+          "parentID": "23"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "37",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "25",
+          "parentID": "24"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "38",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "26",
+          "parentID": "25"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "39",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "30",
+          "parentID": "29"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "40",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "27",
+          "parentID": "30"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "41",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "28",
+          "parentID": "27"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "55",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "32",
+          "parentID": "53"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "57",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "47",
+          "parentID": "32"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "58",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "23",
+          "parentID": "53"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "413892199760396289",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "wms"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "wms_region"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "29",
+          "meta": {
+            "visual": {
+              "id": "34",
+              "xywh": [
+                2216,
+                2112,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "46",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "29",
+                  "parentID": "34"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "413892199760461825",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "wms"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "wms_region"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "53",
+          "meta": {
+            "visual": {
+              "id": "35",
+              "xywh": [
+                1832,
+                1768,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "54",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "53",
+                  "parentID": "35"
+                }
+              ],
+              "value": "Compose record - afterCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "runAs": "414150633185673217",
+      "ownedBy": "409985028668325889",
+      "createdAt": "2024-10-23T08:16:12.000Z",
+      "updatedAt": "2024-10-28T11:22:11.000Z"
+    }
+  ]
+}

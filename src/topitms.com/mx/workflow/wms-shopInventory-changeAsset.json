@@ -1,0 +1,657 @@
+{
+  "workflows": [
+    {
+      "workflowID": "447244092075016193",
+      "handle": "wms-shopInventory-changeAsset",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "wms-shopInventory-changeAsset",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "composeRecordPicker",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2168,
+                2064,
+                200,
+                80
+              ],
+              "value": "Prompt user to select a Compose Record",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [
+            {
+              "expr": "value",
+              "type": "ComposeRecord",
+              "target": "shopRecord"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Change Shop Asset\"",
+              "type": "String",
+              "target": "title"
+            },
+            {
+              "expr": "\"Please select shop\"",
+              "type": "String",
+              "target": "message"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"shop_manage\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"shop_name\"",
+              "type": "Handle",
+              "target": "labelField"
+            },
+            {
+              "expr": "\"shop_name\"",
+              "type": "Array",
+              "target": "queryFields"
+            },
+            {
+              "expr": "\"status = 'Open'\"",
+              "type": "String",
+              "target": "prefilter"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2368,
+                2536,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsCreate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "xywh": [
+                3240,
+                2312,
+                200,
+                80
+              ],
+              "value": "Compose record create",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "8",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "usageRecord",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "xywh": [
+                3240,
+                2168,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "9",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "oldusageRecord.values.deviceId",
+              "type": "Any",
+              "target": "usageRecord.values.deviceId"
+            },
+            {
+              "expr": "oldusageRecord.values.model",
+              "type": "Any",
+              "target": "usageRecord.values.model"
+            },
+            {
+              "expr": "oldusageRecord.values.serialNo",
+              "type": "Any",
+              "target": "usageRecord.values.serialNo"
+            },
+            {
+              "expr": "oldusageRecord.values.warehouse",
+              "type": "Any",
+              "target": "usageRecord.values.warehouse"
+            },
+            {
+              "expr": "oldusageRecord.values.status",
+              "type": "Any",
+              "target": "usageRecord.values.status"
+            },
+            {
+              "expr": "shopRecord.recordID",
+              "type": "Any",
+              "target": "usageRecord.values.shopName"
+            },
+            {
+              "expr": "shopRecord.recordID",
+              "type": "Any",
+              "target": "usageRecord.values.shopCode"
+            },
+            {
+              "expr": "oldusageRecord.values.stockRecordId",
+              "type": "Any",
+              "target": "usageRecord.values.stockRecordId"
+            },
+            {
+              "expr": "oldusageRecord.values.shelf",
+              "type": "Any",
+              "target": "usageRecord.values.shelf"
+            },
+            {
+              "expr": "oldusageRecord.values.ip",
+              "type": "Any",
+              "target": "usageRecord.values.ip"
+            },
+            {
+              "expr": "oldusageRecord.values.remark",
+              "type": "Any",
+              "target": "usageRecord.values.remark"
+            },
+            {
+              "expr": "oldusageRecord.values.computerName",
+              "type": "Any",
+              "target": "usageRecord.values.computerName"
+            },
+            {
+              "expr": "oldusageRecord.values.wToW",
+              "type": "Any",
+              "target": "usageRecord.values.wToW"
+            },
+            {
+              "expr": "oldusageRecord.values.deviceRemarks",
+              "type": "Any",
+              "target": "usageRecord.values.deviceRemarks"
+            },
+            {
+              "expr": "oldusageRecord.values.deviceName",
+              "type": "Any",
+              "target": "usageRecord.values.deviceName"
+            },
+            {
+              "expr": "oldusageRecord.values.shopBrand",
+              "type": "Any",
+              "target": "usageRecord.values.shopBrand"
+            },
+            {
+              "expr": "oldusageRecord.values.businessUnit",
+              "type": "Any",
+              "target": "usageRecord.values.businessUnit"
+            },
+            {
+              "expr": "shopRecord.recordID",
+              "type": "Any",
+              "target": "usageRecord.values.shopStatus"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsNew",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "10",
+              "xywh": [
+                3240,
+                2016,
+                200,
+                80
+              ],
+              "value": "Compose record maker",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "10",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "usageRecord"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"inventory_usage_records\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "14",
+              "xywh": [
+                2888,
+                2000,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "oldusageRecord"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"inventory_usage_records\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "select",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "xywh": [
+                2400,
+                2208,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "17",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "select"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "selected",
+              "type": "Array",
+              "target": "items"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "notification",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "19",
+              "xywh": [
+                2400,
+                2360,
+                200,
+                80
+              ],
+              "value": "Show non-blocking message to user",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "19",
+          "results": [],
+          "arguments": [
+            {
+              "type": "String",
+              "value": "Success",
+              "target": "title"
+            },
+            {
+              "type": "String",
+              "value": "ChangeAsset Successful",
+              "target": "message"
+            },
+            {
+              "type": "String",
+              "value": "primary",
+              "target": "variant"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "continue",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "22",
+              "xywh": [
+                3240,
+                2480,
+                200,
+                80
+              ],
+              "value": "Skip current iteration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "22",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "24",
+              "xywh": [
+                2984,
+                2408,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "24",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "usageRecord",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "9",
+          "parentID": "10"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "12",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "9"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "13",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "17",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "15",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "10",
+          "parentID": "14"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "18",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "14",
+          "parentID": "17"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "20",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "19",
+          "parentID": "17"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "21",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "19"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "23",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "24",
+          "parentID": "8"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "25",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "22",
+          "parentID": "24"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "447244092108177409",
+          "resourceType": "compose:page-layout",
+          "eventType": "onManual",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                1792,
+                2120,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Compose page-layout - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "399002713020432385",
+      "createdAt": "2025-06-13T09:31:49.000Z",
+      "updatedAt": "2025-06-13T09:35:17.000Z"
+    }
+  ]
+}

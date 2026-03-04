@@ -1,0 +1,1431 @@
+{
+  "workflows": [
+    {
+      "workflowID": "403705667195502593",
+      "handle": "wms-order-stock-112",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "wms-auto-email",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "50",
+              "xywh": [
+                2600,
+                1360,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "50",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "54",
+              "xywh": [
+                888,
+                376,
+                200,
+                80
+              ],
+              "value": "Compose records search",
+              "parent": "103",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "54",
+          "results": [
+            {
+              "expr": "records",
+              "type": "ComposeRecord",
+              "target": "groupList"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_email_group\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"group_name = 2 and status = 1\"  ",
+              "type": "String",
+              "target": "query"
+            }
+          ]
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "55",
+              "xywh": [
+                3112,
+                1760,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "55",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "item"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "groupList",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "76",
+              "xywh": [
+                2072,
+                1584,
+                200,
+                80
+              ],
+              "value": "Compose records search",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "76",
+          "results": [
+            {
+              "expr": "records",
+              "type": "ComposeRecord",
+              "target": "items"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_approval_process_record\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"progress = 2 and status = 5\"",
+              "type": "String",
+              "target": "query"
+            }
+          ]
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "79",
+              "xywh": [
+                2432,
+                1576,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "79",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "item1"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "items",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "continue",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "93",
+              "xywh": [
+                1320,
+                80,
+                200,
+                80
+              ],
+              "value": "Skip current iteration",
+              "parent": "103",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "93",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "95",
+              "xywh": [
+                2832,
+                1504,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "95",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "103",
+              "xywh": [
+                1888,
+                1304,
+                1576,
+                784
+              ],
+              "value": "超过两天没有Installed  发送邮箱",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "103",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "templatesRender",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "107",
+              "xywh": [
+                1288,
+                672,
+                200,
+                80
+              ],
+              "value": "Template render",
+              "parent": "103",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "107",
+          "results": [
+            {
+              "expr": "document",
+              "type": "RenderedDocument",
+              "target": "content"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_install_overtime\"",
+              "type": "Handle",
+              "target": "lookup"
+            },
+            {
+              "expr": "\"text/html\"",
+              "type": "String",
+              "target": "documentType"
+            },
+            {
+              "expr": "{\n  \"number\": serviceApplication.values.no,\n  \"shopCode\":shop.values.shop_id,\n  \"shopName\":shop.values.shop_name\n}",
+              "type": "Vars",
+              "target": "variables"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "108",
+              "xywh": [
+                328,
+                512,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "103",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "108",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "serviceApplication"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"service_application\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "item1.values.moduleRecordId",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "emailMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "114",
+              "xywh": [
+                984,
+                672,
+                200,
+                80
+              ],
+              "value": "Email builder",
+              "parent": "103",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "114",
+          "results": [
+            {
+              "expr": "message",
+              "type": "EmailMessage",
+              "target": "email"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"[ORDER]\" + serviceApplication.values.no ",
+              "type": "String",
+              "target": "subject"
+            },
+            {
+              "expr": "item.values.email",
+              "type": "String",
+              "target": "to"
+            },
+            {
+              "expr": "content.document",
+              "type": "Reader",
+              "target": "html"
+            }
+          ]
+        },
+        {
+          "ref": "emailSendMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "116",
+              "xywh": [
+                632,
+                672,
+                200,
+                80
+              ],
+              "value": "Email sender",
+              "parent": "103",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "116",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "email",
+              "type": "EmailMessage",
+              "target": "message"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "121",
+              "xywh": [
+                2568,
+                2456,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "121",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "122",
+              "xywh": [
+                3080,
+                2856,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "122",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "item"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "groupList",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "123",
+              "xywh": [
+                2800,
+                2600,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "123",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "126",
+              "xywh": [
+                2400,
+                2672,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "126",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "item1"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "items",
+              "type": "Array",
+              "target": "items"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "127",
+              "xywh": [
+                2040,
+                2680,
+                200,
+                80
+              ],
+              "value": "Compose records search",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "127",
+          "results": [
+            {
+              "expr": "records",
+              "type": "ComposeRecord",
+              "target": "items"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"inventory_usage_records\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"status = 6 \"",
+              "type": "String",
+              "target": "query"
+            }
+          ]
+        },
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "128",
+              "xywh": [
+                1856,
+                2400,
+                1576,
+                784
+              ],
+              "value": "reparing超过两周 发送邮箱",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "128",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "composeRecordsSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "129",
+              "xywh": [
+                888,
+                376,
+                200,
+                80
+              ],
+              "value": "Compose records search",
+              "parent": "128",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "129",
+          "results": [
+            {
+              "expr": "records",
+              "type": "ComposeRecord",
+              "target": "groupList"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_email_group\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"group_name = 2 and status = 1\"  ",
+              "type": "String",
+              "target": "query"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "continue",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "130",
+              "xywh": [
+                1320,
+                80,
+                200,
+                80
+              ],
+              "value": "Skip current iteration",
+              "parent": "128",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "130",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "templatesRender",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "131",
+              "xywh": [
+                1288,
+                672,
+                200,
+                80
+              ],
+              "value": "Template render",
+              "parent": "128",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "131",
+          "results": [
+            {
+              "expr": "document",
+              "type": "RenderedDocument",
+              "target": "content"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_reparing_overtime_email\"",
+              "type": "Handle",
+              "target": "lookup"
+            },
+            {
+              "expr": "\"text/html\"",
+              "type": "String",
+              "target": "documentType"
+            },
+            {
+              "expr": "{\n  \"deviceId\": asset.values.deviceId, \n  \"model\": asset.values.model, \n  \"number\": item1.values.serialNo\n}",
+              "type": "Vars",
+              "target": "variables"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "132",
+              "xywh": [
+                912,
+                520,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "128",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "132",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "asset"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_device_model\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "item1.values.deviceId",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        },
+        {
+          "ref": "emailMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "133",
+              "xywh": [
+                984,
+                672,
+                200,
+                80
+              ],
+              "value": "Email builder",
+              "parent": "128",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "133",
+          "results": [
+            {
+              "expr": "message",
+              "type": "EmailMessage",
+              "target": "email"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"[REPARING]\" + asset.values.model",
+              "type": "String",
+              "target": "subject"
+            },
+            {
+              "expr": "item.values.email",
+              "type": "String",
+              "target": "to"
+            },
+            {
+              "expr": "content.document",
+              "type": "Reader",
+              "target": "html"
+            }
+          ]
+        },
+        {
+          "ref": "emailSendMessage",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "134",
+              "xywh": [
+                632,
+                672,
+                200,
+                80
+              ],
+              "value": "Email sender",
+              "parent": "128",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "134",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "email",
+              "type": "EmailMessage",
+              "target": "message"
+            }
+          ]
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "148",
+              "xywh": [
+                2720,
+                1824,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "148",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "shop"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"shop_manage\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "serviceApplication.values.shopName",
+              "type": "ID",
+              "target": "record"
+            }
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "80",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "79",
+          "parentID": "76"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "96",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "95",
+          "parentID": "79"
+        },
+        {
+          "expr": "sub(now(),item1.updatedAt) >= 172800",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "97",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "54",
+          "parentID": "95"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "99",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "50",
+          "parentID": "79"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "109",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "103",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "108",
+          "parentID": "54"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "110",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "148",
+          "parentID": "108"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "112",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "107",
+          "parentID": "55"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "115",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "103",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "114",
+          "parentID": "107"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "117",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "103",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "116",
+          "parentID": "114"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "118",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "93",
+          "parentID": "55"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "120",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "93",
+          "parentID": "95"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "135",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "126",
+          "parentID": "127"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "136",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "123",
+          "parentID": "126"
+        },
+        {
+          "expr": "sub(now(),item1.updatedAt) >= 1209600",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "137",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "129",
+          "parentID": "123"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "138",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "121",
+          "parentID": "126"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "139",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "122",
+          "parentID": "132"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "140",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "131",
+          "parentID": "122"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "141",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "130",
+          "parentID": "122"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "142",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "130",
+          "parentID": "123"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "145",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "128",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "132",
+          "parentID": "129"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "146",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "128",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "133",
+          "parentID": "131"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "147",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "128",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "134",
+          "parentID": "133"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "149",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "55",
+          "parentID": "148"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "403727589498355713",
+          "resourceType": "compose",
+          "eventType": "onInterval",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "",
+              "values": [
+                "0 0 * * *"
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "76",
+          "meta": {
+            "visual": {
+              "id": "51",
+              "xywh": [
+                2104,
+                1408,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "119",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "76",
+                  "parentID": "51"
+                }
+              ],
+              "value": "Compose - onInterval",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "403727589597446145",
+          "resourceType": "compose",
+          "eventType": "onManual",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "76",
+          "meta": {
+            "visual": {
+              "id": "91",
+              "xywh": [
+                1952,
+                1752,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "92",
+                      "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "76",
+                  "parentID": "91"
+                }
+              ],
+              "value": "Compose - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "404009655020486657",
+          "resourceType": "compose",
+          "eventType": "onInterval",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "",
+              "values": [
+                "0 0 * * *"
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "127",
+          "meta": {
+            "visual": {
+              "id": "124",
+              "xywh": [
+                2072,
+                2504,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "143",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "127",
+                  "parentID": "124"
+                }
+              ],
+              "value": "Compose - onInterval",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "404009655020748801",
+          "resourceType": "compose",
+          "eventType": "onManual",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "127",
+          "meta": {
+            "visual": {
+              "id": "125",
+              "xywh": [
+                1920,
+                2848,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "144",
+                      "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "127",
+                  "parentID": "125"
+                }
+              ],
+              "value": "Compose - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "runAs": "397211179240980481",
+      "ownedBy": "402431214453063681",
+      "createdAt": "2024-08-17T03:28:27.000Z",
+      "updatedAt": "2024-09-26T11:23:00.000Z"
+    }
+  ]
+}

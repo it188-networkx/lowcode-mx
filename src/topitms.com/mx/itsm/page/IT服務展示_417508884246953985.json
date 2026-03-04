@@ -1,0 +1,571 @@
+{
+  "pageID": "417508884246953985",
+  "selfID": "0",
+  "namespaceID": "409824987081211905",
+  "moduleID": "0",
+  "handle": "",
+  "config": {
+    "navItem": {
+      "icon": {
+        "src": "",
+        "type": "link"
+      },
+      "expanded": false
+    }
+  },
+  "blocks": [
+    {
+      "kind": "Metric",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-6xr8qnm8m46m3pi7p19"
+      },
+      "xywh": [
+        0,
+        0,
+        24,
+        27
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "今日創建工單",
+      "blockID": "1",
+      "options": {
+        "metrics": [
+          {
+            "label": "",
+            "filter": "(\n Date(CONVERT_TZ(created_at,'UTC','Asia/Shanghai')) = \n Date(CONVERT_TZ(NOW(),'UTC','Asia/Shanghai'))\n)",
+            "prefix": "",
+            "suffix": "",
+            "moduleID": "409824987082063873",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "operation": "",
+            "bucketSize": "",
+            "dateFormat": "",
+            "valueStyle": {
+              "color": "#4C8BAADF",
+              "backgroundColor": "#FFFFFF00"
+            },
+            "metricField": "count",
+            "transformFx": "",
+            "numberFormat": "",
+            "dimensionField": ""
+          }
+        ],
+        "refreshRate": 60,
+        "showRefresh": true,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Metric",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-xyiew3x77qm3pi9vek"
+      },
+      "xywh": [
+        24,
+        0,
+        24,
+        27
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "今日遠程團隊解決工單統計",
+      "blockID": "2",
+      "options": {
+        "metrics": [
+          {
+            "label": "",
+            "filter": "(\nassignmentGroup = 414195340296585217\nAND (onsiteResolution = 0 OR onsiteResolution IS NULL)\nAND status = 409824987210514433 \nAND Date(CONVERT_TZ(actualResolvedTime,'UTC','Asia/Shanghai')) =  Date(CONVERT_TZ(NOW(),'UTC','Asia/Shanghai'))\n)",
+            "prefix": "",
+            "suffix": "",
+            "moduleID": "409824987082063873",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "operation": "",
+            "bucketSize": "",
+            "dateFormat": "",
+            "valueStyle": {
+              "color": "#4C8BAADF",
+              "backgroundColor": "#FFFFFF00"
+            },
+            "metricField": "",
+            "transformFx": "",
+            "numberFormat": "",
+            "dimensionField": ""
+          }
+        ],
+        "refreshRate": 60,
+        "showRefresh": true,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Metric",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-3xa93rh6hihm3pieajo"
+      },
+      "xywh": [
+        0,
+        27,
+        24,
+        28
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "今日指派現場團隊工單統計",
+      "blockID": "3",
+      "options": {
+        "metrics": [
+          {
+            "label": "",
+            "filter": "(\nDate(CONVERT_TZ(transferOnsiteTime,'UTC','Asia/Shanghai')) = Date(NOW())\nAND ( onSite= 1 ))",
+            "prefix": "",
+            "suffix": "",
+            "moduleID": "409824987082063873",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "operation": "",
+            "bucketSize": "",
+            "dateFormat": "",
+            "valueStyle": {
+              "color": "#4C8BAADF",
+              "backgroundColor": "#FFFFFF00"
+            },
+            "metricField": "",
+            "transformFx": "",
+            "numberFormat": "",
+            "dimensionField": ""
+          }
+        ],
+        "refreshRate": 60,
+        "showRefresh": true,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Metric",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-efpm5729k67m3piggea"
+      },
+      "xywh": [
+        0,
+        55,
+        24,
+        25
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "今日現場團隊解決工單統計",
+      "blockID": "4",
+      "options": {
+        "metrics": [
+          {
+            "label": "",
+            "filter": "(onsiteResolution = 1  \nAND Date(CONVERT_TZ(resolvedTime,'UTC','Asia/Shanghai')) = Date(CONVERT_TZ(NOW(),'UTC','Asia/Shanghai'))\n)",
+            "prefix": "",
+            "suffix": "",
+            "moduleID": "409824987082063873",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "operation": "",
+            "bucketSize": "",
+            "dateFormat": "",
+            "valueStyle": {
+              "color": "#4C8BAADF",
+              "backgroundColor": "#FFFFFF00"
+            },
+            "metricField": "count",
+            "transformFx": "",
+            "numberFormat": "",
+            "dimensionField": ""
+          }
+        ],
+        "refreshRate": 60,
+        "showRefresh": true,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Metric",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-15lozw3l7iohm3piieih"
+      },
+      "xywh": [
+        24,
+        27,
+        24,
+        53
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "本月累計未解決工單統計",
+      "blockID": "5",
+      "options": {
+        "metrics": [
+          {
+            "label": "",
+            "filter": "(\n status = 409824987210317825\nOR status = 409824987210383361\nOR status = 409824987210448897\n)",
+            "prefix": "",
+            "suffix": "",
+            "moduleID": "409824987082063873",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "operation": "",
+            "bucketSize": "",
+            "dateFormat": "",
+            "valueStyle": {
+              "color": "#4C8BAADF",
+              "backgroundColor": "#FFFFFF00"
+            },
+            "metricField": "count",
+            "transformFx": "",
+            "numberFormat": "",
+            "dimensionField": ""
+          }
+        ],
+        "refreshRate": 60,
+        "showRefresh": true,
+        "magnifyOption": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "CustomChart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-l6g759xxfwm53imbcz"
+      },
+      "xywh": [
+        0,
+        80,
+        24,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "今日遠程團隊解決SLA情況",
+      "blockID": "6",
+      "options": {
+        "api": "/compose/namespace/{namespaceId}/echart?name=TodaySLAMetaByRemoteTeamResolved",
+        "data": "",
+        "method": "GET",
+        "option": "{\n    \"tooltip\": {\n        \"trigger\": \"item\"\n    },\n    \"textStyle\": {\n        \"overflow\": \"break\",\n        \"fontWeight\": \"bold\",\n        \"fontSize\": 18\n    },\n    \"legend\": {\n        \"orient\": \"horizontal\",\n        \"left\": \"center\",\n        \"textStyle\": {\n                \"overflow\": \"break\",\n               \"fontWeight\": \"bold\",\n               \"fontSize\": 12\n         }\n    },\n    \"color\": [\n        \"#60A88D\",\n        \"#F19B6B\",\n        \"#fac858\",\n        \"#ee6666\",\n        \"#73c0de\",\n        \"#3ba272\",\n        \"#fc8452\",\n        \"#9a60b4\",\n        \"#ea7ccc\"\n    ],\n    \"series\": [\n        {\n            \"name\": \"SLA\",\n            \"type\": \"pie\",\n            \"radius\": [\n                \"0%\",\n                \"80%\"\n            ],\n            \"itemStyle\": {\n                \"borderRadius\": 5,\n                \"borderColor\": \"#ffffff\",\n                \"borderWidth\": 1\n            },\n            \"emphasis\": {\n                \"itemStyle\": {\n                    \"shadowBlur\": 10,\n                    \"shadowOffsetX\": 0,\n                    \"shadowColor\": \"rgba(0, 0, 0, 0.5)\"\n                }\n            },\n            \"data\": ${values},\n            \"label\": {\n                \"position\": \"inside\",\n                \"formatter\": \"{d}%\"\n            },\n            \"percentPrecision\": 1\n        }\n    ]\n}",
+        "isTable": false,
+        "moduleID": "",
+        "timefilter": false,
+        "refreshRate": "300000",
+        "magnifyOption": "",
+        "stackSeriesOptions": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "CustomChart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-ww08ih7z1hem53io1da"
+      },
+      "xywh": [
+        24,
+        80,
+        24,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "今日現場團隊解決SLA情況",
+      "blockID": "7",
+      "options": {
+        "api": "/compose/namespace/{namespaceId}/echart?name=TodaySLAMetByOnsiteTeamResolved",
+        "data": "",
+        "method": "GET",
+        "option": "{\n    \"tooltip\": {\n        \"trigger\": \"item\"\n    },\n    \"textStyle\": {\n        \"overflow\": \"break\",\n        \"fontWeight\": \"bold\",\n        \"fontSize\": 18\n    },\n    \"legend\": {\n        \"orient\": \"horizontal\",\n        \"left\": \"center\",\n        \"textStyle\": {\n                \"overflow\": \"break\",\n               \"fontWeight\": \"bold\",\n               \"fontSize\": 12\n         }\n    },\n    \"color\": [\n        \"#60A88D\",\n        \"#F19B6B\",\n        \"#fac858\",\n        \"#ee6666\",\n        \"#73c0de\",\n        \"#3ba272\",\n        \"#fc8452\",\n        \"#9a60b4\",\n        \"#ea7ccc\"\n    ],\n    \"series\": [\n        {\n            \"name\": \"SLA\",\n            \"type\": \"pie\",\n            \"radius\": [\n                \"0%\",\n                \"80%\"\n            ],\n            \"itemStyle\": {\n                \"borderRadius\": 5,\n                \"borderColor\": \"#ffffff\",\n                \"borderWidth\": 1\n            },\n            \"emphasis\": {\n                \"itemStyle\": {\n                    \"shadowBlur\": 10,\n                    \"shadowOffsetX\": 0,\n                    \"shadowColor\": \"rgba(0, 0, 0, 0.5)\"\n                }\n            },\n            \"data\": ${values},\n            \"label\": {\n                \"position\": \"inside\",\n                \"formatter\": \"{d}%\"\n            },\n            \"percentPrecision\": 1\n        }\n    ]\n}",
+        "isTable": false,
+        "moduleID": "",
+        "timefilter": false,
+        "refreshRate": "300000",
+        "magnifyOption": "",
+        "stackSeriesOptions": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "CustomChart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-048h2cwcqccum53iqaci"
+      },
+      "xywh": [
+        24,
+        110,
+        24,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "當月到達SLA得分",
+      "blockID": "8",
+      "options": {
+        "api": "/compose/namespace/{namespaceId}/echart?name=CurrentMonthArrivalSLAScore",
+        "data": "",
+        "method": "GET",
+        "option": "{\n    \"tooltip\": {\n        \"trigger\": \"item\"\n    },\n    \"textStyle\": {\n        \"overflow\": \"break\",\n        \"fontWeight\": \"bold\",\n        \"fontSize\": 18\n    },\n    \"legend\": {\n        \"orient\": \"horizontal\",\n        \"left\": \"center\",\n        \"textStyle\": {\n                \"overflow\": \"break\",\n               \"fontWeight\": \"bold\",\n               \"fontSize\": 12\n         }\n    },\n    \"color\": [\n        \"#60A88D\",\n        \"#F19B6B\",\n        \"#fac858\",\n        \"#ee6666\",\n        \"#73c0de\",\n        \"#3ba272\",\n        \"#fc8452\",\n        \"#9a60b4\",\n        \"#ea7ccc\"\n    ],\n    \"series\": [\n        {\n            \"name\": \"SLA\",\n            \"type\": \"pie\",\n            \"radius\": [\n                \"0%\",\n                \"80%\"\n            ],\n            \"itemStyle\": {\n                \"borderRadius\": 5,\n                \"borderColor\": \"#ffffff\",\n                \"borderWidth\": 1\n            },\n            \"emphasis\": {\n                \"itemStyle\": {\n                    \"shadowBlur\": 10,\n                    \"shadowOffsetX\": 0,\n                    \"shadowColor\": \"rgba(0, 0, 0, 0.5)\"\n                }\n            },\n            \"data\": ${values},\n            \"label\": {\n                \"position\": \"inside\",\n                \"formatter\": \"{d}%\"\n            },\n            \"percentPrecision\": 1\n        }\n    ]\n}",
+        "isTable": false,
+        "moduleID": "",
+        "timefilter": false,
+        "refreshRate": "300000",
+        "magnifyOption": "",
+        "stackSeriesOptions": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "CustomChart",
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-72mvlf9h5itm53irq5x"
+      },
+      "xywh": [
+        0,
+        110,
+        24,
+        30
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "title": "當月解決SLA得分",
+      "blockID": "9",
+      "options": {
+        "api": "/compose/namespace/{namespaceId}/echart?name=CurrentMonthResolvedSLAScoreAchieved",
+        "data": "",
+        "method": "GET",
+        "option": "{\n    \"tooltip\": {\n        \"trigger\": \"item\"\n    },\n    \"textStyle\": {\n        \"overflow\": \"break\",\n        \"fontWeight\": \"bold\",\n        \"fontSize\": 18\n    },\n    \"legend\": {\n        \"orient\": \"horizontal\",\n        \"left\": \"center\",\n        \"textStyle\": {\n                \"overflow\": \"break\",\n               \"fontWeight\": \"bold\",\n               \"fontSize\": 12\n         }\n    },\n    \"color\": [\n        \"#60A88D\",\n        \"#F19B6B\",\n        \"#fac858\",\n        \"#ee6666\",\n        \"#73c0de\",\n        \"#3ba272\",\n        \"#fc8452\",\n        \"#9a60b4\",\n        \"#ea7ccc\"\n    ],\n    \"series\": [\n        {\n            \"name\": \"SLA\",\n            \"type\": \"pie\",\n            \"radius\": [\n                \"0%\",\n                \"80%\"\n            ],\n            \"itemStyle\": {\n                \"borderRadius\": 5,\n                \"borderColor\": \"#ffffff\",\n                \"borderWidth\": 1\n            },\n            \"emphasis\": {\n                \"itemStyle\": {\n                    \"shadowBlur\": 10,\n                    \"shadowOffsetX\": 0,\n                    \"shadowColor\": \"rgba(0, 0, 0, 0.5)\"\n                }\n            },\n            \"data\": ${values},\n            \"label\": {\n                \"position\": \"inside\",\n                \"formatter\": \"{d}%\"\n            },\n            \"percentPrecision\": 1\n        }\n    ]\n}",
+        "isTable": false,
+        "moduleID": "",
+        "timefilter": false,
+        "refreshRate": "300000",
+        "magnifyOption": "",
+        "stackSeriesOptions": ""
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "newTab": false,
+    "isToEdit": false,
+    "localTab": false,
+    "newTabLink": "",
+    "localPageID": "",
+    "btnVisibleKey": "",
+    "allowPersonalLayouts": false
+  },
+  "visible": true,
+  "weight": 5,
+  "createdAt": "2024-11-20T06:28:15Z",
+  "title": "IT服務展示",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true,
+  "updatedAt": "2025-10-02T14:07:06Z"
+}

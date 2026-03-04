@@ -1,0 +1,228 @@
+{
+  "pageID": "412315312276570113",
+  "selfID": "0",
+  "namespaceID": "409824987081211905",
+  "moduleID": "0",
+  "handle": "",
+  "config": {
+    "navItem": {
+      "icon": {
+        "src": "",
+        "type": "link"
+      },
+      "expanded": false
+    }
+  },
+  "blocks": [
+    {
+      "kind": "Navigation",
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9},\"en\":{\"label\":\"Created at\"},\"zh-CN\":{\"label\":\"创建于\",\"id\":\"u:5271b6ed5f1f\"},\"zh-HK\":{\"label\":\"創建於\"}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"ajax\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{\"success\":\"Report created！Visit Report Download Center to download it.\",\"en\":{\"success\":\"Report created！Visit Report Download Center to download it.\"},\"zh-CN\":{\"id\":\"u:5271b6ed5f1f\",\"success\":\"任务已经创建！请到下载中心下载您的文档。\"},\"zh-HK\":{\"success\":\"任務已經創建！請到下載中心下載您的文檔。\"}},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"filename\":\"Incident_Report\",\"name\":\"Incident List,Historical change Records,SLA List,category change Records\",\"namespace\":\"409824987081211905\"},\"responseType\":\"json\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `IncidentList ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false,\"en\":{\"label\":\"Export\"},\"zh-CN\":{\"label\":\"导出\",\"id\":\"u:397f1b92df7e\"},\"zh-HK\":{\"label\":\"導出\"}}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"tpl\",\"id\":\"u:aac8c88443e7\",\"tpl\":\"Incident Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\",\"en\":{\"tpl\":\"Incident Report\",\"id\":\"u:fcdc000891dd\"},\"zh-CN\":{\"tpl\":\"事件报告\",\"id\":\"u:34be56e1d3f3\"},\"zh-HK\":{\"tpl\":\"事件報告\"}},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true,\"type\":\"page\"}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-0r1dm8bclpcrm2cobap1"
+      },
+      "xywh": [
+        0,
+        0,
+        42,
+        19
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "1",
+      "options": {
+        "display": {
+          "justify": "justify",
+          "alignment": "center",
+          "appearance": "pills"
+        },
+        "magnifyOption": "",
+        "navigationItems": []
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Navigation",
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9},\"en\":{\"label\":\"Created at\"},\"zh-CN\":{\"label\":\"创建于\",\"id\":\"u:5271b6ed5f1f\"},\"zh-HK\":{\"label\":\"創建於\"}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"ajax\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{\"success\":\"Report created！Visit Report Download Center to download it.\",\"en\":{\"success\":\"Report created！Visit Report Download Center to download it.\"},\"zh-CN\":{\"id\":\"u:5271b6ed5f1f\",\"success\":\"任务已经创建！请到下载中心下载您的文档。\"},\"zh-HK\":{\"success\":\"任務已經創建！請到下載中心下載您的文檔。\"}},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"filename\":\"OtherGroupSLAReport\",\"name\":\"OtherGroupSLAReport\",\"namespace\":\"409824987081211905\"},\"responseType\":\"json\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `OtherGroupSLAReport ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false,\"en\":{\"label\":\"Export\"},\"zh-CN\":{\"label\":\"导出\",\"id\":\"u:397f1b92df7e\"},\"zh-HK\":{\"label\":\"導出\"}}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"},{\"type\":\"tpl\",\"id\":\"u:58464723ec09\",\"tpl\":\"Other Group SLA Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\",\"en\":{\"tpl\":\"Other Group SLA Report\",\"id\":\"u:fcdc000891dd\"},\"zh-CN\":{\"tpl\":\"其他团队服务级别协议报告\",\"id\":\"u:34be56e1d3f3\"},\"zh-HK\":{\"tpl\":\"其他團隊服務級別協議報告\"}}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true,\"type\":\"page\"}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-jfy8ybe60tm5510sq5"
+      },
+      "xywh": [
+        0,
+        19,
+        42,
+        19
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "2",
+      "options": {
+        "display": {
+          "justify": "justify",
+          "alignment": "center",
+          "appearance": "pills"
+        },
+        "magnifyOption": "",
+        "navigationItems": []
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Navigation",
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9},\"en\":{\"label\":\"Created at\"},\"zh-CN\":{\"label\":\"创建于\",\"id\":\"u:5271b6ed5f1f\"},\"zh-HK\":{\"label\":\"創建於\"}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"ajax\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{\"success\":\"Report created！Visit Report Download Center to download it.\",\"en\":{\"success\":\"Report created！Visit Report Download Center to download it.\"},\"zh-CN\":{\"id\":\"u:5271b6ed5f1f\",\"success\":\"任务已经创建！请到下载中心下载您的文档。\"},\"zh-HK\":{\"success\":\"任務已經創建！請到下載中心下載您的文檔。\"}},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"filename\":\"RemoteSLAReport\",\"name\":\"RemoteSLAReport\",\"namespace\":\"409824987081211905\"},\"responseType\":\"json\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `RemoteSLAReport ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false,\"en\":{\"label\":\"Export\"},\"zh-CN\":{\"label\":\"导出\",\"id\":\"u:397f1b92df7e\"},\"zh-HK\":{\"label\":\"導出\"}}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"},{\"type\":\"tpl\",\"id\":\"u:58464723ec09\",\"tpl\":\"Remote SLA Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\",\"en\":{\"tpl\":\"Remote SLA Report\",\"id\":\"u:fcdc000891dd\"},\"zh-CN\":{\"tpl\":\"远程服务级别协议报告\",\"id\":\"u:34be56e1d3f3\"},\"zh-HK\":{\"tpl\":\"遠程服務級別協議報告\"}}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true,\"type\":\"page\"}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-bke5gqjo9mm5510u3g"
+      },
+      "xywh": [
+        0,
+        19,
+        42,
+        20
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "3",
+      "options": {
+        "display": {
+          "justify": "justify",
+          "alignment": "center",
+          "appearance": "pills"
+        },
+        "magnifyOption": "",
+        "navigationItems": []
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    },
+    {
+      "kind": "Navigation",
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9},\"en\":{\"label\":\"Created at\"},\"zh-CN\":{\"label\":\"创建于\",\"id\":\"u:5271b6ed5f1f\"},\"zh-HK\":{\"label\":\"創建於\"}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"ajax\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{\"success\":\"Report created！Visit Report Download Center to download it.\",\"en\":{\"success\":\"Report created！Visit Report Download Center to download it.\"},\"zh-CN\":{\"id\":\"u:5271b6ed5f1f\",\"success\":\"任务已经创建！请到下载中心下载您的文档。\"},\"zh-HK\":{\"success\":\"任務已經創建！請到下載中心下載您的文檔。\"}},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"filename\":\"SLAScoreReport\",\"name\":\"SLA Score Report-sla,SLA Score Report-Deskside,SLA Score Report-vendor,SLA Score Report-Mx group\",\"namespace\":\"409824987081211905\"},\"responseType\":\"json\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `SLAScoreReport ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false,\"en\":{\"label\":\"Export\"},\"zh-CN\":{\"label\":\"导出\",\"id\":\"u:397f1b92df7e\"},\"zh-HK\":{\"label\":\"導出\"}}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"},{\"type\":\"tpl\",\"id\":\"u:58464723ec09\",\"tpl\":\"SLA Score Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\",\"en\":{\"tpl\":\"SLA Score Report\",\"id\":\"u:fcdc000891dd\"},\"zh-CN\":{\"tpl\":\"服务级别协议得分报告\",\"id\":\"u:34be56e1d3f3\"},\"zh-HK\":{\"tpl\":\"服務級別協議得分報告\"}}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true,\"type\":\"page\"}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-why7bi2i7qcm5510v2l"
+      },
+      "xywh": [
+        0,
+        19,
+        42,
+        19
+      ],
+      "style": {
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        },
+        "variants": {
+          "headerText": "dark"
+        }
+      },
+      "blockID": "4",
+      "options": {
+        "display": {
+          "justify": "justify",
+          "alignment": "center",
+          "appearance": "pills"
+        },
+        "magnifyOption": "",
+        "navigationItems": []
+      },
+      "visible": {
+        "visibleBlock": true,
+        "editableBlock": true,
+        "visibleParams": {
+          "params": {},
+          "actionID": "1"
+        },
+        "editableParams": {
+          "params": {},
+          "actionID": "2"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "newTab": false,
+    "isToEdit": false,
+    "localTab": false,
+    "newTabLink": "",
+    "localPageID": "",
+    "btnVisibleKey": "",
+    "allowPersonalLayouts": false
+  },
+  "visible": true,
+  "weight": 26,
+  "createdAt": "2024-10-17T02:18:11Z",
+  "title": "報表",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true,
+  "updatedAt": "2025-10-15T08:14:15Z"
+}

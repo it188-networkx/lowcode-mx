@@ -1,0 +1,207 @@
+{
+  "workflows": [
+    {
+      "workflowID": "409824987390672897",
+      "handle": "Network_Fault_Resolve_workflow",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "Network Fault Resolve(4 hour)",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "incl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "stepID": "3",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "componentSLATaskStart",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "resolve",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            }
+          ]
+        },
+        {
+          "ref": "componentSLATaskEnd",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "stepID": "7",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "resolve",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            }
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "childID": "4",
+          "parentID": "3"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "childID": "5",
+          "parentID": "3"
+        },
+        {
+          "expr": "record.values.status  != 399074025244065793 &&  record.values.priority  !=  399081326373830657  &&     record.values.category == 402447134353522689 &&   record.values.subcategory == 402447290381500417  &&  (  record.values.assignmentGroup > 0 ||   record.values.assignee > 0 )",
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "3"
+        },
+        {
+          "expr": "record.values.resolver > 0",
+          "meta": {
+            "name": "",
+            "visual": {},
+            "description": ""
+          },
+          "childID": "7",
+          "parentID": "3"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "409824987399258113",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.name",
+              "values": [
+                "ITSM"
+              ],
+              "condition": []
+            },
+            {
+              "op": "=",
+              "name": "module.name",
+              "values": [
+                "Incident"
+              ],
+              "condition": []
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": null
+        },
+        {
+          "triggerID": "409824987399323649",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.name",
+              "values": [
+                "ITSM"
+              ],
+              "condition": []
+            },
+            {
+              "op": "=",
+              "name": "module.name",
+              "values": [
+                "Incident"
+              ],
+              "condition": []
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": null
+        }
+      ],
+      "runAs": "414150633185673217",
+      "createdAt": "2024-09-29T03:42:29.000Z"
+    }
+  ]
+}

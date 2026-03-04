@@ -1,0 +1,256 @@
+{
+  "workflows": [
+    {
+      "workflowID": "403311829941092353",
+      "handle": "wms-order-stock-107",
+      "enabled": false,
+      "meta": {
+        "icon": "",
+        "name": "wms-sync-storage",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "httpRequestSend",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "3",
+              "xywh": [
+                3144,
+                2040,
+                200,
+                80
+              ],
+              "value": "HTTP request",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "3",
+          "results": [
+            {
+              "expr": "status",
+              "type": "String",
+              "target": "code"
+            }
+          ],
+          "arguments": [
+            {
+              "type": "String",
+              "value": "https://d2dnz02r9honug.cloudfront.net/mx-itsm-back/public/warehouse/save",
+              "target": "url"
+            },
+            {
+              "type": "String",
+              "value": "POST",
+              "target": "method"
+            },
+            {
+              "expr": "\"application/json;charset=utf-8\"",
+              "type": "String",
+              "target": "headerContentType"
+            },
+            {
+              "expr": "{\r\n    \"id\": warehouse.recordID,\r\n    \"name\": warehouse.values.name,\r\n    \"tenantId\": 1,\r\n    \"customerId\": 0,\r\n    \"type\": 10,\r\n    \"code\": warehouse.values.no,\r\n    \"district\": \"11\",\r\n    \"address\": warehouse.values.addr,\r\n    \"descr\": \"111\"\r\n}",
+              "type": "Any",
+              "target": "body"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2648,
+                1992,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "warehouse"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"wms_warehouse_manage\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "\"wms\"",
+              "type": "Handle",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.recordID",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "3",
+          "parentID": "4"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "403311829946597377",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "wms_warehouse_manage"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "wms"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": false,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "5",
+              "xywh": [
+                2208,
+                2184,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "9",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "5"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "403311829946662913",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "wms"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "wms_warehouse_manage"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": false,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2256,
+                1992,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "8",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "6"
+                }
+              ],
+              "value": "Compose module - afterCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "402431214453063681",
+      "createdAt": "2024-08-14T08:15:32.000Z",
+      "updatedAt": "2025-07-17T06:49:16.000Z"
+    }
+  ]
+}

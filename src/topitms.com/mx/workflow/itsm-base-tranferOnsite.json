@@ -1,0 +1,343 @@
+{
+  "workflows": [
+    {
+      "workflowID": "414209967059435521",
+      "handle": "itsm-base-tranferOnsite",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "itsm-base-tranferOnsite",
+        "type": "Basic",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "Update",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2520,
+                2056,
+                200,
+                80
+              ],
+              "value": "Update Data for a Specified Data",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [
+            {
+              "expr": "update_records",
+              "type": "Any",
+              "target": "Update4_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"fieldList\":[{\"name\":\"onSite\",\"value\":\"1\",\"operator\":\"is\",\"kind\":\"Bool\",\"fieldArrShow\":[]}],\"namespaceHandle\":\"itsm\",\"selected\":\"selected_var\",\"record\":\"record_var\"}",
+              "type": "Vars",
+              "target": "scope"
+            },
+            {
+              "type": "Handle",
+              "value": "Update-Record",
+              "target": "workflow"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2496,
+                2744,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "Insert",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "10",
+              "xywh": [
+                2520,
+                2232,
+                200,
+                80
+              ],
+              "value": "Insert a new record",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "10",
+          "results": [
+            {
+              "expr": "insert_record",
+              "type": "Any",
+              "target": "Insert10_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"fieldList\":[{\"name\":\"type\",\"value\":\"b\",\"operator\":\"is\",\"kind\":\"Select\",\"fieldArrShow\":[]},{\"name\":\"operationDetails\",\"value\":\"Transfer to onsite\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]},{\"name\":\"operator\",\"value\":[{\"fieldName\":\"updatedBy\",\"fieldLabel\":\"Updated by\",\"fieldkind\":\"User\",\"fieldID\":\"0\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\"}],\"operator\":\"Derived From\",\"kind\":\"User\",\"fieldArrShow\":[\"Trigger | Updated by\"],\"popoverShow\":false},{\"name\":\"operationTime\",\"value\":[{\"fieldName\":\"updatedAt\",\"fieldLabel\":\"Updated at\",\"fieldkind\":\"DateTime\",\"fieldID\":\"0\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\"}],\"operator\":\"Derived From\",\"kind\":\"DateTime\",\"fieldArrShow\":[\"Trigger | Updated at\"],\"popoverShow\":false},{\"name\":\"isVisible\",\"value\":\"1\",\"operator\":\"is\",\"kind\":\"Bool\",\"fieldArrShow\":[]},{\"name\":\"iType\",\"value\":200,\"operator\":\"is\",\"kind\":\"Number\",\"fieldArrShow\":[]},{\"name\":\"content\",\"value\":\"Execute the \\\"Transfer to onsite\\\" action\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]},{\"name\":\"incident\",\"value\":[{\"fieldName\":\"recordID\",\"fieldLabel\":\"Record ID\",\"fieldkind\":\"String\",\"fieldID\":\"0\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\"}],\"operator\":\"Derived From\",\"kind\":\"Record\",\"fieldArrShow\":[\"Trigger | Record ID\"],\"popoverShow\":false}],\"namespaceHandle\":\"itsm\",\"selected\":\"selected_var\",\"module\":\"IncidentComment\"}",
+              "type": "Vars",
+              "target": "scope"
+            },
+            {
+              "type": "Handle",
+              "value": "Insert-Record",
+              "target": "workflow"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "Sms",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "12",
+              "xywh": [
+                2496,
+                2552,
+                200,
+                80
+              ],
+              "value": "sms",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "12",
+          "results": [
+            {
+              "expr": "send_sms",
+              "type": "Any",
+              "target": "Sms12_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"bodyObj\":[{\"varname\":\"record_var_company\",\"record\":\"record_var\",\"field\":\"company\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_number\",\"record\":\"record_var\",\"field\":\"number\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_location\",\"record\":\"record_var\",\"field\":\"location\",\"moduleHandle\":\"Incident\"},{\"varname\":\"Query14_var_addressChi\",\"record\":\"Query14_var\",\"field\":\"addressChi\",\"moduleHandle\":\"Locations\"},{\"varname\":\"record_var_user\",\"record\":\"record_var\",\"field\":\"user\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_userPhone\",\"record\":\"record_var\",\"field\":\"userPhone\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_shortDescription\",\"record\":\"record_var\",\"field\":\"shortDescription\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_expectedStart\",\"record\":\"record_var\",\"field\":\"expectedStart\",\"moduleHandle\":\"Incident\"}],\"namespaceHandle\":\"itsm\",\"address\":[],\"node\":[{\"fieldName\":\"onsiteEngineer\",\"fieldLabel\":\"Onsite Engineer\",\"fieldkind\":\"Record\",\"fieldID\":\"414198762798383105\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\",\"field\":\"onsiteEngineer\"}],\"user\":[],\"role\":[],\"selected\":\"selected_var\",\"smsBody\":\"<p>Sender：EMS new ticket for&nbsp; <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_company}}\\\">Trigger | Company</span>&nbsp;</p>\\n<p>Ticket no： &nbsp; <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_number}}\\\">Trigger | Number</span>&nbsp;</p>\\n<p>Location： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_location}}\\\">Trigger | Location</span>&nbsp;</p>\\n<p>Address：&nbsp; <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.Query14_var_addressChi}}\\\">Query Record | Address (cn)</span>&nbsp;</p>\\n<p>User： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_user}}\\\">&nbsp;<span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_user}}\\\">Trigger | User</span> </span></p>\\n<p>Phone： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_userPhone}}\\\">&nbsp;<span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_userPhone}}\\\">Trigger | Phone</span> </span></p>\\n<p>Description：&nbsp; <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_shortDescription}}\\\">Trigger | Short Description </span> <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_shortDescription}}\\\">&nbsp;</span>&nbsp;</p>\\n<p>Expected Arrival Time： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_expectedStart}}\\\">&nbsp;<span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_expectedStart}}\\\">Trigger | Expected Start</span> </span></p>\"}",
+              "type": "Vars",
+              "target": "scope"
+            },
+            {
+              "type": "Handle",
+              "value": "send-sms",
+              "target": "workflow"
+            }
+          ],
+          "customName": "Send Sms"
+        },
+        {
+          "ref": "",
+          "kind": "Query",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "14",
+              "xywh": [
+                2520,
+                2384,
+                200,
+                80
+              ],
+              "value": "Query Record for Use in Subsequent Node",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [
+            {
+              "expr": "query_records",
+              "type": "Any",
+              "target": "Query14_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"quantity\":\"1\",\"condition\":[{\"list\":[{\"name\":\"recordID\",\"kind\":\"String\",\"value\":[{\"fieldName\":\"location\",\"fieldLabel\":\"Location\",\"fieldkind\":\"Record\",\"fieldID\":\"409824987071447041\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\"}],\"type\":\"\",\"operator\":\"is\",\"start\":\"\",\"end\":\"\",\"fieldType\":\"Variable\",\"fieldArrShow\":[\"Trigger | Location\"],\"popoverShow\":false}],\"type\":\"\"}],\"returned\":\"1\",\"namespaceHandle\":\"itsm\",\"selected\":\"selected_var\",\"module\":\"Locations\",\"fieldRuleName\":\"name\",\"fieldRule\":\"name DESC\",\"fieldRuleSort\":\"DESC\"}",
+              "type": "Vars",
+              "target": "scope"
+            },
+            {
+              "type": "Handle",
+              "value": "Query-Record",
+              "target": "workflow"
+            }
+          ],
+          "customName": "Query Record"
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "10",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "14",
+          "parentID": "10"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "13",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "12"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "15",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "12",
+          "parentID": "14"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "414210193604149249",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.id",
+              "values": [
+                "409824987081211905"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2528,
+                1864,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Trigger the workflow execution based on configuration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "409985028668325889",
+      "createdAt": "2024-10-28T12:19:22.000Z",
+      "updatedAt": "2024-12-27T03:11:38.000Z"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "layoutID": "412601738567417857",
+  "pageID": "412437053451599873",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 3,
+  "handle": "isView",
+  "meta": {
+    "title": "view",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
+    "description": "",
+    "scriptEnabled": true
+  },
+  "config": {
+    "actions": [
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Arrived",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "6",
+          "workflowID": "412557561523339265",
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "1",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Resolve",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "3",
+          "workflowID": "412700389101535233",
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "2",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Cancel",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "4",
+          "workflowID": "412701073694785537",
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "3",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "upload",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "workflowID": "412701073694785537",
+          "pageLayoutID": "413316487335772161"
+        },
+        "enabled": true,
+        "actionID": "4",
+        "placement": "end"
+      }
+    ],
+    "buttons": {
+      "new": {
+        "label": "",
+        "enabled": true
+      },
+      "back": {
+        "label": "",
+        "enabled": true
+      },
+      "edit": {
+        "label": "",
+        "enabled": true
+      },
+      "clone": {
+        "label": "",
+        "enabled": true
+      },
+      "delete": {
+        "label": "",
+        "enabled": true
+      },
+      "submit": {
+        "label": "",
+        "enabled": true
+      }
+    },
+    "useTitle": false,
+    "visibility": {
+      "expression": "isView"
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-zbyqe2v2wnqm2d51uy2"
+      },
+      "xywh": [
+        0,
+        0,
+        22,
+        59
+      ],
+      "blockID": "3"
+    },
+    {
+      "meta": {
+        "json": "{\n    \"childFrame\": true,\n    \"body\": [\n        {\n            \"id\": \"u:fa81fd8d4836\",\n            \"type\": \"crud2\",\n            \"mode\": \"table2\",\n            \"dsType\": \"api\",\n            \"syncLocation\": true,\n            \"primaryField\": \"id\",\n            \"loadType\": \"pagination\",\n            \"api\": {\n                \"url\": \"/components/sla/task/list?recordId=${recordID}\",\n                \"method\": \"get\"\n            },\n            \"headerToolbar\": [\n                {\n                    \"type\": \"flex\",\n                    \"direction\": \"row\",\n                    \"justify\": \"flex-start\",\n                    \"alignItems\": \"stretch\",\n                    \"style\": {\n                        \"position\": \"static\"\n                    },\n                    \"items\": [\n                        {\n                            \"type\": \"container\",\n                            \"align\": \"left\",\n                            \"behavior\": [\n                                \"Insert\",\n                                \"BulkEdit\",\n                                \"BulkDelete\"\n                            ],\n                            \"body\": [],\n                            \"wrapperBody\": false,\n                            \"style\": {\n                                \"flexGrow\": 1,\n                                \"flex\": \"1 1 auto\",\n                                \"position\": \"static\",\n                                \"display\": \"flex\",\n                                \"flexBasis\": \"auto\",\n                                \"flexDirection\": \"row\",\n                                \"flexWrap\": \"nowrap\",\n                                \"alignItems\": \"stretch\",\n                                \"justifyContent\": \"flex-start\"\n                            },\n                            \"id\": \"u:e55c610e555e\"\n                        },\n                        {\n                            \"type\": \"container\",\n                            \"align\": \"right\",\n                            \"behavior\": [\n                                \"FuzzyQuery\"\n                            ],\n                            \"body\": [],\n                            \"wrapperBody\": false,\n                            \"style\": {\n                                \"flexGrow\": 1,\n                                \"flex\": \"1 1 auto\",\n                                \"position\": \"static\",\n                                \"display\": \"flex\",\n                                \"flexBasis\": \"auto\",\n                                \"flexDirection\": \"row\",\n                                \"flexWrap\": \"nowrap\",\n                                \"alignItems\": \"stretch\",\n                                \"justifyContent\": \"flex-end\"\n                            },\n                            \"id\": \"u:8b384133255e\"\n                        }\n                    ],\n                    \"id\": \"u:d747a8bb3c71\"\n                }\n            ],\n            \"footerToolbar\": [\n                {\n                    \"type\": \"flex\",\n                    \"direction\": \"row\",\n                    \"justify\": \"flex-start\",\n                    \"alignItems\": \"stretch\",\n                    \"style\": {\n                        \"position\": \"static\"\n                    },\n                    \"items\": [\n                        {\n                            \"type\": \"container\",\n                            \"align\": \"left\",\n                            \"body\": [],\n                            \"wrapperBody\": false,\n                            \"style\": {\n                                \"flexGrow\": 1,\n                                \"flex\": \"1 1 auto\",\n                                \"position\": \"static\",\n                                \"display\": \"flex\",\n                                \"flexBasis\": \"auto\",\n                                \"flexDirection\": \"row\",\n                                \"flexWrap\": \"nowrap\",\n                                \"alignItems\": \"stretch\",\n                                \"justifyContent\": \"flex-start\"\n                            },\n                            \"id\": \"u:e7675def9565\"\n                        },\n                        {\n                            \"type\": \"container\",\n                            \"align\": \"right\",\n                            \"body\": [\n                                {\n                                    \"type\": \"pagination\",\n                                    \"behavior\": \"Pagination\",\n                                    \"layout\": [\n                                        \"total\",\n                                        \"perPage\",\n                                        \"pager\"\n                                    ],\n                                    \"perPage\": 10,\n                                    \"perPageAvailable\": [\n                                        10,\n                                        20,\n                                        50,\n                                        100\n                                    ],\n                                    \"align\": \"right\",\n                                    \"id\": \"u:04f857ff5736\"\n                                }\n                            ],\n                            \"wrapperBody\": false,\n                            \"style\": {\n                                \"flexGrow\": 1,\n                                \"flex\": \"1 1 auto\",\n                                \"position\": \"static\",\n                                \"display\": \"flex\",\n                                \"flexBasis\": \"auto\",\n                                \"flexDirection\": \"row\",\n                                \"flexWrap\": \"nowrap\",\n                                \"alignItems\": \"stretch\",\n                                \"justifyContent\": \"flex-end\"\n                            },\n                            \"id\": \"u:c0ca68372ab8\"\n                        }\n                    ],\n                    \"id\": \"u:d8d81e869212\"\n                }\n            ],\n            \"columns\": [\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Task Status\",\n                    \"name\": \"status\",\n                    \"id\": \"u:102756c50224\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Name\",\n                    \"name\": \"slaName\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Target\",\n                    \"name\": \"target\",\n                    \"id\": \"u:723e00653cae\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"SLA Status\",\n                    \"name\": \"slaStatus\",\n                    \"id\": \"u:007e9c9647d8\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Original Breached Time\",\n                    \"name\": \"originalBreachTime\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Stop Time\",\n                    \"name\": \"stopTime\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Business elapsed Time\",\n                    \"name\": \"businessElapsedDuration\",\n                    \"id\": \"u:ea07aab92335\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Business pause Time\",\n                    \"name\": \"businessPauseDuration\",\n                    \"id\": \"u:6cf892ad0da4\"\n                },\n                {\n                    \"type\": \"progress\",\n                    \"title\": \"Business elapsed percentage\",\n                    \"name\": \"businessElapsedPercentage\",\n                    \"id\": \"u:d49d2da1cda1\",\n                    \"map\":[\n                        {\"value\":75,\"color\":\"#00FF7F\"},\n                         {\"value\":100,\"color\":\"#FF7F24\"},\n                          {\"value\":100000000000,\"color\":\"#FF3030\"}\n                    ]\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Business duration left\",\n                    \"name\": \"businessDurationLeft\",\n                    \"id\": \"u:f9a6faaad361\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Actual elapsed duration\",\n                    \"name\": \"actualElapsedDuration\",\n                    \"id\": \"u:a77e9b3f85d8\"\n                },\n                {\n                    \"type\": \"tpl\",\n                    \"title\": \"Actual duration left\",\n                    \"name\": \"actualDurationLeft\",\n                    \"id\": \"u:091a5068b725\"\n                }\n            ]\n        }\n    ],\n    \"id\": \"u:c0800722db4d\"\n}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-8pwuly82bhim2e682qi"
+      },
+      "xywh": [
+        0,
+        60,
+        46,
+        49
+      ],
+      "blockID": "5"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-7ypeoy6npom2srtggq"
+      },
+      "xywh": [
+        22,
+        0,
+        24,
+        59
+      ],
+      "blockID": "14"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-10-17T10:08:00.000Z",
+  "updatedAt": "2024-10-28T09:06:04.000Z"
+}

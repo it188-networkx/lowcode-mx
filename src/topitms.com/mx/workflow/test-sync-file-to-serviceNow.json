@@ -1,0 +1,948 @@
+{
+  "workflows": [
+    {
+      "workflowID": "479383609829556225",
+      "handle": "test-sync-file-to-serviceNow",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "test-sync-file-to-serviceNow",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "attachmentOpenOriginal",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "5",
+              "xywh": [
+                2528,
+                2048,
+                200,
+                80
+              ],
+              "value": "Open original attachment",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "5",
+          "results": [
+            {
+              "expr": "content",
+              "type": "Reader",
+              "target": "file"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "att_id",
+              "type": "ID",
+              "target": "attachment"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "attachmentLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "xywh": [
+                2904,
+                2048,
+                200,
+                80
+              ],
+              "value": "Attachment lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "9",
+          "results": [
+            {
+              "expr": "attachment",
+              "type": "Attachment",
+              "target": "attachment"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "att_id",
+              "type": "ID",
+              "target": "attachment"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "httpRequestSend",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "xywh": [
+                2528,
+                2376,
+                200,
+                80
+              ],
+              "value": "HTTP request",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "11",
+          "results": [
+            {
+              "expr": "status",
+              "type": "String",
+              "target": "status"
+            },
+            {
+              "expr": "statusCode",
+              "type": "Integer",
+              "target": "code"
+            },
+            {
+              "expr": "body",
+              "type": "Reader",
+              "target": "dataFile"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"https://maximsdev.service-now.com/api/now/attachment/file?table_name=incident&table_sys_id=\"+sn_id+\"&file_name=\"+hkt_file_name",
+              "type": "String",
+              "target": "url"
+            },
+            {
+              "type": "String",
+              "value": "POST",
+              "target": "method"
+            },
+            {
+              "expr": "\"hkt.integration\"",
+              "type": "String",
+              "target": "headerAuthUsername"
+            },
+            {
+              "expr": "\"v+N5>J{-X:ddRc=Yhhd.I=b.m_JPD6d<(V,b*NJ}\"",
+              "type": "String",
+              "target": "headerAuthPassword"
+            },
+            {
+              "expr": "\"application/octet-stream\"",
+              "type": "String",
+              "target": "headerContentType"
+            },
+            {
+              "expr": "file",
+              "type": "Reader",
+              "target": "body"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "httpRequestSend",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "13",
+              "xywh": [
+                2528,
+                2208,
+                200,
+                80
+              ],
+              "value": "HTTP request",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "13",
+          "results": [
+            {
+              "expr": "status",
+              "type": "String",
+              "target": "status"
+            },
+            {
+              "expr": "statusCode",
+              "type": "Integer",
+              "target": "code"
+            },
+            {
+              "expr": "body",
+              "type": "Reader",
+              "target": "data"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"https://topitms.com/bridge/api/v1/identity/servicenow/\"+record.recordID+\"?client_id=dev-mx\"",
+              "type": "String",
+              "target": "url"
+            },
+            {
+              "type": "String",
+              "value": "GET",
+              "target": "method"
+            },
+            {
+              "expr": "{\n  \"X-Api-Key\":[\"hkt-gw-7a1b9f82d3e4c5b6a70824987082\"]\n}",
+              "type": "KVV",
+              "target": "headers"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "jsenvExecute",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "14",
+              "xywh": [
+                2904,
+                2208,
+                200,
+                80
+              ],
+              "value": "Process arbitrary data in jsenv",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [
+            {
+              "expr": "resultAny",
+              "type": "Any",
+              "target": "result"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "data",
+              "type": "Reader",
+              "target": "scope"
+            },
+            {
+              "type": "String",
+              "value": "return JSON.parse(readRequestBody(input));",
+              "target": "source"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "16",
+              "xywh": [
+                2904,
+                2376,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "16",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "result[\"data\"]",
+              "type": "Any",
+              "target": "sn_id"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "19",
+              "xywh": [
+                2184,
+                2208,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "19",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "attachment.name",
+              "type": "Any",
+              "target": "fileName"
+            },
+            {
+              "expr": "record.values.number",
+              "type": "String",
+              "target": "incNumber"
+            },
+            {
+              "expr": "incNumber+\"_MaximsSyncHKT_\"+fileName",
+              "type": "String",
+              "target": "hkt_file_name"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "23",
+              "xywh": [
+                2544,
+                1640,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "23",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "25",
+              "xywh": [
+                3128,
+                1640,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "25",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.attachment",
+              "type": "Array",
+              "target": "newAttachment"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "loopEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "27",
+              "xywh": [
+                3128,
+                1896,
+                200,
+                80
+              ],
+              "value": "Items",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "27",
+          "results": [
+            {
+              "expr": "item",
+              "type": "Any",
+              "target": "att_id"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "newAttachment",
+              "type": "Array",
+              "target": "items"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "29",
+              "xywh": [
+                2528,
+                1896,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "29",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "continue",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "31",
+              "xywh": [
+                2192,
+                1896,
+                200,
+                80
+              ],
+              "value": "Skip current iteration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "31",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "34",
+              "xywh": [
+                2840,
+                1776,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "34",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "jsenvExecute",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "39",
+              "xywh": [
+                2184,
+                2376,
+                200,
+                80
+              ],
+              "value": "Process arbitrary data in jsenv",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "39",
+          "results": [
+            {
+              "expr": "resultAny",
+              "type": "Any",
+              "target": "fileResult"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "dataFile",
+              "type": "Reader",
+              "target": "scope"
+            },
+            {
+              "type": "String",
+              "value": "return JSON.parse(readRequestBody(input));",
+              "target": "source"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "42",
+              "xywh": [
+                2848,
+                1488,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "42",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "oldRecord.values.attachment",
+              "type": "Any",
+              "target": "oldAttachment"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "43",
+              "xywh": [
+                2840,
+                1640,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "43",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "oldAttachment"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "10",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "9",
+          "parentID": "5"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "15",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "14",
+          "parentID": "13"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "16",
+          "parentID": "14"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "18",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "11",
+          "parentID": "16"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "20",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "19",
+          "parentID": "9"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "21",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "13",
+          "parentID": "19"
+        },
+        {
+          "expr": "length(record.values.attachment) >0 && (isEmpty(oldRecord) || isEmpty(oldRecord.values.attachment))",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "26",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "43",
+          "parentID": "23"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "28",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "27",
+          "parentID": "25"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "30",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "29",
+          "parentID": "27"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "35",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "34",
+          "parentID": "27"
+        },
+        {
+          "expr": "length(record.values.attachment) >0 \n&& !isEmpty(oldRecord) \n&& length(oldRecord.values.attachment) >0 \n&& length(record.values.attachment) != length(oldRecord.values.attachment)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "36",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "42",
+          "parentID": "23"
+        },
+        {
+          "expr": "(length(oldAttachment)>0 && !has(oldAttachment,att_id)) ||(length(oldAttachment) == 0)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "37",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "5",
+          "parentID": "29"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "38",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "31",
+          "parentID": "29"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "40",
+              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "39",
+          "parentID": "11"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "41",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#3 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "34",
+          "parentID": "23"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "44",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "25",
+          "parentID": "43"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "45",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "25",
+          "parentID": "42"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "479383609845809153",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "23",
+          "meta": {
+            "days": "",
+            "hours": "",
+            "visual": {
+              "id": "22",
+              "xywh": [
+                2208,
+                1640,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "24",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "23",
+                  "parentID": "22"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "endTime": "0001-01-01T00:00:00Z",
+            "minutes": "",
+            "moduleID": "",
+            "timeNode": "",
+            "condition": null,
+            "namespace": "",
+            "startTime": "0001-01-01T00:00:00Z",
+            "timeRepeat": "",
+            "description": "",
+            "namespaceID": "",
+            "endTimeCondition": {
+              "kind": "",
+              "name": "",
+              "type": "",
+              "value": null,
+              "oldName": "",
+              "operator": "",
+              "variable": "",
+              "operators": null
+            },
+            "startTimeCondition": {
+              "kind": "",
+              "name": "",
+              "type": "",
+              "value": null,
+              "oldName": "",
+              "operator": "",
+              "variable": "",
+              "operators": null
+            }
+          }
+        }
+      ],
+      "ownedBy": "469237068726468609",
+      "createdAt": "2026-01-21T02:54:28.000Z",
+      "updatedAt": "2026-01-21T06:39:21.000Z"
+    }
+  ]
+}
