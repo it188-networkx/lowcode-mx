@@ -1,0 +1,35 @@
+name: "[低代码] 业务配置开发 (Business Configuration)"
+description: 在低代码平台定义业务对象、配置字段属性与关联关系，梳理表结构并实施数据约束。
+title: "[配置] 业务配置: <对象名称>"
+labels: ["domain:lowcode", "activity:config"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 业务配置开发
+
+        低代码开发人员依据<业务模输入>，在平台配置<数据对象>，并产出<低代码平台数据对象>。
+
+  - type: input
+    id: object_name
+    attributes:
+      label: 对象名称
+      placeholder: e.g. 客户信息主数据
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs
+    attributes:
+      label: 业务模型输入
+      placeholder: 请提供业务领域模型图、数据字典链接...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **低代码平台数据对象**：模型发布
+        - [ ] **评价标准**：数据模型在平台内成功发布，支持业务所需的增删改查操作

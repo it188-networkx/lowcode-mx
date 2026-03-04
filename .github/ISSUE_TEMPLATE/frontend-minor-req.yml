@@ -1,0 +1,43 @@
+name: "[低代码] 前端小需求处理 (Frontend Minor Requirement Handling)"
+description: 处理低代码前端代码的小型需求变更，如修改文字描述、调整样式、更新配置等轻量级前端修改任务。
+title: "[需求] 前端小需求: <需求简述>"
+labels: ["domain:lowcode", "activity:coding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 前端小需求处理
+
+        开发者依据需求修改描述和截图，对低代码前端代码进行轻量级修改（如文字描述、样式调整、配置更新等），并产出已修改的可执行代码。
+
+  - type: textarea
+    id: requirement_description
+    attributes:
+      label: 需求修改描述
+      placeholder: 请详细描述需要修改的内容，例如：将登录页面的标题从"欢迎"改为"欢迎登录系统"
+    validations:
+      required: true
+
+  - type: input
+    id: requirement_location
+    attributes:
+      label: 需求修改位置
+      placeholder: 请指明需要修改的文件路径或页面位置，例如：src/pages/login/index.vue 或 登录页面顶部标题
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirement_screenshot
+    attributes:
+      label: 需求修改截图
+      description: 请上传相关截图或粘贴图片链接，帮助明确修改需求
+      placeholder: 拖拽图片到此处或粘贴图片链接
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **已修改的可执行代码**：代码修改准确反映需求描述，功能运行正常且无引入新的缺陷

@@ -1,0 +1,711 @@
+{
+  "layoutID": "409824987086716929",
+  "pageID": "409824987080753153",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 1,
+  "handle": "Edit",
+  "meta": {
+    "title": "Edit",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\nlet status = record.status\nlet formatRecordValues = \"\"\nlet triggerRecordFieldChange = \"\"\nif(status === \"409824987210645505\" && triggerBy != 'status'){\nthat.$router.push({\nname: \"page.record\",\nparams: { pageID: \"409824987080753153\", recordID:recordId}\n\n})\n}\nif (triggerBy === \"onsiteEngineer\") {\nconsole.log(\"onsiteEngineer:\",record.modalData.onsiteEngineer);\nconsole.log(\"onsiteEngineer11:\", window.recordField.Incident.onsiteEngineer.records)\n\nfor (let index = 0; index < window.recordField.Incident.onsiteEngineer.records.length; index++) {\n\nlet tem_onsiteEngineer = window.recordField.Incident.onsiteEngineer.records[index]\n\nconsole.log(\"onsiteEngineer22:\",tem_onsiteEngineer);\n\nif (tem_onsiteEngineer.recordID === record.modalData.onsiteEngineer) {\n\nconsole.log(\"333:\", tem_onsiteEngineer);\nrecord.modalData = {\n...record.modalData,\ncontactNo: tem_onsiteEngineer.values.phone\n}\n\nconsole.log(\"record.contactNo:\",record.contactNo);\n}\n}\n}\n\nreturn {\nrecord,\nformatRecordValues,\ntriggerRecordFieldChange\n}",
+    "description": "",
+    "scriptEnabled": true
+  },
+  "config": {
+    "actions": [
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Resolve':'解决'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "98",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "409824987020787713",
+          "pageLayoutID": "409824987086848001",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
+                  ],
+                  "operator": "is not in list"
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "1",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Faultty Asset':'关联故障资产'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "9",
+          "loading": true,
+          "refresh": true,
+          "moduleID": "410085759912312833",
+          "workflowID": "450149665854193665",
+          "pageLayoutID": "409987818031480833",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "",
+                  "operator": "is empty",
+                  "operators": [
+                    {
+                      "text": "is",
+                      "value": "is"
+                    },
+                    {
+                      "text": "is not",
+                      "value": "is not"
+                    },
+                    {
+                      "text": "is in list",
+                      "value": "is in list"
+                    },
+                    {
+                      "text": "is not in list",
+                      "value": "is not in list"
+                    },
+                    {
+                      "text": "is empty",
+                      "value": "is empty"
+                    },
+                    {
+                      "text": "is not empty",
+                      "value": "is not empty"
+                    },
+                    {
+                      "text": "等于当前用户",
+                      "value": "等于当前用户"
+                    },
+                    {
+                      "text": "等于组",
+                      "value": "等于组"
+                    }
+                  ]
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "2",
+        "placement": "end"
+      },
+      {
+        "kind": "toURL",
+        "meta": {
+          "label": "${lang == 'en' ? 'Request Asset':'申请备件'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "url": "${window.CortezaWebapp==='/'?'':window.CortezaWebapp}/compose/ns/itam/pages/409824987473772545/record?btnVisibleKey=request&isToEdit=false&recordId=${recordID}&number=${record.values.number}&location=${record.values.location}",
+          "openIn": "newTab",
+          "loading": true,
+          "refresh": true,
+          "pageLayoutID": "",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "",
+                  "operator": "is empty"
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "3",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Transfer to onsite':'现场派单'}",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "pageID": "412437053451599873",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "414209967059435521",
+          "pageLayoutID": "415783303557742593",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
+                  ],
+                  "operator": "is not in list"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteArrival",
+                  "type": "and",
+                  "start": "",
+                  "value": "0",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "4",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Arrive",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "5",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "414204601370148865",
+          "pageLayoutID": "",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onSite",
+                  "type": "",
+                  "start": "",
+                  "value": "1",
+                  "operator": "is"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteArrival",
+                  "type": "and",
+                  "start": "",
+                  "value": "1",
+                  "operator": "is not"
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "5",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Onsite Resolve",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "414204399926444033",
+          "pageLayoutID": "",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onSite",
+                  "type": "",
+                  "start": "",
+                  "value": "1",
+                  "operator": "is"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteArrival",
+                  "type": "and",
+                  "start": "",
+                  "value": "1",
+                  "operator": "is"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteResolution",
+                  "type": "and",
+                  "start": "",
+                  "value": "0",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "6",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "Cancel",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "414204179691798529",
+          "pageLayoutID": "415783303557808129",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onSite",
+                  "type": "",
+                  "start": "",
+                  "value": "1",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ]
+        },
+        "enabled": true,
+        "actionID": "7",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "Request Asset",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "22",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "422500362881073153",
+          "pageLayoutID": "422289709784432641",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": []
+        },
+        "enabled": true,
+        "actionID": "9",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Related Problem':'关联问题单'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "3",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "422461405246062593",
+          "pageLayoutID": "422448463167356929",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": []
+        },
+        "enabled": true,
+        "actionID": "10",
+        "placement": "end"
+      },
+      {
+        "kind": "toURL",
+        "meta": {
+          "label": "${lang == 'en' ? 'Add Token':'添加Token'}",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "url": "${window.CortezaWebapp==='/'?'':window.CortezaWebapp}/compose/ns/NITAM/pages/442150875696988161/record?btnVisibleKey=&isToEdit=true&incidentID=${recordID}&location=${record.values.location}&contractID=${record.values.contractID}&company=${record.values.company}",
+          "openIn": "newTab",
+          "loading": true,
+          "refresh": true,
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "11",
+        "placement": "end"
+      },
+      {
+        "kind": "popUp",
+        "meta": {
+          "label": "电子签单",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "base",
+          "pageID": "472308417844674561",
+          "loading": true,
+          "refresh": true,
+          "hidefooter": true,
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "12",
+        "placement": "end"
+      }
+    ],
+    "buttons": {
+      "new": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "4"
+      },
+      "back": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "1"
+      },
+      "edit": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "5"
+      },
+      "clone": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "3"
+      },
+      "delete": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "2"
+      },
+      "submit": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "6"
+      }
+    },
+    "useTitle": true,
+    "visibility": {
+      "expression": "isEdit"
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-c4pb04zn9dclz2if3pz"
+      },
+      "xywh": [
+        23,
+        0,
+        25,
+        51
+      ],
+      "blockID": "34"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-sa6adnr89mlz2if3pz"
+      },
+      "xywh": [
+        0,
+        51,
+        23,
+        41
+      ],
+      "blockID": "35"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-qf8la4h707blz2if3q0"
+      },
+      "xywh": [
+        0,
+        131,
+        48,
+        41
+      ],
+      "blockID": "36"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-8wfin6gham9lz2if3q0"
+      },
+      "xywh": [
+        0,
+        99,
+        48,
+        38
+      ],
+      "blockID": "37"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-6b0izrg3b1wlz2if3q0"
+      },
+      "xywh": [
+        0,
+        88,
+        48,
+        95
+      ],
+      "blockID": "40"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-7lj84hdp2mfm2b84ogm"
+      },
+      "xywh": [
+        0,
+        109,
+        20,
+        15
+      ],
+      "blockID": "67"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-xmi43mnlmtllzv0sy6w"
+      },
+      "xywh": [
+        3,
+        155,
+        20,
+        15
+      ],
+      "blockID": "57"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-wuv0agm9xlm235np14"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "64"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-7vzotup0p1nm2syzuzi"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "70"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-0awhp05jqz4vm3juv2du"
+      },
+      "xywh": [
+        0,
+        0,
+        23,
+        51
+      ],
+      "blockID": "86"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-3luxped9gy2m4uxqkki"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "113"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-jw2g6gu9t98m523yrnl"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "115"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-0icgjlmrwhum7bqfj10"
+      },
+      "xywh": [
+        23,
+        51,
+        25,
+        41
+      ],
+      "blockID": "121"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-w4ay269vrbgmk2c9sz7"
+      },
+      "xywh": [
+        0,
+        187,
+        48,
+        39
+      ],
+      "blockID": "160"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-09-28T06:09:30.000Z",
+  "updatedAt": "2026-02-06T07:21:03.000Z"
+}

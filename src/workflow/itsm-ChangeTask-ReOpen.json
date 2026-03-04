@@ -1,0 +1,175 @@
+{
+  "workflows": [
+    {
+      "workflowID": "422590390127099905",
+      "handle": "itsm-ChangeTask-ReOpen",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "itsm-ChangeTask-ReOpen",
+        "type": "Basic",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "Update",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2640,
+                1960,
+                200,
+                80
+              ],
+              "value": "Update Data for a Specified Data",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [
+            {
+              "expr": "update_records",
+              "type": "Any",
+              "target": "Update4_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"fieldList\":[{\"name\":\"status\",\"value\":\"421392865667645441\",\"operator\":\"is\",\"kind\":\"Record\",\"fieldArrShow\":[]}],\"selected\":\"selected_var\",\"record\":\"record_var\",\"namespaceHandle\":\"itsm\"}",
+              "type": "Vars",
+              "target": "scope"
+            },
+            {
+              "type": "Handle",
+              "value": "Update-Record",
+              "target": "workflow"
+            }
+          ],
+          "customName": "Update Record"
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2960,
+                1960,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": [],
+          "customName": "Termination"
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": null
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "4"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "422590558150721537",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.id",
+              "values": [
+                "409824987081211905"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "ChangeTask"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2320,
+                1960,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": null
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Trigger the workflow execution based on configuration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "409824987139080193",
+      "createdAt": "2024-12-25T08:11:24.000Z",
+      "updatedAt": "2024-12-25T08:12:20.000Z"
+    }
+  ]
+}

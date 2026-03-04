@@ -1,0 +1,146 @@
+{
+  "workflows": [
+    {
+      "workflowID": "435462893367001089",
+      "handle": "demo_email_comment",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "demo_email_comment",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "aabb",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "emailSendWithComment",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2288,
+                2192,
+                200,
+                80
+              ],
+              "value": "Email send with comment",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"我是邮件的标题xXx\"",
+              "type": "String",
+              "target": "subject"
+            },
+            {
+              "expr": "\"bot@it188.com\"",
+              "type": "String",
+              "target": "from"
+            },
+            {
+              "expr": "\"dongb@it188.com\"",
+              "type": "String",
+              "target": "to"
+            },
+            {
+              "expr": "\"dongbin email test xx dongbin email test xx dongbin email test xx dongbin email test xx dongbin email test xx\"",
+              "type": "String",
+              "target": "plain"
+            },
+            {
+              "expr": "record.namespaceID",
+              "type": "String",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.moduleID",
+              "type": "String",
+              "target": "module"
+            },
+            {
+              "expr": "record.recordID",
+              "type": "String",
+              "target": "recordID"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "triggerID": "435463380745060353",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2288,
+                1976,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Compose record - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "421735257987940353",
+      "createdAt": "2025-03-24T03:04:49.000Z",
+      "updatedAt": "2025-03-25T02:02:18.000Z"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+name: "[低代码] 流程算子定制 (Process Operator Customization)"
+description: 开发平台扩展模块或系统插件，对低代码平台的核心功能进行深度定制与增强。
+title: "[开发] 流程算子: <算子名称>"
+labels: ["domain:lowcode", "activity:coding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 流程算子定制
+
+        开发者依据<算子需求>，开发<插件代码包>，并产出<插件代码包>。
+
+  - type: input
+    id: operator_name
+    attributes:
+      label: 算子名称
+      placeholder: e.g. PDF生成算子
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs
+    attributes:
+      label: 算子需求
+      placeholder: 请提供算子/插件的功能需求、平台扩展点文档...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **插件代码包**：功能扩展
+        - [ ] **评价标准**：插件安装后能扩展平台原有能力，且不影响核心功能稳定性

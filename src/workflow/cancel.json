@@ -1,0 +1,135 @@
+{
+  "workflows": [
+    {
+      "workflowID": "421219019199086593",
+      "handle": "",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "cancel",
+        "type": "Basic",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "problem task status to cancel",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "Update",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2216,
+                2200,
+                200,
+                80
+              ],
+              "value": "Update Data for a Specified Data",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [
+            {
+              "expr": "update_records",
+              "type": "Any",
+              "target": "Update4_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"fieldList\":[{\"name\":\"status\",\"value\":\"420524442339246081\",\"operator\":\"is\",\"kind\":\"Record\",\"fieldArrShow\":[]}],\"namespaceHandle\":\"itsm\",\"selected\":\"selected_var\",\"record\":\"record_var\"}",
+              "type": "Vars",
+              "target": "scope"
+            },
+            {
+              "type": "Handle",
+              "value": "Update-Record",
+              "target": "workflow"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "triggerID": "421219120835461121",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.id",
+              "values": [
+                "409824987081211905"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "ProblemTask"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2216,
+                1992,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "5",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": null
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "3"
+                }
+              ],
+              "value": "根据配置触发工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "415605532309913601",
+      "createdAt": "2024-12-16T06:58:38.000Z",
+      "updatedAt": "2024-12-16T07:01:17.000Z"
+    }
+  ]
+}

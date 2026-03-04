@@ -1,0 +1,35 @@
+name: "[数据] 数据逻辑开发 (Data Logic Development)"
+description: 基于平台的数据抽象层，编写数据库触发器、存储过程或函数，处理复杂的数据一致性逻辑。
+title: "[开发] 数据逻辑: <逻辑名称>"
+labels: ["domain:data", "activity:coding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 数据逻辑开发
+
+        开发者依据<逻辑需求>，编写<存储过程/触发器 SQL 代码>，并产出<存储过程/触发器 SQL 代码>。
+
+  - type: input
+    id: logic_name
+    attributes:
+      label: 逻辑名称
+      placeholder: e.g. 库存扣减触发器
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs
+    attributes:
+      label: 逻辑需求
+      placeholder: 请提供数据一致性规则、复杂查询需求...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **存储过程/触发器 SQL 代码**：逻辑实现
+        - [ ] **评价标准**：SQL 逻辑编译通过，单元测试覆盖各种数据边界情况

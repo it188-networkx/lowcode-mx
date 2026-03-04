@@ -1,0 +1,50 @@
+name: "[低代码] 前端缺陷修复 (Frontend Bug Fix)"
+description: 分析低代码平台前端代码中的缺陷，定位根因并实施修复。
+title: "[修复] 前端Bug: <Bug标题>"
+labels: ["domain:lowcode", "activity:fix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 前端缺陷修复
+
+        开发工程师依据Bug描述和截图，定位低代码平台前端代码中的根因并编写修复补丁，产出已修复的可执行代码。
+
+  - type: input
+    id: bug_title
+    attributes:
+      label: Bug标题
+      placeholder: e.g. 表单控件渲染异常
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug描述
+      description: 详细描述Bug的触发场景、复现步骤及预期行为
+      placeholder: |
+        1. 问题描述
+        2. 复现步骤
+        3. 预期行为
+        4. 实际行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug_screenshot
+    attributes:
+      label: Bug截图
+      description: 请上传或粘贴相关截图、报错信息或日志
+      placeholder: 拖拽图片到此处或粘贴图片链接
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **已修复的可执行代码**：代码修复
+        - [ ] **故障分析记录**：根因分析
+        - [ ] **评价标准**：修复后Bug不再复现，且未引入新的回归问题

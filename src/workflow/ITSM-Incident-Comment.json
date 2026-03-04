@@ -1,0 +1,5339 @@
+{
+  "workflows": [
+    {
+      "workflowID": "410118575845343233",
+      "handle": "ITSM-Incident-Comment",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "ITSM-Incident-Comment",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "403",
+              "xywh": [
+                1568,
+                1368,
+                992,
+                320
+              ],
+              "value": "监测Incident记录字段变化",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "403",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "447",
+              "xywh": [
+                2392,
+                840,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "447",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "templatesRender",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "449",
+              "xywh": [
+                6520,
+                656,
+                200,
+                80
+              ],
+              "value": "Template render",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "449",
+          "results": [
+            {
+              "expr": "document",
+              "type": "RenderedDocument",
+              "target": "content"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"itsm_incident_comment_email\"",
+              "type": "Handle",
+              "target": "lookup"
+            },
+            {
+              "type": "String",
+              "value": "text/html",
+              "target": "documentType"
+            },
+            {
+              "expr": "{ \n    \"assignmentGroup\":group_value,\n    \"number\":incident.values.number,\n    \"user\":incident.values.user,\n    \"phone\":incident.values.userPhone,\n    \"status\":status_value,\n    \"priority\":priority_value,\n    \"location\": location_value,\n    \"category\":category_value,\n    \"subCategory\":subCategory_value,\n    \"shortDescription\":incident.values.shortDescription,\n    \"createdBy\": operator.name,\n    \"createdAt\":strftimeByzone(record.values.operationTime, \"%Y-%m-%d %H:%M:%S\", \"Asia/Shanghai\"),\n    \"recordUrl\":recordUrl,\n    \"commentContent\":record.values.content\n}",
+              "type": "Vars",
+              "target": "variables"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "451",
+              "xywh": [
+                4896,
+                656,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "451",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "group"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Group\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.assignmentGroup",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "452",
+              "xywh": [
+                5176,
+                656,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "452",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "group.values.name",
+              "type": "String",
+              "target": "group_value"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "461",
+              "xywh": [
+                2112,
+                840,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "461",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "incident"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Incident\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record.values.incident",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "usersLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "462",
+              "xywh": [
+                5544,
+                656,
+                200,
+                80
+              ],
+              "value": "User lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "462",
+          "results": [
+            {
+              "expr": "user",
+              "type": "User",
+              "target": "operator"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "record.values.operator",
+              "type": "ID",
+              "target": "lookup"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "463",
+              "xywh": [
+                4016,
+                664,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "463",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "464",
+              "xywh": [
+                2736,
+                664,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "464",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "465",
+              "xywh": [
+                3360,
+                800,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "465",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "provisioner",
+              "type": "Any",
+              "target": "record.values.incidentCaller"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "466",
+              "xywh": [
+                3392,
+                664,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "466",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "!isEmpty(user.values.realUser) ? user.values.realUser : provisioner",
+              "type": "Any",
+              "target": "record.values.incidentCaller"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "467",
+              "xywh": [
+                4616,
+                656,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "467",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "468",
+              "xywh": [
+                3704,
+                664,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "468",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "HTTP_URL+HTTP_BASE_URL+\"compose/ns/\"+namespace.slug+\"/pages/409824987080753153/record/\"+incident.ID+\"/edit?isToEdit=true\"",
+              "type": "String",
+              "target": "recordUrl"
+            },
+            {
+              "expr": "\"-\"",
+              "type": "String",
+              "target": "locationValue"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "470",
+              "xywh": [
+                2392,
+                664,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "470",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "incident.values.caller",
+              "type": "ID",
+              "target": "caller"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "471",
+              "xywh": [
+                3060,
+                664,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "471",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "user"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"User\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.caller",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "472",
+              "xywh": [
+                4016,
+                832,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "472",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "505",
+              "xywh": [
+                2096,
+                216,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "505",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "509",
+              "xywh": [
+                2096,
+                368,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "509",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "512",
+              "xywh": [
+                2448,
+                216,
+                200,
+                80
+              ],
+              "value": "Compose records",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "512",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "child_incident"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Incident\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"parentIncident = \" + record.values.incident",
+              "type": "String",
+              "target": "query"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsNew",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "513",
+              "xywh": [
+                2768,
+                216,
+                200,
+                80
+              ],
+              "value": "Compose record maker",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "513",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "make_obj"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "516",
+              "xywh": [
+                3080,
+                216,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "516",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.content",
+              "type": "Any",
+              "target": "make_obj.values.content"
+            },
+            {
+              "expr": "child_incident.recordID",
+              "type": "Any",
+              "target": "make_obj.values.incident"
+            },
+            {
+              "expr": "record.values.operationTime",
+              "type": "Any",
+              "target": "make_obj.values.operationTime"
+            },
+            {
+              "expr": "record.values.operator",
+              "type": "Any",
+              "target": "make_obj.values.operator"
+            },
+            {
+              "expr": "record.values.isVisible",
+              "type": "Any",
+              "target": "make_obj.values.isVisible"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsCreate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "518",
+              "xywh": [
+                3416,
+                216,
+                200,
+                80
+              ],
+              "value": "Compose record create",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "518",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "make_obj",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "usersLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "520",
+              "xywh": [
+                2392,
+                528,
+                200,
+                80
+              ],
+              "value": "User lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "520",
+          "results": [
+            {
+              "expr": "user",
+              "type": "User",
+              "target": "provisioner"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"corteza-provisioner\"",
+              "type": "Handle",
+              "target": "lookup"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "523",
+              "xywh": [
+                1568,
+                1088,
+                960,
+                208
+              ],
+              "value": "Incident 新增字段监测",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "523",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "691",
+              "xywh": [
+                1792,
+                840,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "691",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.createdBy",
+              "type": "Any",
+              "target": "record.values.operator"
+            },
+            {
+              "expr": "record.createdAt",
+              "type": "Any",
+              "target": "record.values.operationTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "697",
+              "xywh": [
+                4336,
+                656,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "697",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"\"",
+              "type": "String",
+              "target": "group_value"
+            },
+            {
+              "expr": "\"\"",
+              "type": "String",
+              "target": "status_value"
+            },
+            {
+              "expr": "\"\"",
+              "type": "String",
+              "target": "priority_value"
+            },
+            {
+              "expr": "\"\"",
+              "type": "String",
+              "target": "location_value"
+            },
+            {
+              "expr": "\"\"",
+              "type": "String",
+              "target": "category_value"
+            },
+            {
+              "expr": "\"\"",
+              "type": "String",
+              "target": "subCategory_value"
+            },
+            {
+              "expr": "{}",
+              "type": "KV",
+              "target": "email_address"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "705",
+              "xywh": [
+                5176,
+                816,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "705",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "status.values.name",
+              "type": "String",
+              "target": "status_value"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "706",
+              "xywh": [
+                4896,
+                816,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "706",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "status"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"StatusManagement\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.status",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "707",
+              "xywh": [
+                4616,
+                816,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "707",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "713",
+              "xywh": [
+                5176,
+                976,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "713",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "priority.values.name",
+              "type": "String",
+              "target": "priority_value"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "714",
+              "xywh": [
+                4896,
+                976,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "714",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "priority"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Priority\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.priority",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "715",
+              "xywh": [
+                4616,
+                976,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "715",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "718",
+              "xywh": [
+                5176,
+                1152,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "718",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "location.values.name",
+              "type": "String",
+              "target": "location_value"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "719",
+              "xywh": [
+                4896,
+                1152,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "719",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "location"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Locations\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.location",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "720",
+              "xywh": [
+                4616,
+                1152,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "720",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "723",
+              "xywh": [
+                5176,
+                1312,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "723",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "category.values.name",
+              "type": "String",
+              "target": "category_value"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "724",
+              "xywh": [
+                4896,
+                1312,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "724",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "category"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Category\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.category",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "725",
+              "xywh": [
+                4616,
+                1312,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "725",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "734",
+              "xywh": [
+                5176,
+                1472,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "734",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "subCategory.values.name",
+              "type": "String",
+              "target": "subCategory_value"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "735",
+              "xywh": [
+                4616,
+                1472,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "735",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsLookup",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "736",
+              "xywh": [
+                4896,
+                1472,
+                200,
+                80
+              ],
+              "value": "Compose record lookup",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "736",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "subCategory"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"Category\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "incident.values.subCategory",
+              "type": "ID",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "750",
+              "xywh": [
+                5824,
+                656,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "750",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "755",
+              "xywh": [
+                6200,
+                656,
+                200,
+                80
+              ],
+              "value": "Compose records",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "755",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "user"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"User\"",
+              "type": "Handle",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"'\" +incident.values.assignmentGroup + \"' IN group\"",
+              "type": "String",
+              "target": "query"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "769",
+              "xywh": [
+                3904,
+                520,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "769",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "emailSend",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "771",
+              "xywh": [
+                7120,
+                648,
+                200,
+                80
+              ],
+              "value": "Email",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "771",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"Incident \" + incident.values.number + \" - worknotes added\"",
+              "type": "String",
+              "target": "subject"
+            },
+            {
+              "expr": "user.values.email",
+              "type": "String",
+              "target": "to"
+            },
+            {
+              "expr": "content.document",
+              "type": "String",
+              "target": "html"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "782",
+              "xywh": [
+                5832,
+                816,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "782",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "error-handler",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "785",
+              "xywh": [
+                6816,
+                656,
+                200,
+                80
+              ],
+              "value": "Continue workflow from this step if an error is triggered",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "785",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "continue",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "788",
+              "xywh": [
+                6832,
+                816,
+                200,
+                80
+              ],
+              "value": "Skip current iteration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "788",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "commentCreate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "857",
+              "xywh": [
+                584,
+                64,
+                200,
+                80
+              ],
+              "value": "Comment Create",
+              "parent": "523",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "857",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "expr": "[\"participantGroup\",\"participant\",\"editorimg\",\"priorityLabel\"]",
+              "type": "Array",
+              "target": "excludeFieldName"
+            },
+            {
+              "expr": "\"Comment\"",
+              "type": "Handle",
+              "target": "targetModule"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "commentUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "859",
+              "xywh": [
+                496,
+                120,
+                200,
+                80
+              ],
+              "value": "Comment Update",
+              "parent": "403",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "859",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "expr": "oldRecord",
+              "type": "ComposeRecord",
+              "target": "oldRecord"
+            },
+            {
+              "expr": "[\"participantGroup\",\"participant\",\"editorimg\",\"priorityLabel\",\"locationCode\"]",
+              "type": "Array",
+              "target": "excludeFieldName"
+            },
+            {
+              "expr": "\"Comment\"",
+              "type": "Handle",
+              "target": "targetModule"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "861",
+              "xywh": [
+                1600,
+                3552,
+                2272,
+                2688
+              ],
+              "value": "父子工单同步",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "861",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "862",
+              "xywh": [
+                1664,
+                2380,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "862",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "child_incident",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "863",
+              "xywh": [
+                1024,
+                2080,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "863",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.assignee",
+              "type": "Any",
+              "target": "child_incident.values.assignee"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "864",
+              "xywh": [
+                1024,
+                2380,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "864",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.issueClassification",
+              "type": "Any",
+              "target": "child_incident.values.issueClassification"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "865",
+              "xywh": [
+                1872,
+                72,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "865",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "expectedStart",
+              "type": "Any",
+              "target": "child_incident.values.expectedStart"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "866",
+              "xywh": [
+                1864,
+                400,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "866",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "arrivalTime",
+              "type": "Any",
+              "target": "child_incident.values.arrivalTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "867",
+              "xywh": [
+                1864,
+                736,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "867",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "resolvedTime",
+              "type": "Any",
+              "target": "child_incident.values.resolvedTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "868",
+              "xywh": [
+                1864,
+                1064,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "868",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.onsiteEngineer",
+              "type": "Any",
+              "target": "child_incident.values.onsiteEngineer"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "869",
+              "xywh": [
+                1864,
+                1408,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "869",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.receiptForm",
+              "type": "Any",
+              "target": "child_incident.values.receiptForm"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "870",
+              "xywh": [
+                1496,
+                1584,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "870",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.receiptForm"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "871",
+              "xywh": [
+                1496,
+                1408,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "871",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "872",
+              "xywh": [
+                1496,
+                1744,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "872",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "873",
+              "xywh": [
+                1864,
+                1744,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "873",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.onSite",
+              "type": "Any",
+              "target": "child_incident.values.onSite"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "874",
+              "xywh": [
+                1864,
+                1920,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "874",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.onsiteArrival",
+              "type": "Any",
+              "target": "child_incident.values.onsiteArrival"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "875",
+              "xywh": [
+                1496,
+                1920,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "875",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "876",
+              "xywh": [
+                1864,
+                2080,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "876",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.onsiteResolution",
+              "type": "Any",
+              "target": "child_incident.values.onsiteResolution"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "877",
+              "xywh": [
+                1496,
+                2080,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "877",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "878",
+              "xywh": [
+                1864,
+                2240,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "878",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.contactNo",
+              "type": "Any",
+              "target": "child_incident.values.contactNo"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "879",
+              "xywh": [
+                1496,
+                2240,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "879",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsEach",
+          "kind": "iterator",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "881",
+              "xywh": [
+                368,
+                76,
+                200,
+                80
+              ],
+              "value": "Compose records",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "881",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "child_incident"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "\"parentIncident = \" + record.recordID",
+              "type": "String",
+              "target": "query"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "882",
+              "xywh": [
+                688,
+                76,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "882",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "883",
+              "xywh": [
+                1016,
+                76,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "883",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.assignmentGroup",
+              "type": "Any",
+              "target": "child_incident.values.assignmentGroup"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "884",
+              "xywh": [
+                688,
+                240,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "884",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.assignmentGroup"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "885",
+              "xywh": [
+                1016,
+                392,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "885",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "actualResolvedTime",
+              "type": "Any",
+              "target": "child_incident.values.actualResolvedTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "886",
+              "xywh": [
+                688,
+                908,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "886",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.causeCode"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "887",
+              "xywh": [
+                688,
+                1072,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "887",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "888",
+              "xywh": [
+                688,
+                1240,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "888",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.resolutionCode"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "889",
+              "xywh": [
+                688,
+                1400,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "889",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "890",
+              "xywh": [
+                1024,
+                1568,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "890",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.status",
+              "type": "Any",
+              "target": "child_incident.values.status"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "891",
+              "xywh": [
+                1024,
+                1904,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "891",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.pendingReason",
+              "type": "Any",
+              "target": "child_incident.values.pendingReason"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "892",
+              "xywh": [
+                688,
+                2380,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "892",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "893",
+              "xywh": [
+                688,
+                2232,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "893",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.assignee"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "894",
+              "xywh": [
+                688,
+                2080,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "894",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "895",
+              "xywh": [
+                688,
+                1904,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "895",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "896",
+              "xywh": [
+                688,
+                1744,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "896",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.status"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "897",
+              "xywh": [
+                1496,
+                232,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "897",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.expectedStart"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "898",
+              "xywh": [
+                1496,
+                400,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "898",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "899",
+              "xywh": [
+                1496,
+                568,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "899",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.arrivalTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "900",
+              "xywh": [
+                1496,
+                736,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "900",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "901",
+              "xywh": [
+                1016,
+                1072,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "901",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.resolutionCode",
+              "type": "Any",
+              "target": "child_incident.values.resolutionCode"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "902",
+              "xywh": [
+                1016,
+                1400,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "902",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.resolution",
+              "type": "Any",
+              "target": "child_incident.values.resolution"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "903",
+              "xywh": [
+                688,
+                1568,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "903",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "904",
+              "xywh": [
+                688,
+                392,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "904",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "905",
+              "xywh": [
+                1496,
+                72,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "905",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "906",
+              "xywh": [
+                1496,
+                896,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "906",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.resolvedTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "907",
+              "xywh": [
+                368,
+                320,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "907",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "908",
+              "xywh": [
+                64,
+                320,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "908",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.actualResolvedTime",
+              "type": "DateTime",
+              "target": "actualResolvedTime"
+            },
+            {
+              "expr": "record.values.expectedStart",
+              "type": "DateTime",
+              "target": "expectedStart"
+            },
+            {
+              "expr": "record.values.arrivalTime",
+              "type": "DateTime",
+              "target": "arrivalTime"
+            },
+            {
+              "expr": "record.values.resolvedTime",
+              "type": "DateTime",
+              "target": "resolvedTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "909",
+              "xywh": [
+                688,
+                552,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "909",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.actualResolvedTime"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "910",
+              "xywh": [
+                688,
+                720,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "910",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "911",
+              "xywh": [
+                1016,
+                720,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "911",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "record.values.causeCode",
+              "type": "Any",
+              "target": "child_incident.values.causeCode"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "912",
+              "xywh": [
+                1496,
+                1064,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "912",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "913",
+              "xywh": [
+                1496,
+                1240,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "913",
+          "results": [],
+          "arguments": [
+            {
+              "type": "Array",
+              "target": "child_incident.values.onsiteEngineer"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "475",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "466",
+          "parentID": "471"
+        },
+        {
+          "expr": "!isEmpty(caller)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "476",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "471",
+          "parentID": "464"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "477",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "465",
+          "parentID": "464"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "480",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "468",
+          "parentID": "466"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "481",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "451",
+          "parentID": "467"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "482",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "452",
+          "parentID": "451"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "492",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "468",
+          "parentID": "465"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "493",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "769",
+          "parentID": "468"
+        },
+        {
+          "expr": "record.values.type == \"c\"",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "494",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "697",
+          "parentID": "463"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "495",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "472",
+          "parentID": "463"
+        },
+        {
+          "expr": "record.values.type == \"c\"",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "508",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "512",
+          "parentID": "505"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "510",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "509",
+          "parentID": "505"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "514",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "513",
+          "parentID": "512"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "515",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "509",
+          "parentID": "512"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "517",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "516",
+          "parentID": "513"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "519",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "518",
+          "parentID": "516"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "521",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "520",
+          "parentID": "470"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "522",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "464",
+          "parentID": "520"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "699",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "467",
+          "parentID": "697"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "708",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "706",
+          "parentID": "707"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "709",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "705",
+          "parentID": "706"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "711",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "707",
+          "parentID": "452"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "712",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "707",
+          "parentID": "467"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "716",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "714",
+          "parentID": "715"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "717",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "713",
+          "parentID": "714"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "721",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "719",
+          "parentID": "720"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "722",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "718",
+          "parentID": "719"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "726",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "724",
+          "parentID": "725"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "727",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "723",
+          "parentID": "724"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "728",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "715",
+          "parentID": "707"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "729",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "715",
+          "parentID": "705"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "730",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "720",
+          "parentID": "715"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "731",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "720",
+          "parentID": "713"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "732",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "725",
+          "parentID": "720"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "733",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "725",
+          "parentID": "718"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "737",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "736",
+          "parentID": "735"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "738",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "734",
+          "parentID": "736"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "739",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "735",
+          "parentID": "725"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "740",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "735",
+          "parentID": "723"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "745",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "462",
+          "parentID": "734"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "746",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "462",
+          "parentID": "735"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "747",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "461",
+          "parentID": "691"
+        },
+        {
+          "expr": "isEmpty(incident.values.assignee) && !isEmpty(incident.values.assignmentGroup)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "751",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "755",
+          "parentID": "750"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "770",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "463",
+          "parentID": "769"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "779",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "750",
+          "parentID": "462"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "780",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "449",
+          "parentID": "755"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "783",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "782",
+          "parentID": "750"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "784",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "782",
+          "parentID": "755"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "786",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "785",
+          "parentID": "449"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "787",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "771",
+          "parentID": "785"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "789",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "788",
+          "parentID": "785"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "794",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "447",
+          "parentID": "461"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "795",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+              "value": "Try",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "470",
+          "parentID": "447"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "796",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;",
+              "value": "Catch",
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "468",
+          "parentID": "447"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "914",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "Body",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "882",
+          "parentID": "881"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "915",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "End",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "907",
+          "parentID": "881"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "916",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "910",
+          "parentID": "885"
+        },
+        {
+          "expr": "!isEmpty(record.values.assignmentGroup)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "917",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "883",
+          "parentID": "882"
+        },
+        {
+          "expr": "!isNil(actualResolvedTime)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "918",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "885",
+          "parentID": "904"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "919",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "909",
+          "parentID": "904"
+        },
+        {
+          "expr": "!isEmpty(record.values.causeCode)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "920",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "911",
+          "parentID": "910"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "921",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "886",
+          "parentID": "910"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "922",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "887",
+          "parentID": "911"
+        },
+        {
+          "expr": "!isEmpty(record.values.resolutionCode)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "923",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "901",
+          "parentID": "887"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "924",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "888",
+          "parentID": "887"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "925",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "889",
+          "parentID": "901"
+        },
+        {
+          "expr": "!isNil(record.values.resolution)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "926",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "902",
+          "parentID": "889"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "927",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "903",
+          "parentID": "889"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "928",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "903",
+          "parentID": "902"
+        },
+        {
+          "expr": "!isEmpty(record.values.status)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "929",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "890",
+          "parentID": "903"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "930",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "896",
+          "parentID": "903"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "931",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "895",
+          "parentID": "890"
+        },
+        {
+          "expr": "!isNil(record.values.pendingReason)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "932",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "891",
+          "parentID": "895"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "933",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "894",
+          "parentID": "895"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "934",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "894",
+          "parentID": "891"
+        },
+        {
+          "expr": "!isEmpty(record.values.assignee)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "935",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "863",
+          "parentID": "894"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "936",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "893",
+          "parentID": "894"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "937",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "892",
+          "parentID": "863"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "938",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "884",
+          "parentID": "882"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "939",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "904",
+          "parentID": "884"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "940",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "904",
+          "parentID": "883"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "941",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "887",
+          "parentID": "886"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "942",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "889",
+          "parentID": "888"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "943",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "895",
+          "parentID": "896"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "944",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "892",
+          "parentID": "893"
+        },
+        {
+          "expr": "!isNil(record.values.issueClassification)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "945",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "864",
+          "parentID": "892"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "946",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "905",
+          "parentID": "892"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "947",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "905",
+          "parentID": "864"
+        },
+        {
+          "expr": "!isNil(expectedStart)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "948",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "865",
+          "parentID": "905"
+        },
+        {
+          "expr": "!isNil(arrivalTime)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "949",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "866",
+          "parentID": "898"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "950",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "897",
+          "parentID": "905"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "951",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "898",
+          "parentID": "865"
+        },
+        {
+          "expr": "!isNil(resolvedTime)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "952",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "867",
+          "parentID": "900"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "953",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "899",
+          "parentID": "898"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "954",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "900",
+          "parentID": "866"
+        },
+        {
+          "expr": "!isEmpty(record.values.onsiteEngineer)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "955",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "868",
+          "parentID": "912"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "956",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "913",
+          "parentID": "912"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "957",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "906",
+          "parentID": "900"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "958",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "912",
+          "parentID": "867"
+        },
+        {
+          "expr": "!isEmpty(record.values.receiptForm)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "959",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "869",
+          "parentID": "871"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "960",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "870",
+          "parentID": "871"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "961",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "871",
+          "parentID": "913"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "962",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "871",
+          "parentID": "868"
+        },
+        {
+          "expr": "!isNil(record.values.onSite)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "963",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "873",
+          "parentID": "872"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "964",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "872",
+          "parentID": "870"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "965",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "872",
+          "parentID": "869"
+        },
+        {
+          "expr": "!isNil(record.values.onsiteArrival)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "966",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "874",
+          "parentID": "875"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "967",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "875",
+          "parentID": "872"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "968",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "875",
+          "parentID": "873"
+        },
+        {
+          "expr": "!isNil(record.values.onsiteResolution)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "969",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "876",
+          "parentID": "877"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "970",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "877",
+          "parentID": "875"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "971",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "877",
+          "parentID": "874"
+        },
+        {
+          "expr": "!isNil(record.values.contactNo)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "972",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "878",
+          "parentID": "879"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "973",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "879",
+          "parentID": "877"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "974",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "879",
+          "parentID": "876"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "975",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "862",
+          "parentID": "879"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "976",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "862",
+          "parentID": "878"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "977",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "881",
+          "parentID": "908"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "978",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "910",
+          "parentID": "909"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "979",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "898",
+          "parentID": "897"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "980",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "900",
+          "parentID": "899"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "981",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "861",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "912",
+          "parentID": "906"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "414374090392993793",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "857",
+          "meta": {
+            "visual": {
+              "id": "206",
+              "xywh": [
+                1776,
+                1152,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "858",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "857",
+                  "parentID": "206"
+                }
+              ],
+              "value": "Compose record - afterCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "414374090393124865",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "859",
+          "meta": {
+            "visual": {
+              "id": "399",
+              "xywh": [
+                144,
+                120,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "860",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "403",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "859",
+                  "parentID": "399"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "403",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "414374090426548225",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "IncidentComment"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "505",
+          "meta": {
+            "visual": {
+              "id": "504",
+              "xywh": [
+                1768,
+                216,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "506",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "505",
+                  "parentID": "504"
+                }
+              ],
+              "value": "Compose record - afterCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "414583308450594817",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "IncidentComment"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "691",
+          "meta": {
+            "visual": {
+              "id": "767",
+              "xywh": [
+                1792,
+                672,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "768",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "691",
+                  "parentID": "767"
+                }
+              ],
+              "value": "Compose record - afterCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "450994498405335041",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "908",
+          "meta": {
+            "visual": {
+              "id": "880",
+              "xywh": [
+                64,
+                76,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "982",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "861",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "908",
+                  "parentID": "880"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "861",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "409985028668325889",
+      "createdAt": "2024-09-30T07:16:25.000Z",
+      "updatedAt": "2025-07-09T06:35:55.000Z"
+    }
+  ]
+}

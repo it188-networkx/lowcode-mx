@@ -1,0 +1,296 @@
+{
+  "workflows": [
+    {
+      "workflowID": "410118575845343235",
+      "handle": "ITSM-Problem-Comment",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "ITSM-Problem-Comment",
+        "type": "",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "403",
+              "xywh": [
+                1568,
+                1368,
+                992,
+                320
+              ],
+              "value": "监测Incident记录字段变化",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "403",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "523",
+              "xywh": [
+                1568,
+                1088,
+                960,
+                208
+              ],
+              "value": "Incident 新增字段监测",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "523",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "commentCreate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "857",
+              "xywh": [
+                584,
+                64,
+                200,
+                80
+              ],
+              "value": "Comment Create",
+              "parent": "523",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "857",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "expr": "[]",
+              "type": "Array",
+              "target": "excludeFieldName"
+            },
+            {
+              "expr": "\"Comment\"",
+              "type": "Handle",
+              "target": "targetModule"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "commentUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "859",
+              "xywh": [
+                496,
+                120,
+                200,
+                80
+              ],
+              "value": "Comment Update",
+              "parent": "403",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "859",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "expr": "oldRecord",
+              "type": "ComposeRecord",
+              "target": "oldRecord"
+            },
+            {
+              "expr": "[]",
+              "type": "Array",
+              "target": "excludeFieldName"
+            },
+            {
+              "expr": "\"Comment\"",
+              "type": "Handle",
+              "target": "targetModule"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [],
+      "triggers": [
+        {
+          "triggerID": "414374090392993795",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Problem"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "857",
+          "meta": {
+            "visual": {
+              "id": "206",
+              "xywh": [
+                1776,
+                1152,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "858",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "857",
+                  "parentID": "206"
+                }
+              ],
+              "value": "Compose record - afterCreate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        },
+        {
+          "triggerID": "414374090393124867",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Problem"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "859",
+          "meta": {
+            "visual": {
+              "id": "399",
+              "xywh": [
+                144,
+                120,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "860",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "403",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "859",
+                  "parentID": "399"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "403",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "409985028668325889",
+      "createdAt": "2024-09-30T07:16:25.000Z",
+      "updatedAt": "2024-12-25T10:22:45.000Z"
+    }
+  ]
+}

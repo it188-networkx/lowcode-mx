@@ -1,0 +1,115 @@
+{
+  "layoutID": "409824987086782465",
+  "pageID": "409824987080753153",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 5,
+  "handle": "primary",
+  "meta": {
+    "title": "新增记录",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\nlet recordId=that.$route.query.maintenanceAssetId\nlet location=that.$route.query.location\nif (triggerBy === \"caller\") {\n  console.log(\"record:\", record)\n  console.log(\"records:\", window.recordField.Incident.caller.records)\n  for (let index = 0; index < window.recordField.Incident.caller.records.length; index++) {\n      let tem_caller = window.recordField.Incident.caller.records[index]\n      if (tem_caller.recordID === record.caller) {\n         record.assignmentGroup = tem_caller.values.group[0]\n      }\n  }\n}\nif (triggerBy === \"category\") {\n  console.log(record.category);\n  console.log(\"records:\", window.recordField.Incident.category.records)\n  for (let index = 0; index < window.recordField.Incident.category.records.length; index++) {\n      let tem_category = window.recordField.Incident.category.records[index]\n      if (tem_category.recordID === record.category) {\n         record.assignmentGroup = tem_category.values.assignmentGroup\n      }\n  }\n}\n\nrecord.maintenanceAssetId = recordId;\nif(!record.location){\nrecord.location = location;\n}\n\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
+    "description": "",
+    "scriptEnabled": true
+  },
+  "config": {
+    "buttons": {
+      "new": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "4"
+      },
+      "back": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "1"
+      },
+      "edit": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "5"
+      },
+      "clone": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "3"
+      },
+      "delete": {
+        "label": "",
+        "params": null,
+        "enabled": false,
+        "actionID": "2"
+      },
+      "submit": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "6"
+      }
+    },
+    "useTitle": true,
+    "visibility": {
+      "expression": "isCreate"
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-oiyeoxg0t5flymotrjm"
+      },
+      "xywh": [
+        0,
+        0,
+        24,
+        54
+      ],
+      "blockID": "1"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-bxb0a378pwtlympcc4c"
+      },
+      "xywh": [
+        24,
+        0,
+        24,
+        54
+      ],
+      "blockID": "2"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-l35g10dx4flymphpll"
+      },
+      "xywh": [
+        0,
+        54,
+        24,
+        42
+      ],
+      "blockID": "3"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-w44oa5sdu8rm7bqdr6d"
+      },
+      "xywh": [
+        24,
+        54,
+        24,
+        42
+      ],
+      "blockID": "120"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-09-28T06:09:30.000Z",
+  "updatedAt": "2025-12-30T02:35:51.000Z"
+}

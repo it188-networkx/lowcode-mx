@@ -1,0 +1,183 @@
+{
+  "workflows": [
+    {
+      "workflowID": "478557941776121857",
+      "handle": "",
+      "enabled": false,
+      "meta": {
+        "icon": "",
+        "name": "sla_workflow_aaadasda",
+        "type": "SLA",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "3",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "5",
+          "results": [],
+          "arguments": [
+            {
+              "type": "String",
+              "value": "asdadsa",
+              "target": "test_aa"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [],
+          "arguments": [
+            {
+              "type": "String",
+              "value": "asdadsa",
+              "target": "test_aa"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "expr": "1 == 1",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "5",
+          "parentID": "3"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "4",
+          "parentID": "3"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "5"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "478557941792964609",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": null
+        },
+        {
+          "triggerID": "478557941809610753",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": null
+        }
+      ],
+      "scope": {
+        "isNew": {
+          "@type": "Boolean",
+          "@value": false
+        },
+        "slaId": {
+          "@type": "ID",
+          "@value": "478557941775990785"
+        }
+      },
+      "createdAt": "2026-01-16T02:33:48.000Z",
+      "updatedAt": "2026-01-16T03:22:55.000Z"
+    }
+  ]
+}

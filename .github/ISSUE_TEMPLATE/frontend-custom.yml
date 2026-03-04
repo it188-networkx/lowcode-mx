@@ -1,0 +1,55 @@
+name: "[低代码] 前端组件定制 (Frontend Component Customization)"
+description: 开发适配低代码平台的自定义前端组件，实现特定的 UI 交互效果。
+title: "[开发] 前端组件: <组件名称>"
+labels: ["domain:lowcode", "activity:coding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 前端组件定制
+
+        开发者依据<UI设计规范/原型>，开发<自定义组件代码包>，并产出<自定义组件代码包>。
+
+  - type: input
+    id: component_name
+    attributes:
+      label: 组件名称
+      placeholder: e.g. 组织架构树选择器
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component_type
+    attributes:
+      label: 组件类型
+      options:
+        - 表单控件
+        - 图表/可视化
+        - 布局容器
+        - 业务微件
+    validations:
+      required: true
+
+  - type: input
+    id: design_spec
+    attributes:
+      label: UI 设计规范/原型
+      placeholder: 请输入 Figma/蓝湖链接
+    validations:
+      required: true
+
+  - type: input
+    id: sdk_doc
+    attributes:
+      label: 平台组件 SDK 文档
+      placeholder: 请输入相关 SDK 文档链接
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **自定义组件代码包**：可配置
+        - [ ] **评价标准**：组件在平台编辑器中可配置，运行时交互符合设计预期

@@ -1,0 +1,504 @@
+{
+  "workflows": [
+    {
+      "workflowID": "416348888388206593",
+      "handle": "",
+      "enabled": false,
+      "meta": {
+        "icon": "",
+        "name": "approval-会签99999",
+        "type": "Approval",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "Initiate",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2520,
+                2000,
+                200,
+                80
+              ],
+              "value": "Initiate an approval process",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [
+            {
+              "expr": "Initiate",
+              "type": "Any",
+              "target": "Initiate4_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"namespaceHandle\":\"itsm\",\"selected\":\"selected_var\",\"record\":\"record_var\",\"approvalLayout\":\"415789342531911681\"}",
+              "type": "Vars",
+              "target": "scope"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "Conditional",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "xywh": [
+                2520,
+                2152,
+                200,
+                80
+              ],
+              "value": "Execute processing task",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "7",
+          "results": [
+            {
+              "expr": "Conditional",
+              "type": "Any",
+              "target": "Conditional7_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"record\":\"record_var\",\"condition\":[{\"list\":[{\"name\":\"category\",\"kind\":\"Record\",\"value\":\"409824987301478401\",\"type\":\"\",\"operator\":\"is\",\"start\":\"\",\"end\":\"\"}],\"type\":\"\"}],\"namespaceHandle\":\"itsm\",\"selected\":\"selected_var\"}",
+              "type": "Vars",
+              "target": "scope"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "Approval",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "xywh": [
+                2520,
+                2296,
+                200,
+                80
+              ],
+              "value": "Execute approval task",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "9",
+          "results": [
+            {
+              "expr": "Approval",
+              "type": "Any",
+              "target": "Approval9_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"record\":\"record_var\",\"approvalidea\":[{\"name\":\"审批通过时填写\",\"type\":\"approval\",\"value\":false,\"required\":false},{\"name\":\"审批拒绝时填写\",\"type\":\"rejection\",\"value\":false,\"required\":false}],\"updateupon\":[{\"name\":\"description\",\"value\":\" entering this node\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"updateapproval\":[{\"name\":\"description\",\"value\":\"after approval\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"updaterejection\":[{\"name\":\"description\",\"value\":\"after rejection\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"namespaceHandle\":\"itsm\",\"address\":[],\"node\":[],\"user\":[{\"name\":\"lixh\",\"handle\":\"lixh\",\"userID\":\"409985028668325889\"},{\"name\":\"madx\",\"handle\":\"madx\",\"userID\":\"410564459149656065\"}],\"role\":[],\"selected\":\"selected_var\",\"approvalType\":\"2\",\"approvalLayout\":\"415789342531911681\",\"pass\":\"pass\",\"reject\":\"reject\"}",
+              "type": "Vars",
+              "target": "scope"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "Approve",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "11",
+              "xywh": [
+                2410,
+                2440,
+                200,
+                80
+              ],
+              "value": "Execute processing task",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "11",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "Reject",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "12",
+              "xywh": [
+                2630,
+                2440,
+                200,
+                80
+              ],
+              "value": "Execute processing task",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "12",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "Process",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "24",
+              "xywh": [
+                2408,
+                2552,
+                200,
+                80
+              ],
+              "value": "Execute processing task",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "24",
+          "results": [
+            {
+              "expr": "Process",
+              "type": "Any",
+              "target": "Process24_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"record\":\"record_var\",\"processidea\":[{\"name\":\"提交时填写\",\"type\":\"submit\",\"value\":false,\"required\":false}],\"updateupon\":[{\"name\":\"description\",\"value\":\"entering this node111\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"updatesubmit\":[{\"name\":\"description\",\"value\":\"after submit111\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"namespaceHandle\":\"itsm\",\"address\":[],\"node\":[],\"user\":[{\"name\":\"madx\",\"handle\":\"madx\",\"userID\":\"410564459149656065\"}],\"role\":[],\"selected\":\"selected_var\",\"processLayout\":\"415789344411484161\",\"submit\":\"pass办理\"}",
+              "type": "Vars",
+              "target": "scope"
+            }
+          ]
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "28",
+              "xywh": [
+                2408,
+                2664,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "28",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "30",
+              "xywh": [
+                2632,
+                2664,
+                200,
+                80
+              ],
+              "value": "Terminate workflow execution",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "30",
+          "results": [],
+          "arguments": []
+        },
+        {
+          "ref": "",
+          "kind": "Process",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "32",
+              "xywh": [
+                2630,
+                2560,
+                200,
+                80
+              ],
+              "value": "Execute processing task",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "32",
+          "results": [
+            {
+              "expr": "Process",
+              "type": "Any",
+              "target": "Process32_var"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "{\"record\":\"record_var\",\"processidea\":[{\"name\":\"提交时填写\",\"type\":\"submit\",\"value\":false,\"required\":false}],\"updateupon\":[{\"name\":\"description\",\"value\":\"entering this node222\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"updatesubmit\":[{\"name\":\"description\",\"value\":\"after submit222\",\"operator\":\"is\",\"kind\":\"String\",\"fieldArrShow\":[]}],\"namespaceHandle\":\"itsm\",\"address\":[],\"node\":[],\"user\":[{\"name\":\"madx\",\"handle\":\"madx\",\"userID\":\"410564459149656065\"}],\"role\":[],\"selected\":\"selected_var\",\"processLayout\":\"415789344411484161\",\"submit\":\"reject办理\"}",
+              "type": "Vars",
+              "target": "scope"
+            }
+          ]
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "13",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "7",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "15",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "9",
+          "parentID": "7"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "16",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "11",
+          "parentID": "9"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "17",
+              "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "12",
+          "parentID": "9"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "26",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "24",
+          "parentID": "11"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "29",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "28",
+          "parentID": "24"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "33",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "32",
+          "parentID": "12"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "34",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "30",
+          "parentID": "32"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "416364762621542401",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.id",
+              "values": [
+                "409824987081211905"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            },
+            {
+              "op": "expression",
+              "name": "record",
+              "values": [
+                " (  ( record.values.shortDescription == \"fanrui12138\" )  ) "
+              ],
+              "condition": [
+                {
+                  "list": [
+                    {
+                      "kind": "String",
+                      "name": "shortDescription",
+                      "type": "",
+                      "value": "fanrui12138",
+                      "operator": "is",
+                      "operators": null
+                    }
+                  ],
+                  "type": ""
+                }
+              ]
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "35",
+              "xywh": [
+                2520,
+                1848,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "36",
+                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "35"
+                }
+              ],
+              "value": "Trigger the workflow execution based on configuration",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "410564459149656065",
+      "createdAt": "2024-11-12T06:28:51.000Z",
+      "updatedAt": "2024-11-12T09:17:19.000Z"
+    }
+  ]
+}

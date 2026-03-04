@@ -1,0 +1,53 @@
+name: "[数据] 数仓开发 (Data Warehouse Development)"
+description: 采用ClickHouse等列式存储数据库进行数据仓库开发，支持大规模数据的高效查询与分析。
+title: "[开发] 数仓开发: <分析主题>"
+labels: ["domain:data", "activity:coding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 数仓处理开发
+
+        开发者依据<分析需求>，设计<数仓表结构>并编写<ETL脚本>，产出<分析报表>。
+
+  - type: input
+    id: subject
+    attributes:
+      label: 分析主题
+      placeholder: e.g. 流量日志分析
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_sources
+    attributes:
+      label: 数据源清单
+      placeholder: 请列出涉及的源表、日志流或外部数据接口...
+    validations:
+      required: true
+
+  - type: textarea
+    id: analysis_metrics
+    attributes:
+      label: 分析指标需求
+      placeholder: 明确需要统计的维度、指标及计算逻辑...
+    validations:
+      required: true
+
+  - type: input
+    id: data_volume
+    attributes:
+      label: 数据量级预估
+      placeholder: e.g. 日增 10GB, 总量 5TB
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **数据仓库表结构**：高效查询
+        - [ ] **ETL 脚本**：数据处理
+        - [ ] **分析报表**：指标准确
+        - [ ] **评价标准**：数据仓库能高效处理大规模数据查询，分析报表准确反映业务指标

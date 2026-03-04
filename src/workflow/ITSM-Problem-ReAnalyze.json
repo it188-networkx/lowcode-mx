@@ -1,0 +1,251 @@
+{
+  "workflows": [
+    {
+      "workflowID": "421564716810108929",
+      "handle": "",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "ITSM-Problem-ReAnalyze",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "问题管理-重新分析",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2488,
+                2144,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"420528770391212033\"",
+              "type": "Any",
+              "target": "record.values.status"
+            },
+            {
+              "expr": "invoker",
+              "type": "Any",
+              "target": "record.values.lastReopenedBy"
+            },
+            {
+              "expr": "invokerTime",
+              "type": "Any",
+              "target": "record.values.lastReopenedAt"
+            },
+            {
+              "type": "Any",
+              "target": "record.values.resolvedBy"
+            },
+            {
+              "type": "Any",
+              "target": "record.values.resolvedAt"
+            },
+            {
+              "type": "Any",
+              "target": "record.values.closedBy"
+            },
+            {
+              "type": "Any",
+              "target": "record.values.closedAt"
+            },
+            {
+              "type": "Any",
+              "target": "record.values.closedNotes"
+            },
+            {
+              "type": "Any",
+              "target": "record.values.resolutionType"
+            },
+            {
+              "expr": "\"0\"",
+              "type": "Any",
+              "target": "record.values.workaroundApplied"
+            },
+            {
+              "expr": "record.values.reopenCount+1",
+              "type": "Any",
+              "target": "record.values.reopenCount"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "composeRecordsUpdate",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2800,
+                2144,
+                200,
+                80
+              ],
+              "value": "Compose record update",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "8",
+              "xywh": [
+                3104,
+                2144,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "8",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "7",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "4"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "6"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "421564716892028929",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "module.name",
+              "values": [
+                "problem"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "visual": {
+              "id": "3",
+              "xywh": [
+                2176,
+                2144,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "16",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "3"
+                }
+              ],
+              "value": "Compose record - onManual",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          }
+        }
+      ],
+      "ownedBy": "415605532309913601",
+      "createdAt": "2024-12-18T06:17:21.000Z",
+      "updatedAt": "2024-12-27T09:52:38.000Z"
+    }
+  ]
+}

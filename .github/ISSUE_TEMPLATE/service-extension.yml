@@ -1,0 +1,53 @@
+name: "[低代码] 服务扩展定制 (Service Extension)"
+description: 开发平台 Action 或独立 Sidecar 服务，实现与平台流程的 API 交互及事件处理。
+title: "[开发] 服务扩展: <扩展服务名称>"
+labels: ["domain:lowcode", "activity:coding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 服务扩展定制
+
+        开发者依据<业务逻辑需求>，编写<服务端代码>，并产出<服务端代码>。
+
+  - type: input
+    id: service_name
+    attributes:
+      label: 扩展服务名称
+      placeholder: e.g. 订单状态同步服务
+    validations:
+      required: true
+
+  - type: dropdown
+    id: extension_type
+    attributes:
+      label: 扩展类型
+      options:
+        - Action
+        - Sidecar
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: 业务逻辑需求
+      placeholder: 详细描述业务逻辑、输入输出及处理流程...
+    validations:
+      required: true
+
+  - type: input
+    id: api_doc
+    attributes:
+      label: 平台 API 文档
+      placeholder: 请输入相关 API 文档链接
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 输出物要求
+
+        - [ ] **服务端代码**：扩展实现
+        - [ ] **评价标准**：扩展逻辑能正确处理平台事件，且性能满足 SLA 要求

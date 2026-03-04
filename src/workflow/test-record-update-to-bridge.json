@@ -1,0 +1,221 @@
+{
+  "workflows": [
+    {
+      "workflowID": "476215308392529921",
+      "handle": "test-record-update-to-bridge",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "test-record-update-to-bridge",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "4",
+              "xywh": [
+                2600,
+                1960,
+                200,
+                80
+              ],
+              "value": "Define and mutate scope variables",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "1",
+              "type": "Any",
+              "target": "a"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "httpRequestSendWithRecord",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "6",
+              "xywh": [
+                2840,
+                2120,
+                200,
+                80
+              ],
+              "value": "HTTP request with Record",
+              "parent": "1",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [
+            {
+              "expr": "status",
+              "type": "String",
+              "target": "status"
+            },
+            {
+              "expr": "statusCode",
+              "type": "Integer",
+              "target": "code"
+            },
+            {
+              "expr": "body",
+              "type": "Reader",
+              "target": "data"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "\"http://192.168.10.2:8006/bridge/api/v1/sync/itsm?client_id=dev-mx\"",
+              "type": "String",
+              "target": "url"
+            },
+            {
+              "type": "String",
+              "value": "POST",
+              "target": "method"
+            },
+            {
+              "expr": "{\n  \"X-Api-Key\":[\"hkt-gw-7a1b9f82d3e4c5b6a70824987082\"]\n}",
+              "type": "KVV",
+              "target": "headers"
+            },
+            {
+              "expr": "\"application/json\"",
+              "type": "String",
+              "target": "headerContentType"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "body"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "9",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "1",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "4"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "477238067849396225",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "4",
+          "meta": {
+            "days": "",
+            "hours": "",
+            "visual": {
+              "id": "10",
+              "xywh": [
+                2280,
+                1960,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "11",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "1",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "4",
+                  "parentID": "10"
+                }
+              ],
+              "value": "Compose record - afterUpdate",
+              "parent": "1",
+              "defaultName": true
+            },
+            "endTime": "0001-01-01T00:00:00Z",
+            "minutes": "",
+            "moduleID": "",
+            "timeNode": "",
+            "condition": null,
+            "namespace": "",
+            "startTime": "0001-01-01T00:00:00Z",
+            "timeRepeat": "",
+            "description": "",
+            "namespaceID": "",
+            "endTimeCondition": {
+              "kind": "",
+              "name": "",
+              "type": "",
+              "value": null,
+              "oldName": "",
+              "operator": "",
+              "variable": "",
+              "operators": null
+            },
+            "startTimeCondition": {
+              "kind": "",
+              "name": "",
+              "type": "",
+              "value": null,
+              "oldName": "",
+              "operator": "",
+              "variable": "",
+              "operators": null
+            }
+          }
+        }
+      ],
+      "ownedBy": "470139165523247105",
+      "createdAt": "2025-12-30T08:36:18.000Z",
+      "updatedAt": "2026-01-21T07:43:51.000Z"
+    }
+  ]
+}

@@ -1,0 +1,806 @@
+{
+  "layoutID": "421406747907850241",
+  "pageID": "421394311276396545",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 2,
+  "handle": "Edit",
+  "meta": {
+    "title": "Edit",
+    "script": "",
+    "description": "",
+    "scriptEnabled": false
+  },
+  "config": {
+    "actions": [
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Assess':'评估'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442881838448641",
+          "pageLayoutID": "421442885376999425",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421389644291178497",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            },
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Select",
+                  "name": "type",
+                  "type": "",
+                  "start": "",
+                  "value": "Normal",
+                  "operator": "is"
+                }
+              ],
+              "type": "and"
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "1",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Schedule':'开始排期'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442881987936257",
+          "pageLayoutID": "421499992822382593",
+          "roleCondition": {
+            "role": [
+              "421637477191712769"
+            ],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Select",
+                  "name": "type",
+                  "type": "",
+                  "start": "",
+                  "value": "Standard",
+                  "operator": "is"
+                },
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "and",
+                  "start": "",
+                  "value": "421389644291178497",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "2",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "${lang == 'en' ? 'Submit approval':'提交审批'}",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "7",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442887742390273",
+          "pageLayoutID": "",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": []
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Select",
+                  "name": "type",
+                  "type": "",
+                  "start": "",
+                  "value": "Normal",
+                  "operator": "is"
+                },
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "and",
+                  "start": "",
+                  "value": [
+                    "421389845802319873",
+                    "421392462628519937"
+                  ],
+                  "operator": "is in list"
+                }
+              ],
+              "type": ""
+            },
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Select",
+                  "name": "type",
+                  "type": "",
+                  "start": "",
+                  "value": "Emergeny",
+                  "operator": "is"
+                },
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "and",
+                  "start": "",
+                  "value": "421389644291178497",
+                  "operator": "is"
+                }
+              ],
+              "type": "or"
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "3",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Start Implementation':'开始实施'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442887946010625",
+          "pageLayoutID": "421538192798515201",
+          "roleCondition": {
+            "role": [
+              "421637477191712769"
+            ],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421390449530437633",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "4",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Complete Implementation':'实施完成'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442888129970177",
+          "pageLayoutID": "421538192798449665",
+          "roleCondition": {
+            "role": [
+              "421637477191712769"
+            ],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421390650236403713",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "5",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Success':'验收通过'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442887977861121",
+          "pageLayoutID": "421538192798384129",
+          "roleCondition": {
+            "role": [
+              "421637477191712769"
+            ],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421390650940850177",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "6",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Fail':'验收失败'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442888162279425",
+          "pageLayoutID": "421538192798318593",
+          "roleCondition": {
+            "role": [
+              "421637477191712769"
+            ],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421390650940850177",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "7",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "${lang == 'en' ? 'Cancel':'取消'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442888229257217",
+          "pageLayoutID": "421538192798253057",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": [
+                    "421389644291178497",
+                    "421389845802319873",
+                    "421390146936504321",
+                    "421390650236403713",
+                    "421390650940850177"
+                  ],
+                  "operator": "is in list"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "8",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Close':'关闭'}",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "editor",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421442888262483969",
+          "pageLayoutID": "421538192764960769",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignmentGroup",
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421639392715079681",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "9",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Related Incident':'关联事件单'} ",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "base",
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "421835288042143745",
+          "pageLayoutID": "421841018627883009",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421389644291178497",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "10",
+        "placement": "end"
+      },
+      {
+        "kind": "popUpLayout",
+        "meta": {
+          "label": "${lang == 'en' ? 'Related Problem':'关联问题单'}",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "isEdit": "base",
+          "stepID": "5",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "422294888407629825",
+          "pageLayoutID": "422290313126739969",
+          "roleCondition": {
+            "role": [],
+            "user": [],
+            "group": [],
+            "specialRole": [
+              "assignee"
+            ]
+          },
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "type": "",
+                  "start": "",
+                  "value": "421389644291178497",
+                  "operator": "is"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "btnVisibleKeyList": "Change"
+        },
+        "enabled": true,
+        "actionID": "11",
+        "placement": "end"
+      }
+    ],
+    "buttons": {
+      "new": {
+        "label": "",
+        "enabled": false
+      },
+      "back": {
+        "label": "",
+        "enabled": true
+      },
+      "edit": {
+        "label": "",
+        "enabled": false
+      },
+      "clone": {
+        "label": "",
+        "enabled": false
+      },
+      "delete": {
+        "label": "",
+        "enabled": true
+      },
+      "submit": {
+        "label": "",
+        "enabled": true
+      }
+    },
+    "useTitle": true,
+    "visibility": {
+      "expression": "isEdit"
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-xx2jiqaqrlbm4s6l5x7"
+      },
+      "xywh": [
+        0,
+        0,
+        23,
+        42
+      ],
+      "blockID": "14"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-f08hxenu8wbm4s6l5x8"
+      },
+      "xywh": [
+        23,
+        0,
+        25,
+        42
+      ],
+      "blockID": "15"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-fveots3jhcm4s6l5x8"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "16"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-7hbuq1augoom4s6l5x8"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "17"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-9usufcbded8m4s6l5x8"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "18"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-vadgzl8gnsam4s6l5x8"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "19"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-814n5jtf62jm4s6l5x9"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "20"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-ryuvs1fr6jm4s6l5x9"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "21"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-jt0mxex0dqnm4s6l5x9"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "22"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-32syn2oz2k6m4s6l5x9"
+      },
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
+      "blockID": "23"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-szr45gnjyspm4s6l5x9"
+      },
+      "xywh": [
+        0,
+        115,
+        48,
+        66
+      ],
+      "blockID": "24"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-ngqyovx5iscm4s6l5x9"
+      },
+      "xywh": [
+        0,
+        70,
+        48,
+        48
+      ],
+      "blockID": "25"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-vlakq3dhzsjm56k57j6"
+      },
+      "xywh": [
+        0,
+        42,
+        48,
+        37
+      ],
+      "blockID": "51"
+    },
+    {
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-pv0hckdg34cm5c9zev3"
+      },
+      "xywh": [
+        22,
+        45,
+        25,
+        45
+      ],
+      "blockID": "55"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-12-17T08:06:18.000Z",
+  "updatedAt": "2025-02-17T09:44:47.000Z"
+}

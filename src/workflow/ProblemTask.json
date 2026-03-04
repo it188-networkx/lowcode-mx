@@ -1,0 +1,500 @@
+{
+  "workflows": [
+    {
+      "workflowID": "420816936775974913",
+      "handle": "ProblemTask",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "ITSM-ProblemTask-Complete-adv",
+        "type": "Advanced",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "ProblemTask操作相关工作流",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "swimlane",
+          "kind": "visual",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "66",
+              "xywh": [
+                1568,
+                1744,
+                1968,
+                744
+              ],
+              "value": "Status to Complete",
+              "parent": "1",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "66",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "notification",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "67",
+              "xywh": [
+                1104,
+                112,
+                200,
+                80
+              ],
+              "value": "Show Alert",
+              "parent": "66",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "67",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"Close notes 不能为空\"",
+              "type": "String",
+              "target": "message"
+            },
+            {
+              "type": "String",
+              "value": "primary",
+              "target": "variant"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "68",
+              "xywh": [
+                1480,
+                112,
+                200,
+                80
+              ],
+              "value": "终止工作流执行",
+              "parent": "66",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "68",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "70",
+              "xywh": [
+                400,
+                288,
+                200,
+                80
+              ],
+              "value": "type check",
+              "parent": "66",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "70",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "notification",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "84",
+              "xywh": [
+                1512,
+                464,
+                200,
+                80
+              ],
+              "value": "Show Alert",
+              "parent": "66",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "84",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"Cause code，Proposed resolution 或 Cause notes 不能为空\"",
+              "type": "String",
+              "target": "message"
+            },
+            {
+              "type": "String",
+              "value": "primary",
+              "target": "variant"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "88",
+              "xywh": [
+                680,
+                128,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "66",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "88",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "89",
+              "xywh": [
+                720,
+                464,
+                200,
+                80
+              ],
+              "value": "Exclusive",
+              "parent": "66",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "89",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "notification",
+          "kind": "prompt",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "98",
+              "xywh": [
+                728,
+                616,
+                200,
+                80
+              ],
+              "value": "invalid option",
+              "parent": "66",
+              "defaultName": false
+            },
+            "description": ""
+          },
+          "stepID": "98",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "\"无效操作\"",
+              "type": "String",
+              "target": "message"
+            },
+            {
+              "type": "String",
+              "value": "primary",
+              "target": "variant"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "exec-workflow",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "104",
+              "xywh": [
+                1040,
+                368,
+                200,
+                80
+              ],
+              "value": "执行工作流并将变量从其范围映射到当前范围",
+              "parent": "66",
+              "defaultName": true
+            },
+            "description": ""
+          },
+          "stepID": "104",
+          "results": [],
+          "arguments": [
+            {
+              "type": "ID",
+              "value": "421245192612347905",
+              "target": "workflow"
+            },
+            {
+              "expr": "{\"record\": record,\"selected\":selected}",
+              "type": "Vars",
+              "target": "scope"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "74",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "68",
+          "parentID": "67"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "86",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "68",
+          "parentID": "84"
+        },
+        {
+          "expr": "record.values.type == \"General\" && record.values.status == \"420524543203934209\"",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "90",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "88",
+          "parentID": "70"
+        },
+        {
+          "expr": "record.values.type == \"Root Cause Analysis\" && record.values.status == \"420524543203934209\"",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "91",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "89",
+          "parentID": "70"
+        },
+        {
+          "expr": "isEmpty(record.values.closeNotes)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "93",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "67",
+          "parentID": "88"
+        },
+        {
+          "expr": "isEmpty(record.values.causeCode) || isEmpty(record.values.causeNotes) || isEmpty(record.values.proposedResolution)",
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "94",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#1 - If",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "84",
+          "parentID": "89"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "95",
+              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "104",
+          "parentID": "88"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "96",
+              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#2 - Else (if)",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "104",
+          "parentID": "89"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "99",
+              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": "#3 - Else (if)",
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "98",
+          "parentID": "70"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "100",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "68",
+          "parentID": "98"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": {
+              "id": "105",
+              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+              "value": null,
+              "parent": "66",
+              "points": []
+            },
+            "description": ""
+          },
+          "childID": "68",
+          "parentID": "104"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "421233675238113281",
+          "resourceType": "compose:record",
+          "eventType": "onManual",
+          "constraints": [],
+          "enabled": true,
+          "stepID": "70",
+          "meta": {
+            "visual": {
+              "id": "69",
+              "xywh": [
+                64,
+                280,
+                200,
+                80
+              ],
+              "edges": [
+                {
+                  "meta": {
+                    "label": "",
+                    "visual": {
+                      "id": "78",
+                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                      "value": null,
+                      "parent": "66",
+                      "points": []
+                    },
+                    "description": ""
+                  },
+                  "childID": "70",
+                  "parentID": "69"
+                }
+              ],
+              "value": "Start Work",
+              "parent": "66",
+              "defaultName": false
+            },
+            "description": ""
+          }
+        }
+      ],
+      "runAs": "409824987139080193",
+      "ownedBy": "415605532309913601",
+      "createdAt": "2024-12-13T03:52:15.000Z",
+      "updatedAt": "2024-12-18T02:20:19.000Z"
+    }
+  ]
+}

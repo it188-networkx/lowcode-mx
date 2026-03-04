@@ -1,0 +1,136 @@
+{
+  "layoutID": "412601439697764353",
+  "pageID": "412601439680987137",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 1,
+  "handle": "primary",
+  "meta": {
+    "title": "服务报告",
+    "script": "",
+    "description": "",
+    "scriptEnabled": false
+  },
+  "config": {
+    "buttons": {
+      "new": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "4"
+      },
+      "back": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "1"
+      },
+      "edit": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "5"
+      },
+      "clone": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "3"
+      },
+      "delete": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "2"
+      },
+      "submit": {
+        "label": "",
+        "params": null,
+        "enabled": true,
+        "actionID": "6"
+      }
+    },
+    "useTitle": false,
+    "visibility": {
+      "expression": ""
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"download\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"name\":\"Incident List,Historical change Records,SLA List,category change Records\"},\"responseType\":\"blob\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `IncidentList ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"tpl\",\"id\":\"u:aac8c88443e7\",\"tpl\":\"Incident Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\"},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true}\n",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-c210hlh7bbpm2d4vdbm"
+      },
+      "xywh": [
+        0,
+        0,
+        33,
+        18
+      ],
+      "blockID": "1"
+    },
+    {
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"download\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"name\":\"OtherGroupSLAReport\"},\"responseType\":\"blob\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `IncidentList ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"},{\"type\":\"tpl\",\"id\":\"u:58464723ec09\",\"tpl\":\"Other Group SLA Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\"}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-n9546aaynycm488875f"
+      },
+      "xywh": [
+        0,
+        18,
+        33,
+        16
+      ],
+      "blockID": "2"
+    },
+    {
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"incidentFrom\",\"value\":\"-30days,+30days\",\"valueFormat\":\"YYYY-MM-DD HH:mm:ss\",\"extraName\":\"incidentTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"download\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"\",\"adaptor\":\"\",\"messages\":{},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${incidentFrom}\",\"to\":\"${incidentTo}\"},\"name\":\"RemoteSLAReport\"},\"responseType\":\"blob\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `IncidentList ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"grid\",\"columns\":[],\"id\":\"u:1796142fe5a2\"},{\"type\":\"tpl\",\"id\":\"u:58464723ec09\",\"tpl\":\"Remote SLA Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\"}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-tobxxwqxzpmm4888a6p"
+      },
+      "xywh": [
+        0,
+        34,
+        33,
+        16
+      ],
+      "blockID": "3"
+    },
+    {
+      "meta": {
+        "json": "{\"body\":[{\"type\":\"container\",\"id\":\"u:faaf465da2d1\",\"isFreeContainer\":true,\"size\":\"xs\",\"body\":[{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"111px auto auto 1px\",\"width\":\"1300px\"},\"id\":\"u:f96983242374\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"42px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:08d5f0148e7f\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"804px auto auto 5px\",\"width\":\"1300px\"},\"id\":\"u:71815f67c82d\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"divider\",\"style\":{\"position\":\"absolute\",\"inset\":\"862px auto auto -22px\",\"width\":\"1300px\"},\"id\":\"u:a4271b617318\",\"originPosition\":\"left-top\",\"lineStyle\":\"solid\",\"direction\":\"horizontal\",\"rotate\":0},{\"type\":\"input-date-range\",\"style\":{\"position\":\"absolute\",\"inset\":\"72px auto auto 3px\"},\"id\":\"u:f65d37fa0dbb\",\"originPosition\":\"left-top\",\"label\":\"Created at\",\"name\":\"surveyFrom\",\"value\":\"${DATETOSTR(STARTOF(DATEMODIFY(NOW(), -1, 'month'), 'month'), 'X') + ',' + DATETOSTR(ENDOF(DATEMODIFY(NOW(), -1, 'month'), 'month'), 'X')}\",\"extraName\":\"surveyTo\",\"utc\":true,\"mode\":\"horizontal\",\"horizontal\":{\"left\":3,\"right\":9}},{\"type\":\"button\",\"style\":{\"position\":\"absolute\",\"inset\":\"71px auto auto 569px\"},\"id\":\"u:ed0172606230\",\"originPosition\":\"left-top\",\"label\":\"Export\",\"onEvent\":{\"click\":{\"actions\":[{\"ignoreError\":false,\"actionType\":\"download\",\"api\":{\"url\":\"/compose/query/export\",\"method\":\"post\",\"requestAdaptor\":\"function formatTimestamp(timestamp) {\\n    const date = new Date(timestamp * 1000);\\n    const year = date.getFullYear();\\n    const month = String(date.getMonth() + 1).padStart(2, '0');\\n    const day = String(date.getDate()).padStart(2, '0');\\n    const hours = String(date.getHours()).padStart(2, '0');\\n    const minutes = String(date.getMinutes()).padStart(2, '0');\\n    const seconds = String(date.getSeconds()).padStart(2, '0');\\n    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\n}\\n\\nbody = api.data\\n\\n// 转换 from 和 to 时间戳 \\nif (body.params && body.params.from) {\\n    body.params.from = formatTimestamp(body.params.from);\\n}\\nif (body.params && body.params.to) {\\n    body.params.to = formatTimestamp(body.params.to);\\n}\\n\\n// 更新请求体 \\napi.data = body\\n\\n// 发送请求 \\nreturn api;\\n\\n\",\"adaptor\":\"\",\"messages\":{},\"dataType\":\"json\",\"data\":{\"params\":{\"from\":\"${surveyFrom}\",\"to\":\"${surveyTo}\"},\"name\":\"surveyCount,surveyDetail\"},\"responseType\":\"blob\"}},{\"ignoreError\":false,\"script\":\"const date = new Date();\\nconst year = date.getFullYear();\\nconst month = String(date.getMonth() + 1).padStart(2, '0');\\nconst day = String(date.getDate()).padStart(2, '0');\\nconst hours = String(date.getHours()).padStart(2, '0');\\nconst minutes = String(date.getMinutes()).padStart(2, '0');\\nconst seconds = String(date.getSeconds()).padStart(2, '0');\\nconst dateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\\nconst blob = event.data.responseData.result\\nconst url = URL.createObjectURL(blob)\\nconst link = document.createElement('a')\\nlink.href = url\\nlink.download = `SurveyList ${dateTime}.xlsx`;\\ndocument.body.appendChild(link);\\nlink.click();\\ndocument.body.removeChild(link);\\nURL.revokeObjectURL(url);\",\"actionType\":\"custom\"}]}},\"editorState\":\"default\",\"themeCss\":{\"className\":{\"font:default\":{\"color\":\"var(--colors-neutral-fill-11)\"},\"background:default\":\"#0d344e\",\"border:default\":{\"top-border-color\":\"#0d344e\",\"left-border-color\":\"#0d344e\",\"right-border-color\":\"#0d344e\",\"bottom-border-color\":\"#0d344e\"}}},\"level\":\"dark\",\"block\":false}],\"wrapperBody\":false,\"style\":{\"position\":\"relative\",\"minHeight\":\"1px\",\"inset\":\"auto\"},\"isFixedHeight\":false,\"isFixedWidth\":false,\"editorState\":\"default\"},{\"type\":\"tpl\",\"id\":\"u:aac8c88443e7\",\"tpl\":\"Survey Report\",\"inline\":true,\"wrapperComponent\":\"h3\",\"editorState\":\"default\"},{\"type\":\"grid\",\"id\":\"u:1796142fe5a2\",\"columns\":[]}],\"id\":\"u:c055f262bcd3\",\"childFrame\":true,\"toolbar\":[],\"aside\":[],\"asideResizor\":false,\"editorState\":\"default\",\"pullRefresh\":{\"disabled\":true},\"asideSticky\":true}",
+        "type": "Amis",
+        "hidden": false,
+        "tempID": "tempID-jqgkfkndm08m65y5je9"
+      },
+      "xywh": [
+        0,
+        50,
+        33,
+        17
+      ],
+      "blockID": "4"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-8i6ib9p58ymid0wpin"
+      },
+      "xywh": [
+        0,
+        67,
+        48,
+        34
+      ],
+      "blockID": "5"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-10-17T10:03:46.000Z",
+  "updatedAt": "2025-11-24T10:50:01.000Z"
+}

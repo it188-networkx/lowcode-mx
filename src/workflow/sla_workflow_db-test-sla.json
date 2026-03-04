@@ -1,0 +1,677 @@
+{
+  "workflows": [
+    {
+      "workflowID": "474482462071324673",
+      "handle": "",
+      "enabled": true,
+      "meta": {
+        "icon": "",
+        "name": "sla_workflow_db-test-sla",
+        "type": "SLA",
+        "visual": null,
+        "results": "",
+        "formList": null,
+        "description": "",
+        "businessType": "",
+        "businessLabel": ""
+      },
+      "keepSessions": 0,
+      "steps": [
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "3",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "termination",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "4",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "5",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "componentSLATaskStart",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "6",
+          "results": [
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            },
+            {
+              "expr": "slaTask",
+              "type": "ComponentSLATask",
+              "target": "slaTask"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "response",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            },
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "componentSLATaskSearch",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "7",
+          "results": [
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            },
+            {
+              "expr": "slaTask",
+              "type": "ComponentSLATask",
+              "target": "slaTask"
+            }
+          ],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "response",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            },
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "8",
+          "results": [],
+          "arguments": [
+            {
+              "type": "String",
+              "value": "asdadsa",
+              "target": "test_aa"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "9",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "10",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "componentSLATaskEnd",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "11",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "response",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            },
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            },
+            {
+              "expr": "slaTask",
+              "type": "ComponentSLATask",
+              "target": "slaTask"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "12",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "componentSLATaskReset",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "13",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "response",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            },
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            },
+            {
+              "expr": "slaTask",
+              "type": "ComponentSLATask",
+              "target": "slaTask"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "14",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "excl",
+          "kind": "gateway",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "15",
+          "results": [],
+          "arguments": [],
+          "customName": ""
+        },
+        {
+          "ref": "componentSLATaskPause",
+          "kind": "function",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "16",
+          "results": [],
+          "arguments": [
+            {
+              "expr": "module",
+              "type": "ComposeModule",
+              "target": "module"
+            },
+            {
+              "expr": "namespace",
+              "type": "ComposeNamespace",
+              "target": "namespace"
+            },
+            {
+              "expr": "record",
+              "type": "ComposeRecord",
+              "target": "record"
+            },
+            {
+              "type": "String",
+              "value": "response",
+              "target": "target"
+            },
+            {
+              "expr": "slaId",
+              "type": "ID",
+              "target": "slaId"
+            },
+            {
+              "expr": "isNew",
+              "type": "Boolean",
+              "target": "isNew"
+            },
+            {
+              "expr": "slaTask",
+              "type": "ComponentSLATask",
+              "target": "slaTask"
+            }
+          ],
+          "customName": ""
+        },
+        {
+          "ref": "",
+          "kind": "expressions",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "stepID": "17",
+          "results": [],
+          "arguments": [
+            {
+              "type": "String",
+              "value": "asdadsa",
+              "target": "test_aa"
+            }
+          ],
+          "customName": ""
+        }
+      ],
+      "paths": [
+        {
+          "expr": "1 == 1",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "5",
+          "parentID": "3"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "4",
+          "parentID": "3"
+        },
+        {
+          "expr": " (  ( record.values.status == \"409824987210317825\" )  )  ||  (  ( record.values.status == \"409824987210383361\" )  ) ",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "6",
+          "parentID": "5"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "7",
+          "parentID": "5"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "9",
+          "parentID": "7"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "9",
+          "parentID": "6"
+        },
+        {
+          "expr": "slaTask.status == 1 || slaTask.status == 3",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "10",
+          "parentID": "9"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "9"
+        },
+        {
+          "expr": " (  ( record.values.status == \"409824987210645505\" )  ) ",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "11",
+          "parentID": "10"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "11"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "12",
+          "parentID": "10"
+        },
+        {
+          "expr": " (  ( record.values.caller == \"481413900769886209\" )  &&  ( record.values.contact == \"481413900769886209\" )  ||  (!isEmpty(oldRecord.ID) && record.values.description != oldRecord.values.description)  &&  ( (!isEmpty(oldRecord.ID) && record.values.contact != oldRecord.values.contact) || isEmpty(oldRecord.ID))  ) ",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "13",
+          "parentID": "12"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "13"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "14",
+          "parentID": "12"
+        },
+        {
+          "expr": "slaTask.status == 1",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "15",
+          "parentID": "14"
+        },
+        {
+          "expr": " (  ( record.values.status == \"409824987210448897\" )  ) ",
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "16",
+          "parentID": "15"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "15"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "16"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "8",
+          "parentID": "14"
+        },
+        {
+          "meta": {
+            "name": "",
+            "visual": null,
+            "description": ""
+          },
+          "childID": "17",
+          "parentID": "8"
+        }
+      ],
+      "triggers": [
+        {
+          "triggerID": "474482462071586817",
+          "resourceType": "compose:record",
+          "eventType": "afterCreate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": null
+        },
+        {
+          "triggerID": "474482462071717889",
+          "resourceType": "compose:record",
+          "eventType": "afterUpdate",
+          "constraints": [
+            {
+              "op": "=",
+              "name": "namespace.handle",
+              "values": [
+                "itsm"
+              ],
+              "condition": null
+            },
+            {
+              "op": "=",
+              "name": "module.handle",
+              "values": [
+                "Incident"
+              ],
+              "condition": null
+            }
+          ],
+          "enabled": true,
+          "stepID": "3",
+          "meta": null
+        }
+      ],
+      "scope": {
+        "isNew": {
+          "@type": "Boolean",
+          "@value": false
+        },
+        "slaId": {
+          "@type": "ID",
+          "@value": "474482462071193601"
+        }
+      },
+      "createdAt": "2025-12-18T08:00:06.000Z",
+      "updatedAt": "2026-02-04T06:15:04.000Z"
+    }
+  ]
+}

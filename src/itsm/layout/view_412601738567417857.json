@@ -1,0 +1,136 @@
+{
+  "layoutID": "412601738567417857",
+  "pageID": "412437053451599873",
+  "parentID": "0",
+  "namespaceID": "409824987081211905",
+  "weight": 3,
+  "handle": "isView",
+  "meta": {
+    "title": "view",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
+    "description": "",
+    "scriptEnabled": true
+  },
+  "config": {
+    "actions": [
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Arrived",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "6",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "412557561523339265",
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "1",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Resolve",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "3",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "412700389101535233",
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "2",
+        "placement": "end"
+      },
+      {
+        "kind": "onlyWork",
+        "meta": {
+          "label": "Cancel",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "params": {
+          "stepID": "4",
+          "loading": true,
+          "refresh": true,
+          "workflowID": "412701073694785537",
+          "pageLayoutID": ""
+        },
+        "enabled": true,
+        "actionID": "3",
+        "placement": "end"
+      }
+    ],
+    "buttons": {
+      "new": {
+        "label": "",
+        "enabled": false
+      },
+      "back": {
+        "label": "",
+        "enabled": true
+      },
+      "edit": {
+        "label": "",
+        "enabled": true
+      },
+      "clone": {
+        "label": "",
+        "enabled": false
+      },
+      "delete": {
+        "label": "",
+        "enabled": false
+      },
+      "submit": {
+        "label": "",
+        "enabled": true
+      }
+    },
+    "useTitle": true,
+    "visibility": {
+      "expression": "isView"
+    }
+  },
+  "blocks": [
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-zbyqe2v2wnqm2d51uy2"
+      },
+      "xywh": [
+        0,
+        0,
+        46,
+        60
+      ],
+      "blockID": "3"
+    },
+    {
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-i7mc9dg2y2dm3h4bbhe"
+      },
+      "xywh": [
+        0,
+        60,
+        46,
+        32
+      ],
+      "blockID": "6"
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-10-17T10:08:00.000Z",
+  "updatedAt": "2024-11-20T10:20:08.000Z"
+}
