@@ -94,3 +94,31 @@ src/itsm/
 | 47 | User | User | — |
 
 > moduleID 请从对应 JSON 文件的顶层 `"moduleID"` 字段读取，此处仅作索引用途。
+
+---
+
+## Incident 模块常用 Record 类型字段
+
+> Incident 模块中以下字段的 `kind` 为 `Record`，存储的是关联记录的 ID，**不可在工作流中直接与显示值比较**，必须先通过 `composeRecordsLookup` 查出关联记录再比较具体字段。
+
+| 字段名 | 关联模块 | moduleID | 常见比较字段 |
+|--------|---------|------------|-------------|
+| `caller` | User | `409824987082522625` | `email`, `name` |
+| `assignee` | User | `409824987082522625` | `email`, `name` |
+| `assignmentGroup` | Group | `409824987082653697` | `name` |
+| `category` | Category | `409824987082457089` | `name`, `code` |
+| `impact` | Impact | `409824987081670657` | `name`, `code` |
+| `urgency` | Urgency | `409824987082194945` | `name`, `code` |
+| `priority` | Priority | `409824987082326017` | `name`, `code` |
+| `statusCode` | StatusManagement | `409824987081605121` | `name`, `code` |
+
+工作流中正确用法：
+
+```
+# 错误：直接比较 caller 字段
+# record.values.caller == "dongb@it188.com"  ← caller 存储的是记录 ID
+
+# 正确：先查出 User 记录，再比较 email
+Step 1: composeRecordsLookup(module="User", record=record.values.caller) → callerUser
+Step 2: gateway → callerUser.values.email == "dongb@it188.com"
+```

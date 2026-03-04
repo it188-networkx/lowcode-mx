@@ -136,21 +136,6 @@ Sonyflake 简化生成方式：取同类资源中最大已有 ID + 65536。
 
 ---
 
-## 层级关系
-
-```
-环境（如 dev.dms）
-  └── 租户（如 mx）
-       └── 命名空间（如 fsm / itsm / problem）
-            ├── module/     ← 模块 JSON
-            ├── page/       ← 页面 JSON（含 pageID）
-            └── layout/     ← 布局 JSON（含 layoutID）
-```
-
-工作流：存放在**租户层级**下（`{环境}/{租户}/workflow/`），不区分命名空间。
-
----
-
 ## 目录结构
 
 ```
@@ -270,3 +255,13 @@ src/
 | `workflow/sync_workflow_to_db.py` | 将工作流 JSON 同步到数据库 |
 
 脚本共用 `../../lowcode-base/scripts/db_utils.py`，从 `env.json` 中读取数据库连接参数。
+
+---
+
+## 常见错误
+
+- 混淆 module / layout / page / workflow，它们对应不同的数据库表。
+- 遗漏租户层级，直接将命名空间放在环境目录下（正确路径为 `{环境}/{租户}/{命名空间}/`）。
+- workflow 文件放到了命名空间目录下（应放在 `{环境}/{租户}/workflow/`）。
+- 混淆租户和命名空间，它们是不同层级：一个租户下可以有多个命名空间。
+- 复制依赖模块时保留了原命名空间的 moduleID / fieldID，导致 sync 脚本 UPSERT 时覆盖原命名空间数据。

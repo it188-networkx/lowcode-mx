@@ -50,3 +50,18 @@ Page 文件存储 Block 的**完整定义**（kind、options、字段等），La
 | 团队管理 | 团队管理_409824987078197249 | 团队管理列表页 |
 
 > 完整 pageID 映射请从各 JSON 文件的 `"pageID"` 字段读取。
+
+---
+
+## 特殊 Block 实例（RecordSlaList）
+
+以下两个页面使用 `RecordSlaList` 特殊 Block，通过自定义后端 API 渲染数据，**不能套用普通 RecordList 操作流程**：
+
+| 页面名称 | pageID | moduleID | customApi | 模式 |
+|---------|--------|----------|-----------|------|
+| SLA配置 | `409824987080097793` | `409824987082784769`（Sla） | `/components/sla` | `slaEnable: true` |
+| 待办日历 | `470138789221498881` | `470138789204393985`（TodoCalendar） | `/components/schedule/task/list` | `schedule: true` |
+
+- 修改这两个页面的 `fields[]` 前，必须确认后端 API 是否返回该字段。
+- `customApi` 路径不可随意修改，修改会导致页面无法渲染数据。
+- `prefilter` CQL 过滤对 `RecordSlaList` 无效，过滤逻辑由后端 API 内部实现。

@@ -81,3 +81,210 @@
 | topData | topData_409824987081211905.json | 置顶功能模块（无 page/layout） |
 | Urgency | Urgency.json | 紧急度 |
 | User | User.json | 用户（12 字段） |
+
+---
+
+## 快捷指令
+
+以下命令格式适用于 `itsm` 命名空间的常见 module 修改操作：
+
+```
+# 修改字段 label
+#配置@itsm {Handle} 把 {字段name} 的 label 改为 {新label}
+
+# 修改字段必填
+#配置@itsm {Handle} 把 {字段name} 设为必填
+
+# 添加新字段
+#配置@itsm {Handle} 添加字段 {name} 类型 {kind} label {label}
+
+# 删除字段
+#配置@itsm {Handle} 删除字段 {name}
+
+# 修改模块配置
+#配置@itsm {Handle} 设置 config.recordRevisions.enabled 为 true
+```
+
+示例：
+
+- `#配置@itsm Incident 把 shortDescription 的 label 改为 事件简述`
+- `#配置@itsm Incident 添加字段 newField 类型 String label 新字段`
+
+---
+
+## 高频公共字段模式
+
+### 几乎所有模块共有的字段
+
+| 字段名 | Kind | 出现模块数 | 说明 |
+|--------|------|-----------|------|
+| status | Record/Select/String | 24+ | 记录状态，不同模块 kind 不同 |
+| name | String | 18+ | 记录名称 |
+| description | String | 17+ | 描述信息 |
+
+### ITIL 工单模块共享字段
+
+适用于 Incident / Problem / ChangeRequest / ChangeTask / ProblemTask：
+
+| 字段名 | Kind | 说明 |
+|--------|------|------|
+| number | Code | 工单编号（自动编号） |
+| shortDescription | String | 工单简述 |
+| description | String | 工单详情 |
+| status | Record | 工单状态（关联 StatusManagement） |
+| category | Record | 分类（关联 Category） |
+| subCategory | Tree | 子分类 |
+| assignmentGroup | Record | 处理组（关联 Group） |
+| assignee | Record | 处理人 |
+| priority | Record | 优先级（关联 Priority） |
+| urgency | Record | 紧急度（关联 Urgency） |
+| impact | Record | 影响度（关联 Impact） |
+| company | Record | 客户/公司 |
+| location | Record | 地点/网点 |
+| participantGroup | Record (multi) | 参与组 |
+| participant | Record (multi) | 参与人 |
+
+### 参考数据模块标准字段
+
+适用于 Impact / Urgency / Priority / StatusManagement / TicketManagement 等参考数据模块：
+
+| 字段名 | Kind | 说明 |
+|--------|------|------|
+| name | String | 名称（通常 isRequired=true） |
+| code | String | 编码（通常 isRequired=true） |
+| enabledFlag | Bool | 是否启用（通常 isRequired=true） |
+| description | String | 描述 |
+
+---
+
+## 模块关系图
+
+### ITIL 核心工单关系
+
+```
+Incident (事件) ──── IncidentComment (评论)
+  ├── relatedProblem ──→ Problem (问题)
+  ├── relatedChange  ──→ ChangeRequest (变更)
+  ├── onsiteTicket   ──→ OnsiteTicket (现场工单)
+  ├── faultyAssetIDs ──→ FaultyAsset (故障设备)
+  └── causeCode      ──→ CauseCode (原因分类)
+
+Problem (问题)
+  ├── problemTask    ──→ ProblemTask (问题任务)
+  ├── relatedIncident──→ Incident
+  └── relatedChange  ──→ ChangeRequest
+
+ChangeRequest (变更)
+  ├── changeTask     ──→ ChangeTask (变更任务)
+  ├── relatedIncident──→ Incident
+  └── relatedProblem ──→ Problem
+```
+
+### 参考数据关系
+
+```
+PriorityMatrix
+  ├── urgency  ──→ Urgency
+  ├── impact   ──→ Impact
+  └── priority ──→ Priority
+
+Category (树形) ──→ pid (自引用父分类)
+  └── relModule ──→ 关联的业务模块
+
+StatusManagement
+  └── relModule ──→ 关联的业务模块
+```
+
+### SLA 体系
+
+```
+Sla (SLA 定义)
+  └── SlaTask (SLA 执行实例)
+       └── SlaTime (工作时间表)
+            └── SlaTimeSchedule (排程)
+
+SLABreakdown (SLA 分解记录)
+```
+
+### 组织架构
+
+```
+User (用户)
+  ├── group    ──→ Group (组)
+  ├── team     ──→ team (团队)
+  └── company  ──→ Company (公司)
+
+Group (组)
+  ├── users    ──→ User
+  ├── team     ──→ team
+  └── categorys──→ Category
+```
+
+---
+
+## 业务模块分类
+
+### 核心工单模块
+
+- Incident — 事件管理（63 字段，最大模块）
+- Problem — 问题管理（49 字段）
+- ChangeRequest — 变更管理（49 字段）
+- ProblemTask — 问题任务（34 字段）
+- ChangeTask — 变更任务（14 字段）
+- OnsiteTicket — 现场工单（12 字段）
+
+### 参考数据模块
+
+- Category — 分类（树形）
+- CauseCode — 原因分类
+- Impact — 影响度
+- Urgency — 紧急度
+- Priority — 优先级
+- PriorityMatrix — 优先级矩阵
+- StatusManagement — 状态管理
+- ResolutionCode — 解决方案分类
+- Region — 区域
+- TicketManagement — 工单管理
+
+### SLA 模块
+
+- Sla — SLA 定义
+- SlaTask — SLA 任务实例
+- SlaTime — SLA 工作时间
+- SlaTimeSchedule — SLA 排程
+- SLABreakdown — SLA 分解
+
+### 服务目录
+
+- ServiceCatalog — 服务目录
+- ServiceItem — 服务项
+- ServiceApplication — 服务申请
+- ServiceSetting — 服务设置
+
+### 组织架构
+
+- User — 用户
+- Group — 组
+- team — 团队
+- Company — 公司
+- Locations — 网点/地点
+- Staff — 员工
+
+### 辅助模块
+
+- Comment / IncidentComment — 评论
+- KnowledgeBase — 知识库
+- Todo / TodoCalendar — 待办/待办日历
+- Survey — 满意度调查
+- AssignRule / OrderRule — 分配/排队规则
+- FaultyAsset — 故障设备
+- InventoryUsage — 库存使用
+- PurchaseRequest — 采购申请
+- receiptHistory — 电子签单
+- topData — 置顶数据
+
+### 测试模块
+
+- ceshiAI — AI 测试模块
+- TestModule — 测试模块
+- TestManag — 测试管理
