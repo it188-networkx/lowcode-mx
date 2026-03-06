@@ -53,6 +53,19 @@
 | 字段 `kind` 为 `Record`，引用模块在新空间中**已存在** | 保留，更新 `options.moduleID` |
 | 字段 `kind` 为 `Record`，引用模块**尚未创建** | 跳过不添加 |
 
+### clearCopy 唯一字段规则
+
+复制记录时，部分字段值不应被复制（如唯一编号、流水号），需通过字段的 `options.clearCopy` 控制：
+
+| 场景 | clearCopy 设置 |
+|------|---------------|
+| Code类型字段（自动编号） | 必须设为 `true` |
+| 业务唯一编号（如 EMS number、合同编号） | 必须设为 `true` |
+| 普通文本 / 选择 / 引用字段 | 保持默认 `false` |
+
+配置位置：Module JSON → `fields[].options.clearCopy`（boolean，默认 `false`）。
+详细说明参考 `../../lowcode-base/corteza/field/AGENTS.md` 中的 clearCopy 章节。
+
 ---
 
 ## 每个命名空间必须创建 topData module
@@ -289,3 +302,4 @@ src/
 - workflow 文件放到了命名空间目录下（应放在 `{环境}/{租户}/workflow/`）。
 - 混淆租户和命名空间，它们是不同层级：一个租户下可以有多个命名空间。
 - 复制依赖模块时保留了原命名空间的 moduleID / fieldID，导致 sync 脚本 UPSERT 时覆盖原命名空间数据。
+- 唯一字段（编号、Code）未设 `clearCopy: true`，导致复制记录后出现重复编号。
