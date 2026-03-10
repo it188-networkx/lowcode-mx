@@ -1,832 +1,935 @@
 {
-  "workflows": [
+  "workflowID": "409824987021312001",
+  "handle": "Incident_assigned_to_me",
+  "meta": {
+    "name": "Incident assigned to me",
+    "description": "",
+    "visual": null,
+    "type": "",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "409824987021312001",
-      "handle": "Incident_assigned_to_me",
-      "enabled": true,
+      "stepID": "5",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "Incident assigned to me",
-        "type": "",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "5",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2432,
+            2024,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "5",
-              "xywh": [
-                2432,
-                2024,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "5",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "10",
-              "xywh": [
-                2408,
-                1848,
-                200,
-                80
-              ],
-              "value": "Terminate workflow execution",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "10",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "12",
-              "xywh": [
-                2440,
-                2200,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "12",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "16",
-              "xywh": [
-                2440,
-                2352,
-                200,
-                80
-              ],
-              "value": "Terminate workflow execution",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "16",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "composeRecordsLookup",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "18",
-              "xywh": [
-                2808,
-                2128,
-                200,
-                80
-              ],
-              "value": "Compose record lookup",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "18",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "category"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"Category\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "namespace",
-              "type": "ComposeNamespace",
-              "target": "namespace"
-            },
-            {
-              "expr": "record.values.category",
-              "type": "ID",
-              "target": "record"
-            }
+      "customName": ""
+    },
+    {
+      "stepID": "10",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "10",
+          "parent": "1",
+          "value": "Terminate workflow execution",
+          "xywh": [
+            2408,
+            1848,
+            200,
+            80
           ]
-        },
-        {
-          "ref": "composeRecordsLookup",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "22",
-              "xywh": [
-                3064,
-                2016,
-                200,
-                80
-              ],
-              "value": "Compose record lookup",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "22",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "user"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"User\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "namespace",
-              "type": "ComposeNamespace",
-              "target": "namespace"
-            },
-            {
-              "expr": "record.values.assignee",
-              "type": "ID",
-              "target": "record"
-            }
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "12",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "12",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2440,
+            2200,
+            200,
+            80
           ]
-        },
-        {
-          "ref": "templatesRender",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "26",
-              "xywh": [
-                4152,
-                2080,
-                200,
-                80
-              ],
-              "value": "Template render",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "26",
-          "results": [
-            {
-              "expr": "document",
-              "type": "RenderedDocument",
-              "target": "content"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"Incident_assigned_to_me\"",
-              "type": "Handle",
-              "target": "lookup"
-            },
-            {
-              "type": "String",
-              "value": "text/html",
-              "target": "documentType"
-            },
-            {
-              "expr": "{ \n    \"number\":record.values.number,\n    \"callType\": record.values.callType,\n    \"shortDescription\":record.values.shortDescription,\n    \"category\":category.values.name,\n    \"contact\":record.values.contactPhone,\n    \"recordUrl\":recordUrl,\n    \"site\":locationValue\n}",
-              "type": "Vars",
-              "target": "variables"
-            }
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "16",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "16",
+          "parent": "1",
+          "value": "Terminate workflow execution",
+          "xywh": [
+            2440,
+            2352,
+            200,
+            80
           ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "18",
+      "kind": "function",
+      "ref": "composeRecordsLookup",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "\"Category\"",
+          "type": "Handle"
         },
         {
-          "ref": "emailMessage",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "36",
-              "xywh": [
-                4496,
-                2080,
-                200,
-                80
-              ],
-              "value": "Email builder",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "36",
-          "results": [
-            {
-              "expr": "message",
-              "type": "EmailMessage",
-              "target": "email"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "record.values.number + \" - \" +locationValue+\" \"+ record.values.shortDescription + \" assigned to you\"",
-              "type": "String",
-              "target": "subject"
-            },
-            {
-              "expr": "user.values.email",
-              "type": "String",
-              "target": "to"
-            },
-            {
-              "expr": "content.document",
-              "type": "String",
-              "target": "html"
-            }
-          ]
+          "target": "namespace",
+          "expr": "namespace",
+          "type": "ComposeNamespace"
         },
         {
-          "ref": "emailSendMessage",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "38",
-              "xywh": [
-                4824,
-                2080,
-                200,
-                80
-              ],
-              "value": "Email sender",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "38",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "email",
-              "type": "EmailMessage",
-              "target": "message"
-            }
-          ]
-        },
-        {
-          "ref": "composeRecordsLookup",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "46",
-              "xywh": [
-                3624,
-                2152,
-                200,
-                80
-              ],
-              "value": "Compose record lookup",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "46",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "location"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"Locations\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "namespace",
-              "type": "ComposeNamespace",
-              "target": "namespace"
-            },
-            {
-              "expr": "record.values.location",
-              "type": "ID",
-              "target": "record"
-            }
-          ]
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "51",
-              "xywh": [
-                3400,
-                2008,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "51",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "\"-\"",
-              "type": "String",
-              "target": "locationValue"
-            },
-            {
-              "expr": "\"http://pionapaas.it188.com/compose/ns/ITSM/pages/398950924489457665/record/\"+record.ID+\"/edit?isToEdit=true\"",
-              "type": "String",
-              "target": "recordUrl"
-            }
-          ]
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "54",
-              "xywh": [
-                3928,
-                2160,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "54",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "location.values.shopName",
-              "type": "String",
-              "target": "locationValue"
-            }
-          ]
-        },
-        {
-          "ref": "",
-          "kind": "error-handler",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "56",
-              "xywh": [
-                3760,
-                2008,
-                200,
-                80
-              ],
-              "value": "Continue workflow from this step if an error is triggered",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "56",
-          "results": [],
-          "arguments": []
+          "target": "record",
+          "expr": "record.values.category",
+          "type": "ID"
         }
       ],
-      "paths": [
+      "results": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "37",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "36",
-          "parentID": "26"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "39",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "38",
-          "parentID": "36"
-        },
-        {
-          "expr": "!isEmpty(record.values.assignee) ",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "40",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "18",
-          "parentID": "5"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "41",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "10",
-          "parentID": "5"
-        },
-        {
-          "expr": "record.values.assignee != oldRecord.values.assignee && !isEmpty(record.values.assignee) ",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "42",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "18",
-          "parentID": "12"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "43",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "16",
-          "parentID": "12"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "49",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "22",
-          "parentID": "18"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "52",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "51",
-          "parentID": "22"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "61",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "56",
-          "parentID": "51"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "62",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "Try",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "46",
-          "parentID": "56"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "63",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "54",
-          "parentID": "46"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "64",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "26",
-          "parentID": "54"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "65",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "Catch",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "26",
-          "parentID": "56"
+          "target": "category",
+          "expr": "record",
+          "type": "ComposeRecord"
         }
       ],
-      "triggers": [
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "18",
+          "parent": "1",
+          "value": "Compose record lookup",
+          "xywh": [
+            2808,
+            2128,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "22",
+      "kind": "function",
+      "ref": "composeRecordsLookup",
+      "arguments": [
         {
-          "triggerID": "409824987023015937",
-          "resourceType": "compose:record",
-          "eventType": "afterCreate",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": []
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": []
-            }
+          "target": "module",
+          "expr": "\"User\"",
+          "type": "Handle"
+        },
+        {
+          "target": "namespace",
+          "expr": "namespace",
+          "type": "ComposeNamespace"
+        },
+        {
+          "target": "record",
+          "expr": "record.values.assignee",
+          "type": "ID"
+        }
+      ],
+      "results": [
+        {
+          "target": "user",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "22",
+          "parent": "1",
+          "value": "Compose record lookup",
+          "xywh": [
+            3064,
+            2016,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "26",
+      "kind": "function",
+      "ref": "templatesRender",
+      "arguments": [
+        {
+          "target": "lookup",
+          "expr": "\"Incident_assigned_to_me\"",
+          "type": "Handle"
+        },
+        {
+          "target": "documentType",
+          "value": "text/html",
+          "type": "String"
+        },
+        {
+          "target": "variables",
+          "expr": "{ \n    \"number\":record.values.number,\n    \"callType\": record.values.callType,\n    \"shortDescription\":record.values.shortDescription,\n    \"category\":category.values.name,\n    \"contact\":record.values.contactPhone,\n    \"recordUrl\":recordUrl,\n    \"site\":locationValue\n}",
+          "type": "Vars"
+        }
+      ],
+      "results": [
+        {
+          "target": "content",
+          "expr": "document",
+          "type": "RenderedDocument"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "26",
+          "parent": "1",
+          "value": "Template render",
+          "xywh": [
+            4152,
+            2080,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "36",
+      "kind": "function",
+      "ref": "emailMessage",
+      "arguments": [
+        {
+          "target": "subject",
+          "expr": "record.values.number + \" - \" +locationValue+\" \"+ record.values.shortDescription + \" assigned to you\"",
+          "type": "String"
+        },
+        {
+          "target": "to",
+          "expr": "user.values.email",
+          "type": "String"
+        },
+        {
+          "target": "html",
+          "expr": "content.document",
+          "type": "String"
+        }
+      ],
+      "results": [
+        {
+          "target": "email",
+          "expr": "message",
+          "type": "EmailMessage"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "36",
+          "parent": "1",
+          "value": "Email builder",
+          "xywh": [
+            4496,
+            2080,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "38",
+      "kind": "function",
+      "ref": "emailSendMessage",
+      "arguments": [
+        {
+          "target": "message",
+          "expr": "email",
+          "type": "EmailMessage"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "38",
+          "parent": "1",
+          "value": "Email sender",
+          "xywh": [
+            4824,
+            2080,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "46",
+      "kind": "function",
+      "ref": "composeRecordsLookup",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "\"Locations\"",
+          "type": "Handle"
+        },
+        {
+          "target": "namespace",
+          "expr": "namespace",
+          "type": "ComposeNamespace"
+        },
+        {
+          "target": "record",
+          "expr": "record.values.location",
+          "type": "ID"
+        }
+      ],
+      "results": [
+        {
+          "target": "location",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "46",
+          "parent": "1",
+          "value": "Compose record lookup",
+          "xywh": [
+            3624,
+            2152,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "51",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "locationValue",
+          "expr": "\"-\"",
+          "type": "String"
+        },
+        {
+          "target": "recordUrl",
+          "expr": "\"http://pionapaas.it188.com/compose/ns/ITSM/pages/398950924489457665/record/\"+record.ID+\"/edit?isToEdit=true\"",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "51",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3400,
+            2008,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "54",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "locationValue",
+          "expr": "location.values.shopName",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "54",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3928,
+            2160,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "56",
+      "kind": "error-handler",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "56",
+          "parent": "1",
+          "value": "Continue workflow from this step if an error is triggered",
+          "xywh": [
+            3760,
+            2008,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "26",
+      "childID": "36",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "37",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "36",
+      "childID": "38",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "39",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "!isEmpty(record.values.assignee) ",
+      "parentID": "5",
+      "childID": "18",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "40",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "5",
+      "childID": "10",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "41",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "expr": "record.values.assignee != oldRecord.values.assignee && !isEmpty(record.values.assignee) ",
+      "parentID": "12",
+      "childID": "18",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "42",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "12",
+      "childID": "16",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "43",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "18",
+      "childID": "22",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "49",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "22",
+      "childID": "51",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "52",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "51",
+      "childID": "56",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "61",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "56",
+      "childID": "46",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "62",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "Try"
+        }
+      }
+    },
+    {
+      "parentID": "46",
+      "childID": "54",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "63",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "54",
+      "childID": "26",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "64",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "56",
+      "childID": "26",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "65",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "Catch"
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "0",
+  "createdAt": "2024-09-29T03:42:29Z",
+  "createdBy": "0",
+  "updatedAt": "2026-03-02T19:12:42Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "409824987023015937",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "409824987021312001",
+      "stepID": "5",
+      "resourceType": "compose:record",
+      "eventType": "afterCreate",
+      "constraints": [
+        {
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
           ],
-          "enabled": true,
-          "stepID": "5",
-          "meta": {
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2136,
-                2024,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "6",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "5",
-                  "parentID": "3"
-                },
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "66",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "5",
-                  "parentID": "3"
-                },
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "68",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "5",
-                  "parentID": "3"
+          "condition": []
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": []
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "5",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "6",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Compose record - afterCreate",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
-        },
-        {
-          "triggerID": "409824987023081473",
-          "resourceType": "compose:record",
-          "eventType": "afterUpdate",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": []
+              },
+              "parentID": "3"
             },
             {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": []
+              "childID": "5",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "66",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "3"
+            },
+            {
+              "childID": "5",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "68",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "3"
             }
           ],
-          "enabled": true,
-          "stepID": "12",
-          "meta": {
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2112,
-                2192,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "13",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "12",
-                  "parentID": "4"
-                },
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "67",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "12",
-                  "parentID": "4"
-                },
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "69",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "12",
-                  "parentID": "4"
-                }
-              ],
-              "value": "Compose record - afterUpdate",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record - afterCreate",
+          "xywh": [
+            2136,
+            2024,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2024-09-28T06:06:59Z",
+      "createdBy": "0",
+      "updatedAt": "2026-03-02T19:12:42Z"
+    },
+    {
+      "triggerID": "409824987023081473",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "409824987021312001",
+      "stepID": "12",
+      "resourceType": "compose:record",
+      "eventType": "afterUpdate",
+      "constraints": [
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": []
+        },
+        {
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
+          ],
+          "condition": []
         }
       ],
-      "createdAt": "2024-09-29T03:42:29.000Z",
-      "updatedAt": "2024-10-21T09:06:40.000Z"
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "12",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "13",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "4"
+            },
+            {
+              "childID": "12",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "67",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "4"
+            },
+            {
+              "childID": "12",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "69",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "4"
+            }
+          ],
+          "id": "4",
+          "parent": "1",
+          "value": "Compose record - afterUpdate",
+          "xywh": [
+            2112,
+            2192,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 1,
+      "ownedBy": "0",
+      "createdAt": "2024-09-28T06:06:59Z",
+      "createdBy": "0",
+      "updatedAt": "2026-03-02T19:12:42Z"
     }
   ]
 }

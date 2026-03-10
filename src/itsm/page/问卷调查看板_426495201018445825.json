@@ -6,38 +6,15 @@
   "handle": "",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "Chart",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-i6qy25x70l9m665gsbg"
-      },
-      "xywh": [
-        0,
-        0,
-        23,
-        34
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "年度问卷总览",
       "blockID": "1",
       "options": {
         "chartID": "426501563073691649",
@@ -45,35 +22,35 @@
           "blockID": "",
           "enabled": false
         },
+        "magnifyOption": "",
         "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      }
-    },
-    {
-      "kind": "Chart",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-03nn0gnpbaq2m665hxrq"
+        "showRefresh": false
       },
-      "xywh": [
-        23,
-        0,
-        24,
-        34
-      ],
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "年度回收问卷总览",
+      "kind": "Chart",
+      "xywh": [
+        0,
+        0,
+        23,
+        34
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-i6qy25x70l9m665gsbg"
+      },
+      "title": "年度问卷总览"
+    },
+    {
       "blockID": "2",
       "options": {
         "chartID": "426501837428883457",
@@ -81,193 +58,216 @@
           "blockID": "",
           "enabled": false
         },
+        "magnifyOption": "",
         "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      }
-    },
-    {
-      "kind": "Metric",
+        "showRefresh": false
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Chart",
+      "xywh": [
+        23,
+        0,
+        24,
+        34
+      ],
       "meta": {
         "hidden": false,
-        "tempID": "tempID-cd5t1grgvmam665m4dk"
+        "tempID": "tempID-03nn0gnpbaq2m665hxrq"
       },
+      "title": "年度回收问卷总览"
+    },
+    {
+      "blockID": "3",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": false
+            },
+            "filter": "status = 'Completed'",
+            "label": "Total Completed Survey",
+            "metricField": "count",
+            "moduleID": "409824987081867265",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Metric",
       "xywh": [
         0,
         34,
         23,
         33
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-cd5t1grgvmam665m4dk"
+      },
+      "title": "总回收问卷"
+    },
+    {
+      "blockID": "4",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": false
+            },
+            "filter": "DATE_FORMAT(createdAt, '%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH), '%Y-%m')AND status = 'Completed'",
+            "label": "Completed Survey Last Month",
+            "metricField": "count",
+            "moduleID": "409824987081867265",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "总回收问卷",
-      "blockID": "3",
-      "options": {
-        "metrics": [
-          {
-            "label": "Total Completed Survey",
-            "filter": "status = 'Completed'",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987081867265",
-            "drillDown": {
-              "blockID": "",
-              "enabled": false
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      }
-    },
-    {
       "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-dq1c5d9wy06m665o03b"
-      },
       "xywh": [
         23,
         34,
         24,
         33
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-dq1c5d9wy06m665o03b"
+      },
+      "title": "上月回收问卷"
+    },
+    {
+      "blockID": "5",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": false
+            },
+            "filter": "DATE_FORMAT(createdAt, '%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH), '%Y-%m')",
+            "label": "No of survey send out last month",
+            "metricField": "count",
+            "moduleID": "409824987081867265",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "上月回收问卷",
-      "blockID": "4",
-      "options": {
-        "metrics": [
-          {
-            "label": "Completed Survey Last Month",
-            "filter": "DATE_FORMAT(createdAt, '%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH), '%Y-%m')AND status = 'Completed'",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987081867265",
-            "drillDown": {
-              "blockID": "",
-              "enabled": false
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      }
-    },
-    {
       "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-q8ii5ssvfrfm665pljb"
-      },
       "xywh": [
         0,
         67,
         23,
         34
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-q8ii5ssvfrfm665pljb"
       },
-      "title": "上月发送的问卷",
-      "blockID": "5",
-      "options": {
-        "metrics": [
-          {
-            "label": "No of survey send out last month",
-            "filter": "DATE_FORMAT(createdAt, '%Y-%m') = DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH), '%Y-%m')",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987081867265",
-            "drillDown": {
-              "blockID": "",
-              "enabled": false
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      }
+      "title": "上月发送的问卷"
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
-    "isToEdit": false,
-    "localTab": false,
     "newTabLink": "",
-    "localPageID": "",
     "btnVisibleKey": "",
-    "allowPersonalLayouts": false
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": true,
   "weight": 79,
   "createdAt": "2025-01-21T06:19:41Z",
+  "updatedAt": "2026-03-02T19:10:54Z",
   "title": "问卷调查看板",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2025-05-06T08:23:55Z"
+  "canDeletePage": true
 }

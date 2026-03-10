@@ -1,692 +1,739 @@
 {
-  "workflows": [
+  "workflowID": "430696983661903873",
+  "handle": "itsm-outline-role-sync",
+  "meta": {
+    "name": "itsm-outline-role-sync",
+    "description": "",
+    "visual": null,
+    "type": "",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "430696983661903873",
-      "handle": "itsm-outline-role-sync",
-      "enabled": true,
+      "stepID": "9",
+      "kind": "function",
+      "ref": "jsenvExecute",
+      "arguments": [
+        {
+          "target": "scope",
+          "expr": "request",
+          "type": "Any"
+        },
+        {
+          "target": "source",
+          "value": "return JSON.parse(readRequestBody(input));",
+          "type": "String"
+        }
+      ],
+      "results": [
+        {
+          "target": "params",
+          "expr": "resultAny",
+          "type": "Any"
+        }
+      ],
       "meta": {
-        "icon": "",
-        "name": "itsm-outline-role-sync",
-        "type": "",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "9",
+          "parent": "1",
+          "value": "Process arbitrary data in jsenv",
+          "xywh": [
+            2656,
+            2104,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    },
+    {
+      "stepID": "10",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
         {
-          "ref": "jsenvExecute",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "9",
-              "xywh": [
-                2656,
-                2104,
-                200,
-                80
-              ],
-              "value": "Process arbitrary data in jsenv",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "9",
-          "results": [
-            {
-              "expr": "resultAny",
-              "type": "Any",
-              "target": "params"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "request",
-              "type": "Any",
-              "target": "scope"
-            },
-            {
-              "type": "String",
-              "value": "return JSON.parse(readRequestBody(input));",
-              "target": "source"
-            }
-          ],
-          "customName": ""
+          "target": "outline_email",
+          "expr": "params[\"email\"]",
+          "type": "String"
         },
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "10",
-              "xywh": [
-                2968,
-                2104,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "10",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "params[\"email\"]",
-              "type": "String",
-              "target": "outline_email"
-            },
-            {
-              "expr": "params[\"role\"]",
-              "type": "String",
-              "target": "outline_role"
-            },
-            {
-              "expr": "\"Knowledge_Manager\"",
-              "type": "String",
-              "target": "Knowledge_Manager_role"
-            }
-          ],
-          "customName": ""
+          "target": "outline_role",
+          "expr": "params[\"role\"]",
+          "type": "String"
         },
         {
-          "ref": "usersLookup",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "20",
-              "xywh": [
-                2360,
-                2272,
-                200,
-                80
-              ],
-              "value": "User lookup",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "20",
-          "results": [
-            {
-              "expr": "user",
-              "type": "User",
-              "target": "sys_user"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "outline_email",
-              "type": "String",
-              "target": "lookup"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "composeRecordsSearch",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "21",
-              "xywh": [
-                2656,
-                2272,
-                200,
-                80
-              ],
-              "value": "Compose records search",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "21",
-          "results": [
-            {
-              "expr": "records",
-              "type": "ComposeRecord",
-              "target": "itsm_users"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"User\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "\"itsm\"",
-              "type": "Handle",
-              "target": "namespace"
-            },
-            {
-              "expr": "\"realUser = \" + sys_user.ID",
-              "type": "String",
-              "target": "query"
-            },
-            {
-              "expr": "1",
-              "type": "UnsignedInteger",
-              "target": "limit"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "23",
-              "xywh": [
-                2960,
-                2272,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "23",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "25",
-              "xywh": [
-                2360,
-                2432,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "25",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "itsm_users[0]",
-              "type": "ComposeRecord",
-              "target": "itsm_user"
-            },
-            {
-              "expr": "itsm_user.values.role",
-              "type": "Array",
-              "target": "itsm_user_roles"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "27",
-              "xywh": [
-                3312,
-                2272,
-                200,
-                80
-              ],
-              "value": "Terminate workflow execution",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "27",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "29",
-              "xywh": [
-                2656,
-                2432,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "29",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "33",
-              "xywh": [
-                2960,
-                2432,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "33",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "push(itsm_user_roles, Knowledge_Manager_role)",
-              "type": "Array",
-              "target": "itsm_user.values.role"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "exec-workflow",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "35",
-              "xywh": [
-                2960,
-                2600,
-                200,
-                80
-              ],
-              "value": "Execute a workflow and map variables from its scope to the current one",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "35",
-          "results": [
-            {
-              "expr": "res_array",
-              "type": "Array",
-              "target": "itsm_user_roles"
-            }
-          ],
-          "arguments": [
-            {
-              "type": "ID",
-              "value": "430708051490701313",
-              "target": "workflow"
-            },
-            {
-              "expr": "{\n  \"array\": itsm_user_roles,\n  \"element\": Knowledge_Manager_role\n}",
-              "type": "Vars",
-              "target": "scope"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "composeRecordsUpdate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "37",
-              "xywh": [
-                3408,
-                2432,
-                200,
-                80
-              ],
-              "value": "Compose record update",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "37",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "itsm_user",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "40",
-              "xywh": [
-                3264,
-                2600,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "40",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "itsm_user_roles",
-              "type": "Array",
-              "target": "itsm_user.values.role"
-            }
-          ],
-          "customName": ""
+          "target": "Knowledge_Manager_role",
+          "expr": "\"Knowledge_Manager\"",
+          "type": "String"
         }
       ],
-      "paths": [
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "10",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2968,
+            2104,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "20",
+      "kind": "function",
+      "ref": "usersLookup",
+      "arguments": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "11",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "10",
-          "parentID": "9"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "13",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "20",
-          "parentID": "10"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "22",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "21",
-          "parentID": "20"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "24",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "23",
-          "parentID": "21"
-        },
-        {
-          "expr": "number(itsm_users) > 0",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "26",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "25",
-          "parentID": "23"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "28",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "27",
-          "parentID": "23"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "30",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "29",
-          "parentID": "25"
-        },
-        {
-          "expr": "outline_role == \"admin\" && !has(itsm_user.values.role, Knowledge_Manager_role)",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "32",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "33",
-          "parentID": "29"
-        },
-        {
-          "expr": "outline_role != \"admin\" && has(itsm_user.values.role, Knowledge_Manager_role)",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "34",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "35",
-          "parentID": "29"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "36",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
-              "value": "#3 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "27",
-          "parentID": "29"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "38",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "37",
-          "parentID": "33"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "39",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "40",
-          "parentID": "35"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "41",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": null
-            },
-            "description": ""
-          },
-          "childID": "37",
-          "parentID": "40"
+          "target": "lookup",
+          "expr": "outline_email",
+          "type": "String"
         }
       ],
-      "triggers": [
+      "results": [
         {
-          "triggerID": "430696984651759617",
-          "resourceType": "system:sink",
-          "eventType": "onRequest",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "request.method",
-              "values": [
-                "POST"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "request.path",
-              "values": [
-                "/outline_update_role"
-              ],
-              "condition": null
-            }
+          "target": "sys_user",
+          "expr": "user",
+          "type": "User"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "20",
+          "parent": "1",
+          "value": "User lookup",
+          "xywh": [
+            2360,
+            2272,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "21",
+      "kind": "function",
+      "ref": "composeRecordsSearch",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "\"User\"",
+          "type": "Handle"
+        },
+        {
+          "target": "namespace",
+          "expr": "\"itsm\"",
+          "type": "Handle"
+        },
+        {
+          "target": "query",
+          "expr": "\"realUser = \" + sys_user.ID",
+          "type": "String"
+        },
+        {
+          "target": "limit",
+          "expr": "1",
+          "type": "UnsignedInteger"
+        }
+      ],
+      "results": [
+        {
+          "target": "itsm_users",
+          "expr": "records",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "21",
+          "parent": "1",
+          "value": "Compose records search",
+          "xywh": [
+            2656,
+            2272,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "23",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "23",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2960,
+            2272,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "25",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "itsm_user",
+          "expr": "itsm_users[0]",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "itsm_user_roles",
+          "expr": "itsm_user.values.role",
+          "type": "Array"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "25",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2360,
+            2432,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "27",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "27",
+          "parent": "1",
+          "value": "Terminate workflow execution",
+          "xywh": [
+            3312,
+            2272,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "29",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "29",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2656,
+            2432,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "33",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "itsm_user.values.role",
+          "expr": "push(itsm_user_roles, Knowledge_Manager_role)",
+          "type": "Array"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "33",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2960,
+            2432,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "35",
+      "kind": "exec-workflow",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "workflow",
+          "value": "430708051490701313",
+          "type": "ID"
+        },
+        {
+          "target": "scope",
+          "expr": "{\n  \"array\": itsm_user_roles,\n  \"element\": Knowledge_Manager_role\n}",
+          "type": "Vars"
+        }
+      ],
+      "results": [
+        {
+          "target": "itsm_user_roles",
+          "expr": "res_array",
+          "type": "Array"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "35",
+          "parent": "1",
+          "value": "Execute a workflow and map variables from its scope to the current one",
+          "xywh": [
+            2960,
+            2600,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "37",
+      "kind": "function",
+      "ref": "composeRecordsUpdate",
+      "arguments": [
+        {
+          "target": "record",
+          "expr": "itsm_user",
+          "type": "ComposeRecord"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "37",
+          "parent": "1",
+          "value": "Compose record update",
+          "xywh": [
+            3408,
+            2432,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "40",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "itsm_user.values.role",
+          "expr": "itsm_user_roles",
+          "type": "Array"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "40",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3264,
+            2600,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "9",
+      "childID": "10",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "11",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "10",
+      "childID": "20",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "13",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "20",
+      "childID": "21",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "22",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "21",
+      "childID": "23",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "24",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "number(itsm_users) > 0",
+      "parentID": "23",
+      "childID": "25",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "26",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "23",
+      "childID": "27",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "28",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "25",
+      "childID": "29",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "30",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "outline_role == \"admin\" && !has(itsm_user.values.role, Knowledge_Manager_role)",
+      "parentID": "29",
+      "childID": "33",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "32",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "outline_role != \"admin\" && has(itsm_user.values.role, Knowledge_Manager_role)",
+      "parentID": "29",
+      "childID": "35",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "34",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "29",
+      "childID": "27",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "36",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+          "value": "#3 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "33",
+      "childID": "37",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "38",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "35",
+      "childID": "40",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "39",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "40",
+      "childID": "37",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "41",
+          "parent": "1",
+          "points": null,
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "414150633185673217",
+  "ownedBy": "410112008503296001",
+  "createdAt": "2025-02-19T06:15:59Z",
+  "createdBy": "410112008503296001",
+  "updatedAt": "2026-03-02T19:12:45Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "430696984651759617",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "430696983661903873",
+      "stepID": "9",
+      "resourceType": "system:sink",
+      "eventType": "onRequest",
+      "constraints": [
+        {
+          "name": "request.method",
+          "op": "=",
+          "values": [
+            "POST"
           ],
-          "enabled": true,
-          "stepID": "9",
-          "meta": {
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2360,
-                2104,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "5",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "9",
-                  "parentID": "3"
+          "condition": null
+        },
+        {
+          "name": "request.path",
+          "op": "=",
+          "values": [
+            "/outline_update_role"
+          ],
+          "condition": null
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "9",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "5",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "System sink - onRequest",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
-        }
-      ],
-      "runAs": "414150633185673217",
-      "ownedBy": "410112008503296001",
-      "createdAt": "2025-02-19T06:15:59.000Z",
-      "updatedAt": "2025-02-19T09:09:34.000Z"
+              },
+              "parentID": "3"
+            }
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "System sink - onRequest",
+          "xywh": [
+            2360,
+            2104,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2025-02-19T06:18:15Z",
+      "createdBy": "410112008503296001",
+      "updatedAt": "2026-03-02T19:12:45Z"
     }
   ]
 }

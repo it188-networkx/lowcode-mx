@@ -1,251 +1,257 @@
 {
-  "workflows": [
-    {
-      "workflowID": "410131707408482305",
-      "handle": "Query-Record",
-      "enabled": true,
-      "meta": {
-        "icon": "Query",
-        "name": "Query Record",
-        "type": "",
-        "visual": null,
-        "results": "query_records",
-        "formList": [
+  "workflowID": "410131707408482305",
+  "handle": "Query-Record",
+  "meta": {
+    "name": "Query Record",
+    "description": "",
+    "visual": null,
+    "subWorkflow": true,
+    "type": "",
+    "formList": [
+      {
+        "defaultVal": "1",
+        "isDefault": true,
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "quantity",
+        "label": "Query Quantity",
+        "selectApi": "",
+        "selectOption": [
           {
-            "key": "quantity",
-            "type": "radiogroup",
-            "label": "Query Quantity",
-            "isShow": false,
-            "isDefault": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "defaultVal": "1",
-            "isShowValue": "",
-            "selectOption": [
-              {
-                "text": "Single Record",
-                "value": "1"
-              },
-              {
-                "text": "Multiple Records",
-                "value": "2"
-              }
-            ]
+            "text": "Single Record",
+            "value": "1"
           },
           {
-            "key": "module",
-            "type": "module",
-            "label": "Module",
-            "isShow": false,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "condition",
-            "type": "condition",
-            "label": "Filter",
-            "isShow": false,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "fieldRule",
-            "type": "fieldrule",
-            "label": "Sorting Rule",
-            "isShow": false,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "returned",
-            "type": "radiogroup",
-            "label": "When No Data Is Returned",
-            "isShow": false,
-            "isDefault": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "defaultVal": "1",
-            "isShowValue": "",
-            "selectOption": [
-              {
-                "text": "Continue execution, subsequent nodes will skip execution when using this node's object or data",
-                "value": "1"
-              }
-            ]
+            "text": "Multiple Records",
+            "value": "2"
           }
         ],
-        "isBusiness": true,
-        "description": "",
-        "subWorkflow": true,
-        "businessType": "Query",
-        "businessLabel": "Query Record for Use in Subsequent Node"
+        "type": "radiogroup"
       },
-      "keepSessions": 0,
-      "steps": [
+      {
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "module",
+        "label": "Module",
+        "selectApi": "",
+        "selectOption": [],
+        "type": "module"
+      },
+      {
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "condition",
+        "label": "Filter",
+        "selectApi": "",
+        "selectOption": [],
+        "type": "condition"
+      },
+      {
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "fieldRule",
+        "label": "Sorting Rule",
+        "selectApi": "",
+        "selectOption": [],
+        "type": "fieldrule"
+      },
+      {
+        "defaultVal": "1",
+        "isDefault": true,
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "returned",
+        "label": "When No Data Is Returned",
+        "selectApi": "",
+        "selectOption": [
+          {
+            "text": "Continue execution, subsequent nodes will skip execution when using this node's object or data",
+            "value": "1"
+          }
+        ],
+        "type": "radiogroup"
+      }
+    ],
+    "businessType": "Query",
+    "businessLabel": "Query Record for Use in Subsequent Node",
+    "results": "query_records",
+    "icon": "Query",
+    "isBusiness": true
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
+    {
+      "stepID": "3",
+      "kind": "function",
+      "ref": "composeRecordsSearch",
+      "arguments": [
         {
-          "ref": "composeRecordsSearch",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2456,
-                2336,
-                200,
-                80
-              ],
-              "value": "Compose records search",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "3",
-          "results": [
-            {
-              "expr": "records",
-              "type": "ComposeRecord",
-              "target": "query_records"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "module",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "namespaceHandle",
-              "type": "Handle",
-              "target": "namespace"
-            },
-            {
-              "expr": "query_condition",
-              "type": "String",
-              "target": "query"
-            },
-            {
-              "expr": "query_sort",
-              "type": "String",
-              "target": "sort"
-            },
-            {
-              "expr": "query_quantity == \"1\" ? 1 : \"\"",
-              "type": "UnsignedInteger",
-              "target": "limit"
-            }
-          ],
-          "customName": ""
+          "target": "module",
+          "expr": "module",
+          "type": "Handle"
         },
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "35",
-              "xywh": [
-                2456,
-                2192,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "35",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "quantity",
-              "type": "String",
-              "target": "query_quantity"
-            },
-            {
-              "expr": "parseCondition(condition)",
-              "type": "String",
-              "target": "query_condition"
-            },
-            {
-              "expr": "fieldRule",
-              "type": "String",
-              "target": "query_sort"
-            }
-          ],
-          "customName": ""
+          "target": "namespace",
+          "expr": "namespaceHandle",
+          "type": "Handle"
         },
         {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "37",
-              "xywh": [
-                2456,
-                2488,
-                200,
-                80
-              ],
-              "value": "Terminate workflow execution",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "37",
-          "results": [],
-          "arguments": [],
-          "customName": ""
+          "target": "query",
+          "expr": "query_condition",
+          "type": "String"
+        },
+        {
+          "target": "sort",
+          "expr": "query_sort",
+          "type": "String"
+        },
+        {
+          "target": "limit",
+          "expr": "query_quantity == \"1\" ? 1 : \"\"",
+          "type": "UnsignedInteger"
         }
       ],
-      "paths": [
+      "results": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "36",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "3",
-          "parentID": "35"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "38",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "37",
-          "parentID": "3"
+          "target": "query_records",
+          "expr": "records",
+          "type": "ComposeRecord"
         }
       ],
-      "triggers": [],
-      "runAs": "414150633185673217",
-      "ownedBy": "409824986979762177",
-      "createdAt": "2024-09-30T09:17:23.000Z",
-      "updatedAt": "2024-12-06T07:43:43.000Z"
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "3",
+          "parent": "1",
+          "value": "Compose records search",
+          "xywh": [
+            2456,
+            2336,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "35",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "query_quantity",
+          "expr": "quantity",
+          "type": "String"
+        },
+        {
+          "target": "query_condition",
+          "expr": "parseCondition(condition)",
+          "type": "String"
+        },
+        {
+          "target": "query_sort",
+          "expr": "fieldRule",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "35",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2456,
+            2192,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "37",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "37",
+          "parent": "1",
+          "value": "Terminate workflow execution",
+          "xywh": [
+            2456,
+            2488,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
     }
-  ]
+  ],
+  "paths": [
+    {
+      "parentID": "35",
+      "childID": "3",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "36",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "3",
+      "childID": "37",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "38",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "414150633185673217",
+  "ownedBy": "409824986979762177",
+  "createdAt": "2024-09-30T09:17:23Z",
+  "createdBy": "409824986979762177",
+  "updatedAt": "2026-03-02T19:12:46Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": []
 }

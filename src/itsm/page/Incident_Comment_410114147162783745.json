@@ -6,44 +6,28 @@
   "handle": "",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "RecordList",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-dcr7lmr3ykcm1ondlfr"
-      },
-      "xywh": [
-        0,
-        0,
-        48,
-        82
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
       "blockID": "1",
       "options": {
+        "allowExport": false,
+        "bulkRecordEditEnabled": false,
+        "customFilterPresets": false,
+        "draggable": false,
+        "editFields": [],
+        "editable": false,
+        "enableRecordPageNavigation": false,
         "fields": [
           {
-            "kind": "User",
-            "name": "operator",
-            "label": "operator",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -51,54 +35,54 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
             },
             "fieldID": "409824987068956673",
+            "isFilterable": true,
             "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "User",
+            "label": "operator",
+            "maxLength": 0,
+            "name": "operator",
             "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "roles": [],
-              "selectType": "default",
               "description": {
                 "view": ""
               },
-              "multiDelimiter": "\n",
+              "hint": {
+                "view": ""
+              },
               "isUniqueMultiValue": false,
-              "presetWithAuthenticated": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+              "multiDelimiter": "\n",
+              "presetWithAuthenticated": false,
+              "roles": [],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
           },
           {
-            "kind": "DateTime",
-            "name": "operationTime",
-            "label": "Operation Time",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -106,56 +90,56 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
             },
             "fieldID": "409824987068628993",
+            "isFilterable": true,
             "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "DateTime",
+            "label": "Operation Time",
+            "maxLength": 0,
+            "name": "operationTime",
             "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "format": "YYYY-MM-DD HH:mm:ss",
-              "onlyDate": false,
-              "onlyTime": false,
               "description": {
                 "view": ""
               },
+              "format": "YYYY-MM-DD HH:mm:ss",
+              "hint": {
+                "view": ""
+              },
               "multiDelimiter": "\n",
+              "onlyDate": false,
+              "onlyFutureValues": false,
               "onlyPastValues": false,
+              "onlyTime": false,
               "outputRelative": false,
-              "onlyFutureValues": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              }
+            }
           },
           {
-            "kind": "Select",
-            "name": "type",
-            "label": "Type",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -163,27 +147,43 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
             },
+            "customRequired": false,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "c"
+              }
+            ],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
             "fieldID": "409824987068366849",
+            "isFilterable": true,
             "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Select",
+            "label": "Type",
+            "maxLength": 0,
+            "name": "type",
             "options": {
+              "description": {
+                "view": ""
+              },
               "hint": {
                 "view": ""
               },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
+              "isUniqueMultiValue": false,
+              "multiDelimiter": "\n",
               "options": [
                 {
                   "text": "Field Change",
@@ -198,36 +198,20 @@
                   "value": "c"
                 }
               ],
-              "selectType": "default",
-              "description": {
-                "view": ""
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
               },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "c"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+              "selectType": "default"
+            }
           },
           {
-            "kind": "String",
-            "name": "operationDetails",
-            "label": "Operation Details",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -235,56 +219,56 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
             },
-            "fieldID": "409824987068432385",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
+            "customRequired": false,
             "defaultValue": [
               {
                 "name": ""
               }
             ],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "409824987068432385",
             "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Operation Details",
+            "maxLength": 0,
+            "name": "operationDetails",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
           },
           {
-            "kind": "String",
-            "name": "new",
-            "label": "New",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -292,52 +276,52 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
             },
             "fieldID": "409824987069022209",
+            "isFilterable": true,
             "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "New",
+            "maxLength": 0,
+            "name": "new",
             "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
               "description": {
                 "view": ""
               },
+              "hint": {
+                "view": ""
+              },
               "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
               "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+            }
           },
           {
-            "kind": "String",
-            "name": "old",
-            "label": "Old",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -345,52 +329,52 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
             },
             "fieldID": "409824987069087745",
+            "isFilterable": true,
             "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Old",
+            "maxLength": 0,
+            "name": "old",
             "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
               "description": {
                 "view": ""
               },
+              "hint": {
+                "view": ""
+              },
               "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
               "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+            }
           },
           {
-            "kind": "String",
-            "name": "content",
-            "label": "Content",
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": {
@@ -398,112 +382,132 @@
                 }
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
             },
-            "fieldID": "409824987069218817",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
+            "customRequired": false,
+            "defaultValue": [],
             "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
             "expressions": {
               "customValidators": null
             },
-            "defaultValue": [],
+            "fieldID": "409824987069218817",
             "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Content",
+            "maxLength": 0,
+            "name": "content",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
           }
         ],
-        "perPage": 14,
-        "presort": "createdAt DESC",
-        "editable": false,
-        "isToEdit": false,
-        "moduleID": "409824987081736193",
-        "draggable": false,
-        "prefilter": "incident = ${recordID} and iType >= 100 and iType <= 200 and (isVisible = true or (isVisible = false and incidentCaller != ${userID}))",
-        "editFields": [],
+        "filterPresets": [],
+        "fullPageNavigation": false,
+        "hideAddButton": true,
+        "hideConfigureFieldsButton": true,
+        "hideFiltering": false,
         "hideHeader": false,
+        "hideImportButton": true,
         "hidePaging": false,
+        "hideRecordCloneButton": true,
+        "hideRecordCloneButtonValidators": "",
+        "hideRecordDeleteButton": true,
+        "hideRecordDeleteButtonValidators": "",
+        "hideRecordEditButton": true,
+        "hideRecordEditButtonValidators": "",
+        "hideRecordPermissionsButton": true,
+        "hideRecordPermissionsButtonValidators": "",
+        "hideRecordReminderButton": true,
+        "hideRecordReminderButtonValidators": "",
+        "hideRecordViewButton": true,
+        "hideRecordViewButtonValidators": "",
         "hideSearch": false,
+        "hideSorting": false,
+        "inlineRecordEditEnabled": false,
+        "isToEdit": false,
+        "linkToParent": false,
+        "magnifyOption": "",
+        "moduleID": "409824987081736193",
+        "openInNewTab": false,
+        "perPage": 14,
+        "prefilter": "incident = ${recordID} and iType >= 100 and iType <= 200 and (isVisible = true or (isVisible = false and incidentCaller != ${userID}))",
+        "presort": "createdAt DESC",
+        "recordDisplayOption": "sameTab",
+        "recordSelectorDisplayOption": "sameTab",
+        "refreshRate": 0,
         "selectMode": "multi",
         "selectable": false,
-        "allowExport": false,
-        "hideSorting": false,
-        "refreshRate": 0,
-        "showRefresh": false,
-        "linkToParent": false,
-        "openInNewTab": false,
-        "filterPresets": [],
-        "hideAddButton": true,
-        "hideFiltering": false,
-        "magnifyOption": "",
-        "showTotalCount": false,
-        "hideImportButton": true,
         "selectionButtons": [],
-        "fullPageNavigation": false,
-        "customFilterPresets": false,
-        "recordDisplayOption": "sameTab",
-        "hideRecordEditButton": true,
-        "hideRecordViewButton": true,
-        "bulkRecordEditEnabled": false,
-        "hideRecordCloneButton": true,
-        "hideRecordDeleteButton": true,
-        "inlineRecordEditEnabled": false,
-        "showRecordPerPageOption": false,
-        "hideRecordReminderButton": true,
         "showDeletedRecordsOption": false,
-        "hideConfigureFieldsButton": true,
-        "enableRecordPageNavigation": false,
-        "hideRecordPermissionsButton": true,
-        "recordSelectorDisplayOption": "sameTab",
-        "hideRecordEditButtonValidators": "",
-        "hideRecordViewButtonValidators": "",
-        "hideRecordCloneButtonValidators": "",
-        "hideRecordDeleteButtonValidators": "",
-        "hideRecordReminderButtonValidators": "",
-        "hideRecordPermissionsButtonValidators": ""
+        "showRecordPerPageOption": false,
+        "showRefresh": false,
+        "showTotalCount": false
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "RecordList",
+      "xywh": [
+        0,
+        0,
+        48,
+        82
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-dcr7lmr3ykcm1ondlfr"
       }
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
     "newTabLink": "",
-    "allowPersonalLayouts": false
+    "btnVisibleKey": "",
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 14,
   "createdAt": "2024-09-30T06:47:25Z",
+  "updatedAt": "2026-03-02T19:10:56Z",
   "title": "Incident_Comment",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2024-11-12T02:13:45Z"
+  "canDeletePage": true
 }

@@ -6,1018 +6,1022 @@
   "handle": "Incident",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "RecordList",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-0rdz6zpyrt1nlymn7xvj"
+      "blockID": "2",
+      "options": {
+        "allowExport": false,
+        "bulkRecordEditEnabled": true,
+        "customFilterPresets": false,
+        "draggable": false,
+        "editFields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937407103172609",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Assignment Group",
+            "maxLength": 0,
+            "name": "assignmentGroup",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918168129537",
+              "multiDelimiter": "",
+              "prefilter": "'${record.values.category}' IN incidentCategory",
+              "queryFields": [],
+              "recordLabelField": "name",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937406499192833",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Caller",
+            "maxLength": 0,
+            "name": "caller",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918167670785",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937321153495041",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Category",
+            "maxLength": 0,
+            "name": "category",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918167539713",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398938151810236417",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Site",
+            "maxLength": 0,
+            "name": "location",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "shopName",
+              "moduleID": "398958169126207489",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "403162353413128193",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Code",
+            "label": "Number",
+            "maxLength": 0,
+            "name": "number",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "7",
+                "fixedChar": "INC",
+                "resetFrequency": "1",
+                "select": 7,
+                "start": "1"
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "402257007224225793",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Priority",
+            "maxLength": 0,
+            "name": "priority",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "priority",
+              "moduleID": "399074024921628673",
+              "multiDelimiter": "",
+              "prefilter": "impact = ${record.values.impact} and urgency = ${record.values.urgency}",
+              "queryFields": [],
+              "recordLabelField": "name",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937315331801089",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Short Description  ",
+            "maxLength": 0,
+            "name": "shortDescription",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "399074025230434305"
+              }
+            ],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937407287721985",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Status",
+            "maxLength": 0,
+            "name": "status",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "398959488704446465",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          }
+        ],
+        "editable": true,
+        "enableRecordPageNavigation": false,
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "403162353413128193",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Code",
+            "label": "Number",
+            "maxLength": 0,
+            "name": "number",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "7",
+                "fixedChar": "INC",
+                "resetFrequency": "1",
+                "select": 7,
+                "start": "1"
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937315331801089",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Short Description  ",
+            "maxLength": 0,
+            "name": "shortDescription",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398938151810236417",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Site",
+            "maxLength": 0,
+            "name": "location",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "shopName",
+              "moduleID": "398958169126207489",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937406499192833",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Caller",
+            "maxLength": 0,
+            "name": "caller",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918167670785",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "402257007224225793",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Priority",
+            "maxLength": 0,
+            "name": "priority",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "priority",
+              "moduleID": "399074024921628673",
+              "multiDelimiter": "",
+              "prefilter": "impact = ${record.values.impact} and urgency = ${record.values.urgency}",
+              "queryFields": [],
+              "recordLabelField": "name",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "399074025230434305"
+              }
+            ],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937407287721985",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Status",
+            "maxLength": 0,
+            "name": "status",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "398959488704446465",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937407103172609",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Assignment Group",
+            "maxLength": 0,
+            "name": "assignmentGroup",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918168129537",
+              "multiDelimiter": "",
+              "prefilter": "'${record.values.category}' IN incidentCategory",
+              "queryFields": [],
+              "recordLabelField": "name",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937321153495041",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Category",
+            "maxLength": 0,
+            "name": "category",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918167539713",
+              "multiDelimiter": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {},
+            "fieldID": "398937324005621761",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Subcategory",
+            "maxLength": 0,
+            "name": "subcategory",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "labelField": "name",
+              "moduleID": "402019918167539713",
+              "multiDelimiter": "",
+              "prefilter": "parentID = ${record.values.category}",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          }
+        ],
+        "filterPresets": [],
+        "fullPageNavigation": false,
+        "hideAddButton": false,
+        "hideConfigureFieldsButton": true,
+        "hideFiltering": false,
+        "hideHeader": false,
+        "hideImportButton": false,
+        "hidePaging": false,
+        "hideRecordCloneButton": false,
+        "hideRecordCloneButtonValidators": "",
+        "hideRecordDeleteButton": false,
+        "hideRecordDeleteButtonValidators": "",
+        "hideRecordEditButton": true,
+        "hideRecordEditButtonValidators": "",
+        "hideRecordPermissionsButton": false,
+        "hideRecordPermissionsButtonValidators": "",
+        "hideRecordReminderButton": false,
+        "hideRecordReminderButtonValidators": "",
+        "hideRecordViewButton": true,
+        "hideRecordViewButtonValidators": "",
+        "hideSearch": false,
+        "hideSorting": false,
+        "inlineRecordEditEnabled": false,
+        "isToEdit": false,
+        "linkToParent": false,
+        "magnifyOption": "",
+        "moduleID": "409824987082063873",
+        "openInNewTab": false,
+        "perPage": 50,
+        "prefilter": "1 = 1 ${user.meta.custom.group ||\"\"}",
+        "presort": "createdAt DESC",
+        "recordDisplayOption": "sameTab",
+        "recordSelectorDisplayOption": "sameTab",
+        "refreshRate": 0,
+        "selectMode": "multi",
+        "selectable": true,
+        "selectionButtons": [],
+        "showDeletedRecordsOption": false,
+        "showRecordPerPageOption": false,
+        "showRefresh": false,
+        "showTotalCount": false
       },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "RecordList",
       "xywh": [
         0,
         0,
         48,
         77
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "2",
-      "options": {
-        "fields": [
-          {
-            "kind": "Code",
-            "name": "number",
-            "label": "Number",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "403162353413128193",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "7",
-                "start": "1",
-                "select": 7,
-                "fixedChar": "INC",
-                "dateFormat": "",
-                "resetFrequency": "1"
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "shortDescription",
-            "label": "Short Description  ",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937315331801089",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "location",
-            "label": "Site",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398938151810236417",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "398958169126207489",
-              "isCheckbox": false,
-              "labelField": "shopName",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "caller",
-            "label": "Caller",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937406499192833",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918167670785",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "priority",
-            "label": "Priority",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "402257007224225793",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "399074024921628673",
-              "prefilter": "impact = ${record.values.impact} and urgency = ${record.values.urgency}",
-              "isCheckbox": false,
-              "labelField": "priority",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "name",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "status",
-            "label": "Status",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937407287721985",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "398959488704446465",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "399074025230434305"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "assignmentGroup",
-            "label": "Assignment Group",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937407103172609",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918168129537",
-              "prefilter": "'${record.values.category}' IN incidentCategory",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "name",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "category",
-            "label": "Category",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937321153495041",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918167539713",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "subcategory",
-            "label": "Subcategory",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937324005621761",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918167539713",
-              "prefilter": "parentID = ${record.values.category}",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "perPage": 50,
-        "presort": "createdAt DESC",
-        "editable": true,
-        "isToEdit": false,
-        "moduleID": "409824987082063873",
-        "draggable": false,
-        "prefilter": "1 = 1 ${user.meta.custom.group ||\"\"}",
-        "editFields": [
-          {
-            "kind": "Record",
-            "name": "assignmentGroup",
-            "label": "Assignment Group",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937407103172609",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918168129537",
-              "prefilter": "'${record.values.category}' IN incidentCategory",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "name",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "caller",
-            "label": "Caller",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937406499192833",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918167670785",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "category",
-            "label": "Category",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937321153495041",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "402019918167539713",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "location",
-            "label": "Site",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398938151810236417",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "398958169126207489",
-              "isCheckbox": false,
-              "labelField": "shopName",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Code",
-            "name": "number",
-            "label": "Number",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "403162353413128193",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "7",
-                "start": "1",
-                "select": 7,
-                "fixedChar": "INC",
-                "dateFormat": "",
-                "resetFrequency": "1"
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "priority",
-            "label": "Priority",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "402257007224225793",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "399074024921628673",
-              "prefilter": "impact = ${record.values.impact} and urgency = ${record.values.urgency}",
-              "isCheckbox": false,
-              "labelField": "priority",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "name",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "shortDescription",
-            "label": "Short Description  ",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937315331801089",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "status",
-            "label": "Status",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "398937407287721985",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "398959488704446465",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {},
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "399074025230434305"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "hideHeader": false,
-        "hidePaging": false,
-        "hideSearch": false,
-        "selectMode": "multi",
-        "selectable": true,
-        "allowExport": false,
-        "hideSorting": false,
-        "refreshRate": 0,
-        "showRefresh": false,
-        "linkToParent": false,
-        "openInNewTab": false,
-        "filterPresets": [],
-        "hideAddButton": false,
-        "hideFiltering": false,
-        "magnifyOption": "",
-        "showTotalCount": false,
-        "hideImportButton": false,
-        "selectionButtons": [],
-        "fullPageNavigation": false,
-        "customFilterPresets": false,
-        "recordDisplayOption": "sameTab",
-        "hideRecordEditButton": true,
-        "hideRecordViewButton": true,
-        "bulkRecordEditEnabled": true,
-        "hideRecordCloneButton": false,
-        "hideRecordDeleteButton": false,
-        "inlineRecordEditEnabled": false,
-        "showRecordPerPageOption": false,
-        "hideRecordReminderButton": false,
-        "showDeletedRecordsOption": false,
-        "hideConfigureFieldsButton": true,
-        "enableRecordPageNavigation": false,
-        "hideRecordPermissionsButton": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "hideRecordEditButtonValidators": "",
-        "hideRecordViewButtonValidators": "",
-        "hideRecordCloneButtonValidators": "",
-        "hideRecordDeleteButtonValidators": "",
-        "hideRecordReminderButtonValidators": "",
-        "hideRecordPermissionsButtonValidators": ""
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-0rdz6zpyrt1nlymn7xvj"
       }
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
     "newTabLink": "",
-    "allowPersonalLayouts": false
+    "btnVisibleKey": "",
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": true,
   "weight": 16,
   "createdAt": "2024-09-28T06:09:30Z",
+  "updatedAt": "2026-03-02T19:10:53Z",
   "title": "事件管理",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2024-12-12T07:04:09Z"
+  "canDeletePage": true
 }

@@ -6,62 +6,39 @@
   "handle": "RecordpageSla",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-upniu9utxfcm0ovkr4z"
-      },
-      "xywh": [
-        0,
-        0,
-        22,
-        31
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
       "blockID": "2",
       "options": {
         "formList": [
           {
-            "key": "name",
-            "type": "input",
-            "label": "${lang == 'en' ? 'Name':'名称'} ",
-            "isShow": false,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
             "isOpenShow": false,
+            "isShow": false,
+            "isShowKey": "",
             "isShowValue": "",
-            "selectOption": []
+            "key": "name",
+            "label": "${lang == 'en' ? 'Name':'名称'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "input"
           },
           {
-            "key": "timeZoneType",
-            "type": "select",
-            "label": "${lang == 'en' ? 'Timezone source':'时区来源'} ",
-            "isShow": false,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
             "isOpenShow": false,
+            "isShow": false,
+            "isShowKey": "",
             "isShowValue": "",
+            "key": "timeZoneType",
+            "label": "${lang == 'en' ? 'Timezone source':'时区来源'} ",
+            "required": true,
+            "selectApi": "",
             "selectOption": [
               {
                 "text": "The SLA definition's time zone",
@@ -71,83 +48,83 @@
                 "text": "The caller's time zone",
                 "value": "2"
               }
-            ]
+            ],
+            "type": "select"
           },
           {
-            "key": "timeZone",
-            "type": "forTimezone",
-            "label": "${lang == 'en' ? 'Time Zone':'时区'} ",
-            "isShow": true,
-            "required": true,
-            "isShowKey": "timeZoneType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShow": true,
+            "isShowKey": "timeZoneType",
             "isShowValue": "1",
-            "selectOption": []
+            "key": "timeZone",
+            "label": "${lang == 'en' ? 'Time Zone':'时区'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "forTimezone"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-sh1j51eggnm0ovm4gf"
       },
-      "xywh": [
-        22,
-        0,
-        25,
-        31
-      ],
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
+      "kind": "Form",
+      "xywh": [
+        0,
+        0,
+        22,
+        31
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-upniu9utxfcm0ovkr4z"
+      }
+    },
+    {
       "blockID": "3",
       "options": {
         "formList": [
           {
-            "key": "moduleId",
-            "type": "module",
-            "label": "${lang == 'en' ? 'Module':'模块'} ",
             "isShow": false,
-            "required": true,
             "isShowKey": "",
-            "selectApi": "",
             "isShowValue": "",
-            "selectOption": []
+            "key": "moduleId",
+            "label": "${lang == 'en' ? 'Module':'模块'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "module"
           },
           {
-            "key": "timeTableId",
-            "type": "select",
-            "label": "${lang == 'en' ? 'schedule':'时间表'} ",
             "isShow": false,
-            "required": true,
             "isShowKey": "",
-            "selectApi": "/components/timetable",
             "isShowValue": "",
+            "key": "timeTableId",
+            "label": "${lang == 'en' ? 'schedule':'时间表'} ",
+            "required": true,
+            "selectApi": "/components/timetable",
             "selectOption": [
               {
                 "text": "24*7*365",
@@ -157,19 +134,20 @@
                 "text": "12*5*200",
                 "value": "2"
               }
-            ]
+            ],
+            "type": "select"
           },
           {
-            "key": "enabled",
-            "type": "select",
-            "label": "${lang == 'en' ? 'Enabled':'启用状态'} ",
             "disabled": false,
+            "isOpenShow": false,
+            "isOpenShowSub": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "enabled",
+            "label": "${lang == 'en' ? 'Enabled':'启用状态'} ",
             "multiple": false,
             "required": false,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "禁用",
@@ -180,286 +158,308 @@
                 "value": "1"
               }
             ],
-            "isOpenShowSub": false
+            "type": "select"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        22,
+        0,
+        25,
+        31
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-sh1j51eggnm0ovm4gf"
       }
     },
     {
-      "kind": "Tabs",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-19mvtgmy2jqm0ovn1hh"
+      "blockID": "4",
+      "options": {
+        "magnifyOption": "",
+        "style": {
+          "alignment": "center",
+          "appearance": "tabs",
+          "justify": "justify",
+          "orientation": "horizontal",
+          "position": "start"
+        },
+        "tabs": [
+          {
+            "blockID": "5",
+            "title": "${lang == 'en' ? 'Eligibility criteria':'准入条件'} "
+          },
+          {
+            "blockID": "6",
+            "title": "${lang == 'en' ? 'Service Objertive':'服务目标'} "
+          },
+          {
+            "blockID": "7",
+            "title": "${lang == 'en' ? 'Response Time Rules':'响应计时规则'} "
+          },
+          {
+            "blockID": "8",
+            "title": "${lang == 'en' ? 'Resolution Time Rules':'解决计时规则'}"
+          }
+        ]
       },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Tabs",
       "xywh": [
         0,
         31,
         47,
         45
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-19mvtgmy2jqm0ovn1hh"
+      }
+    },
+    {
+      "blockID": "5",
+      "options": {
+        "isModule": false,
+        "key": "eligibility",
+        "magnifyOption": "",
+        "moduleID": "",
+        "moduleKey": "",
+        "type": "one"
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "blockID": "4",
-      "options": {
-        "tabs": [
-          {
-            "title": "${lang == 'en' ? 'Eligibility criteria':'准入条件'} ",
-            "blockID": "5"
-          },
-          {
-            "title": "${lang == 'en' ? 'Service Objertive':'服务目标'} ",
-            "blockID": "6"
-          },
-          {
-            "title": "${lang == 'en' ? 'Response Time Rules':'响应计时规则'} ",
-            "blockID": "7"
-          },
-          {
-            "title": "${lang == 'en' ? 'Resolution Time Rules':'解决计时规则'}",
-            "blockID": "8"
-          }
-        ],
-        "style": {
-          "justify": "justify",
-          "position": "start",
-          "alignment": "center",
-          "appearance": "tabs",
-          "orientation": "horizontal"
-        },
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Condition",
+      "xywh": [
+        0,
+        33,
+        20,
+        15
+      ],
       "meta": {
         "hidden": true,
         "tempID": "tempID-bae9ql5765am0ovnnu1"
+      }
+    },
+    {
+      "blockID": "6",
+      "options": {
+        "isModule": false,
+        "key": "service",
+        "magnifyOption": "",
+        "moduleID": "",
+        "moduleKey": "",
+        "type": "two"
       },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Condition",
       "xywh": [
         0,
         33,
         20,
         15
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "5",
-      "options": {
-        "key": "eligibility",
-        "type": "one",
-        "isModule": false,
-        "moduleID": "",
-        "moduleKey": "",
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
-      "kind": "Condition",
       "meta": {
         "hidden": true,
         "tempID": "tempID-eukoj4s5l9pm0ovnz0p"
-      },
-      "xywh": [
-        0,
-        33,
-        20,
-        15
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "6",
-      "options": {
-        "key": "service",
-        "type": "two",
-        "isModule": false,
-        "moduleID": "",
-        "moduleKey": "",
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
       }
     },
     {
-      "kind": "Sla",
-      "meta": {
-        "hidden": true,
-        "tempID": "tempID-xbiucz96m2cm0ovob4z"
-      },
-      "xywh": [
-        0,
-        33,
-        20,
-        15
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
       "blockID": "7",
       "options": {
         "key": "responseRules",
-        "type": "",
-        "magnifyOption": ""
+        "magnifyOption": "",
+        "type": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Sla",
-      "meta": {
-        "hidden": true,
-        "tempID": "tempID-8ttz63es0dm0ovomu9"
       },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Sla",
       "xywh": [
         0,
         33,
         20,
         15
       ],
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-xbiucz96m2cm0ovob4z"
+      }
+    },
+    {
+      "blockID": "8",
+      "options": {
+        "key": "resolutionRules",
+        "magnifyOption": "",
+        "type": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "blockID": "8",
-      "options": {
-        "key": "resolutionRules",
-        "type": "",
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
+      "kind": "Sla",
+      "xywh": [
+        0,
+        33,
+        20,
+        15
+      ],
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-8ttz63es0dm0ovomu9"
       }
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
-    "isToEdit": false,
-    "localTab": false,
     "newTabLink": "",
-    "localPageID": "",
     "btnVisibleKey": "",
-    "allowPersonalLayouts": false
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 13,
   "createdAt": "2024-09-28T06:09:30Z",
+  "updatedAt": "2026-03-02T19:10:58Z",
   "title": "SLA新增记录",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2026-01-13T02:40:12Z"
+  "canDeletePage": true
 }

@@ -1,136 +1,151 @@
 {
-  "layoutID": "412601738567417857",
+  "pageLayoutID": "412601738567417857",
+  "namespaceID": "409824987081211905",
+  "moduleID": "412437053198827521",
   "pageID": "412437053451599873",
   "parentID": "0",
-  "namespaceID": "409824987081211905",
-  "weight": 3,
   "handle": "isView",
+  "primary": false,
+  "weight": 3,
   "meta": {
     "title": "view",
-    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
     "description": "",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
     "scriptEnabled": true
   },
   "config": {
+    "visibility": {
+      "expression": "isView"
+    },
+    "buttons": {
+      "new": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "edit": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "submit": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "delete": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "clone": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "back": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      }
+    },
     "actions": [
       {
-        "kind": "onlyWork",
+        "actionID": "1",
+        "placement": "end",
         "meta": {
           "label": "Arrived",
           "style": {
             "variant": "primary"
           }
         },
-        "params": {
-          "stepID": "6",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "412557561523339265",
-          "pageLayoutID": ""
-        },
         "enabled": true,
-        "actionID": "1",
-        "placement": "end"
+        "kind": "onlyWork",
+        "params": {
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "stepID": "6",
+          "workflowID": "412557561523339265"
+        }
       },
       {
-        "kind": "onlyWork",
+        "actionID": "2",
+        "placement": "end",
         "meta": {
           "label": "Resolve",
           "style": {
             "variant": "primary"
           }
         },
-        "params": {
-          "stepID": "3",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "412700389101535233",
-          "pageLayoutID": ""
-        },
         "enabled": true,
-        "actionID": "2",
-        "placement": "end"
+        "kind": "onlyWork",
+        "params": {
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "stepID": "3",
+          "workflowID": "412700389101535233"
+        }
       },
       {
-        "kind": "onlyWork",
+        "actionID": "3",
+        "placement": "end",
         "meta": {
           "label": "Cancel",
           "style": {
             "variant": "primary"
           }
         },
-        "params": {
-          "stepID": "4",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "412701073694785537",
-          "pageLayoutID": ""
-        },
         "enabled": true,
-        "actionID": "3",
-        "placement": "end"
+        "kind": "onlyWork",
+        "params": {
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "stepID": "4",
+          "workflowID": "412701073694785537"
+        }
       }
     ],
-    "buttons": {
-      "new": {
-        "label": "",
-        "enabled": false
-      },
-      "back": {
-        "label": "",
-        "enabled": true
-      },
-      "edit": {
-        "label": "",
-        "enabled": true
-      },
-      "clone": {
-        "label": "",
-        "enabled": false
-      },
-      "delete": {
-        "label": "",
-        "enabled": false
-      },
-      "submit": {
-        "label": "",
-        "enabled": true
-      }
-    },
-    "useTitle": true,
-    "visibility": {
-      "expression": "isView"
-    }
+    "useTitle": true
   },
   "blocks": [
     {
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-zbyqe2v2wnqm2d51uy2"
-      },
+      "blockID": "3",
       "xywh": [
         0,
         0,
         46,
         60
       ],
-      "blockID": "3"
-    },
-    {
       "meta": {
         "hidden": false,
-        "tempID": "tempID-i7mc9dg2y2dm3h4bbhe"
-      },
+        "tempID": "tempID-zbyqe2v2wnqm2d51uy2"
+      }
+    },
+    {
+      "blockID": "6",
       "xywh": [
         0,
         60,
         46,
         32
       ],
-      "blockID": "6"
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-i7mc9dg2y2dm3h4bbhe"
+      }
     }
   ],
   "ownedBy": "0",
-  "createdAt": "2024-10-17T10:08:00.000Z",
-  "updatedAt": "2024-11-20T10:20:08.000Z"
+  "createdAt": "2024-10-17T10:08:00Z",
+  "updatedAt": "2026-03-02T19:12:29Z",
+  "layoutID": "412601738567417857"
 }

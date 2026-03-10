@@ -1,1555 +1,1562 @@
 {
-  "workflows": [
-    {
-      "workflowID": "410131707408285697",
-      "handle": "Update-Record",
-      "enabled": true,
-      "meta": {
-        "icon": "Update",
-        "name": "Update Record",
-        "type": "",
-        "visual": null,
-        "results": "update_records",
-        "formList": [
-          {
-            "key": "record",
-            "type": "record",
-            "label": "Select Object to Update",
-            "isShow": false,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "fieldList",
-            "type": "field",
-            "label": "Update Field",
-            "isShow": false,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          }
-        ],
-        "isBusiness": true,
-        "description": "",
-        "subWorkflow": true,
-        "businessType": "Update",
-        "businessLabel": "Update Data for a Specified Data"
+  "workflowID": "410131707408285697",
+  "handle": "Update-Record",
+  "meta": {
+    "name": "Update Record",
+    "description": "",
+    "visual": null,
+    "subWorkflow": true,
+    "type": "",
+    "formList": [
+      {
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "record",
+        "label": "Select Object to Update",
+        "selectApi": "",
+        "selectOption": [],
+        "type": "record"
       },
-      "keepSessions": 0,
-      "steps": [
+      {
+        "isShow": false,
+        "isShowKey": "",
+        "isShowValue": "",
+        "key": "fieldList",
+        "label": "Update Field",
+        "selectApi": "",
+        "selectOption": [],
+        "type": "field"
+      }
+    ],
+    "businessType": "Update",
+    "businessLabel": "Update Data for a Specified Data",
+    "results": "update_records",
+    "icon": "Update",
+    "isBusiness": true
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
+    {
+      "stepID": "3",
+      "kind": "function",
+      "ref": "composeRecordsUpdate",
+      "arguments": [
         {
-          "ref": "composeRecordsUpdate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "3",
-              "xywh": [
-                1712,
-                2888,
-                200,
-                80
-              ],
-              "value": "Compose record update",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "3",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "update_record"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "target_record",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "5",
-              "xywh": [
-                1944,
-                2056,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "5",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "to_record",
-              "type": "Array",
-              "target": "target_records"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "12",
-              "xywh": [
-                1408,
-                2888,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "12",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "merge(target_record, update_data)",
-              "type": "ComposeRecordValues",
-              "target": "target_record.values"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "loopEach",
-          "kind": "iterator",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "17",
-              "xywh": [
-                1248,
-                2488,
-                200,
-                80
-              ],
-              "value": "Items",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "17",
-          "results": [
-            {
-              "expr": "item",
-              "type": "Any",
-              "target": "update_config_item"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "update_config",
-              "type": "Array",
-              "target": "items"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "18",
-              "xywh": [
-                1736,
-                2216,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "18",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "{}",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "24",
-              "xywh": [
-                1568,
-                2488,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "24",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "28",
-              "xywh": [
-                1896,
-                2488,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "28",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "set(update_data, update_config_item[\"name\"], update_config_item[\"value\"])",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "29",
-              "xywh": [
-                1896,
-                2640,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "29",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "update_config_item[\"name\"]",
-              "type": "String",
-              "target": "to_field"
-            },
-            {
-              "expr": "update_config_item[\"value\"][0]",
-              "type": "Any",
-              "target": "value"
-            },
-            {
-              "expr": "value[\"fieldName\"]",
-              "type": "String",
-              "target": "from_field"
-            },
-            {
-              "expr": "value[\"record\"]",
-              "type": "Any",
-              "target": "from_record"
-            },
-            {
-              "expr": "update_config_item[\"kind\"]",
-              "type": "String",
-              "target": "kind"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "33",
-              "xywh": [
-                2904,
-                2488,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "33",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "from_record[0]",
-              "type": "ComposeRecord",
-              "target": "from_record_pos0"
-            },
-            {
-              "expr": "set(update_data, to_field, from_record_pos0.values[from_field])",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "35",
-              "xywh": [
-                2576,
-                2440,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "35",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "39",
-              "xywh": [
-                1720,
-                1864,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "39",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "40",
-              "xywh": [
-                1720,
-                1696,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "40",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "record",
-              "type": "Any",
-              "target": "to_record"
-            },
-            {
-              "expr": "fieldList",
-              "type": "Array",
-              "target": "update_config"
-            },
-            {
-              "expr": "{}",
-              "type": "KV",
-              "target": "update_records"
-            },
-            {
-              "expr": "[\"recordID\",\"ID\",\"createdAt\",\"createdBy\",\"updatedAt\",\"updatedBy\",\"deletedAt\",\"deletedBy\"]",
-              "type": "Array",
-              "target": "sys_field"
-            },
-            {
-              "expr": "[\"invoker\",\"invokerTime\"]",
-              "type": "Array",
-              "target": "trigger_field"
-            },
-            {
-              "expr": "invoker",
-              "type": "String",
-              "target": "inv"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "46",
-              "xywh": [
-                1496,
-                2056,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "46",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "to_record",
-              "type": "ComposeRecord",
-              "target": "target_record"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "51",
-              "xywh": [
-                2904,
-                2376,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "51",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "set(update_data, to_field, from_record.values[from_field])",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "54",
-              "xywh": [
-                1248,
-                2704,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "54",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "loopEach",
-          "kind": "iterator",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "55",
-              "xywh": [
-                1104,
-                2888,
-                200,
-                80
-              ],
-              "value": "Items",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "55",
-          "results": [
-            {
-              "expr": "item",
-              "type": "Any",
-              "target": "target_records_item"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "target_records",
-              "type": "Array",
-              "target": "items"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "composeRecordsUpdate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "58",
-              "xywh": [
-                1408,
-                3056,
-                200,
-                80
-              ],
-              "value": "Compose record update",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "58",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "target_records_item",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "59",
-              "xywh": [
-                1104,
-                3056,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "59",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "merge(target_records_item, update_data)",
-              "type": "ComposeRecordValues",
-              "target": "target_records_item.values"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "62",
-              "xywh": [
-                1712,
-                3064,
-                200,
-                80
-              ],
-              "value": "Terminate workflow execution",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "62",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "65",
-              "xywh": [
-                2200,
-                2640,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "65",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "67",
-              "xywh": [
-                2904,
-                2936,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "67",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "from_record[0]",
-              "type": "ComposeRecord",
-              "target": "from_record_pos0"
-            },
-            {
-              "expr": "set(update_data, to_field, from_record_pos0[from_field])",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "68",
-              "xywh": [
-                2904,
-                2816,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "68",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "set(update_data, to_field, from_record[from_field])",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "69",
-              "xywh": [
-                2576,
-                2880,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "69",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "87",
-              "xywh": [
-                1904,
-                2768,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "87",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "set(update_data, update_config_item[\"name\"], \"nil\")",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "95",
-              "xywh": [
-                2576,
-                2640,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "95",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "98",
-              "xywh": [
-                2952,
-                2608,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "98",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "set(update_data, to_field, invokerTime)",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "100",
-              "xywh": [
-                3848,
-                2648,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "100",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "users[0]",
-              "type": "ComposeRecord",
-              "target": "inv_user"
-            },
-            {
-              "expr": "set(update_data, to_field, inv_user.recordID)",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "102",
-              "xywh": [
-                2952,
-                2704,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "102",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "104",
-              "xywh": [
-                3280,
-                2760,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "104",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "set(update_data, to_field, inv)",
-              "type": "KV",
-              "target": "update_data"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "composeRecordsSearch",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "106",
-              "xywh": [
-                3280,
-                2648,
-                200,
-                80
-              ],
-              "value": "Compose records search",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "106",
-          "results": [
-            {
-              "expr": "records",
-              "type": "ComposeRecord",
-              "target": "users"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"User\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "namespaceHandle",
-              "type": "Handle",
-              "target": "namespace"
-            },
-            {
-              "expr": "\"realUser = \" + inv",
-              "type": "String",
-              "target": "query"
-            },
-            {
-              "expr": "1",
-              "type": "UnsignedInteger",
-              "target": "limit"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "113",
-              "xywh": [
-                3560,
-                2648,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "113",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "continue",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "115",
-              "xywh": [
-                3560,
-                2760,
-                200,
-                80
-              ],
-              "value": "Skip current iteration",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "115",
-          "results": [],
-          "arguments": [],
-          "customName": ""
+          "target": "record",
+          "expr": "target_record",
+          "type": "ComposeRecord"
         }
       ],
-      "paths": [
+      "results": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "16",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "3",
-          "parentID": "12"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "19",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "17",
-          "parentID": "18"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "22",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "Body",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "24",
-          "parentID": "17"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "23",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "End",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "54",
-          "parentID": "17"
-        },
-        {
-          "expr": "update_config_item[\"operator\"] == \"is\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "25",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "28",
-          "parentID": "24"
-        },
-        {
-          "expr": "update_config_item[\"operator\"] == \"Derived From\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "27",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "29",
-          "parentID": "24"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "31",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "65",
-          "parentID": "29"
-        },
-        {
-          "expr": "getType(from_record) == \"Array\" && number(from_record) > 0",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "36",
-              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "33",
-          "parentID": "35"
-        },
-        {
-          "expr": "getType(from_record) == \"ComposeRecord\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "38",
-              "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "51",
-          "parentID": "35"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "41",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "39",
-          "parentID": "40"
-        },
-        {
-          "expr": "getType(to_record) == \"Array\" && number(to_record) > 0",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "42",
-              "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "5",
-          "parentID": "39"
-        },
-        {
-          "expr": "getType(to_record) == \"ComposeRecord\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "44",
-              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "46",
-          "parentID": "39"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "52",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "18",
-          "parentID": "46"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "53",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "18",
-          "parentID": "5"
-        },
-        {
-          "expr": "getType(to_record) == \"Array\" && number(to_record) > 0",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "56",
-              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "55",
-          "parentID": "54"
-        },
-        {
-          "expr": "getType(to_record) == \"ComposeRecord\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "57",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "12",
-          "parentID": "54"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "60",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "58",
-          "parentID": "59"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "61",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "Body",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "59",
-          "parentID": "55"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "63",
-              "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "End",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "62",
-          "parentID": "55"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "64",
-              "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "62",
-          "parentID": "3"
-        },
-        {
-          "expr": "!has(sys_field, from_field) && !has(trigger_field, from_field)",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "66",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "35",
-          "parentID": "65"
-        },
-        {
-          "expr": "getType(from_record) == \"Array\" && number(from_record) > 0",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "70",
-              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "67",
-          "parentID": "69"
-        },
-        {
-          "expr": "getType(from_record) == \"ComposeRecord\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "71",
-              "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "68",
-          "parentID": "69"
-        },
-        {
-          "expr": "has(sys_field, from_field)",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "86",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "69",
-          "parentID": "65"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "88",
-              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#3 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "87",
-          "parentID": "24"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "94",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#3 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "95",
-          "parentID": "65"
-        },
-        {
-          "expr": "from_field == \"invokerTime\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "99",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "98",
-          "parentID": "95"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "101",
-              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "102",
-          "parentID": "95"
-        },
-        {
-          "expr": "kind == \"Record\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "103",
-              "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "106",
-          "parentID": "102"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "105",
-              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "104",
-          "parentID": "102"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "112",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "113",
-          "parentID": "106"
-        },
-        {
-          "expr": "number(users) == 1",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "114",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "100",
-          "parentID": "113"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "116",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "115",
-          "parentID": "113"
+          "target": "update_record",
+          "expr": "record",
+          "type": "ComposeRecord"
         }
       ],
-      "triggers": [],
-      "ownedBy": "409824986979762177",
-      "createdAt": "2024-09-30T09:17:14.000Z",
-      "updatedAt": "2024-12-18T02:54:08.000Z"
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record update",
+          "xywh": [
+            1712,
+            2888,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "5",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "target_records",
+          "expr": "to_record",
+          "type": "Array"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "5",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1944,
+            2056,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "12",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "target_record.values",
+          "expr": "merge(target_record, update_data)",
+          "type": "ComposeRecordValues"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "12",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1408,
+            2888,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "17",
+      "kind": "iterator",
+      "ref": "loopEach",
+      "arguments": [
+        {
+          "target": "items",
+          "expr": "update_config",
+          "type": "Array"
+        }
+      ],
+      "results": [
+        {
+          "target": "update_config_item",
+          "expr": "item",
+          "type": "Any"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "17",
+          "parent": "1",
+          "value": "Items",
+          "xywh": [
+            1248,
+            2488,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "18",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "{}",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "18",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1736,
+            2216,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "24",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "24",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            1568,
+            2488,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "28",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "set(update_data, update_config_item[\"name\"], update_config_item[\"value\"])",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "28",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1896,
+            2488,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "29",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "to_field",
+          "expr": "update_config_item[\"name\"]",
+          "type": "String"
+        },
+        {
+          "target": "value",
+          "expr": "update_config_item[\"value\"][0]",
+          "type": "Any"
+        },
+        {
+          "target": "from_field",
+          "expr": "value[\"fieldName\"]",
+          "type": "String"
+        },
+        {
+          "target": "from_record",
+          "expr": "value[\"record\"]",
+          "type": "Any"
+        },
+        {
+          "target": "kind",
+          "expr": "update_config_item[\"kind\"]",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "29",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1896,
+            2640,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "33",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "from_record_pos0",
+          "expr": "from_record[0]",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, from_record_pos0.values[from_field])",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "33",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2904,
+            2488,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "35",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "35",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2576,
+            2440,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "39",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "39",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            1720,
+            1864,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "40",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "to_record",
+          "expr": "record",
+          "type": "Any"
+        },
+        {
+          "target": "update_config",
+          "expr": "fieldList",
+          "type": "Array"
+        },
+        {
+          "target": "update_records",
+          "expr": "{}",
+          "type": "KV"
+        },
+        {
+          "target": "sys_field",
+          "expr": "[\"recordID\",\"ID\",\"createdAt\",\"createdBy\",\"updatedAt\",\"updatedBy\",\"deletedAt\",\"deletedBy\"]",
+          "type": "Array"
+        },
+        {
+          "target": "trigger_field",
+          "expr": "[\"invoker\",\"invokerTime\"]",
+          "type": "Array"
+        },
+        {
+          "target": "inv",
+          "expr": "invoker",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "40",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1720,
+            1696,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "46",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "target_record",
+          "expr": "to_record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "46",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1496,
+            2056,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "51",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, from_record.values[from_field])",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "51",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2904,
+            2376,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "54",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "54",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            1248,
+            2704,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "55",
+      "kind": "iterator",
+      "ref": "loopEach",
+      "arguments": [
+        {
+          "target": "items",
+          "expr": "target_records",
+          "type": "Array"
+        }
+      ],
+      "results": [
+        {
+          "target": "target_records_item",
+          "expr": "item",
+          "type": "Any"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "55",
+          "parent": "1",
+          "value": "Items",
+          "xywh": [
+            1104,
+            2888,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "58",
+      "kind": "function",
+      "ref": "composeRecordsUpdate",
+      "arguments": [
+        {
+          "target": "record",
+          "expr": "target_records_item",
+          "type": "ComposeRecord"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "58",
+          "parent": "1",
+          "value": "Compose record update",
+          "xywh": [
+            1408,
+            3056,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "59",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "target_records_item.values",
+          "expr": "merge(target_records_item, update_data)",
+          "type": "ComposeRecordValues"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "59",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1104,
+            3056,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "62",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "62",
+          "parent": "1",
+          "value": "Terminate workflow execution",
+          "xywh": [
+            1712,
+            3064,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "65",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "65",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2200,
+            2640,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "67",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "from_record_pos0",
+          "expr": "from_record[0]",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, from_record_pos0[from_field])",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "67",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2904,
+            2936,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "68",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, from_record[from_field])",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "68",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2904,
+            2816,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "69",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "69",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2576,
+            2880,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "87",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "set(update_data, update_config_item[\"name\"], \"nil\")",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "87",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            1904,
+            2768,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "95",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "95",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2576,
+            2640,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "98",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, invokerTime)",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "98",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2952,
+            2608,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "100",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "inv_user",
+          "expr": "users[0]",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, inv_user.recordID)",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "100",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3848,
+            2648,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "102",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "102",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2952,
+            2704,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "104",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "update_data",
+          "expr": "set(update_data, to_field, inv)",
+          "type": "KV"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "104",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3280,
+            2760,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "106",
+      "kind": "function",
+      "ref": "composeRecordsSearch",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "\"User\"",
+          "type": "Handle"
+        },
+        {
+          "target": "namespace",
+          "expr": "namespaceHandle",
+          "type": "Handle"
+        },
+        {
+          "target": "query",
+          "expr": "\"realUser = \" + inv",
+          "type": "String"
+        },
+        {
+          "target": "limit",
+          "expr": "1",
+          "type": "UnsignedInteger"
+        }
+      ],
+      "results": [
+        {
+          "target": "users",
+          "expr": "records",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "106",
+          "parent": "1",
+          "value": "Compose records search",
+          "xywh": [
+            3280,
+            2648,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "113",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "113",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            3560,
+            2648,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "115",
+      "kind": "continue",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "115",
+          "parent": "1",
+          "value": "Skip current iteration",
+          "xywh": [
+            3560,
+            2760,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
     }
-  ]
+  ],
+  "paths": [
+    {
+      "parentID": "12",
+      "childID": "3",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "16",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "18",
+      "childID": "17",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "19",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "17",
+      "childID": "24",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "22",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "Body"
+        }
+      }
+    },
+    {
+      "parentID": "17",
+      "childID": "54",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "23",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "End"
+        }
+      }
+    },
+    {
+      "expr": "update_config_item[\"operator\"] == \"is\"",
+      "parentID": "24",
+      "childID": "28",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "25",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "update_config_item[\"operator\"] == \"Derived From\"",
+      "parentID": "24",
+      "childID": "29",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "27",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "29",
+      "childID": "65",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "31",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "getType(from_record) == \"Array\" && number(from_record) > 0",
+      "parentID": "35",
+      "childID": "33",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "36",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "getType(from_record) == \"ComposeRecord\"",
+      "parentID": "35",
+      "childID": "51",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "38",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "40",
+      "childID": "39",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "41",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "getType(to_record) == \"Array\" && number(to_record) > 0",
+      "parentID": "39",
+      "childID": "5",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "42",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "getType(to_record) == \"ComposeRecord\"",
+      "parentID": "39",
+      "childID": "46",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "44",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "46",
+      "childID": "18",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "52",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "5",
+      "childID": "18",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "53",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "getType(to_record) == \"Array\" && number(to_record) > 0",
+      "parentID": "54",
+      "childID": "55",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "56",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "getType(to_record) == \"ComposeRecord\"",
+      "parentID": "54",
+      "childID": "12",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "57",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "59",
+      "childID": "58",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "60",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "55",
+      "childID": "59",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "61",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "Body"
+        }
+      }
+    },
+    {
+      "parentID": "55",
+      "childID": "62",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "63",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "End"
+        }
+      }
+    },
+    {
+      "parentID": "3",
+      "childID": "62",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "64",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "!has(sys_field, from_field) && !has(trigger_field, from_field)",
+      "parentID": "65",
+      "childID": "35",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "66",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "getType(from_record) == \"Array\" && number(from_record) > 0",
+      "parentID": "69",
+      "childID": "67",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "70",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "getType(from_record) == \"ComposeRecord\"",
+      "parentID": "69",
+      "childID": "68",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "71",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "expr": "has(sys_field, from_field)",
+      "parentID": "65",
+      "childID": "69",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "86",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "24",
+      "childID": "87",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "88",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#3 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "65",
+      "childID": "95",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "94",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#3 - Else (if)"
+        }
+      }
+    },
+    {
+      "expr": "from_field == \"invokerTime\"",
+      "parentID": "95",
+      "childID": "98",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "99",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "95",
+      "childID": "102",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "101",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "expr": "kind == \"Record\"",
+      "parentID": "102",
+      "childID": "106",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "103",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "102",
+      "childID": "104",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "105",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "106",
+      "childID": "113",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "112",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "number(users) == 1",
+      "parentID": "113",
+      "childID": "100",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "114",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "113",
+      "childID": "115",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "116",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "409824986979762177",
+  "createdAt": "2024-09-30T09:17:14Z",
+  "createdBy": "409824986979762177",
+  "updatedAt": "2026-03-02T19:12:47Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": []
 }

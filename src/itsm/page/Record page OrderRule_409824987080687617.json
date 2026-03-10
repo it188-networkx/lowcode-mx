@@ -6,312 +6,312 @@
   "handle": "",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-qizzj4d7eunm18pt07a"
-      },
-      "xywh": [
-        0,
-        0,
-        24,
-        28
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
       "blockID": "2",
       "options": {
         "formList": [
           {
-            "key": "name",
-            "type": "input",
-            "label": "${lang == 'en' ? 'Name':'名称'} ",
             "isShow": false,
-            "required": true,
             "isShowKey": "",
-            "selectApi": "",
             "isShowValue": "",
-            "selectOption": []
+            "key": "name",
+            "label": "${lang == 'en' ? 'Name':'名称'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "input"
           },
           {
-            "key": "rank",
-            "type": "number",
-            "label": "${lang == 'en' ? 'Rank':'等级'} ",
             "isShow": false,
-            "required": true,
             "isShowKey": "",
-            "selectApi": "",
             "isShowValue": "",
-            "selectOption": []
+            "key": "rank",
+            "label": "${lang == 'en' ? 'Rank':'等级'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "number"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        0,
+        24,
+        28
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-qizzj4d7eunm18pt07a"
       }
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-8vijplr8b7em18qbojy"
+      "blockID": "3",
+      "options": {
+        "formList": [
+          {
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "moduleId",
+            "label": "${lang == 'en' ? 'Module':'模块'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "module"
+          }
+        ],
+        "magnifyOption": ""
       },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
       "xywh": [
         24,
         0,
         24,
         28
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-8vijplr8b7em18qbojy"
+      }
+    },
+    {
+      "blockID": "4",
+      "options": {
+        "key": "triggerCondition",
+        "magnifyOption": "",
+        "type": "one"
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "blockID": "3",
-      "options": {
-        "formList": [
-          {
-            "key": "moduleId",
-            "type": "module",
-            "label": "${lang == 'en' ? 'Module':'模块'} ",
-            "isShow": false,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          }
-        ],
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Condition",
-      "meta": {
-        "hidden": true,
-        "tempID": "tempID-nynjmjius5m18qcngy"
-      },
       "xywh": [
         0,
         28,
         34,
         36
       ],
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-nynjmjius5m18qcngy"
+      }
+    },
+    {
+      "blockID": "5",
+      "options": {
+        "magnifyOption": "",
+        "style": {
+          "alignment": "center",
+          "appearance": "tabs",
+          "justify": "justify",
+          "orientation": "horizontal",
+          "position": "start"
+        },
+        "tabs": [
+          {
+            "blockID": "4",
+            "title": "${lang == 'en' ? 'Trigger Conditions':'触发条件'} "
+          },
+          {
+            "blockID": "6",
+            "title": "${lang == 'en' ? 'Assigned to':'处理人'} "
+          }
+        ]
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "blockID": "4",
-      "options": {
-        "key": "triggerCondition",
-        "type": "one",
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Tabs",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-pt7ltm69bm18qdd0b"
-      },
       "xywh": [
         0,
         28,
         48,
         47
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-pt7ltm69bm18qdd0b"
+      }
+    },
+    {
+      "blockID": "6",
+      "options": {
+        "formList": [
+          {
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "assignmentGroup",
+            "label": "${lang == 'en' ? 'Assigned Group':'处理组'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "group"
+          },
+          {
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "assignee",
+            "label": "${lang == 'en' ? 'Assigned ':'处理人'} ",
+            "prefilter": "('${record.values.assignmentGroup}' IN group)",
+            "required": false,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "user"
+          }
+        ],
+        "magnifyOption": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "blockID": "5",
-      "options": {
-        "tabs": [
-          {
-            "title": "${lang == 'en' ? 'Trigger Conditions':'触发条件'} ",
-            "blockID": "4"
-          },
-          {
-            "title": "${lang == 'en' ? 'Assigned to':'处理人'} ",
-            "blockID": "6"
-          }
-        ],
-        "style": {
-          "justify": "justify",
-          "position": "start",
-          "alignment": "center",
-          "appearance": "tabs",
-          "orientation": "horizontal"
-        },
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Form",
-      "meta": {
-        "hidden": true,
-        "tempID": "tempID-9i1tbtpmsvom18qebxe"
-      },
       "xywh": [
         0,
         30,
         20,
         15
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "6",
-      "options": {
-        "formList": [
-          {
-            "key": "assignmentGroup",
-            "type": "group",
-            "label": "${lang == 'en' ? 'Assigned Group':'处理组'} ",
-            "isShow": false,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "assignee",
-            "type": "user",
-            "label": "${lang == 'en' ? 'Assigned ':'处理人'} ",
-            "isShow": false,
-            "required": false,
-            "isShowKey": "",
-            "prefilter": "('${record.values.assignmentGroup}' IN group)",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          }
-        ],
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-9i1tbtpmsvom18qebxe"
       }
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
-    "isToEdit": false,
-    "localTab": false,
     "newTabLink": "",
-    "localPageID": "",
     "btnVisibleKey": "",
-    "allowPersonalLayouts": false
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 12,
   "createdAt": "2024-09-28T06:09:30Z",
+  "updatedAt": "2026-03-02T19:10:58Z",
   "title": "Record page OrderRule",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2025-06-18T03:24:43Z"
+  "canDeletePage": true
 }

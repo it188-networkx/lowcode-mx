@@ -1,64 +1,79 @@
 {
-  "layoutID": "412601738552606721",
+  "pageLayoutID": "412601738552606721",
+  "namespaceID": "409824987081211905",
+  "moduleID": "412437053198827521",
   "pageID": "412437053451599873",
   "parentID": "0",
-  "namespaceID": "409824987081211905",
-  "weight": 2,
   "handle": "isEdit",
+  "primary": false,
+  "weight": 2,
   "meta": {
     "title": "edit",
-    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
     "description": "",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\n console.log(\"record11112323:\",)\nif (triggerBy === \"assignee\") {\n  console.log(\"record111:\", record)\n  console.log(\"records1232:\", window.recordField.OnsiteTicket.assignee.records)\n  for (let index = 0; index < window.recordField.OnsiteTicket.assignee.records.length; index++) {\n      let tem_assignee = window.recordField.OnsiteTicket.assignee.records[index]\n      if (tem_assignee.recordID === record.assignee) {\n         record.modalData.contactNo= tem_assignee .values.phone\n      }\n  }\n}\nreturn {\n    record,\n    triggerRecordFieldChange: \"\"\n}",
     "scriptEnabled": true
   },
   "config": {
-    "buttons": {
-      "new": {
-        "label": "",
-        "enabled": true
-      },
-      "back": {
-        "label": "",
-        "enabled": true
-      },
-      "edit": {
-        "label": "",
-        "enabled": true
-      },
-      "clone": {
-        "label": "",
-        "enabled": true
-      },
-      "delete": {
-        "label": "",
-        "enabled": true
-      },
-      "submit": {
-        "label": "",
-        "enabled": true
-      }
-    },
-    "useTitle": true,
     "visibility": {
       "expression": "isEdit"
-    }
+    },
+    "buttons": {
+      "new": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "edit": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "submit": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "delete": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "clone": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "back": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      }
+    },
+    "useTitle": true
   },
   "blocks": [
     {
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-6fo6flpx81xm2d51rxr"
-      },
+      "blockID": "2",
       "xywh": [
         0,
         0,
         48,
         82
       ],
-      "blockID": "2"
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-6fo6flpx81xm2d51rxr"
+      }
     }
   ],
   "ownedBy": "0",
-  "createdAt": "2024-10-17T10:07:56.000Z",
-  "updatedAt": "2024-11-15T08:54:21.000Z"
+  "createdAt": "2024-10-17T10:07:56Z",
+  "updatedAt": "2026-03-02T19:12:21Z",
+  "layoutID": "412601738552606721"
 }

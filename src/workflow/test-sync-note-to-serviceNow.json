@@ -1,368 +1,385 @@
 {
-  "workflows": [
+  "workflowID": "479264274029346817",
+  "handle": "test-sync-note-to-serviceNow",
+  "meta": {
+    "name": "test-sync-note-to-serviceNow",
+    "description": "",
+    "visual": null,
+    "type": "Advanced",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "479264274029346817",
-      "handle": "test-sync-note-to-serviceNow",
-      "enabled": true,
+      "stepID": "4",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "test-sync-note-to-serviceNow",
-        "type": "Advanced",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "4",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            2520,
+            1960,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    },
+    {
+      "stepID": "6",
+      "kind": "function",
+      "ref": "composeRecordsLookup",
+      "arguments": [
         {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2520,
-                1960,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "4",
-          "results": [],
-          "arguments": [],
-          "customName": ""
+          "target": "module",
+          "expr": "\"Incident\"",
+          "type": "Handle"
         },
         {
-          "ref": "composeRecordsLookup",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "6",
-              "xywh": [
-                2840,
-                1960,
-                200,
-                80
-              ],
-              "value": "Compose record lookup",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "6",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "inc"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"Incident\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "\"itsm\"",
-              "type": "Handle",
-              "target": "namespace"
-            },
-            {
-              "expr": "\"21312\"",
-              "type": "ID",
-              "target": "record"
-            }
-          ],
-          "customName": ""
+          "target": "namespace",
+          "expr": "\"itsm\"",
+          "type": "Handle"
         },
         {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "8",
-              "xywh": [
-                2840,
-                1848,
-                200,
-                80
-              ],
-              "value": "Terminate workflow execution",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "8",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "httpRequestSend",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "10",
-              "xywh": [
-                3160,
-                1960,
-                200,
-                80
-              ],
-              "value": "HTTP request",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "10",
-          "results": [
-            {
-              "expr": "status",
-              "type": "String",
-              "target": "status"
-            },
-            {
-              "expr": "statusCode",
-              "type": "Integer",
-              "target": "code"
-            },
-            {
-              "expr": "body",
-              "type": "Reader",
-              "target": "data"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"https://maximsdev.service-now.com/api/now/import/u_incident_from_hkt\"",
-              "type": "String",
-              "target": "url"
-            },
-            {
-              "type": "String",
-              "value": "POST",
-              "target": "method"
-            },
-            {
-              "expr": "\"hkt.integration\"",
-              "type": "String",
-              "target": "headerAuthUsername"
-            },
-            {
-              "expr": "\"v+N5>J{-X:ddRc=Yhhd.I=b.m_JPD6d<(V,b*NJ}\"",
-              "type": "String",
-              "target": "headerAuthPassword"
-            },
-            {
-              "expr": "\"application/octet-stream\"",
-              "type": "String",
-              "target": "headerContentType"
-            },
-            {
-              "expr": "{\n  \"u_number\": \"INC0010123\",\n  \"u_work_notes\": \"this is a work note2\"\n}",
-              "type": "String",
-              "target": "body"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "jsenvExecute",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "12",
-              "xywh": [
-                3160,
-                2120,
-                200,
-                80
-              ],
-              "value": "Process arbitrary data in jsenv",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "12",
-          "results": [
-            {
-              "expr": "resultAny",
-              "type": "Any",
-              "target": "result"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "data",
-              "type": "Reader",
-              "target": "scope"
-            },
-            {
-              "type": "String",
-              "value": "return JSON.parse(readRequestBody(input));",
-              "target": "source"
-            }
-          ],
-          "customName": ""
+          "target": "record",
+          "expr": "\"21312\"",
+          "type": "ID"
         }
       ],
-      "paths": [
+      "results": [
         {
-          "expr": "record.values.type == \"c\" && record.values.incident == \"1231231232\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "7",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "6",
-          "parentID": "4"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "9",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "8",
-          "parentID": "4"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "13",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "12",
-          "parentID": "10"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "17",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "10",
-          "parentID": "6"
+          "target": "inc",
+          "expr": "record",
+          "type": "ComposeRecord"
         }
       ],
-      "triggers": [
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "6",
+          "parent": "1",
+          "value": "Compose record lookup",
+          "xywh": [
+            2840,
+            1960,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "8",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "8",
+          "parent": "1",
+          "value": "Terminate workflow execution",
+          "xywh": [
+            2840,
+            1848,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "10",
+      "kind": "function",
+      "ref": "httpRequestSend",
+      "arguments": [
         {
-          "triggerID": "479264274029543425",
-          "resourceType": "compose:record",
-          "eventType": "beforeCreate",
-          "constraints": [],
-          "enabled": false,
-          "stepID": "4",
-          "meta": {
-            "days": "",
-            "hours": "",
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2200,
-                1960,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "14",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "4",
-                  "parentID": "3"
+          "target": "url",
+          "expr": "\"https://maximsdev.service-now.com/api/now/import/u_incident_from_hkt\"",
+          "type": "String"
+        },
+        {
+          "target": "method",
+          "value": "POST",
+          "type": "String"
+        },
+        {
+          "target": "headerAuthUsername",
+          "expr": "\"hkt.integration\"",
+          "type": "String"
+        },
+        {
+          "target": "headerAuthPassword",
+          "expr": "\"v+N5>J{-X:ddRc=Yhhd.I=b.m_JPD6d<(V,b*NJ}\"",
+          "type": "String"
+        },
+        {
+          "target": "headerContentType",
+          "expr": "\"application/octet-stream\"",
+          "type": "String"
+        },
+        {
+          "target": "body",
+          "expr": "{\n  \"u_number\": \"INC0010123\",\n  \"u_work_notes\": \"this is a work note2\"\n}",
+          "type": "String"
+        }
+      ],
+      "results": [
+        {
+          "target": "status",
+          "expr": "status",
+          "type": "String"
+        },
+        {
+          "target": "code",
+          "expr": "statusCode",
+          "type": "Integer"
+        },
+        {
+          "target": "data",
+          "expr": "body",
+          "type": "Reader"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "10",
+          "parent": "1",
+          "value": "HTTP request",
+          "xywh": [
+            3160,
+            1960,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "12",
+      "kind": "function",
+      "ref": "jsenvExecute",
+      "arguments": [
+        {
+          "target": "scope",
+          "expr": "data",
+          "type": "Reader"
+        },
+        {
+          "target": "source",
+          "value": "return JSON.parse(readRequestBody(input));",
+          "type": "String"
+        }
+      ],
+      "results": [
+        {
+          "target": "result",
+          "expr": "resultAny",
+          "type": "Any"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "12",
+          "parent": "1",
+          "value": "Process arbitrary data in jsenv",
+          "xywh": [
+            3160,
+            2120,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "expr": "record.values.type == \"c\" && record.values.incident == \"1231231232\"",
+      "parentID": "4",
+      "childID": "6",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "7",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "4",
+      "childID": "8",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "9",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "10",
+      "childID": "12",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "13",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "6",
+      "childID": "10",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "17",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "470139165523247105",
+  "createdAt": "2026-01-20T07:10:44Z",
+  "createdBy": "470139165523247105",
+  "updatedAt": "2026-03-02T19:12:47Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "479264274029543425",
+      "enabled": false,
+      "transaction": true,
+      "async": false,
+      "workflowID": "479264274029346817",
+      "stepID": "4",
+      "resourceType": "compose:record",
+      "eventType": "beforeCreate",
+      "constraints": [],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "4",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "14",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Compose record - beforeCreate",
-              "parent": "1",
-              "defaultName": true
-            },
-            "endTime": "0001-01-01T00:00:00Z",
-            "minutes": "",
-            "moduleID": "",
-            "timeNode": "",
-            "condition": null,
-            "namespace": "",
-            "startTime": "0001-01-01T00:00:00Z",
-            "timeRepeat": "",
-            "description": "",
-            "namespaceID": "",
-            "endTimeCondition": {
-              "kind": "",
-              "name": "",
-              "type": "",
-              "value": null,
-              "oldName": "",
-              "operator": "",
-              "variable": "",
-              "operators": null
-            },
-            "startTimeCondition": {
-              "kind": "",
-              "name": "",
-              "type": "",
-              "value": null,
-              "oldName": "",
-              "operator": "",
-              "variable": "",
-              "operators": null
+              },
+              "parentID": "3"
             }
-          }
-        }
-      ],
-      "ownedBy": "470139165523247105",
-      "createdAt": "2026-01-20T07:10:44.000Z",
-      "updatedAt": "2026-01-21T01:48:57.000Z"
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record - beforeCreate",
+          "xywh": [
+            2200,
+            1960,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2026-01-20T07:11:29Z",
+      "createdBy": "470139165523247105",
+      "updatedAt": "2026-03-02T19:12:47Z"
     }
   ]
 }

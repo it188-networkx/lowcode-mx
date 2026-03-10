@@ -6,600 +6,604 @@
   "handle": "",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "RecordSlaList",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-r4leruhv7fim426t0k8"
+      "blockID": "2",
+      "options": {
+        "allowExport": false,
+        "bulkRecordEditEnabled": true,
+        "customApi": "/components/sla/breakdown/list",
+        "customFilterPresets": false,
+        "draggable": false,
+        "editFields": [],
+        "editable": true,
+        "enableRecordPageNavigation": false,
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168234497",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Assignee",
+            "maxLength": 0,
+            "name": "assigneeTo",
+            "options": {
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987082522625",
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168168961",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Assignment group",
+            "maxLength": 0,
+            "name": "group",
+            "options": {
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987082653697",
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168300033",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "DateTime",
+            "label": "Start time",
+            "maxLength": 0,
+            "name": "startTime",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "format": "YYYY-MM-DD HH:mm",
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "onlyDate": false,
+              "onlyFutureValues": false,
+              "onlyPastValues": false,
+              "onlyTime": false,
+              "outputRelative": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              }
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168365569",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "DateTime",
+            "label": "End time",
+            "maxLength": 0,
+            "name": "endTime",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "format": "YYYY-MM-DD HH:mm",
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "onlyDate": false,
+              "onlyFutureValues": false,
+              "onlyPastValues": false,
+              "onlyTime": false,
+              "outputRelative": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              }
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168431105",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "SLA Status",
+            "maxLength": 0,
+            "name": "slaStatus",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168496641",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "Ticket Status",
+            "maxLength": 0,
+            "name": "ticketStatus",
+            "options": {
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": false,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987081605121",
+              "multiDelimiter": "\n",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "selectType": "default"
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168562177",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Status\t",
+            "maxLength": 0,
+            "name": "taskStatus",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168627713",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Elapsed Time Within SLA\t",
+            "maxLength": 0,
+            "name": "elapsedTimeWithInSLA",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "418685829168693249",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Total Elapsed Time",
+            "maxLength": 0,
+            "name": "totalElapsedTime",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          }
+        ],
+        "filterPresets": [],
+        "fullPageNavigation": false,
+        "hideAddButton": false,
+        "hideConfigureFieldsButton": true,
+        "hideFiltering": false,
+        "hideHeader": false,
+        "hideImportButton": false,
+        "hidePaging": false,
+        "hideRecordCloneButton": false,
+        "hideRecordCloneButtonValidators": "",
+        "hideRecordDeleteButton": false,
+        "hideRecordDeleteButtonValidators": "",
+        "hideRecordEditButton": true,
+        "hideRecordEditButtonValidators": "",
+        "hideRecordPermissionsButton": false,
+        "hideRecordPermissionsButtonValidators": "",
+        "hideRecordReminderButton": false,
+        "hideRecordReminderButtonValidators": "",
+        "hideRecordViewButton": true,
+        "hideRecordViewButtonValidators": "",
+        "hideSearch": false,
+        "hideSorting": false,
+        "inlineRecordEditEnabled": false,
+        "isToEdit": false,
+        "linkToParent": false,
+        "magnifyOption": "",
+        "moduleID": "418685829168103425",
+        "openInNewTab": false,
+        "pageID": "",
+        "perPage": 20,
+        "prefilter": "slaTaskId=${recordID}",
+        "presort": "createdAt DESC",
+        "recordDisplayOption": "sameTab",
+        "recordSelectorDisplayOption": "sameTab",
+        "refreshRate": 0,
+        "selectMode": "multi",
+        "selectable": true,
+        "selectionButtons": [],
+        "showDeletedRecordsOption": false,
+        "showRecordPerPageOption": false,
+        "showRefresh": false,
+        "showTotalCount": false
       },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "RecordSlaList",
       "xywh": [
         0,
         0,
         48,
         70
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "2",
-      "options": {
-        "fields": [
-          {
-            "kind": "Record",
-            "name": "assigneeTo",
-            "label": "Assignee",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168234497",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "409824987082522625",
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "\n",
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "group",
-            "label": "Assignment group",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168168961",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "409824987082653697",
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "\n",
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "DateTime",
-            "name": "startTime",
-            "label": "Start time",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168300033",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "format": "YYYY-MM-DD HH:mm",
-              "onlyDate": false,
-              "onlyTime": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "onlyPastValues": false,
-              "outputRelative": false,
-              "onlyFutureValues": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "DateTime",
-            "name": "endTime",
-            "label": "End time",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168365569",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "format": "YYYY-MM-DD HH:mm",
-              "onlyDate": false,
-              "onlyTime": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "onlyPastValues": false,
-              "outputRelative": false,
-              "onlyFutureValues": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "slaStatus",
-            "label": "SLA Status",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168431105",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Record",
-            "name": "ticketStatus",
-            "label": "Ticket Status",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168496641",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "moduleID": "409824987081605121",
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "default",
-              "description": {
-                "view": ""
-              },
-              "queryFields": [],
-              "multiDelimiter": "\n",
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "taskStatus",
-            "label": "Task Status\t",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168562177",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "elapsedTimeWithInSLA",
-            "label": "Elapsed Time Within SLA\t",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168627713",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "totalElapsedTime",
-            "label": "Total Elapsed Time",
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "418685829168693249",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "pageID": "",
-        "perPage": 20,
-        "presort": "createdAt DESC",
-        "editable": true,
-        "isToEdit": false,
-        "moduleID": "418685829168103425",
-        "customApi": "/components/sla/breakdown/list",
-        "draggable": false,
-        "prefilter": "slaTaskId=${recordID}",
-        "editFields": [],
-        "hideHeader": false,
-        "hidePaging": false,
-        "hideSearch": false,
-        "selectMode": "multi",
-        "selectable": true,
-        "allowExport": false,
-        "hideSorting": false,
-        "refreshRate": 0,
-        "showRefresh": false,
-        "linkToParent": false,
-        "openInNewTab": false,
-        "filterPresets": [],
-        "hideAddButton": false,
-        "hideFiltering": false,
-        "magnifyOption": "",
-        "showTotalCount": false,
-        "hideImportButton": false,
-        "selectionButtons": [],
-        "fullPageNavigation": false,
-        "customFilterPresets": false,
-        "recordDisplayOption": "sameTab",
-        "hideRecordEditButton": true,
-        "hideRecordViewButton": true,
-        "bulkRecordEditEnabled": true,
-        "hideRecordCloneButton": false,
-        "hideRecordDeleteButton": false,
-        "inlineRecordEditEnabled": false,
-        "showRecordPerPageOption": false,
-        "hideRecordReminderButton": false,
-        "showDeletedRecordsOption": false,
-        "hideConfigureFieldsButton": true,
-        "enableRecordPageNavigation": false,
-        "hideRecordPermissionsButton": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "hideRecordEditButtonValidators": "",
-        "hideRecordViewButtonValidators": "",
-        "hideRecordCloneButtonValidators": "",
-        "hideRecordDeleteButtonValidators": "",
-        "hideRecordReminderButtonValidators": "",
-        "hideRecordPermissionsButtonValidators": ""
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-r4leruhv7fim426t0k8"
       }
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
     "newTabLink": "",
-    "allowPersonalLayouts": false
+    "btnVisibleKey": "",
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 5,
   "createdAt": "2024-11-29T03:30:50Z",
+  "updatedAt": "2026-03-02T19:10:57Z",
   "title": "Record List for module \"SLABreakdown\"",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2025-01-10T03:05:34Z"
+  "canDeletePage": true
 }

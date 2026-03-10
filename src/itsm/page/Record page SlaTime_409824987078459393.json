@@ -6,428 +6,428 @@
   "handle": "",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-xf8z3szuywbm0q6di1q"
+      "blockID": "2",
+      "options": {
+        "formList": [
+          {
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "name",
+            "label": "${lang == 'en' ? 'Name':'名称'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "input"
+          },
+          {
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "description",
+            "label": "${lang == 'en' ? 'Description':'描述'} ",
+            "required": false,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "input"
+          },
+          {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "code",
+            "label": "${lang == 'en' ? 'Code':'描述'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "input"
+          }
+        ],
+        "magnifyOption": ""
       },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
       "xywh": [
         0,
         0,
         23,
         22
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-xf8z3szuywbm0q6di1q"
+      },
+      "title": "Basic Information"
+    },
+    {
+      "blockID": "3",
+      "options": {
+        "formList": [
+          {
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "timeZone",
+            "label": "${lang == 'en' ? 'Time Zone':'时区'}",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "forTimezone"
+          }
+        ],
+        "magnifyOption": ""
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "Basic Information",
-      "blockID": "2",
-      "options": {
-        "formList": [
-          {
-            "key": "name",
-            "type": "input",
-            "label": "${lang == 'en' ? 'Name':'名称'} ",
-            "isShow": false,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "description",
-            "type": "input",
-            "label": "${lang == 'en' ? 'Description':'描述'} ",
-            "isShow": false,
-            "required": false,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "code",
-            "type": "input",
-            "label": "${lang == 'en' ? 'Code':'描述'} ",
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
-          }
-        ],
-        "magnifyOption": ""
-      }
-    },
-    {
       "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-nb4kaadgf2m0q6f1hi"
-      },
       "xywh": [
         23,
         0,
         24,
         22
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-nb4kaadgf2m0q6f1hi"
+      }
+    },
+    {
+      "blockID": "4",
+      "options": {
+        "allowExport": false,
+        "bulkRecordEditEnabled": true,
+        "customFilterPresets": false,
+        "customKey": "schedules",
+        "draggable": false,
+        "editFields": [],
+        "editable": false,
+        "enableRecordPageNavigation": false,
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "409824987077410817",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Name",
+            "maxLength": 0,
+            "name": "name",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "409824987077214209",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "type",
+            "maxLength": 0,
+            "name": "type",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "409824987077279745",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Repeats",
+            "maxLength": 0,
+            "name": "repeatFreqType",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": {
+                  "plain": {}
+                }
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "disabled": false,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "409824987077345281",
+            "isFilterable": true,
+            "isMulti": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "DateRange",
+            "maxLength": 0,
+            "name": "daterange",
+            "options": {
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "view": ""
+              },
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": ""
+              },
+              "useRichTextEditor": false
+            }
+          }
+        ],
+        "filterPresets": [],
+        "fullPageNavigation": false,
+        "hideAddButton": false,
+        "hideConfigureFieldsButton": true,
+        "hideFiltering": true,
+        "hideHeader": false,
+        "hideImportButton": true,
+        "hidePaging": true,
+        "hideRecordCloneButton": true,
+        "hideRecordCloneButtonValidators": "",
+        "hideRecordDeleteButton": false,
+        "hideRecordDeleteButtonValidators": "",
+        "hideRecordEditButton": false,
+        "hideRecordEditButtonValidators": "",
+        "hideRecordPermissionsButton": true,
+        "hideRecordPermissionsButtonValidators": "",
+        "hideRecordReminderButton": true,
+        "hideRecordReminderButtonValidators": "",
+        "hideRecordViewButton": true,
+        "hideRecordViewButtonValidators": "",
+        "hideSearch": true,
+        "hideSorting": false,
+        "inlineRecordEditEnabled": false,
+        "isToEdit": true,
+        "linkToParent": false,
+        "magnifyOption": "",
+        "moduleID": "409824987082850305",
+        "openInNewTab": false,
+        "pageID": "",
+        "perPage": 20,
+        "prefilter": "",
+        "presort": "createdAt DESC",
+        "recordDisplayOption": "sameTab",
+        "recordSelectorDisplayOption": "sameTab",
+        "refreshRate": 0,
+        "selectMode": "multi",
+        "selectable": true,
+        "selectionButtons": [],
+        "showDeletedRecordsOption": false,
+        "showRecordPerPageOption": false,
+        "showRefresh": false,
+        "showTotalCount": false
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "blockID": "3",
-      "options": {
-        "formList": [
-          {
-            "key": "timeZone",
-            "type": "forTimezone",
-            "label": "${lang == 'en' ? 'Time Zone':'时区'}",
-            "isShow": false,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isShowValue": "",
-            "selectOption": []
-          }
-        ],
-        "magnifyOption": ""
-      }
-    },
-    {
       "kind": "RecordSlaList",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-19cwwmg4eixm0qbw81t"
-      },
       "xywh": [
         0,
         22,
         47,
         52
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-19cwwmg4eixm0qbw81t"
       },
-      "title": "Schedule Entries",
-      "blockID": "4",
-      "options": {
-        "fields": [
-          {
-            "kind": "String",
-            "name": "name",
-            "label": "Name",
-            "config": {
-              "dal": {
-                "encodingStrategy": {
-                  "plain": {}
-                }
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "409824987077410817",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "type",
-            "label": "type",
-            "config": {
-              "dal": {
-                "encodingStrategy": {
-                  "plain": {}
-                }
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "409824987077214209",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "repeatFreqType",
-            "label": "Repeats",
-            "config": {
-              "dal": {
-                "encodingStrategy": {
-                  "plain": {}
-                }
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "409824987077279745",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "daterange",
-            "label": "DateRange",
-            "config": {
-              "dal": {
-                "encodingStrategy": {
-                  "plain": {}
-                }
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "fieldID": "409824987077345281",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "view": ""
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "multiLine": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": false,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "pageID": "",
-        "perPage": 20,
-        "presort": "createdAt DESC",
-        "editable": false,
-        "isToEdit": true,
-        "moduleID": "409824987082850305",
-        "customKey": "schedules",
-        "draggable": false,
-        "prefilter": "",
-        "editFields": [],
-        "hideHeader": false,
-        "hidePaging": true,
-        "hideSearch": true,
-        "selectMode": "multi",
-        "selectable": true,
-        "allowExport": false,
-        "hideSorting": false,
-        "refreshRate": 0,
-        "showRefresh": false,
-        "linkToParent": false,
-        "openInNewTab": false,
-        "filterPresets": [],
-        "hideAddButton": false,
-        "hideFiltering": true,
-        "magnifyOption": "",
-        "showTotalCount": false,
-        "hideImportButton": true,
-        "selectionButtons": [],
-        "fullPageNavigation": false,
-        "customFilterPresets": false,
-        "recordDisplayOption": "sameTab",
-        "hideRecordEditButton": false,
-        "hideRecordViewButton": true,
-        "bulkRecordEditEnabled": true,
-        "hideRecordCloneButton": true,
-        "hideRecordDeleteButton": false,
-        "inlineRecordEditEnabled": false,
-        "showRecordPerPageOption": false,
-        "hideRecordReminderButton": true,
-        "showDeletedRecordsOption": false,
-        "hideConfigureFieldsButton": true,
-        "enableRecordPageNavigation": false,
-        "hideRecordPermissionsButton": true,
-        "recordSelectorDisplayOption": "sameTab",
-        "hideRecordEditButtonValidators": "",
-        "hideRecordViewButtonValidators": "",
-        "hideRecordCloneButtonValidators": "",
-        "hideRecordDeleteButtonValidators": "",
-        "hideRecordReminderButtonValidators": "",
-        "hideRecordPermissionsButtonValidators": ""
-      }
+      "title": "Schedule Entries"
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
-    "isToEdit": false,
-    "localTab": false,
     "newTabLink": "",
-    "localPageID": "",
     "btnVisibleKey": "",
-    "allowPersonalLayouts": false
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 10,
   "createdAt": "2024-09-28T06:09:30Z",
+  "updatedAt": "2026-03-02T19:10:58Z",
   "title": "Record page SlaTime",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2025-03-13T09:48:25Z"
+  "canDeletePage": true
 }

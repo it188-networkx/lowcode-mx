@@ -1,776 +1,837 @@
 {
-  "workflows": [
+  "workflowID": "412455374422016001",
+  "handle": "",
+  "meta": {
+    "name": "itsm-onsiteTicket-add",
+    "description": "",
+    "visual": null,
+    "type": "",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "412455374422016001",
-      "handle": "",
-      "enabled": true,
+      "stepID": "9",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "onsiteTicketIds",
+          "expr": "record.values.onsiteTicket",
+          "type": "Array"
+        },
+        {
+          "target": "onsiteTicketIds",
+          "expr": "push(onsiteTicketIds,ticketRecord.recordID)",
+          "type": "Array"
+        },
+        {
+          "target": "record.values.onSite",
+          "expr": "1",
+          "type": "Boolean"
+        },
+        {
+          "target": "record.values.onsiteTicket",
+          "expr": "onsiteTicketIds",
+          "type": "Any"
+        }
+      ],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "itsm-onsiteTicket-add",
-        "type": "",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "9",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            4288,
+            2072,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    },
+    {
+      "stepID": "11",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "9",
-              "xywh": [
-                4288,
-                2072,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "9",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "record.values.onsiteTicket",
-              "type": "Array",
-              "target": "onsiteTicketIds"
-            },
-            {
-              "expr": "push(onsiteTicketIds,ticketRecord.recordID)",
-              "type": "Array",
-              "target": "onsiteTicketIds"
-            },
-            {
-              "expr": "1",
-              "type": "Boolean",
-              "target": "record.values.onSite"
-            },
-            {
-              "expr": "onsiteTicketIds",
-              "type": "Any",
-              "target": "record.values.onsiteTicket"
-            }
-          ]
+          "target": "data",
+          "expr": "selected[0]",
+          "type": "Any"
         },
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "11",
-              "xywh": [
-                2504,
-                1840,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "11",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "selected[0]",
-              "type": "Any",
-              "target": "data"
-            },
-            {
-              "expr": "data.modalData",
-              "type": "Any",
-              "target": "ticket"
-            }
-          ]
-        },
-        {
-          "ref": "composeRecordsNew",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "12",
-              "xywh": [
-                2792,
-                1840,
-                200,
-                80
-              ],
-              "value": "Compose record maker",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "12",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "onsiteTicket"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"OnsiteTicket\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "\"itsm\"",
-              "type": "Handle",
-              "target": "namespace"
-            }
-          ]
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "14",
-              "xywh": [
-                4008,
-                1832,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "14",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "ticket.assignee",
-              "type": "Any",
-              "target": "onsiteTicket.values.assignee"
-            },
-            {
-              "expr": "ticket.contactNo",
-              "type": "Any",
-              "target": "onsiteTicket.values.contactNo"
-            },
-            {
-              "expr": "record.values.number+randNum",
-              "type": "Any",
-              "target": "onsiteTicket.values.number"
-            },
-            {
-              "expr": "\"412695692335775745\"",
-              "type": "Any",
-              "target": "onsiteTicket.values.status"
-            },
-            {
-              "expr": "record.recordID",
-              "type": "Any",
-              "target": "onsiteTicket.values.relatedIncident"
-            },
-            {
-              "expr": "record.values.caller",
-              "type": "Any",
-              "target": "onsiteTicket.values.caller"
-            },
-            {
-              "expr": "record.values.location",
-              "type": "Any",
-              "target": "onsiteTicket.values.location"
-            },
-            {
-              "expr": "record.values.shortDescription",
-              "type": "Any",
-              "target": "onsiteTicket.values.shortDescription"
-            },
-            {
-              "expr": "record.values.description",
-              "type": "Any",
-              "target": "onsiteTicket.values.description"
-            },
-            {
-              "expr": "record.values.participantGroup",
-              "type": "Any",
-              "target": "onsiteTicket.values.participantGroup"
-            },
-            {
-              "expr": "record.values.participant",
-              "type": "Any",
-              "target": "onsiteTicket.values.participant"
-            }
-          ]
-        },
-        {
-          "ref": "composeRecordsCreate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "16",
-              "xywh": [
-                4288,
-                1832,
-                200,
-                80
-              ],
-              "value": "Compose record create",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "16",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "ticketRecord"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "onsiteTicket",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ]
-        },
-        {
-          "ref": "notification",
-          "kind": "prompt",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "18",
-              "xywh": [
-                3544,
-                2072,
-                200,
-                80
-              ],
-              "value": "Show non-blocking message to user",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "18",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "\"sucess\"",
-              "type": "String",
-              "target": "message"
-            },
-            {
-              "type": "String",
-              "value": "primary",
-              "target": "variant"
-            }
-          ]
-        },
-        {
-          "ref": "composeRecordsSearch",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "20",
-              "xywh": [
-                3088,
-                1840,
-                200,
-                80
-              ],
-              "value": "Compose records search",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "20",
-          "results": [
-            {
-              "expr": "total",
-              "type": "UnsignedInteger",
-              "target": "total"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"OnsiteTicket\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "\"itsm\"",
-              "type": "Handle",
-              "target": "namespace"
-            },
-            {
-              "expr": "\"relatedIncident = \"+ record.recordID",
-              "type": "String",
-              "target": "query"
-            },
-            {
-              "type": "Boolean",
-              "value": "true",
-              "target": "incTotal"
-            }
-          ]
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "22",
-              "xywh": [
-                3376,
-                1840,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "22",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "23",
-              "xywh": [
-                3664,
-                1944,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "23",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "total+1",
-              "type": "Any",
-              "target": "total"
-            },
-            {
-              "expr": "\"ONS0\"+total",
-              "type": "String",
-              "target": "randNum"
-            }
-          ]
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "25",
-              "xywh": [
-                3656,
-                1720,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "25",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "total+1",
-              "type": "Any",
-              "target": "total"
-            },
-            {
-              "expr": "\"ONS\"+total",
-              "type": "String",
-              "target": "randNum"
-            }
-          ]
-        },
-        {
-          "ref": "composeRecordsUpdate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "29",
-              "xywh": [
-                3888,
-                2072,
-                200,
-                80
-              ],
-              "value": "Compose record update",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "29",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ]
-        },
-        {
-          "ref": "refetchRecords",
-          "kind": "prompt",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "32",
-              "xywh": [
-                3264,
-                2072,
-                200,
-                80
-              ],
-              "value": "Refreshes all record values on the page",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "32",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "34",
-              "xywh": [
-                4448,
-                1968,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "34",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "record.values.onsiteTicket",
-              "type": "Array",
-              "target": "onsiteTicketIds"
-            },
-            {
-              "expr": "[]",
-              "type": "Array",
-              "target": "onsiteTicketIds"
-            },
-            {
-              "expr": "push(onsiteTicketIds,1)",
-              "type": "Any",
-              "target": "onsiteTicketIds"
-            },
-            {
-              "expr": "1",
-              "type": "Boolean",
-              "target": "record.values.onSite"
-            },
-            {
-              "expr": "onsiteTicketIds",
-              "type": "Any",
-              "target": "record.values.onsiteTicket"
-            }
-          ]
+          "target": "ticket",
+          "expr": "data.modalData",
+          "type": "Any"
         }
       ],
-      "paths": [
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "11",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2504,
+            1840,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "12",
+      "kind": "function",
+      "ref": "composeRecordsNew",
+      "arguments": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "13",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "12",
-          "parentID": "11"
+          "target": "module",
+          "expr": "\"OnsiteTicket\"",
+          "type": "Handle"
         },
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "15",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "20",
-          "parentID": "12"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "17",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "16",
-          "parentID": "14"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "21",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "22",
-          "parentID": "20"
-        },
-        {
-          "expr": "total<10",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "24",
-              "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "23",
-          "parentID": "22"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "26",
-              "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "25",
-          "parentID": "22"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "27",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "14",
-          "parentID": "23"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "28",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "14",
-          "parentID": "25"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "31",
-              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "18",
-          "parentID": "29"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "33",
-              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "32",
-          "parentID": "18"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "35",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "9",
-          "parentID": "16"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "36",
-              "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "29",
-          "parentID": "9"
+          "target": "namespace",
+          "expr": "\"itsm\"",
+          "type": "Handle"
         }
       ],
-      "triggers": [
+      "results": [
         {
-          "triggerID": "412455574840541185",
-          "resourceType": "compose:record",
-          "eventType": "onManual",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": null
-            }
+          "target": "onsiteTicket",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "12",
+          "parent": "1",
+          "value": "Compose record maker",
+          "xywh": [
+            2792,
+            1840,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "14",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "onsiteTicket.values.assignee",
+          "expr": "ticket.assignee",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.contactNo",
+          "expr": "ticket.contactNo",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.number",
+          "expr": "record.values.number+randNum",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.status",
+          "expr": "\"412695692335775745\"",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.relatedIncident",
+          "expr": "record.recordID",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.caller",
+          "expr": "record.values.caller",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.location",
+          "expr": "record.values.location",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.shortDescription",
+          "expr": "record.values.shortDescription",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.description",
+          "expr": "record.values.description",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.participantGroup",
+          "expr": "record.values.participantGroup",
+          "type": "Any"
+        },
+        {
+          "target": "onsiteTicket.values.participant",
+          "expr": "record.values.participant",
+          "type": "Any"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "14",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            4008,
+            1832,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "16",
+      "kind": "function",
+      "ref": "composeRecordsCreate",
+      "arguments": [
+        {
+          "target": "record",
+          "expr": "onsiteTicket",
+          "type": "ComposeRecord"
+        }
+      ],
+      "results": [
+        {
+          "target": "ticketRecord",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "16",
+          "parent": "1",
+          "value": "Compose record create",
+          "xywh": [
+            4288,
+            1832,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "18",
+      "kind": "prompt",
+      "ref": "notification",
+      "arguments": [
+        {
+          "target": "message",
+          "expr": "\"sucess\"",
+          "type": "String"
+        },
+        {
+          "target": "variant",
+          "value": "primary",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "18",
+          "parent": "1",
+          "value": "Show non-blocking message to user",
+          "xywh": [
+            3544,
+            2072,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "20",
+      "kind": "function",
+      "ref": "composeRecordsSearch",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "\"OnsiteTicket\"",
+          "type": "Handle"
+        },
+        {
+          "target": "namespace",
+          "expr": "\"itsm\"",
+          "type": "Handle"
+        },
+        {
+          "target": "query",
+          "expr": "\"relatedIncident = \"+ record.recordID",
+          "type": "String"
+        },
+        {
+          "target": "incTotal",
+          "value": "true",
+          "type": "Boolean"
+        }
+      ],
+      "results": [
+        {
+          "target": "total",
+          "expr": "total",
+          "type": "UnsignedInteger"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "20",
+          "parent": "1",
+          "value": "Compose records search",
+          "xywh": [
+            3088,
+            1840,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "22",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "22",
+          "parent": "1",
+          "value": "Exclusive",
+          "xywh": [
+            3376,
+            1840,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "23",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "total",
+          "expr": "total+1",
+          "type": "Any"
+        },
+        {
+          "target": "randNum",
+          "expr": "\"ONS0\"+total",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "23",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3664,
+            1944,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "25",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "total",
+          "expr": "total+1",
+          "type": "Any"
+        },
+        {
+          "target": "randNum",
+          "expr": "\"ONS\"+total",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "25",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3656,
+            1720,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "29",
+      "kind": "function",
+      "ref": "composeRecordsUpdate",
+      "arguments": [
+        {
+          "target": "record",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "29",
+          "parent": "1",
+          "value": "Compose record update",
+          "xywh": [
+            3888,
+            2072,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "32",
+      "kind": "prompt",
+      "ref": "refetchRecords",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "32",
+          "parent": "1",
+          "value": "Refreshes all record values on the page",
+          "xywh": [
+            3264,
+            2072,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "34",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "onsiteTicketIds",
+          "expr": "record.values.onsiteTicket",
+          "type": "Array"
+        },
+        {
+          "target": "onsiteTicketIds",
+          "expr": "[]",
+          "type": "Array"
+        },
+        {
+          "target": "onsiteTicketIds",
+          "expr": "push(onsiteTicketIds,1)",
+          "type": "Any"
+        },
+        {
+          "target": "record.values.onSite",
+          "expr": "1",
+          "type": "Boolean"
+        },
+        {
+          "target": "record.values.onsiteTicket",
+          "expr": "onsiteTicketIds",
+          "type": "Any"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "34",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            4448,
+            1968,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "11",
+      "childID": "12",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "13",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "12",
+      "childID": "20",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "15",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "14",
+      "childID": "16",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "17",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "20",
+      "childID": "22",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "21",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "total<10",
+      "parentID": "22",
+      "childID": "23",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "24",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "22",
+      "childID": "25",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "26",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "23",
+      "childID": "14",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "27",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "25",
+      "childID": "14",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "28",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "29",
+      "childID": "18",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "31",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "18",
+      "childID": "32",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "33",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "16",
+      "childID": "9",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "35",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "9",
+      "childID": "29",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "36",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "409985028668325889",
+  "createdAt": "2024-10-16T10:06:03Z",
+  "createdBy": "409985028668325889",
+  "updatedAt": "2026-03-02T19:12:45Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "412455574840541185",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "412455374422016001",
+      "stepID": "11",
+      "resourceType": "compose:record",
+      "eventType": "onManual",
+      "constraints": [
+        {
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
           ],
-          "enabled": true,
-          "stepID": "11",
-          "meta": {
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2208,
-                1840,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "6",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "11",
-                  "parentID": "3"
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": null
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "11",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "6",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Compose record - onManual",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
-        }
-      ],
-      "ownedBy": "409985028668325889",
-      "createdAt": "2024-10-16T10:06:03.000Z",
-      "updatedAt": "2024-10-21T08:26:13.000Z"
+              },
+              "parentID": "3"
+            }
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record - onManual",
+          "xywh": [
+            2208,
+            1840,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2024-10-16T10:08:12Z",
+      "createdBy": "409985028668325889",
+      "updatedAt": "2026-03-02T19:12:45Z"
     }
   ]
 }

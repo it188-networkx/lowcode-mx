@@ -6,366 +6,366 @@
   "handle": "DecemberReport",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
-      "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-y8ewu5ww51rm3gyo2zj"
+      "blockID": "1",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "filter": "(DATE(createdAt) = DATE(NOW()))",
+            "label": "Today Create Case",
+            "metricField": "count",
+            "moduleID": "409824987082063873",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
       },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Metric",
       "xywh": [
         0,
         0,
         15,
         27
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-y8ewu5ww51rm3gyo2zj"
+      },
+      "title": "今日创建事件数量"
+    },
+    {
+      "blockID": "2",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "filter": "(DATE(createdAt) = DATE(NOW()) AND onSite = 1)",
+            "label": "Today Case dispatached to OnSite",
+            "metricField": "count",
+            "moduleID": "409824987082063873",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "今日创建事件数量",
-      "blockID": "1",
-      "options": {
-        "metrics": [
-          {
-            "label": "Today Create Case",
-            "filter": "(DATE(createdAt) = DATE(NOW()))",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987082063873",
-            "drillDown": {
-              "blockID": "",
-              "enabled": true
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-e1fpmnxd6jm3gyqfs4"
-      },
       "xywh": [
         0,
         27,
         15,
         27
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-e1fpmnxd6jm3gyqfs4"
+      },
+      "title": "今日指派现场团队事件数量"
+    },
+    {
+      "blockID": "3",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "filter": "(onsiteResolution = 1 AND DATE(resolvedTime) = DATE(NOW()))",
+            "label": "Today Case resolved by OnSite",
+            "metricField": "count",
+            "moduleID": "409824987082063873",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "今日指派现场团队事件数量",
-      "blockID": "2",
-      "options": {
-        "metrics": [
-          {
-            "label": "Today Case dispatached to OnSite",
-            "filter": "(DATE(createdAt) = DATE(NOW()) AND onSite = 1)",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987082063873",
-            "drillDown": {
-              "blockID": "",
-              "enabled": true
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-dpsjelp4ckkm3gysbdw"
-      },
       "xywh": [
         33,
         0,
         15,
         27
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-dpsjelp4ckkm3gysbdw"
+      },
+      "title": "今日现场团队解决事件数量"
+    },
+    {
+      "blockID": "4",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "filter": "(\nassignmentGroup = 414195340296585217\nAND onsiteResolution = 0\nAND status = 409824987210514433\nAND DATE(actualResolvedTime) = DATE(NOW())\n)",
+            "label": "Today Case Resolved by Remote Team",
+            "metricField": "count",
+            "moduleID": "409824987082063873",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "今日现场团队解决事件数量",
-      "blockID": "3",
-      "options": {
-        "metrics": [
-          {
-            "label": "Today Case resolved by OnSite",
-            "filter": "(onsiteResolution = 1 AND DATE(resolvedTime) = DATE(NOW()))",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987082063873",
-            "drillDown": {
-              "blockID": "",
-              "enabled": true
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-o0mikjhsd5em3gz4kl0"
-      },
       "xywh": [
         15,
         0,
         18,
         27
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-o0mikjhsd5em3gz4kl0"
+      },
+      "title": "今日远程团队解决事件数量"
+    },
+    {
+      "blockID": "5",
+      "options": {
+        "magnifyOption": "",
+        "metrics": [
+          {
+            "bucketSize": "",
+            "dateFormat": "",
+            "dimensionField": "",
+            "drillDown": {
+              "blockID": "",
+              "enabled": true
+            },
+            "filter": "(\nDATE_FORMAT(actualResolvedTime, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')\nAND status <> 414195340296585217\nAND status <> 409824987210645505\nAND status <> 409824987210579969\n)",
+            "label": "Incident MTD Outstanding",
+            "metricField": "count",
+            "moduleID": "409824987082063873",
+            "numberFormat": "",
+            "operation": "",
+            "prefix": "",
+            "suffix": "",
+            "transformFx": "",
+            "valueStyle": {
+              "backgroundColor": "#FFFFFF00",
+              "color": "#4C8AADFF"
+            }
+          }
+        ],
+        "refreshRate": 0,
+        "showRefresh": false
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "今日远程团队解决事件数量",
-      "blockID": "4",
-      "options": {
-        "metrics": [
-          {
-            "label": "Today Case Resolved by Remote Team",
-            "filter": "(\nassignmentGroup = 414195340296585217\nAND onsiteResolution = 0\nAND status = 409824987210514433\nAND DATE(actualResolvedTime) = DATE(NOW())\n)",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987082063873",
-            "drillDown": {
-              "blockID": "",
-              "enabled": true
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Metric",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-5lx13vusc8m3gzf63r"
-      },
       "xywh": [
         15,
         27,
         18,
         27
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-5lx13vusc8m3gzf63r"
       },
-      "title": "本月未解决事件统计",
-      "blockID": "5",
-      "options": {
-        "metrics": [
-          {
-            "label": "Incident MTD Outstanding",
-            "filter": "(\nDATE_FORMAT(actualResolvedTime, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')\nAND status <> 414195340296585217\nAND status <> 409824987210645505\nAND status <> 409824987210579969\n)",
-            "prefix": "",
-            "suffix": "",
-            "moduleID": "409824987082063873",
-            "drillDown": {
-              "blockID": "",
-              "enabled": true
-            },
-            "operation": "",
-            "bucketSize": "",
-            "dateFormat": "",
-            "valueStyle": {
-              "color": "#4C8AADFF",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "metricField": "count",
-            "transformFx": "",
-            "numberFormat": "",
-            "dimensionField": ""
-          }
-        ],
-        "refreshRate": 0,
-        "showRefresh": false,
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
+      "title": "本月未解决事件统计"
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
-    "isToEdit": false,
-    "localTab": false,
     "newTabLink": "",
-    "localPageID": "",
     "btnVisibleKey": "",
-    "allowPersonalLayouts": false
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 9,
   "createdAt": "2024-11-14T06:57:15Z",
+  "updatedAt": "2026-03-02T19:10:56Z",
   "title": "IT服务看板",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2025-07-04T03:26:38Z"
+  "canDeletePage": true
 }

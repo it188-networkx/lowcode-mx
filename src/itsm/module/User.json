@@ -1,586 +1,647 @@
 {
   "moduleID": "409824987082522625",
-  "namespaceID": "409824987081211905",
-  "name": "User",
   "handle": "User",
+  "config": {
+    "dal": {
+      "connectionID": "470129660978593793",
+      "constraints": null,
+      "ident": "{{namespace}}{{module}}",
+      "systemFieldEncoding": {
+        "id": null,
+        "moduleID": null,
+        "namespaceID": null,
+        "revision": null,
+        "meta": null,
+        "ownedBy": null,
+        "createdAt": null,
+        "createdBy": null,
+        "updatedAt": null,
+        "updatedBy": null,
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    "privacy": {
+      "usageDisclosure": ""
+    },
+    "discovery": {
+      "public": {
+        "result": [
+          {
+            "lang": "",
+            "fields": []
+          }
+        ]
+      },
+      "private": {
+        "result": [
+          {
+            "lang": "",
+            "fields": []
+          }
+        ]
+      },
+      "protected": {
+        "result": [
+          {
+            "lang": "",
+            "fields": []
+          }
+        ]
+      }
+    },
+    "recordRevisions": {
+      "enabled": false,
+      "ident": "{{namespace}}{{module}}Revisions"
+    },
+    "recordDeDup": {
+      "rules": [
+        {
+          "name": "",
+          "strict": true,
+          "errorMessage": "",
+          "constraints": [
+            {
+              "attribute": "email",
+              "modifier": "case-sensitive",
+              "multiValue": "equal"
+            }
+          ]
+        }
+      ]
+    },
+    "index": null
+  },
+  "meta": {},
+  "namespaceID": "409824987081211905",
+  "createdAt": "2024-09-28T06:09:30Z",
+  "updatedAt": "2026-03-06T02:57:47Z",
+  "name": "User",
   "type": "",
   "isBlockDataTree": false,
   "systemModuleField": [
     {
-      "kind": "String",
-      "name": "recordID",
-      "label": "记录ID",
-      "width": 130,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
       "config": {
         "dal": {
           "encodingStrategy": null
         },
         "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
         },
         "recordRevisions": {
           "enabled": false
         }
       },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
-      "options": {
-        "hint": {
-          "type": "left",
-          "view": "",
-          "width": "150"
-        },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "clearCopy": false,
-        "maxLength": "",
-        "multiLine": false,
-        "isPassword": false,
-        "description": {
-          "view": ""
-        },
-        "multiDelimiter": "\n",
-        "useRichTextEditor": false
-      },
+      "customRequired": false,
+      "defaultValue": [],
       "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
       "isRequired": false,
       "isSortable": false,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
+      "isSystem": true,
+      "kind": "String",
+      "label": "记录ID",
+      "maxLength": 0,
+      "name": "recordID",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "width": 130
     },
     {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
       "kind": "User",
-      "name": "ownedBy",
       "label": "所属人",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
+      "maxLength": 0,
+      "name": "ownedBy",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "roles": [],
-        "clearCopy": false,
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "multiDelimiter": "\n",
         "isUniqueMultiValue": false,
-        "presetWithAuthenticated": false
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
       },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
+      "width": 130
     },
     {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
       "kind": "User",
-      "name": "createdBy",
       "label": "创建人",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
+      "maxLength": 0,
+      "name": "createdBy",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "roles": [],
-        "clearCopy": false,
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "multiDelimiter": "\n",
         "isUniqueMultiValue": false,
-        "presetWithAuthenticated": false
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
       },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
+      "width": 130
     },
     {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
       "kind": "DateTime",
-      "name": "createdAt",
       "label": "创建时间",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
+      "maxLength": 0,
+      "name": "createdAt",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "format": "YYYY-MM-DD HH:mm",
-        "onlyDate": false,
-        "onlyTime": false,
-        "clearCopy": false,
-        "description": {
-          "view": ""
-        },
         "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
         "onlyPastValues": false,
+        "onlyTime": false,
         "outputRelative": false,
-        "onlyFutureValues": false
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
       },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
+      "width": 130
     },
     {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
       "kind": "User",
-      "name": "updatedBy",
       "label": "更新人",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
+      "maxLength": 0,
+      "name": "updatedBy",
       "options": {
-        "hint": {
-          "type": "left",
-          "view": "",
-          "width": "150"
-        },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "roles": [],
         "clearCopy": false,
-        "selectType": "default",
         "description": {
           "view": ""
         },
-        "multiDelimiter": "\n",
-        "isUniqueMultiValue": false,
-        "presetWithAuthenticated": false
-      },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
-    },
-    {
-      "kind": "DateTime",
-      "name": "updatedAt",
-      "label": "更新时间",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
-      "options": {
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
         "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
           "dateFormat": "",
-          "resetFrequency": ""
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "DateTime",
+      "label": "更新时间",
+      "maxLength": 0,
+      "name": "updatedAt",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
         },
         "format": "YYYY-MM-DD HH:mm",
-        "onlyDate": false,
-        "onlyTime": false,
-        "clearCopy": false,
-        "description": {
-          "view": ""
-        },
-        "multiDelimiter": "\n",
-        "onlyPastValues": false,
-        "outputRelative": false,
-        "onlyFutureValues": false
-      },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
-    },
-    {
-      "kind": "Number",
-      "name": "revision",
-      "label": "版本",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
-      "options": {
-        "max": 100,
-        "min": 0,
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
         "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
           "dateFormat": "",
-          "resetFrequency": ""
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
         },
-        "format": "",
-        "prefix": "",
-        "suffix": "",
-        "display": "number",
-        "variant": "success",
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "Number",
+      "label": "版本",
+      "maxLength": 0,
+      "name": "revision",
+      "options": {
         "animated": false,
         "clearCopy": false,
-        "precision": 3,
-        "showValue": true,
-        "thresholds": [],
         "description": {
           "view": ""
         },
+        "display": "number",
+        "format": "",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "max": 100,
+        "min": 0,
+        "multiDelimiter": "\n",
+        "onlyPositiveIntegers": false,
+        "precision": 3,
+        "prefix": "",
         "presetFormat": "custom",
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
         "showProgress": false,
         "showRelative": true,
-        "multiDelimiter": "\n",
-        "onlyPositiveIntegers": false
+        "showValue": true,
+        "suffix": "",
+        "thresholds": [],
+        "variant": "success"
       },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
+      "width": 130
     },
     {
-      "kind": "User",
-      "name": "deletedBy",
-      "label": "删除人",
-      "width": 130,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
       "config": {
         "dal": {
           "encodingStrategy": null
         },
         "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
         },
         "recordRevisions": {
           "enabled": false
         }
       },
-      "isName": false,
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
       "fieldID": "0",
+      "isFilterable": true,
       "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "User",
+      "label": "删除人",
+      "maxLength": 0,
+      "name": "deletedBy",
       "options": {
-        "hint": {
-          "type": "left",
-          "view": "",
-          "width": "150"
-        },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "roles": [],
         "clearCopy": false,
-        "selectType": "default",
         "description": {
           "view": ""
         },
-        "multiDelimiter": "\n",
-        "isUniqueMultiValue": false,
-        "presetWithAuthenticated": false
-      },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
-    },
-    {
-      "kind": "DateTime",
-      "name": "deletedAt",
-      "label": "删除时间",
-      "width": 130,
-      "config": {
-        "dal": {
-          "encodingStrategy": null
-        },
-        "privacy": {
-          "usageDisclosure": "",
-          "sensitivityLevelID": "0"
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "isName": false,
-      "fieldID": "0",
-      "isMulti": false,
-      "options": {
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
         "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
           "dateFormat": "",
-          "resetFrequency": ""
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "DateTime",
+      "label": "删除时间",
+      "maxLength": 0,
+      "name": "deletedAt",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
         },
         "format": "YYYY-MM-DD HH:mm",
-        "onlyDate": false,
-        "onlyTime": false,
-        "clearCopy": false,
-        "description": {
-          "view": ""
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
         },
         "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
         "onlyPastValues": false,
+        "onlyTime": false,
         "outputRelative": false,
-        "onlyFutureValues": false
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
       },
-      "disabled": false,
-      "isSystem": true,
-      "maxLength": 0,
-      "isRequired": false,
-      "isSortable": true,
-      "expressions": {},
-      "defaultValue": [],
-      "isFilterable": true,
-      "customRequired": false,
-      "canReadRecordValue": true,
-      "canUpdateRecordValue": true
+      "width": 130
     }
   ],
   "fields": [
     {
       "fieldID": "409824987075117057",
-      "name": "name",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "String",
-      "label": "名称",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "name",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "clearCopy": false,
-        "maxLength": "",
-        "multiLine": false,
         "isPassword": false,
-        "description": {
-          "view": ""
-        },
+        "maxLength": "",
         "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
         "useRichTextEditor": false
-      },
-      "expressions": {
-        "customValidators": null
       },
       "config": {
         "dal": {
@@ -595,52 +656,51 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "名称",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075248129",
-      "name": "phone",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "String",
-      "label": "联系方式",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "phone",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "clearCopy": false,
-        "maxLength": "",
-        "multiLine": false,
         "isPassword": false,
-        "description": {
-          "view": ""
-        },
+        "maxLength": "",
         "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
         "useRichTextEditor": false
-      },
-      "expressions": {
-        "customValidators": null
       },
       "config": {
         "dal": {
@@ -655,129 +715,127 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "联系方式",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075313665",
-      "name": "vip",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Bool",
-      "label": "Vip",
-      "width": 130,
+      "name": "vip",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "falseLabel": "否",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "switch": false,
+        "trueLabel": "是"
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": {
+            "plain": {}
+          }
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
       "defaultValue": [
         {
           "name": ""
         }
       ],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
-      "options": {
-        "hint": {
-          "type": "left",
-          "view": "",
-          "width": "150"
-        },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "switch": false,
-        "clearCopy": false,
-        "trueLabel": "是",
-        "falseLabel": "否",
-        "description": {
-          "view": ""
-        }
-      },
       "expressions": {
         "customValidators": null
       },
-      "config": {
-        "dal": {
-          "encodingStrategy": {
-            "plain": {}
-          }
-        },
-        "privacy": {
-          "usageDisclosure": ""
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "Vip",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075051521",
-      "name": "department",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Record",
-      "label": "部门",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "department",
       "options": {
+        "clearCopy": false,
+        "colorField": "",
+        "description": {
+          "view": ""
+        },
+        "hideSorting": false,
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "kind": "",
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "notLink": false,
-        "presort": "createdAt DESC",
-        "moduleID": "409824987082653697",
-        "clearCopy": false,
-        "colorField": "",
         "isCheckbox": false,
+        "isUniqueMultiValue": false,
+        "kind": "",
         "labelField": "description",
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "hideSorting": false,
+        "moduleID": "409824987082653697",
+        "multiDelimiter": "\n",
         "multipleAll": false,
         "multipleMax": 100,
         "namespaceID": "0",
-        "queryFields": [],
-        "selectDefault": false,
-        "multiDelimiter": "\n",
-        "slaNoPrefilter": false,
         "noSelectDefault": false,
         "noslectableField": "",
+        "notLink": false,
+        "presort": "createdAt DESC",
+        "queryFields": [],
         "recordLabelField": "",
-        "isUniqueMultiValue": false
-      },
-      "expressions": {
-        "customValidators": null
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectDefault": false,
+        "selectType": "default",
+        "slaNoPrefilter": false
       },
       "config": {
         "dal": {
@@ -792,67 +850,66 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "部门",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075444737",
-      "name": "group",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Record",
-      "label": "组",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": true,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "group",
       "options": {
+        "clearCopy": false,
+        "colorField": "",
+        "description": {
+          "view": ""
+        },
+        "hideSorting": false,
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "kind": "",
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "notLink": false,
-        "presort": "createdAt DESC",
-        "moduleID": "409824987082653697",
-        "clearCopy": false,
-        "colorField": "",
         "isCheckbox": false,
+        "isUniqueMultiValue": false,
+        "kind": "",
         "labelField": "name",
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "hideSorting": false,
+        "moduleID": "409824987082653697",
+        "multiDelimiter": "\n",
         "multipleAll": false,
         "multipleMax": 100,
         "namespaceID": "0",
-        "queryFields": [],
-        "selectDefault": false,
-        "multiDelimiter": "\n",
-        "slaNoPrefilter": false,
         "noSelectDefault": false,
         "noslectableField": "",
+        "notLink": false,
+        "presort": "createdAt DESC",
+        "queryFields": [],
         "recordLabelField": "",
-        "isUniqueMultiValue": false
-      },
-      "expressions": {
-        "customValidators": null
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectDefault": false,
+        "selectType": "default",
+        "slaNoPrefilter": false
       },
       "config": {
         "dal": {
@@ -869,67 +926,66 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": true,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "组",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987074854913",
-      "name": "company",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Record",
-      "label": "公司",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "company",
       "options": {
+        "clearCopy": false,
+        "colorField": "",
+        "description": {
+          "view": ""
+        },
+        "hideSorting": false,
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "kind": "",
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "notLink": false,
-        "presort": "createdAt DESC",
-        "moduleID": "409824987081998337",
-        "clearCopy": false,
-        "colorField": "",
         "isCheckbox": false,
+        "isUniqueMultiValue": false,
+        "kind": "",
         "labelField": "name",
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "hideSorting": false,
+        "moduleID": "409824987081998337",
+        "multiDelimiter": "\n",
         "multipleAll": false,
         "multipleMax": 100,
         "namespaceID": "0",
-        "queryFields": [],
-        "selectDefault": false,
-        "multiDelimiter": "\n",
-        "slaNoPrefilter": false,
         "noSelectDefault": false,
         "noslectableField": "",
+        "notLink": false,
+        "presort": "createdAt DESC",
+        "queryFields": [],
         "recordLabelField": "",
-        "isUniqueMultiValue": false
-      },
-      "expressions": {
-        "customValidators": null
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectDefault": false,
+        "selectType": "default",
+        "slaNoPrefilter": false
       },
       "config": {
         "dal": {
@@ -944,115 +1000,113 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "公司",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075510273",
-      "name": "enabledFlag",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Bool",
-      "label": "状态",
-      "width": 130,
+      "name": "enabledFlag",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "falseLabel": "不活跃",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "switch": true,
+        "trueLabel": "活跃"
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": {
+            "plain": {}
+          }
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
       "defaultValue": [
         {
           "name": "",
           "value": "1"
         }
       ],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
-      "options": {
-        "hint": {
-          "type": "left",
-          "view": "",
-          "width": "150"
-        },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "switch": true,
-        "clearCopy": false,
-        "trueLabel": "活跃",
-        "falseLabel": "不活跃",
-        "description": {
-          "view": ""
-        }
-      },
       "expressions": {
         "customValidators": null
       },
-      "config": {
-        "dal": {
-          "encodingStrategy": {
-            "plain": {}
-          }
-        },
-        "privacy": {
-          "usageDisclosure": ""
-        },
-        "recordRevisions": {
-          "enabled": false
-        }
-      },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "状态",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075379201",
-      "name": "realUser",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "User",
-      "label": "加入的用户",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "realUser",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "roles": [],
-        "clearCopy": false,
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "multiDelimiter": "\n",
         "isUniqueMultiValue": false,
-        "presetWithAuthenticated": false
-      },
-      "expressions": {
-        "customValidators": null
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
       },
       "config": {
         "dal": {
@@ -1067,45 +1121,39 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "加入的用户",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987074920449",
-      "name": "role",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Select",
-      "label": "角色",
-      "width": 130,
-      "defaultValue": [
-        {
-          "name": "",
-          "value": "EndUser"
-        }
-      ],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": true,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "role",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
+        "isUniqueMultiValue": true,
+        "multiDelimiter": "\n",
         "options": [
           {
             "text": "Level1",
@@ -1144,16 +1192,16 @@
             "value": "role-demo"
           }
         ],
-        "clearCopy": false,
-        "selectType": "default",
-        "description": {
-          "view": ""
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
         },
-        "multiDelimiter": "\n",
-        "isUniqueMultiValue": true
-      },
-      "expressions": {
-        "customValidators": null
+        "selectType": "default"
       },
       "config": {
         "dal": {
@@ -1170,49 +1218,53 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": true,
+      "defaultValue": [
+        {
+          "name": "",
+          "value": "EndUser"
+        }
+      ],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "角色",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987075182593",
-      "name": "email",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Email",
-      "label": "邮箱",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "email",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "clearCopy": false,
-        "description": {
-          "view": ""
-        },
+        "multiDelimiter": "\n",
         "outputPlain": true,
-        "multiDelimiter": "\n"
-      },
-      "expressions": {
-        "customValidators": null
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
       },
       "config": {
         "dal": {
@@ -1227,40 +1279,39 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "邮箱",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "409824987074985985",
-      "name": "available",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Select",
-      "label": "是否激活",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": false,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "available",
       "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
         "options": [
           {
             "text": "是",
@@ -1271,16 +1322,16 @@
             "value": "unavailable"
           }
         ],
-        "clearCopy": false,
-        "selectType": "default",
-        "description": {
-          "view": ""
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
         },
-        "multiDelimiter": "\n",
-        "isUniqueMultiValue": false
-      },
-      "expressions": {
-        "customValidators": null
+        "selectType": "default"
       },
       "config": {
         "dal": {
@@ -1295,67 +1346,66 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2024-09-28T06:09:30Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "是否激活",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     },
     {
       "fieldID": "481413900819169281",
-      "name": "team",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
       "kind": "Record",
-      "label": "team",
-      "width": 130,
-      "defaultValue": [],
-      "maxLength": 0,
-      "isRequired": false,
-      "disabled": false,
-      "customRequired": false,
-      "isMulti": true,
-      "isName": false,
-      "isSystem": false,
-      "isSortable": true,
-      "isFilterable": true,
+      "name": "team",
       "options": {
+        "clearCopy": false,
+        "colorField": "",
+        "description": {
+          "view": ""
+        },
+        "hideSorting": false,
         "hint": {
           "type": "left",
           "view": "",
           "width": "150"
         },
-        "kind": "String",
-        "rule": {
-          "digit": "",
-          "start": "",
-          "select": "",
-          "timeZone": "",
-          "fixedChar": "",
-          "dateFormat": "",
-          "resetFrequency": ""
-        },
-        "notLink": false,
-        "presort": "createdAt DESC",
-        "moduleID": "481413900730826753",
-        "clearCopy": false,
-        "colorField": "",
         "isCheckbox": false,
+        "isUniqueMultiValue": false,
+        "kind": "String",
         "labelField": "name",
-        "selectType": "default",
-        "description": {
-          "view": ""
-        },
-        "hideSorting": false,
+        "moduleID": "481413900730826753",
+        "multiDelimiter": "\n",
         "multipleAll": false,
         "multipleMax": 100,
         "namespaceID": "409824987081211905",
-        "queryFields": [],
-        "selectDefault": false,
-        "multiDelimiter": "\n",
-        "slaNoPrefilter": false,
         "noSelectDefault": false,
         "noslectableField": "",
+        "notLink": false,
+        "presort": "createdAt DESC",
+        "queryFields": [],
         "recordLabelField": "",
-        "isUniqueMultiValue": false
-      },
-      "expressions": {
-        "customValidators": null
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectDefault": false,
+        "selectType": "default",
+        "slaNoPrefilter": false
       },
       "config": {
         "dal": {
@@ -1372,88 +1422,83 @@
           "enabled": false
         }
       },
-      "canUpdateRecordValue": true,
-      "canReadRecordValue": true
+      "isRequired": false,
+      "isMulti": true,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-02-04T06:14:47Z",
+      "updatedAt": "2026-03-06T02:57:47Z",
+      "label": "team",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485758959617245185",
+      "namspaceID": "409824987081211905",
+      "moduleID": "409824987082522625",
+      "kind": "String",
+      "name": "test_field",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": {
+            "plain": {}
+          }
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-06T02:57:47Z",
+      "label": "TEST_Field",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
     }
   ],
-  "issues": [],
-  "config": {
-    "dal": {
-      "ident": "{{namespace}}{{module}}",
-      "constraints": null,
-      "connectionID": "470129660978593793",
-      "systemFieldEncoding": {
-        "id": null,
-        "meta": null,
-        "ownedBy": null,
-        "moduleID": null,
-        "revision": null,
-        "createdAt": null,
-        "createdBy": null,
-        "deletedAt": null,
-        "deletedBy": null,
-        "updatedAt": null,
-        "updatedBy": null,
-        "namespaceID": null
-      }
-    },
-    "privacy": {
-      "usageDisclosure": ""
-    },
-    "discovery": {
-      "public": {
-        "result": [
-          {
-            "lang": "",
-            "fields": []
-          }
-        ]
-      },
-      "private": {
-        "result": [
-          {
-            "lang": "",
-            "fields": []
-          }
-        ]
-      },
-      "protected": {
-        "result": [
-          {
-            "lang": "",
-            "fields": []
-          }
-        ]
-      }
-    },
-    "recordDeDup": {
-      "rules": [
-        {
-          "name": "",
-          "strict": true,
-          "constraints": [
-            {
-              "modifier": "case-sensitive",
-              "attribute": "email",
-              "multiValue": "equal"
-            }
-          ],
-          "errorMessage": ""
-        }
-      ]
-    },
-    "recordRevisions": {
-      "ident": "{{namespace}}{{module}}Revisions",
-      "enabled": false
-    }
-  },
-  "meta": {},
-  "labels": {},
-  "createdAt": "2024-09-28T06:09:30.000Z",
+  "canGrant": true,
   "canUpdateModule": true,
   "canDeleteModule": true,
   "canCreateRecord": true,
-  "canCreateOwnedRecord": true,
-  "canGrant": true,
-  "updatedAt": "2026-02-25T10:46:47.000Z"
+  "canCreateOwnedRecord": true
 }

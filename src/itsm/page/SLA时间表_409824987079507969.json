@@ -1,0 +1,230 @@
+{
+  "pageID": "409824987079507969",
+  "selfID": "0",
+  "namespaceID": "409824987081211905",
+  "moduleID": "409824987082850305",
+  "handle": "SlaSchedule",
+  "config": {
+    "navItem": {
+      "expanded": false,
+      "icon": {
+        "type": "link",
+        "src": ""
+      }
+    }
+  },
+  "blocks": [
+    {
+      "blockID": "2",
+      "options": {
+        "formList": [
+          {
+            "isOpenShow": false,
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "name",
+            "label": "${lang == 'en' ? 'Name':'名称'}",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "input"
+          },
+          {
+            "isOpenShow": false,
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "type",
+            "label": "${lang == 'en' ? 'Type':'单据类型'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [
+              {
+                "text": "Workday",
+                "value": "1"
+              },
+              {
+                "text": "Dayoff",
+                "value": "2"
+              }
+            ],
+            "type": "select"
+          },
+          {
+            "isOpenShow": true,
+            "isShow": true,
+            "isShowKey": "allDay",
+            "isShowValue": "true",
+            "key": "starTime,endTime",
+            "label": "${lang == 'en' ? 'When':'时间范围'}",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "daterange"
+          },
+          {
+            "isOpenShow": true,
+            "isShow": true,
+            "isShowKey": "allDay",
+            "isShowValue": "false",
+            "key": "starTime,endTime",
+            "label": "${lang == 'en' ? 'When':'时间范围'}",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "daterangetime"
+          },
+          {
+            "isOpenShow": false,
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "allDay",
+            "label": "${lang == 'en' ? 'All Day':'每天'} ",
+            "selectApi": "",
+            "selectOption": [],
+            "type": "checkbox"
+          },
+          {
+            "isOpenShow": false,
+            "isShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "repeatFreqType",
+            "label": "${lang == 'en' ? 'Repeat':'频率'} ",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [
+              {
+                "text": "Does not repeat",
+                "value": "1"
+              },
+              {
+                "text": "Daily",
+                "value": "2"
+              },
+              {
+                "text": "Weekly",
+                "value": "3"
+              },
+              {
+                "text": "Monthly",
+                "value": "4"
+              },
+              {
+                "text": "Yearly",
+                "value": "5"
+              },
+              {
+                "text": "Every weekday (Mon-Fri)",
+                "value": "6"
+              },
+              {
+                "text": "Every weekend (Sat-Sun)",
+                "value": "7"
+              },
+              {
+                "text": "Specific",
+                "value": "8"
+              }
+            ],
+            "type": "select"
+          },
+          {
+            "isOpenShow": true,
+            "isShow": true,
+            "isShowKey": "repeatFreqType",
+            "isShowValue": "2,3,4,5,6,7",
+            "key": "stopRepeatTime",
+            "label": "${lang == 'en' ? 'Repeat Until':'重复至'} ",
+            "selectApi": "",
+            "selectOption": [],
+            "type": "date"
+          },
+          {
+            "isOpenShow": true,
+            "isShow": true,
+            "isShowKey": "repeatFreqType",
+            "isShowValue": "8",
+            "key": "customRepeatFreq",
+            "label": "${lang == 'en' ? 'Specific Repeat':'自定义'} ",
+            "selectApi": "",
+            "selectOption": [
+              {
+                "text": "Mon",
+                "value": "1"
+              },
+              {
+                "text": "Tue",
+                "value": "2"
+              },
+              {
+                "text": "Wed",
+                "value": "3"
+              },
+              {
+                "text": "Thu",
+                "value": "4"
+              },
+              {
+                "text": "Fri",
+                "value": "5"
+              },
+              {
+                "text": "Sat",
+                "value": "6"
+              },
+              {
+                "text": "Sun",
+                "value": "7"
+              }
+            ],
+            "type": "checkboxgroup"
+          }
+        ],
+        "magnifyOption": ""
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        0,
+        47,
+        70
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-uk3ey9ss9msm0qc1amu"
+      }
+    }
+  ],
+  "meta": {
+    "allowPersonalLayouts": false,
+    "newTab": false,
+    "newTabLink": "",
+    "btnVisibleKey": "",
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
+  },
+  "visible": false,
+  "weight": 11,
+  "createdAt": "2024-09-28T06:09:30Z",
+  "updatedAt": "2026-03-02T19:10:58Z",
+  "title": "SLA时间表",
+  "description": "",
+  "canGrant": true,
+  "canUpdatePage": true,
+  "canDeletePage": true
+}

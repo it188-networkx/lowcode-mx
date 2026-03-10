@@ -6,289 +6,265 @@
   "handle": "",
   "config": {
     "navItem": {
+      "expanded": false,
       "icon": {
-        "src": "",
-        "type": "link"
-      },
-      "expanded": false
+        "type": "link",
+        "src": ""
+      }
     }
   },
   "blocks": [
     {
+      "blockID": "18",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "disabled": true,
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204459521",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Name",
+            "maxLength": 0,
+            "name": "name",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204918273",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Description",
+            "maxLength": 0,
+            "name": "description",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": true,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "1"
+              }
+            ],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204525057",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Select",
+            "label": "Task Type",
+            "maxLength": 0,
+            "name": "type",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "options": [
+                {
+                  "text": "Notification-Only Tasks",
+                  "value": "1"
+                },
+                {
+                  "text": "Notification + B/L",
+                  "value": "3"
+                }
+              ],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "list"
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
       "kind": "Record",
+      "xywh": [
+        0,
+        0,
+        48,
+        38
+      ],
       "meta": {
         "hidden": false,
         "tempID": "tempID-y50ij4im1zlmiqvcbxd"
       },
-      "xywh": [
-        0,
-        0,
-        48,
-        38
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Basic Configuration",
-      "blockID": "18",
-      "options": {
-        "fields": [
-          {
-            "kind": "String",
-            "name": "name",
-            "label": "Task Name",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204459521",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "disabled": true,
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "description",
-            "label": "Task Description",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204918273",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": true,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Select",
-            "name": "type",
-            "label": "Task Type",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204525057",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "options": [
-                {
-                  "text": "Notification-Only Tasks",
-                  "value": "1"
-                },
-                {
-                  "text": "Notification + B/L",
-                  "value": "3"
-                }
-              ],
-              "clearCopy": false,
-              "selectType": "list",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "1"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
+      "title": "Basic Configuration"
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-cq0697ao5trmiqvcbxd"
-      },
-      "xywh": [
-        0,
-        34,
-        48,
-        33
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Alert Notification",
       "blockID": "19",
       "options": {
         "formList": [
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "notificationType",
-            "type": "radiogroup",
             "label": "Notify Type",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -298,508 +274,508 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "Notify Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "notificationTime",
+            "label": "Notify Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
             "startDatePicker": "disabledDate: (time) => {\n                        return time.getTime() < Date.now() - 8.64e7;\n                    },",
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "Start Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
             "isOpenShowSub": false,
-            "onlyFutureValues": true
+            "isShowKey": "notificationType",
+            "isShowValue": "periodic",
+            "key": "notificationTime",
+            "label": "Start Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "notificationPeriodType",
-            "type": "cycleType",
-            "label": "Cycle Type",
-            "weekKey": "notificationWeeklyDays",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "isOpenShow": true,
             "formTimeKey": "notificationTime",
             "intervalKey": "notificationPeriodInterval",
+            "intervalTypeKey": "intervalType",
+            "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "periodic",
+            "key": "notificationPeriodType",
+            "label": "Cycle Type",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "intervalType"
+            "type": "cycleType",
+            "weekKey": "notificationWeeklyDays"
           },
           {
-            "key": "notificationEndTime",
-            "type": "datetime",
-            "label": "End Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time,record) => {\n                    if(record.values.startTime){\n                        return time.getTime() < new Date(record.values.startTime).getTime() + 1000;\n                    }\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "notificationEndTime",
+            "label": "End Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Record",
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        34,
+        48,
+        33
+      ],
       "meta": {
         "hidden": false,
-        "tempID": "tempID-3ebvy950r08miqvcbxd"
+        "tempID": "tempID-cq0697ao5trmiqvcbxd"
       },
+      "title": "Alert Notification"
+    },
+    {
+      "blockID": "20",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204787201",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "assignment group",
+            "maxLength": 0,
+            "name": "groups",
+            "options": {
+              "clearCopy": false,
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hideSorting": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": true,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987082653697",
+              "multiDelimiter": "\n",
+              "multipleAll": false,
+              "multipleMax": 100,
+              "namespaceID": "409824987081211905",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "notLink": false,
+              "presort": "createdAt DESC",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectDefault": false,
+              "selectType": "multiple",
+              "slaNoPrefilter": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204852737",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "User",
+            "label": "assignee",
+            "maxLength": 0,
+            "name": "users",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "presetWithAuthenticated": false,
+              "roles": [],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "multiple"
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217632257",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Subject",
+            "maxLength": 0,
+            "name": "subject",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "500"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217697793",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Content",
+            "maxLength": 0,
+            "name": "body",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
+                "width": "600"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": true
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789219467265",
+            "isFilterable": false,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": false,
+            "isSystem": false,
+            "kind": "File",
+            "label": "Attachment(s)",
+            "maxLength": 0,
+            "name": "attachment",
+            "options": {
+              "allowDocuments": true,
+              "allowImages": true,
+              "backgroundColor": "#FFFFFF00",
+              "borderRadius": "",
+              "clearCopy": false,
+              "clickToView": true,
+              "description": {
+                "view": ""
+              },
+              "enableDownload": true,
+              "height": "",
+              "hideFileName": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "inline": true,
+              "isEditorFile": false,
+              "isThumbnail": false,
+              "margin": "auto",
+              "maxHeight": "",
+              "maxSize": 0,
+              "maxWidth": "",
+              "mimetypes": "",
+              "mode": "list",
+              "multiDelimiter": "\n",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "width": ""
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Record",
       "xywh": [
         0,
         71,
         48,
         79
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "20",
-      "options": {
-        "fields": [
-          {
-            "kind": "Record",
-            "name": "groups",
-            "label": "assignment group",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204787201",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "notLink": false,
-              "presort": "createdAt DESC",
-              "moduleID": "409824987082653697",
-              "clearCopy": false,
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "hideSorting": false,
-              "multipleAll": false,
-              "multipleMax": 100,
-              "namespaceID": "409824987081211905",
-              "queryFields": [],
-              "selectDefault": false,
-              "multiDelimiter": "\n",
-              "slaNoPrefilter": false,
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "User",
-            "name": "users",
-            "label": "assignee",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204852737",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "roles": [],
-              "clearCopy": false,
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true,
-              "presetWithAuthenticated": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "subject",
-            "label": "Subject",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217632257",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "500"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "body",
-            "label": "Content",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217697793",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
-                "width": "600"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "File",
-            "name": "attachment",
-            "label": "Attachment(s)",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789219467265",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "mode": "list",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "width": "",
-              "height": "",
-              "inline": true,
-              "margin": "auto",
-              "maxSize": 0,
-              "maxWidth": "",
-              "clearCopy": false,
-              "maxHeight": "",
-              "mimetypes": "",
-              "allowImages": true,
-              "clickToView": true,
-              "description": {
-                "view": ""
-              },
-              "isThumbnail": false,
-              "borderRadius": "",
-              "hideFileName": false,
-              "isEditorFile": false,
-              "allowDocuments": true,
-              "enableDownload": true,
-              "multiDelimiter": "\n",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": false,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-3ebvy950r08miqvcbxd"
       }
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-0myytzsv33wemiqvcbxd"
-      },
-      "xywh": [
-        0,
-        136,
-        48,
-        50
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Ticket Settings",
       "blockID": "21",
       "options": {
         "formList": [
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "moduleId",
-            "type": "module",
             "label": "Target Table",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
+            "selectOption": [],
+            "type": "module"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderValues",
-            "type": "fieldconfig",
             "label": "Field Configuration",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
+            "selectOption": [],
+            "type": "fieldconfig"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderType",
-            "type": "radiogroup",
             "label": "Creation Type",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -809,353 +785,353 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "orderTime",
-            "type": "datetime",
-            "label": "Creation Time",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "onlyFutureValues": true
-          },
-          {
             "key": "orderTime",
-            "type": "datetime",
-            "label": "Start Time",
+            "label": "Creation Time",
+            "onlyFutureValues": true,
             "required": true,
-            "isShowKey": "orderType",
             "selectApi": "",
-            "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "orderPeriodType",
-            "type": "cycleType",
-            "label": "Cycle Type",
-            "weekKey": "orderWeeklyDays",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
+            "isShowValue": "periodic",
+            "key": "orderTime",
+            "label": "Start Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          },
+          {
             "formTimeKey": "orderTime",
             "intervalKey": "orderPeriodInterval",
+            "intervalTypeKey": "createIntervalType",
+            "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
+            "key": "orderPeriodType",
+            "label": "Cycle Type",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "createIntervalType"
+            "type": "cycleType",
+            "weekKey": "orderWeeklyDays"
           },
           {
-            "key": "orderEndTime",
-            "type": "datetime",
-            "label": "End Time",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "orderEndTime",
+            "label": "End Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "this.record.values.type == 3",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "this.record.values.type == 3",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        136,
+        48,
+        50
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-0myytzsv33wemiqvcbxd"
+      },
+      "title": "Ticket Settings"
     },
     {
+      "blockID": "22",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204459521",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Name",
+            "maxLength": 0,
+            "name": "name",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204918273",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Description",
+            "maxLength": 0,
+            "name": "description",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": true,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "1"
+              }
+            ],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204525057",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Select",
+            "label": "Task Type",
+            "maxLength": 0,
+            "name": "type",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "options": [
+                {
+                  "text": "Notification-Only Tasks",
+                  "value": "1"
+                },
+                {
+                  "text": "Notification + B/L",
+                  "value": "3"
+                }
+              ],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "list"
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
       "kind": "Record",
+      "xywh": [
+        0,
+        0,
+        48,
+        38
+      ],
       "meta": {
         "hidden": false,
         "tempID": "tempID-2c09ozhlrqqmiqvccyg"
       },
-      "xywh": [
-        0,
-        0,
-        48,
-        38
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Basic Configuration",
-      "blockID": "22",
-      "options": {
-        "fields": [
-          {
-            "kind": "String",
-            "name": "name",
-            "label": "Task Name",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204459521",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "description",
-            "label": "Task Description",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204918273",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": true,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Select",
-            "name": "type",
-            "label": "Task Type",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204525057",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "options": [
-                {
-                  "text": "Notification-Only Tasks",
-                  "value": "1"
-                },
-                {
-                  "text": "Notification + B/L",
-                  "value": "3"
-                }
-              ],
-              "clearCopy": false,
-              "selectType": "list",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "1"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
+      "title": "Basic Configuration"
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-bw2w4rk1tkmiqvccyg"
-      },
-      "xywh": [
-        0,
-        34,
-        48,
-        33
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Alert Notification",
       "blockID": "23",
       "options": {
         "formList": [
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "notificationType",
-            "type": "radiogroup",
             "label": "Notify Type",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -1165,508 +1141,508 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "Notify Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "notificationTime",
+            "label": "Notify Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
             "startDatePicker": "disabledDate: (time) => {\n                        return time.getTime() < Date.now() - 8.64e7;\n                    },",
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "Start Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
             "isOpenShowSub": false,
-            "onlyFutureValues": true
+            "isShowKey": "notificationType",
+            "isShowValue": "periodic",
+            "key": "notificationTime",
+            "label": "Start Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "notificationPeriodType",
-            "type": "cycleType",
-            "label": "Cycle Type",
-            "weekKey": "notificationWeeklyDays",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "isOpenShow": true,
             "formTimeKey": "notificationTime",
             "intervalKey": "notificationPeriodInterval",
+            "intervalTypeKey": "intervalType",
+            "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "periodic",
+            "key": "notificationPeriodType",
+            "label": "Cycle Type",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "intervalType"
+            "type": "cycleType",
+            "weekKey": "notificationWeeklyDays"
           },
           {
-            "key": "notificationEndTime",
-            "type": "datetime",
-            "label": "End Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time,record) => {\n                    if(record.values.startTime){\n                        return time.getTime() < new Date(record.values.startTime).getTime() + 1000;\n                    }\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "notificationEndTime",
+            "label": "End Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Record",
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        34,
+        48,
+        33
+      ],
       "meta": {
         "hidden": false,
-        "tempID": "tempID-5xhb4xo5w45miqvccyh"
+        "tempID": "tempID-bw2w4rk1tkmiqvccyg"
       },
+      "title": "Alert Notification"
+    },
+    {
+      "blockID": "24",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204787201",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "assignment group",
+            "maxLength": 0,
+            "name": "groups",
+            "options": {
+              "clearCopy": false,
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hideSorting": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": true,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987082653697",
+              "multiDelimiter": "\n",
+              "multipleAll": false,
+              "multipleMax": 100,
+              "namespaceID": "409824987081211905",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "notLink": false,
+              "presort": "createdAt DESC",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectDefault": false,
+              "selectType": "multiple",
+              "slaNoPrefilter": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204852737",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "User",
+            "label": "assignee",
+            "maxLength": 0,
+            "name": "users",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "presetWithAuthenticated": false,
+              "roles": [],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "multiple"
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217632257",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Subject",
+            "maxLength": 0,
+            "name": "subject",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "500"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217697793",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Content",
+            "maxLength": 0,
+            "name": "body",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
+                "width": "600"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": true
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789219467265",
+            "isFilterable": false,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": false,
+            "isSystem": false,
+            "kind": "File",
+            "label": "Attachment(s)",
+            "maxLength": 0,
+            "name": "attachment",
+            "options": {
+              "allowDocuments": true,
+              "allowImages": true,
+              "backgroundColor": "#FFFFFF00",
+              "borderRadius": "",
+              "clearCopy": false,
+              "clickToView": true,
+              "description": {
+                "view": ""
+              },
+              "enableDownload": true,
+              "height": "",
+              "hideFileName": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "inline": true,
+              "isEditorFile": false,
+              "isThumbnail": false,
+              "margin": "auto",
+              "maxHeight": "",
+              "maxSize": 0,
+              "maxWidth": "",
+              "mimetypes": "",
+              "mode": "list",
+              "multiDelimiter": "\n",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "width": ""
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Record",
       "xywh": [
         0,
         71,
         48,
         79
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "24",
-      "options": {
-        "fields": [
-          {
-            "kind": "Record",
-            "name": "groups",
-            "label": "assignment group",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204787201",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "notLink": false,
-              "presort": "createdAt DESC",
-              "moduleID": "409824987082653697",
-              "clearCopy": false,
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "hideSorting": false,
-              "multipleAll": false,
-              "multipleMax": 100,
-              "namespaceID": "409824987081211905",
-              "queryFields": [],
-              "selectDefault": false,
-              "multiDelimiter": "\n",
-              "slaNoPrefilter": false,
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "User",
-            "name": "users",
-            "label": "assignee",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204852737",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "roles": [],
-              "clearCopy": false,
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true,
-              "presetWithAuthenticated": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "subject",
-            "label": "Subject",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217632257",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "500"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "body",
-            "label": "Content",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217697793",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
-                "width": "600"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "File",
-            "name": "attachment",
-            "label": "Attachment(s)",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789219467265",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "mode": "list",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "width": "",
-              "height": "",
-              "inline": true,
-              "margin": "auto",
-              "maxSize": 0,
-              "maxWidth": "",
-              "clearCopy": false,
-              "maxHeight": "",
-              "mimetypes": "",
-              "allowImages": true,
-              "clickToView": true,
-              "description": {
-                "view": ""
-              },
-              "isThumbnail": false,
-              "borderRadius": "",
-              "hideFileName": false,
-              "isEditorFile": false,
-              "allowDocuments": true,
-              "enableDownload": true,
-              "multiDelimiter": "\n",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": false,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-5xhb4xo5w45miqvccyh"
       }
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-sb6opsivhw7miqvccyh"
-      },
-      "xywh": [
-        0,
-        136,
-        48,
-        50
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Ticket Settings",
       "blockID": "25",
       "options": {
         "formList": [
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "moduleId",
-            "type": "module",
             "label": "Target Table",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
+            "selectOption": [],
+            "type": "module"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderValues",
-            "type": "fieldconfig",
             "label": "Field Configuration",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
+            "selectOption": [],
+            "type": "fieldconfig"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderType",
-            "type": "radiogroup",
             "label": "Creation Type",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -1676,353 +1652,353 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "orderTime",
-            "type": "datetime",
-            "label": "Creation Time",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "onlyFutureValues": true
-          },
-          {
             "key": "orderTime",
-            "type": "datetime",
-            "label": "Start Time",
+            "label": "Creation Time",
+            "onlyFutureValues": true,
             "required": true,
-            "isShowKey": "orderType",
             "selectApi": "",
-            "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "orderPeriodType",
-            "type": "cycleType",
-            "label": "Cycle Type",
-            "weekKey": "orderWeeklyDays",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
+            "isShowValue": "periodic",
+            "key": "orderTime",
+            "label": "Start Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          },
+          {
             "formTimeKey": "orderTime",
             "intervalKey": "orderPeriodInterval",
+            "intervalTypeKey": "createIntervalType",
+            "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
+            "key": "orderPeriodType",
+            "label": "Cycle Type",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "createIntervalType"
+            "type": "cycleType",
+            "weekKey": "orderWeeklyDays"
           },
           {
-            "key": "orderEndTime",
-            "type": "datetime",
-            "label": "End Time",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "orderEndTime",
+            "label": "End Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "this.record.values.type == 3",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "this.record.values.type == 3",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        136,
+        48,
+        50
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-sb6opsivhw7miqvccyh"
+      },
+      "title": "Ticket Settings"
     },
     {
+      "blockID": "26",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204459521",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Name",
+            "maxLength": 0,
+            "name": "name",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204918273",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Description",
+            "maxLength": 0,
+            "name": "description",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": true,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "1"
+              }
+            ],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204525057",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Select",
+            "label": "Task Type",
+            "maxLength": 0,
+            "name": "type",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "options": [
+                {
+                  "text": "Notification-Only Tasks",
+                  "value": "1"
+                },
+                {
+                  "text": "Notification + B/L",
+                  "value": "3"
+                }
+              ],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "list"
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
       "kind": "Record",
+      "xywh": [
+        0,
+        0,
+        48,
+        38
+      ],
       "meta": {
         "hidden": false,
         "tempID": "tempID-nlzod1ydmacmiqvce1c"
       },
-      "xywh": [
-        0,
-        0,
-        48,
-        38
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Basic Configuration",
-      "blockID": "26",
-      "options": {
-        "fields": [
-          {
-            "kind": "String",
-            "name": "name",
-            "label": "Task Name",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204459521",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "description",
-            "label": "Task Description",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204918273",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": true,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Select",
-            "name": "type",
-            "label": "Task Type",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204525057",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "options": [
-                {
-                  "text": "Notification-Only Tasks",
-                  "value": "1"
-                },
-                {
-                  "text": "Notification + B/L",
-                  "value": "3"
-                }
-              ],
-              "clearCopy": false,
-              "selectType": "list",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "1"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
+      "title": "Basic Configuration"
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-rvaanuzd8omiqvce1d"
-      },
-      "xywh": [
-        0,
-        34,
-        48,
-        33
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Alert Notification",
       "blockID": "27",
       "options": {
         "formList": [
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "notificationType",
-            "type": "radiogroup",
             "label": "Notify Type",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -2032,508 +2008,508 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "Notify Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "notificationTime",
+            "label": "Notify Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
             "startDatePicker": "disabledDate: (time) => {\n                        return time.getTime() < Date.now() - 8.64e7;\n                    },",
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "Start Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
             "isOpenShowSub": false,
-            "onlyFutureValues": true
+            "isShowKey": "notificationType",
+            "isShowValue": "periodic",
+            "key": "notificationTime",
+            "label": "Start Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "notificationPeriodType",
-            "type": "cycleType",
-            "label": "Cycle Type",
-            "weekKey": "notificationWeeklyDays",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "isOpenShow": true,
             "formTimeKey": "notificationTime",
             "intervalKey": "notificationPeriodInterval",
+            "intervalTypeKey": "intervalType",
+            "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "periodic",
+            "key": "notificationPeriodType",
+            "label": "Cycle Type",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "intervalType"
+            "type": "cycleType",
+            "weekKey": "notificationWeeklyDays"
           },
           {
-            "key": "notificationEndTime",
-            "type": "datetime",
-            "label": "End Time",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
             "datePicker": "(time,record) => {\n                    if(record.values.startTime){\n                        return time.getTime() < new Date(record.values.startTime).getTime() + 1000;\n                    }\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
             "isOpenShow": true,
+            "isShowKey": "notificationType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "notificationEndTime",
+            "label": "End Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Record",
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        34,
+        48,
+        33
+      ],
       "meta": {
         "hidden": false,
-        "tempID": "tempID-1b1vgitpx2nimiqvce1d"
+        "tempID": "tempID-rvaanuzd8omiqvce1d"
       },
+      "title": "Alert Notification"
+    },
+    {
+      "blockID": "28",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204787201",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "assignment group",
+            "maxLength": 0,
+            "name": "groups",
+            "options": {
+              "clearCopy": false,
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hideSorting": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": true,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987082653697",
+              "multiDelimiter": "\n",
+              "multipleAll": false,
+              "multipleMax": 100,
+              "namespaceID": "409824987081211905",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "notLink": false,
+              "presort": "createdAt DESC",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectDefault": false,
+              "selectType": "multiple",
+              "slaNoPrefilter": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204852737",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "User",
+            "label": "assignee",
+            "maxLength": 0,
+            "name": "users",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "presetWithAuthenticated": false,
+              "roles": [],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "multiple"
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217632257",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Subject",
+            "maxLength": 0,
+            "name": "subject",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "500"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217697793",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Content",
+            "maxLength": 0,
+            "name": "body",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
+                "width": "600"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": true
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789219467265",
+            "isFilterable": false,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": false,
+            "isSystem": false,
+            "kind": "File",
+            "label": "Attachment(s)",
+            "maxLength": 0,
+            "name": "attachment",
+            "options": {
+              "allowDocuments": true,
+              "allowImages": true,
+              "backgroundColor": "#FFFFFF00",
+              "borderRadius": "",
+              "clearCopy": false,
+              "clickToView": true,
+              "description": {
+                "view": ""
+              },
+              "enableDownload": true,
+              "height": "",
+              "hideFileName": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "inline": true,
+              "isEditorFile": false,
+              "isThumbnail": false,
+              "margin": "auto",
+              "maxHeight": "",
+              "maxSize": 0,
+              "maxWidth": "",
+              "mimetypes": "",
+              "mode": "list",
+              "multiDelimiter": "\n",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "width": ""
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Record",
       "xywh": [
         0,
         71,
         48,
         79
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "28",
-      "options": {
-        "fields": [
-          {
-            "kind": "Record",
-            "name": "groups",
-            "label": "assignment group",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204787201",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "notLink": false,
-              "presort": "createdAt DESC",
-              "moduleID": "409824987082653697",
-              "clearCopy": false,
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "hideSorting": false,
-              "multipleAll": false,
-              "multipleMax": 100,
-              "namespaceID": "409824987081211905",
-              "queryFields": [],
-              "selectDefault": false,
-              "multiDelimiter": "\n",
-              "slaNoPrefilter": false,
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "User",
-            "name": "users",
-            "label": "assignee",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204852737",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "roles": [],
-              "clearCopy": false,
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true,
-              "presetWithAuthenticated": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "subject",
-            "label": "Subject",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217632257",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "500"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "body",
-            "label": "Content",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217697793",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
-                "width": "600"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "File",
-            "name": "attachment",
-            "label": "Attachment(s)",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789219467265",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "mode": "list",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "width": "",
-              "height": "",
-              "inline": true,
-              "margin": "auto",
-              "maxSize": 0,
-              "maxWidth": "",
-              "clearCopy": false,
-              "maxHeight": "",
-              "mimetypes": "",
-              "allowImages": true,
-              "clickToView": true,
-              "description": {
-                "view": ""
-              },
-              "isThumbnail": false,
-              "borderRadius": "",
-              "hideFileName": false,
-              "isEditorFile": false,
-              "allowDocuments": true,
-              "enableDownload": true,
-              "multiDelimiter": "\n",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": false,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-1b1vgitpx2nimiqvce1d"
       }
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-qyp9zofehm7miqvce1d"
-      },
-      "xywh": [
-        0,
-        136,
-        48,
-        50
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "Ticket Settings",
       "blockID": "29",
       "options": {
         "formList": [
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "moduleId",
-            "type": "module",
             "label": "Target Table",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
+            "selectOption": [],
+            "type": "module"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderValues",
-            "type": "fieldconfig",
             "label": "Field Configuration",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
+            "selectOption": [],
+            "type": "fieldconfig"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderType",
-            "type": "radiogroup",
             "label": "Creation Type",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -2543,257 +2519,273 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "orderTime",
-            "type": "datetime",
-            "label": "Creation Time",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "onlyFutureValues": true
-          },
-          {
             "key": "orderTime",
-            "type": "datetime",
-            "label": "Start Time",
+            "label": "Creation Time",
+            "onlyFutureValues": true,
             "required": true,
-            "isShowKey": "orderType",
             "selectApi": "",
-            "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "orderPeriodType",
-            "type": "cycleType",
-            "label": "Cycle Type",
-            "weekKey": "orderWeeklyDays",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
+            "isShowValue": "periodic",
+            "key": "orderTime",
+            "label": "Start Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          },
+          {
             "formTimeKey": "orderTime",
             "intervalKey": "orderPeriodInterval",
+            "intervalTypeKey": "createIntervalType",
+            "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
+            "key": "orderPeriodType",
+            "label": "Cycle Type",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "createIntervalType"
+            "type": "cycleType",
+            "weekKey": "orderWeeklyDays"
           },
           {
-            "key": "orderEndTime",
-            "type": "datetime",
-            "label": "End Time",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "orderEndTime",
+            "label": "End Time",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "this.record.values.type == 3",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "this.record.values.type == 3",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Record",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-q69h7rdcswimi4b7q6m"
       },
-      "xywh": [
-        0,
-        0,
-        48,
-        38
-      ],
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "基础配置",
+      "kind": "Form",
+      "xywh": [
+        0,
+        136,
+        48,
+        50
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-qyp9zofehm7miqvce1d"
+      },
+      "title": "Ticket Settings"
+    },
+    {
       "blockID": "2",
       "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
         "fields": [
           {
-            "kind": "String",
-            "name": "name",
-            "label": "Task Name",
-            "width": 130,
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
             "config": {
               "dal": {
                 "encodingStrategy": null
               },
               "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
               },
               "recordRevisions": {
                 "enabled": false
               }
             },
-            "isName": false,
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
             "fieldID": "470138789204459521",
+            "isFilterable": true,
             "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
+            "isName": false,
             "isRequired": false,
             "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
+            "isSystem": false,
             "kind": "String",
-            "name": "description",
-            "label": "Task Description",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204918273",
-            "isMulti": false,
+            "label": "Task Name",
+            "maxLength": 0,
+            "name": "name",
             "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
               "clearCopy": false,
-              "maxLength": "",
-              "multiLine": true,
-              "isPassword": false,
               "description": {
                 "view": ""
               },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "Select",
-            "name": "type",
-            "label": "Task Type",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204525057",
-            "isMulti": false,
-            "options": {
               "hint": {
                 "type": "left",
                 "view": "",
                 "width": "150"
               },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
               "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
                 "dateFormat": "",
-                "resetFrequency": ""
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
               },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204918273",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Task Description",
+            "maxLength": 0,
+            "name": "description",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": true,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [
+              {
+                "name": "",
+                "value": "1"
+              }
+            ],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204525057",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Select",
+            "label": "Task Type",
+            "maxLength": 0,
+            "name": "type",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
               "options": [
                 {
                   "text": "Notification-Only Tasks",
@@ -2804,606 +2796,590 @@
                   "value": "3"
                 }
               ],
-              "clearCopy": false,
-              "selectType": "list",
-              "description": {
-                "view": ""
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
               },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true
+              "selectType": "list"
             },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [
-              {
-                "name": "",
-                "value": "1"
-              }
-            ],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
+            "width": 130
           }
         ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
         "jsCode": "",
         "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
         "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
+        "referenceField": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
-    },
-    {
-      "kind": "Form",
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Record",
+      "xywh": [
+        0,
+        0,
+        48,
+        38
+      ],
       "meta": {
         "hidden": false,
-        "tempID": "tempID-jp8jf9gqwckmi4basbt"
+        "tempID": "tempID-q69h7rdcswimi4b7q6m"
       },
+      "title": "基础配置"
+    },
+    {
+      "blockID": "3",
+      "options": {
+        "formList": [
+          {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "notificationType",
+            "label": "通知类型",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [
+              {
+                "text": "单次",
+                "value": "single"
+              },
+              {
+                "text": "周期轮次",
+                "value": "periodic"
+              }
+            ],
+            "type": "radiogroup"
+          },
+          {
+            "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
+            "isOpenShow": true,
+            "isShowKey": "notificationType",
+            "isShowValue": "single",
+            "key": "notificationTime",
+            "label": "通知时间",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "startDatePicker": "disabledDate: (time) => {\n                        return time.getTime() < Date.now() - 8.64e7;\n                    },",
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          },
+          {
+            "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
+            "isOpenShow": true,
+            "isOpenShowSub": false,
+            "isShowKey": "notificationType",
+            "isShowValue": "periodic",
+            "key": "notificationTime",
+            "label": "开始时间",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          },
+          {
+            "formTimeKey": "notificationTime",
+            "intervalKey": "notificationPeriodInterval",
+            "intervalTypeKey": "intervalType",
+            "isOpenShow": true,
+            "isShowKey": "notificationType",
+            "isShowValue": "periodic",
+            "key": "notificationPeriodType",
+            "label": "周期类型",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "cycleType",
+            "weekKey": "notificationWeeklyDays"
+          },
+          {
+            "datePicker": "(time,record) => {\n                    if(record.values.startTime){\n                        return time.getTime() < new Date(record.values.startTime).getTime() + 1000;\n                    }\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
+            "isOpenShow": true,
+            "isShowKey": "notificationType",
+            "isShowValue": "periodic",
+            "key": "notificationEndTime",
+            "label": "截止时间",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          }
+        ],
+        "magnifyOption": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
       "xywh": [
         0,
         34,
         48,
         33
       ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-jp8jf9gqwckmi4basbt"
+      },
+      "title": "告警通知"
+    },
+    {
+      "blockID": "4",
+      "options": {
+        "fieldConditions": [],
+        "fieldPrefilter": [],
+        "fields": [
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204787201",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "Record",
+            "label": "assignment group",
+            "maxLength": 0,
+            "name": "groups",
+            "options": {
+              "clearCopy": false,
+              "colorField": "",
+              "description": {
+                "view": ""
+              },
+              "hideSorting": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isCheckbox": false,
+              "isUniqueMultiValue": true,
+              "kind": "String",
+              "labelField": "name",
+              "moduleID": "409824987082653697",
+              "multiDelimiter": "\n",
+              "multipleAll": false,
+              "multipleMax": 100,
+              "namespaceID": "409824987081211905",
+              "noSelectDefault": false,
+              "noslectableField": "",
+              "notLink": false,
+              "presort": "createdAt DESC",
+              "queryFields": [],
+              "recordLabelField": "",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectDefault": false,
+              "selectType": "multiple",
+              "slaNoPrefilter": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": false,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789204852737",
+            "isFilterable": true,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "User",
+            "label": "assignee",
+            "maxLength": 0,
+            "name": "users",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "isUniqueMultiValue": true,
+              "multiDelimiter": "\n",
+              "presetWithAuthenticated": false,
+              "roles": [],
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "selectType": "multiple"
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217632257",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Subject",
+            "maxLength": 0,
+            "name": "subject",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "500"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": false
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "customRequired": true,
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789217697793",
+            "isFilterable": true,
+            "isMulti": false,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": true,
+            "isSystem": false,
+            "kind": "String",
+            "label": "Content",
+            "maxLength": 0,
+            "name": "body",
+            "options": {
+              "clearCopy": false,
+              "description": {
+                "view": ""
+              },
+              "hint": {
+                "type": "left",
+                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
+                "width": "600"
+              },
+              "isPassword": false,
+              "maxLength": "",
+              "multiDelimiter": "\n",
+              "multiLine": false,
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "useRichTextEditor": true
+            },
+            "width": 130
+          },
+          {
+            "canReadRecordValue": true,
+            "canUpdateRecordValue": true,
+            "config": {
+              "dal": {
+                "encodingStrategy": null
+              },
+              "privacy": {
+                "sensitivityLevelID": "0",
+                "usageDisclosure": ""
+              },
+              "recordRevisions": {
+                "enabled": false
+              }
+            },
+            "defaultValue": [],
+            "expressions": {
+              "customValidators": null
+            },
+            "fieldID": "470138789219467265",
+            "isFilterable": false,
+            "isMulti": true,
+            "isName": false,
+            "isRequired": false,
+            "isSortable": false,
+            "isSystem": false,
+            "kind": "File",
+            "label": "Attachment(s)",
+            "maxLength": 0,
+            "name": "attachment",
+            "options": {
+              "allowDocuments": true,
+              "allowImages": true,
+              "backgroundColor": "#FFFFFF00",
+              "borderRadius": "",
+              "clearCopy": false,
+              "clickToView": true,
+              "description": {
+                "view": ""
+              },
+              "enableDownload": true,
+              "height": "",
+              "hideFileName": false,
+              "hint": {
+                "type": "left",
+                "view": "",
+                "width": "150"
+              },
+              "inline": true,
+              "isEditorFile": false,
+              "isThumbnail": false,
+              "margin": "auto",
+              "maxHeight": "",
+              "maxSize": 0,
+              "maxWidth": "",
+              "mimetypes": "",
+              "mode": "list",
+              "multiDelimiter": "\n",
+              "rule": {
+                "dateFormat": "",
+                "digit": "",
+                "fixedChar": "",
+                "resetFrequency": "",
+                "select": "",
+                "start": "",
+                "timeZone": ""
+              },
+              "width": ""
+            },
+            "width": 130
+          }
+        ],
+        "horizontalFieldLayoutEnabled": false,
+        "inlineRecordEditEnabled": false,
+        "jsCode": "",
+        "magnifyOption": "",
+        "recordSelectorDisplayOption": "sameTab",
+        "referenceField": ""
+      },
+      "visible": {
+        "editableBlock": true,
+        "editableParams": {
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
+        }
+      },
       "style": {
+        "variants": {
+          "headerText": "dark"
+        },
         "wrap": {
           "kind": "card"
         },
         "border": {
           "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
         }
       },
-      "title": "告警通知",
-      "blockID": "3",
-      "options": {
-        "formList": [
-          {
-            "key": "notificationType",
-            "type": "radiogroup",
-            "label": "通知类型",
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": [
-              {
-                "text": "单次",
-                "value": "single"
-              },
-              {
-                "text": "周期轮次",
-                "value": "periodic"
-              }
-            ]
-          },
-          {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "通知时间",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
-            "isOpenShow": true,
-            "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "startDatePicker": "disabledDate: (time) => {\n                        return time.getTime() < Date.now() - 8.64e7;\n                    },",
-            "onlyFutureValues": true
-          },
-          {
-            "key": "notificationTime",
-            "type": "datetime",
-            "label": "开始时间",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "datePicker": "(time) => {\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
-            "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "isOpenShowSub": false,
-            "onlyFutureValues": true
-          },
-          {
-            "key": "notificationPeriodType",
-            "type": "cycleType",
-            "label": "周期类型",
-            "weekKey": "notificationWeeklyDays",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "isOpenShow": true,
-            "formTimeKey": "notificationTime",
-            "intervalKey": "notificationPeriodInterval",
-            "isShowValue": "periodic",
-            "selectOption": [],
-            "intervalTypeKey": "intervalType"
-          },
-          {
-            "key": "notificationEndTime",
-            "type": "datetime",
-            "label": "截止时间",
-            "required": true,
-            "isShowKey": "notificationType",
-            "selectApi": "",
-            "datePicker": "(time,record) => {\n                    if(record.values.startTime){\n                        return time.getTime() < new Date(record.values.startTime).getTime() + 1000;\n                    }\n                    return time.getTime() < Date.now() - 8.64e7;\n                }",
-            "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "onlyFutureValues": true
-          }
-        ],
-        "magnifyOption": ""
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
-      }
-    },
-    {
       "kind": "Record",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-tsdijzhwqzmi4bcyz6"
-      },
       "xywh": [
         0,
         71,
         48,
         79
       ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "blockID": "4",
-      "options": {
-        "fields": [
-          {
-            "kind": "Record",
-            "name": "groups",
-            "label": "assignment group",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204787201",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "kind": "String",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "notLink": false,
-              "presort": "createdAt DESC",
-              "moduleID": "409824987082653697",
-              "clearCopy": false,
-              "colorField": "",
-              "isCheckbox": false,
-              "labelField": "name",
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "hideSorting": false,
-              "multipleAll": false,
-              "multipleMax": 100,
-              "namespaceID": "409824987081211905",
-              "queryFields": [],
-              "selectDefault": false,
-              "multiDelimiter": "\n",
-              "slaNoPrefilter": false,
-              "noSelectDefault": false,
-              "noslectableField": "",
-              "recordLabelField": "",
-              "isUniqueMultiValue": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "User",
-            "name": "users",
-            "label": "assignee",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789204852737",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "roles": [],
-              "clearCopy": false,
-              "selectType": "multiple",
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "isUniqueMultiValue": true,
-              "presetWithAuthenticated": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "subject",
-            "label": "Subject",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217632257",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "500"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": false
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "String",
-            "name": "body",
-            "label": "Content",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789217697793",
-            "isMulti": false,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "Please do not include the following sensitive words in the email subject or content, as they may result in the email being marked as spam:\nDrug-related: Methamphetamine, Heroin, Marijuana, Drug manufacturing, Drug trafficking\nViolent crimes: Homicide, Robbery, Kidnapping, Explosion, Arson\nFinancial crimes: Money laundering, Illegal fund-raising, Fraud, Pyramid schemes, Underground banks\nVirtual currency violations: Bitcoin money laundering, ICO financing, Illegal virtual currency transactions\nIllegal financial management: High-interest deposit solicitation, Principal and interest guarantee (for unregulated financial institutions), Unlisted share peddling, \"Get-rich-quick\" financial products\nFalse promises: 100% profit guarantee, Zero risk, Risk-free profits\nIllegal marketing: Extreme terms prohibited by the Advertising Law (e.g., \"Top-tier\", \"No.1\"), False discounts (e.g., \"Fire-sale price\", \"Liquidation price\" without valid basis)\nOthers: Smuggling, Firearm trafficking, Illegal acquisition of personal information",
-                "width": "600"
-              },
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "clearCopy": false,
-              "maxLength": "",
-              "multiLine": false,
-              "isPassword": false,
-              "description": {
-                "view": ""
-              },
-              "multiDelimiter": "\n",
-              "useRichTextEditor": true
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": true,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": true,
-            "customRequired": true,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          },
-          {
-            "kind": "File",
-            "name": "attachment",
-            "label": "Attachment(s)",
-            "width": 130,
-            "config": {
-              "dal": {
-                "encodingStrategy": null
-              },
-              "privacy": {
-                "usageDisclosure": "",
-                "sensitivityLevelID": "0"
-              },
-              "recordRevisions": {
-                "enabled": false
-              }
-            },
-            "isName": false,
-            "fieldID": "470138789219467265",
-            "isMulti": true,
-            "options": {
-              "hint": {
-                "type": "left",
-                "view": "",
-                "width": "150"
-              },
-              "mode": "list",
-              "rule": {
-                "digit": "",
-                "start": "",
-                "select": "",
-                "timeZone": "",
-                "fixedChar": "",
-                "dateFormat": "",
-                "resetFrequency": ""
-              },
-              "width": "",
-              "height": "",
-              "inline": true,
-              "margin": "auto",
-              "maxSize": 0,
-              "maxWidth": "",
-              "clearCopy": false,
-              "maxHeight": "",
-              "mimetypes": "",
-              "allowImages": true,
-              "clickToView": true,
-              "description": {
-                "view": ""
-              },
-              "isThumbnail": false,
-              "borderRadius": "",
-              "hideFileName": false,
-              "isEditorFile": false,
-              "allowDocuments": true,
-              "enableDownload": true,
-              "multiDelimiter": "\n",
-              "backgroundColor": "#FFFFFF00"
-            },
-            "isSystem": false,
-            "maxLength": 0,
-            "isRequired": false,
-            "isSortable": false,
-            "expressions": {
-              "customValidators": null
-            },
-            "defaultValue": [],
-            "isFilterable": false,
-            "canReadRecordValue": true,
-            "canUpdateRecordValue": true
-          }
-        ],
-        "jsCode": "",
-        "magnifyOption": "",
-        "fieldPrefilter": [],
-        "referenceField": "",
-        "fieldConditions": [],
-        "inlineRecordEditEnabled": false,
-        "recordSelectorDisplayOption": "sameTab",
-        "horizontalFieldLayoutEnabled": false
-      },
-      "visible": {
-        "visibleBlock": true,
-        "editableBlock": true,
-        "recordVisible": "",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
-        "editableParams": {
-          "params": {},
-          "actionID": "2"
-        }
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-tsdijzhwqzmi4bcyz6"
       }
     },
     {
-      "kind": "Form",
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-vz5xbrkjxlsmi4bgb83"
-      },
-      "xywh": [
-        0,
-        136,
-        48,
-        50
-      ],
-      "style": {
-        "wrap": {
-          "kind": "card"
-        },
-        "border": {
-          "enabled": false
-        },
-        "variants": {
-          "headerText": "dark"
-        }
-      },
-      "title": "工单设置",
       "blockID": "5",
       "options": {
         "formList": [
           {
-            "key": "moduleId",
-            "type": "module",
-            "label": "目标表",
             "disabled": true,
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
             "isOpenShow": false,
+            "isShowKey": "",
             "isShowValue": "",
-            "selectOption": []
+            "key": "moduleId",
+            "label": "目标表",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "module"
           },
           {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
             "key": "orderValues",
-            "type": "fieldconfig",
+            "label": "字段配置",
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "fieldconfig"
+          },
+          {
+            "isOpenShow": false,
+            "isShowKey": "",
+            "isShowValue": "",
+            "key": "orderType",
             "label": "创建类型",
             "required": true,
-            "isShowKey": "",
             "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
-            "selectOption": []
-          },
-          {
-            "key": "orderType",
-            "type": "radiogroup",
-            "label": "创建时间",
-            "required": true,
-            "isShowKey": "",
-            "selectApi": "",
-            "isOpenShow": false,
-            "isShowValue": "",
             "selectOption": [
               {
                 "text": "单次",
@@ -3413,96 +3389,120 @@
                 "text": "周期轮次",
                 "value": "periodic"
               }
-            ]
+            ],
+            "type": "radiogroup"
           },
           {
-            "key": "orderTime",
-            "type": "datetime",
-            "label": "开始时间",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "single",
-            "valueFormat": "yyyy-MM-dd HH:mm",
-            "selectOption": [],
-            "onlyFutureValues": true
-          },
-          {
             "key": "orderTime",
-            "type": "datetime",
-            "label": "周期类型",
+            "label": "创建时间",
+            "onlyFutureValues": true,
             "required": true,
-            "isShowKey": "orderType",
             "selectApi": "",
-            "isOpenShow": true,
-            "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           },
           {
-            "key": "orderPeriodType",
-            "type": "cycleType",
-            "label": "截至时间",
-            "weekKey": "orderWeeklyDays",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
+            "isShowValue": "periodic",
+            "key": "orderTime",
+            "label": "开始时间",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
+            "selectOption": [],
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
+          },
+          {
             "formTimeKey": "orderTime",
             "intervalKey": "orderPeriodInterval",
+            "intervalTypeKey": "createIntervalType",
+            "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
+            "key": "orderPeriodType",
+            "label": "周期类型",
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "intervalTypeKey": "createIntervalType"
+            "type": "cycleType",
+            "weekKey": "orderWeeklyDays"
           },
           {
-            "key": "orderEndTime",
-            "type": "datetime",
-            "label": "截至时间",
-            "required": true,
-            "isShowKey": "orderType",
-            "selectApi": "",
             "isOpenShow": true,
+            "isShowKey": "orderType",
             "isShowValue": "periodic",
-            "valueFormat": "yyyy-MM-dd HH:mm",
+            "key": "orderEndTime",
+            "label": "截至时间",
+            "onlyFutureValues": true,
+            "required": true,
+            "selectApi": "",
             "selectOption": [],
-            "onlyFutureValues": true
+            "type": "datetime",
+            "valueFormat": "yyyy-MM-dd HH:mm"
           }
         ],
         "magnifyOption": ""
       },
       "visible": {
-        "visibleBlock": true,
         "editableBlock": true,
-        "recordVisible": "this.record.values.type == 3",
-        "visibleParams": {
-          "params": {},
-          "actionID": "1"
-        },
         "editableParams": {
-          "params": {},
-          "actionID": "2"
+          "actionID": "2",
+          "params": {}
+        },
+        "recordVisible": "this.record.values.type == 3",
+        "visibleBlock": true,
+        "visibleParams": {
+          "actionID": "1",
+          "params": {}
         }
-      }
+      },
+      "style": {
+        "variants": {
+          "headerText": "dark"
+        },
+        "wrap": {
+          "kind": "card"
+        },
+        "border": {
+          "enabled": false
+        }
+      },
+      "kind": "Form",
+      "xywh": [
+        0,
+        136,
+        48,
+        50
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-vz5xbrkjxlsmi4bgb83"
+      },
+      "title": "工单设置"
     }
   ],
   "meta": {
+    "allowPersonalLayouts": false,
     "newTab": false,
-    "isToEdit": false,
-    "localTab": false,
     "newTabLink": "",
-    "localPageID": "",
     "btnVisibleKey": "",
-    "allowPersonalLayouts": false
+    "isToEdit": false,
+    "localPageID": "",
+    "localTab": false
   },
   "visible": false,
   "weight": 108,
   "createdAt": "2025-11-18T08:18:44Z",
+  "updatedAt": "2026-03-02T19:10:52Z",
   "title": "待办日历记录页",
   "description": "",
   "canGrant": true,
   "canUpdatePage": true,
-  "canDeletePage": true,
-  "updatedAt": "2026-01-21T03:11:49Z"
+  "canDeletePage": true
 }

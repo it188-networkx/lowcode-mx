@@ -1,0 +1,1565 @@
+{
+  "moduleID": "485611457189969921",
+  "handle": "SlaTaskIncident",
+  "config": {
+    "dal": {
+      "connectionID": "470129660978593793",
+      "constraints": null,
+      "ident": "{{namespace}}{{module}}",
+      "systemFieldEncoding": {
+        "id": null,
+        "moduleID": {
+          "omit": true
+        },
+        "namespaceID": {
+          "omit": true
+        },
+        "revision": {
+          "omit": true
+        },
+        "meta": {
+          "omit": true
+        },
+        "ownedBy": {
+          "omit": true
+        },
+        "createdAt": {
+          "omit": true
+        },
+        "createdBy": {
+          "omit": true
+        },
+        "updatedAt": {
+          "omit": true
+        },
+        "updatedBy": {
+          "omit": true
+        },
+        "deletedAt": {
+          "omit": true
+        },
+        "deletedBy": {
+          "omit": true
+        }
+      }
+    },
+    "privacy": {
+      "usageDisclosure": ""
+    },
+    "discovery": {
+      "public": {
+        "result": [
+          {
+            "lang": "",
+            "fields": []
+          }
+        ]
+      },
+      "private": {
+        "result": [
+          {
+            "lang": "",
+            "fields": []
+          }
+        ]
+      },
+      "protected": {
+        "result": [
+          {
+            "lang": "",
+            "fields": []
+          }
+        ]
+      }
+    },
+    "recordRevisions": {
+      "enabled": false,
+      "ident": ""
+    },
+    "recordDeDup": {},
+    "index": null
+  },
+  "meta": {},
+  "namespaceID": "409824987081211905",
+  "createdAt": "2026-03-05T02:02:53Z",
+  "updatedAt": "2026-03-05T02:07:45Z",
+  "name": "SlaTaskIncident",
+  "type": "",
+  "isBlockDataTree": false,
+  "systemModuleField": [
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": false,
+      "isSystem": true,
+      "kind": "String",
+      "label": "Record ID",
+      "maxLength": 0,
+      "name": "recordID",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "User",
+      "label": "Owned by",
+      "maxLength": 0,
+      "name": "ownedBy",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "User",
+      "label": "Created by",
+      "maxLength": 0,
+      "name": "createdBy",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "DateTime",
+      "label": "Created at",
+      "maxLength": 0,
+      "name": "createdAt",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "User",
+      "label": "Updated by",
+      "maxLength": 0,
+      "name": "updatedBy",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "DateTime",
+      "label": "Updated at",
+      "maxLength": 0,
+      "name": "updatedAt",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "Number",
+      "label": "Revision",
+      "maxLength": 0,
+      "name": "revision",
+      "omit": true,
+      "options": {
+        "animated": false,
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "display": "number",
+        "format": "",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "max": 100,
+        "min": 0,
+        "multiDelimiter": "\n",
+        "onlyPositiveIntegers": false,
+        "precision": 3,
+        "prefix": "",
+        "presetFormat": "custom",
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "showProgress": false,
+        "showRelative": true,
+        "showValue": true,
+        "suffix": "",
+        "thresholds": [],
+        "variant": "success"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "User",
+      "label": "Deleted by",
+      "maxLength": 0,
+      "name": "deletedBy",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "presetWithAuthenticated": false,
+        "roles": [],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "width": 130
+    },
+    {
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true,
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "sensitivityLevelID": "0",
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "customRequired": false,
+      "defaultValue": [],
+      "disabled": false,
+      "expressions": {},
+      "fieldID": "0",
+      "isFilterable": true,
+      "isMulti": false,
+      "isName": false,
+      "isRequired": false,
+      "isSortable": true,
+      "isSystem": true,
+      "kind": "DateTime",
+      "label": "Deleted at",
+      "maxLength": 0,
+      "name": "deletedAt",
+      "omit": true,
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "width": 130
+    }
+  ],
+  "fields": [
+    {
+      "fieldID": "485611457190035457",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "Record",
+      "name": "recordId",
+      "options": {
+        "clearCopy": false,
+        "colorField": "",
+        "description": {
+          "view": ""
+        },
+        "hideSorting": false,
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isCheckbox": false,
+        "isUniqueMultiValue": false,
+        "kind": "Code",
+        "labelField": "number",
+        "moduleID": "409824987082063873",
+        "multiDelimiter": "\n",
+        "multipleAll": false,
+        "multipleMax": 100,
+        "namespaceID": "409824987081211905",
+        "noSelectDefault": false,
+        "noslectableField": "",
+        "notLink": false,
+        "presort": "createdAt DESC",
+        "queryFields": [],
+        "recordLabelField": "",
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectDefault": false,
+        "selectType": "default",
+        "slaNoPrefilter": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "number",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190100993",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "Record",
+      "name": "slaId",
+      "options": {
+        "clearCopy": false,
+        "colorField": "",
+        "description": {
+          "view": ""
+        },
+        "hideSorting": false,
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isCheckbox": false,
+        "isUniqueMultiValue": false,
+        "kind": "String",
+        "labelField": "name",
+        "moduleID": "409824987082784769",
+        "multiDelimiter": "\n",
+        "multipleAll": false,
+        "multipleMax": 100,
+        "namespaceID": "409824987081211905",
+        "noSelectDefault": false,
+        "noslectableField": "",
+        "notLink": false,
+        "presort": "",
+        "queryFields": [],
+        "recordLabelField": "",
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectDefault": false,
+        "selectType": "default",
+        "slaNoPrefilter": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Sla Name",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190166529",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "Select",
+      "name": "status",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isUniqueMultiValue": false,
+        "multiDelimiter": "\n",
+        "options": [
+          {
+            "text": "In Progress",
+            "value": "1"
+          },
+          {
+            "text": "Cancelled",
+            "value": "2"
+          },
+          {
+            "text": "Paused",
+            "value": "3"
+          },
+          {
+            "text": "Completed",
+            "value": "4"
+          }
+        ],
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "selectType": "default"
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Task Status",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190232065",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "target",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Target",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190297601",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "slaStatus",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "SLA Status",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190363137",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "DateTime",
+      "name": "breachTime",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "breachTime",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190428673",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "DateTime",
+      "name": "stopTime",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "StopTime",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190494209",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "businessElapsedDuration",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Business elapsed Time",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190559745",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "businessPauseDuration",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Business Pause Time",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190625281",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "Number",
+      "name": "businessElapsedPercentage",
+      "options": {
+        "animated": false,
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "display": "progress",
+        "format": "",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "max": 100,
+        "min": 0,
+        "multiDelimiter": "\n",
+        "onlyPositiveIntegers": false,
+        "precision": 3,
+        "prefix": "",
+        "presetFormat": "custom",
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "showProgress": false,
+        "showRelative": true,
+        "showValue": true,
+        "suffix": "",
+        "thresholds": [
+          {
+            "value": 75,
+            "variant": "warning"
+          },
+          {
+            "value": 100,
+            "variant": "danger"
+          }
+        ],
+        "variant": "success"
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Business elapsed percentage",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190690817",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "businessDurationLeft",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Business duration left",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190756353",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "actualElapsedDuration",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Actual elapsed duration",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190821889",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "String",
+      "name": "actualDurationLeft",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "isPassword": false,
+        "maxLength": "",
+        "multiDelimiter": "\n",
+        "multiLine": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        },
+        "useRichTextEditor": false
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Actual duration left",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190887425",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "DateTime",
+      "name": "created",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Created",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    },
+    {
+      "fieldID": "485611457190952961",
+      "namspaceID": "409824987081211905",
+      "moduleID": "485611457189969921",
+      "kind": "DateTime",
+      "name": "recordCreatedAt",
+      "options": {
+        "clearCopy": false,
+        "description": {
+          "view": ""
+        },
+        "format": "YYYY-MM-DD HH:mm",
+        "hint": {
+          "type": "left",
+          "view": "",
+          "width": "150"
+        },
+        "multiDelimiter": "\n",
+        "onlyDate": false,
+        "onlyFutureValues": false,
+        "onlyPastValues": false,
+        "onlyTime": false,
+        "outputRelative": false,
+        "rule": {
+          "dateFormat": "",
+          "digit": "",
+          "fixedChar": "",
+          "resetFrequency": "",
+          "select": "",
+          "start": "",
+          "timeZone": ""
+        }
+      },
+      "config": {
+        "dal": {
+          "encodingStrategy": null
+        },
+        "privacy": {
+          "usageDisclosure": ""
+        },
+        "recordRevisions": {
+          "enabled": false
+        }
+      },
+      "isRequired": false,
+      "isMulti": false,
+      "defaultValue": [],
+      "expressions": {
+        "customValidators": null
+      },
+      "createdAt": "2026-03-05T02:02:53Z",
+      "updatedAt": "2026-03-05T02:07:45Z",
+      "label": "Record Created Time",
+      "serial": 0,
+      "serialUpdate": 0,
+      "isName": false,
+      "canReadRecordValue": true,
+      "canUpdateRecordValue": true
+    }
+  ],
+  "canGrant": true,
+  "canUpdateModule": true,
+  "canDeleteModule": true,
+  "canCreateRecord": true,
+  "canCreateOwnedRecord": true
+}

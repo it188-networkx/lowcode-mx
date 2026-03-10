@@ -1,415 +1,433 @@
 {
-  "workflows": [
+  "workflowID": "478222784903315457",
+  "handle": "servicenow_incident_attachment_sync",
+  "meta": {
+    "name": "servicenow_incident_attachment_sync",
+    "description": "",
+    "visual": null,
+    "type": "Advanced",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "478222784903315457",
-      "handle": "servicenow_incident_attachment_sync",
-      "enabled": true,
+      "stepID": "4",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "item",
+          "expr": "dataString",
+          "type": "Meta"
+        }
+      ],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "servicenow_incident_attachment_sync",
-        "type": "Advanced",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "4",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            2616,
+            2136,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    },
+    {
+      "stepID": "5",
+      "kind": "function",
+      "ref": "composeRecordsLookup",
+      "arguments": [
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2616,
-                2136,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "4",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "dataString",
-              "type": "Meta",
-              "target": "item"
-            }
-          ],
-          "customName": ""
+          "target": "module",
+          "expr": "\"Incident\"",
+          "type": "Handle"
         },
         {
-          "ref": "composeRecordsLookup",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "5",
-              "xywh": [
-                3024,
-                2136,
-                200,
-                80
-              ],
-              "value": "Compose record lookup",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "5",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "incidentData"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"Incident\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "\"itsm\"",
-              "type": "Handle",
-              "target": "namespace"
-            },
-            {
-              "expr": "item.recordId",
-              "type": "ID",
-              "target": "record"
-            }
-          ],
-          "customName": ""
+          "target": "namespace",
+          "expr": "\"itsm\"",
+          "type": "Handle"
         },
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "26",
-              "xywh": [
-                3440,
-                2136,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "26",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "item.attachment",
-              "type": "Array",
-              "target": "incidentData.values.attachment"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "apigwBodyRead",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "34",
-              "xywh": [
-                2248,
-                2136,
-                200,
-                80
-              ],
-              "value": "Read request body from integration gateway",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "34",
-          "results": [
-            {
-              "expr": "body",
-              "type": "String",
-              "target": "dataString"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "request",
-              "type": "HttpRequest",
-              "target": "request"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "composeRecordsUpdateWOEventBus",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "53",
-              "xywh": [
-                3832,
-                2136,
-                200,
-                80
-              ],
-              "value": "Compose record update without event bus",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "53",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "incidentData",
-              "type": "ComposeRecord",
-              "target": "record"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "55",
-              "xywh": [
-                4200,
-                2136,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "55",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "record.ID",
-              "type": "ID",
-              "target": "result"
-            }
-          ],
-          "customName": ""
+          "target": "record",
+          "expr": "item.recordId",
+          "type": "ID"
         }
       ],
-      "paths": [
+      "results": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "35",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "4",
-          "parentID": "34"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "56",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "55",
-          "parentID": "53"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "73",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "26",
-          "parentID": "5"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "78",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "53",
-          "parentID": "26"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "79",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "5",
-          "parentID": "4"
+          "target": "incidentData",
+          "expr": "record",
+          "type": "ComposeRecord"
         }
       ],
-      "triggers": [
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "5",
+          "parent": "1",
+          "value": "Compose record lookup",
+          "xywh": [
+            3024,
+            2136,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "26",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
         {
-          "triggerID": "478222784903446529",
-          "resourceType": "system:sink",
-          "eventType": "onRequest",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "request.method",
-              "values": [
-                "POST"
-              ],
-              "condition": []
-            },
-            {
-              "op": "=",
-              "name": "request.path",
-              "values": [
-                "/servicenow_incident_attachment_sync"
-              ],
-              "condition": []
-            }
+          "target": "incidentData.values.attachment",
+          "expr": "item.attachment",
+          "type": "Array"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "26",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            3440,
+            2136,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "34",
+      "kind": "function",
+      "ref": "apigwBodyRead",
+      "arguments": [
+        {
+          "target": "request",
+          "expr": "request",
+          "type": "HttpRequest"
+        }
+      ],
+      "results": [
+        {
+          "target": "dataString",
+          "expr": "body",
+          "type": "String"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "34",
+          "parent": "1",
+          "value": "Read request body from integration gateway",
+          "xywh": [
+            2248,
+            2136,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "53",
+      "kind": "function",
+      "ref": "composeRecordsUpdateWOEventBus",
+      "arguments": [
+        {
+          "target": "record",
+          "expr": "incidentData",
+          "type": "ComposeRecord"
+        }
+      ],
+      "results": [
+        {
+          "target": "record",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "53",
+          "parent": "1",
+          "value": "Compose record update without event bus",
+          "xywh": [
+            3832,
+            2136,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "55",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "result",
+          "expr": "record.ID",
+          "type": "ID"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "55",
+          "parent": "1",
+          "value": "Define and mutate scope variables",
+          "xywh": [
+            4200,
+            2136,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "34",
+      "childID": "4",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "35",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "53",
+      "childID": "55",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "56",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "5",
+      "childID": "26",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "73",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "26",
+      "childID": "53",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "78",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "4",
+      "childID": "5",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "79",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "470139165523247105",
+  "createdAt": "2026-01-14T07:34:08Z",
+  "createdBy": "470139165523247105",
+  "updatedAt": "2026-03-02T19:12:46Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "478222784903446529",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "478222784903315457",
+      "stepID": "34",
+      "resourceType": "system:sink",
+      "eventType": "onRequest",
+      "constraints": [
+        {
+          "name": "request.method",
+          "op": "=",
+          "values": [
+            "POST"
           ],
-          "enabled": true,
-          "stepID": "34",
-          "meta": {
-            "days": "",
-            "hours": "",
-            "visual": {
-              "id": "37",
-              "xywh": [
-                1888,
-                2136,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "38",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "34",
-                  "parentID": "37"
-                },
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "42",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "34",
-                  "parentID": "37"
+          "condition": []
+        },
+        {
+          "name": "request.path",
+          "op": "=",
+          "values": [
+            "/servicenow_incident_attachment_sync"
+          ],
+          "condition": []
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "edges": [
+            {
+              "childID": "34",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "38",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "System sink - onRequest",
-              "parent": "1",
-              "defaultName": false
+              },
+              "parentID": "37"
             },
-            "endTime": "0001-01-01T00:00:00Z",
-            "minutes": "",
-            "moduleID": "",
-            "timeNode": "",
-            "condition": null,
-            "namespace": "",
-            "startTime": "0001-01-01T00:00:00Z",
-            "timeRepeat": "",
-            "description": "",
-            "namespaceID": "",
-            "endTimeCondition": {
-              "kind": "",
-              "name": "",
-              "type": "",
-              "value": null,
-              "oldName": "",
-              "operator": "",
-              "variable": "",
-              "operators": null
-            },
-            "startTimeCondition": {
-              "kind": "",
-              "name": "",
-              "type": "",
-              "value": null,
-              "oldName": "",
-              "operator": "",
-              "variable": "",
-              "operators": null
+            {
+              "childID": "34",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "42",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "37"
             }
-          }
-        }
-      ],
-      "ownedBy": "470139165523247105",
-      "createdAt": "2026-01-14T07:34:08.000Z"
+          ],
+          "id": "37",
+          "parent": "1",
+          "value": "System sink - onRequest",
+          "xywh": [
+            1888,
+            2136,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2026-01-14T07:34:08Z",
+      "createdBy": "470139165523247105",
+      "updatedAt": "2026-03-02T19:12:46Z"
     }
   ]
 }

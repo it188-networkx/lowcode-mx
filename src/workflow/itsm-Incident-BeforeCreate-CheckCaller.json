@@ -1,295 +1,344 @@
 {
-  "workflows": [
+  "workflowID": "682045038905010001",
+  "handle": "itsm-Incident-BeforeCreate-CheckCaller",
+  "meta": {
+    "name": "itsm-Incident-BeforeCreate-CheckCaller",
+    "description": "Incident创建前，通过caller字段(Record类型，关联User模块)查找User记录，检查其email是否为dongb@it188.com，如果是则设置testaaa为true",
+    "visual": null,
+    "type": "",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "682045038905010001",
-      "handle": "itsm-Incident-BeforeCreate-CheckCaller",
-      "enabled": true,
+      "stepID": "4",
+      "kind": "function",
+      "ref": "composeRecordsLookup",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "\"User\"",
+          "type": "Handle"
+        },
+        {
+          "target": "namespace",
+          "expr": "namespace",
+          "type": "ComposeNamespace"
+        },
+        {
+          "target": "record",
+          "expr": "record.values.caller",
+          "type": "ID"
+        }
+      ],
+      "results": [
+        {
+          "target": "callerUser",
+          "expr": "record",
+          "type": "ComposeRecord"
+        }
+      ],
       "meta": {
-        "icon": "",
-        "name": "itsm-Incident-BeforeCreate-CheckCaller",
-        "type": "",
-        "visual": null,
-        "results": "",
-        "formList": null,
-        "isBusiness": false,
-        "description": "Incident创建前，通过caller字段(Record类型，关联User模块)查找User记录，检查其email是否为dongb@it188.com，如果是则设置testaaa为true",
-        "subWorkflow": false,
-        "businessType": "",
-        "businessLabel": ""
+        "name": "Lookup Caller User",
+        "description": "通过record.values.caller(User记录ID)查找User模块中的对应记录",
+        "visual": {
+          "defaultName": false,
+          "id": "4",
+          "parent": "1",
+          "value": "Lookup Caller User",
+          "xywh": [
+            2520,
+            2080,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
-        {
-          "ref": "composeRecordsLookup",
-          "kind": "function",
-          "meta": {
-            "name": "Lookup Caller User",
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2520,
-                2080,
-                200,
-                80
-              ],
-              "value": "Lookup Caller User",
-              "parent": "1",
-              "defaultName": false
-            },
-            "description": "通过record.values.caller(User记录ID)查找User模块中的对应记录"
-          },
-          "stepID": "4",
-          "results": [
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "callerUser"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "\"User\"",
-              "type": "Handle",
-              "target": "module"
-            },
-            {
-              "expr": "namespace",
-              "type": "ComposeNamespace",
-              "target": "namespace"
-            },
-            {
-              "expr": "record.values.caller",
-              "type": "ID",
-              "target": "record"
-            }
+      "customName": ""
+    },
+    {
+      "stepID": "5",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "检查caller email是否为dongb@it188.com",
+        "description": "判断callerUser.values.email是否等于dongb@it188.com",
+        "visual": {
+          "defaultName": false,
+          "id": "5",
+          "parent": "1",
+          "value": "检查caller email",
+          "xywh": [
+            2520,
+            2240,
+            200,
+            80
           ]
-        },
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "6",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
         {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "检查caller email是否为dongb@it188.com",
-            "visual": {
-              "id": "5",
-              "xywh": [
-                2520,
-                2240,
-                200,
-                80
-              ],
-              "value": "检查caller email",
-              "parent": "1",
-              "defaultName": false
-            },
-            "description": "判断callerUser.values.email是否等于dongb@it188.com"
-          },
-          "stepID": "5",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "设置testaaa为true",
-            "visual": {
-              "id": "6",
-              "xywh": [
-                2520,
-                2400,
-                200,
-                80
-              ],
-              "value": "设置testaaa为true",
-              "parent": "1",
-              "defaultName": false
-            },
-            "description": "将record.values.testaaa设置为true"
-          },
-          "stepID": "6",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "true",
-              "type": "Boolean",
-              "target": "record.values.testaaa"
-            }
-          ]
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "7",
-              "xywh": [
-                2520,
-                2560,
-                200,
-                80
-              ],
-              "value": "终止工作流执行",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "7",
-          "results": [],
-          "arguments": []
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "8",
-              "xywh": [
-                2840,
-                2240,
-                200,
-                80
-              ],
-              "value": "终止工作流执行（email不匹配）",
-              "parent": "1",
-              "defaultName": false
-            },
-            "description": "caller的email不是dongb@it188.com，直接结束"
-          },
-          "stepID": "8",
-          "results": [],
-          "arguments": []
+          "target": "record.values.testaaa",
+          "expr": "true",
+          "type": "Boolean"
         }
       ],
-      "paths": [
+      "results": [],
+      "meta": {
+        "name": "设置testaaa为true",
+        "description": "将record.values.testaaa设置为true",
+        "visual": {
+          "defaultName": false,
+          "id": "6",
+          "parent": "1",
+          "value": "设置testaaa为true",
+          "xywh": [
+            2520,
+            2400,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "7",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "7",
+          "parent": "1",
+          "value": "终止工作流执行",
+          "xywh": [
+            2520,
+            2560,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "8",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "caller的email不是dongb@it188.com，直接结束",
+        "visual": {
+          "defaultName": false,
+          "id": "8",
+          "parent": "1",
+          "value": "终止工作流执行（email不匹配）",
+          "xywh": [
+            2840,
+            2240,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "4",
+      "childID": "5",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "9",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "callerUser.values.email == \"dongb@it188.com\"",
+      "parentID": "5",
+      "childID": "6",
+      "meta": {
+        "name": "",
+        "description": "caller的email等于dongb@it188.com",
+        "visual": {
+          "id": "10",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "5",
+      "childID": "8",
+      "meta": {
+        "name": "",
+        "description": "email不匹配，直接结束",
+        "visual": {
+          "id": "11",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else"
+        }
+      }
+    },
+    {
+      "parentID": "6",
+      "childID": "7",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "12",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "0",
+  "createdAt": "2026-02-26T00:00:00Z",
+  "createdBy": "0",
+  "updatedAt": "2026-03-02T19:12:44Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "682045038905004035",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "682045038905010001",
+      "stepID": "4",
+      "resourceType": "compose:record",
+      "eventType": "beforeCreate",
+      "constraints": [
         {
-          "expr": "",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "9",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "5",
-          "parentID": "4"
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
+          ],
+          "condition": []
         },
         {
-          "expr": "callerUser.values.email == \"dongb@it188.com\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "10",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "1",
-              "points": []
-            },
-            "description": "caller的email等于dongb@it188.com"
-          },
-          "childID": "6",
-          "parentID": "5"
-        },
-        {
-          "expr": "",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "11",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else",
-              "parent": "1",
-              "points": []
-            },
-            "description": "email不匹配，直接结束"
-          },
-          "childID": "8",
-          "parentID": "5"
-        },
-        {
-          "expr": "",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "12",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "7",
-          "parentID": "6"
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": []
         }
       ],
-      "triggers": [
-        {
-          "triggerID": "682045038905004035",
-          "resourceType": "compose:record",
-          "eventType": "beforeCreate",
-          "constraints": [
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
             {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": []
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": []
-            }
-          ],
-          "enabled": true,
-          "stepID": "4",
-          "meta": {
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2520,
-                1920,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "13",
-                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "4",
-                  "parentID": "3"
+              "childID": "4",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "13",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Compose record - beforeCreate",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
-        }
-      ],
-      "createdAt": "2026-02-26T00:00:00.000Z",
-      "updatedAt": "2026-02-26T00:00:00.000Z"
+              },
+              "parentID": "3"
+            }
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record - beforeCreate",
+          "xywh": [
+            2520,
+            1920,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2026-02-26T10:47:38Z",
+      "createdBy": "0",
+      "updatedAt": "2026-03-02T19:12:44Z"
     }
   ]
 }

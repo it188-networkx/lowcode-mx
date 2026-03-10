@@ -1,500 +1,547 @@
 {
-  "workflows": [
+  "workflowID": "420816936775974913",
+  "handle": "ProblemTask",
+  "meta": {
+    "name": "ITSM-ProblemTask-Complete-adv",
+    "description": "ProblemTask操作相关工作流",
+    "visual": null,
+    "type": "Advanced",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "420816936775974913",
-      "handle": "ProblemTask",
-      "enabled": true,
+      "stepID": "66",
+      "kind": "visual",
+      "ref": "swimlane",
+      "arguments": [],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "ITSM-ProblemTask-Complete-adv",
-        "type": "Advanced",
-        "visual": null,
-        "results": "",
-        "formList": null,
-        "description": "ProblemTask操作相关工作流",
-        "businessType": "",
-        "businessLabel": ""
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "id": "66",
+          "parent": "1",
+          "value": "Status to Complete",
+          "xywh": [
+            1568,
+            1744,
+            1968,
+            744
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    },
+    {
+      "stepID": "67",
+      "kind": "prompt",
+      "ref": "notification",
+      "arguments": [
         {
-          "ref": "swimlane",
-          "kind": "visual",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "66",
-              "xywh": [
-                1568,
-                1744,
-                1968,
-                744
-              ],
-              "value": "Status to Complete",
-              "parent": "1",
-              "defaultName": false
-            },
-            "description": ""
-          },
-          "stepID": "66",
-          "results": [],
-          "arguments": [],
-          "customName": ""
+          "target": "message",
+          "expr": "\"Close notes 不能为空\"",
+          "type": "String"
         },
         {
-          "ref": "notification",
-          "kind": "prompt",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "67",
-              "xywh": [
-                1104,
-                112,
-                200,
-                80
-              ],
-              "value": "Show Alert",
-              "parent": "66",
-              "defaultName": false
-            },
-            "description": ""
-          },
-          "stepID": "67",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "\"Close notes 不能为空\"",
-              "type": "String",
-              "target": "message"
-            },
-            {
-              "type": "String",
-              "value": "primary",
-              "target": "variant"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "68",
-              "xywh": [
-                1480,
-                112,
-                200,
-                80
-              ],
-              "value": "终止工作流执行",
-              "parent": "66",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "68",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "70",
-              "xywh": [
-                400,
-                288,
-                200,
-                80
-              ],
-              "value": "type check",
-              "parent": "66",
-              "defaultName": false
-            },
-            "description": ""
-          },
-          "stepID": "70",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "notification",
-          "kind": "prompt",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "84",
-              "xywh": [
-                1512,
-                464,
-                200,
-                80
-              ],
-              "value": "Show Alert",
-              "parent": "66",
-              "defaultName": false
-            },
-            "description": ""
-          },
-          "stepID": "84",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "\"Cause code，Proposed resolution 或 Cause notes 不能为空\"",
-              "type": "String",
-              "target": "message"
-            },
-            {
-              "type": "String",
-              "value": "primary",
-              "target": "variant"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "88",
-              "xywh": [
-                680,
-                128,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "66",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "88",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "excl",
-          "kind": "gateway",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "89",
-              "xywh": [
-                720,
-                464,
-                200,
-                80
-              ],
-              "value": "Exclusive",
-              "parent": "66",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "89",
-          "results": [],
-          "arguments": [],
-          "customName": ""
-        },
-        {
-          "ref": "notification",
-          "kind": "prompt",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "98",
-              "xywh": [
-                728,
-                616,
-                200,
-                80
-              ],
-              "value": "invalid option",
-              "parent": "66",
-              "defaultName": false
-            },
-            "description": ""
-          },
-          "stepID": "98",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "\"无效操作\"",
-              "type": "String",
-              "target": "message"
-            },
-            {
-              "type": "String",
-              "value": "primary",
-              "target": "variant"
-            }
-          ],
-          "customName": ""
-        },
-        {
-          "ref": "",
-          "kind": "exec-workflow",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "104",
-              "xywh": [
-                1040,
-                368,
-                200,
-                80
-              ],
-              "value": "执行工作流并将变量从其范围映射到当前范围",
-              "parent": "66",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "104",
-          "results": [],
-          "arguments": [
-            {
-              "type": "ID",
-              "value": "421245192612347905",
-              "target": "workflow"
-            },
-            {
-              "expr": "{\"record\": record,\"selected\":selected}",
-              "type": "Vars",
-              "target": "scope"
-            }
-          ],
-          "customName": ""
+          "target": "variant",
+          "value": "primary",
+          "type": "String"
         }
       ],
-      "paths": [
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "id": "67",
+          "parent": "66",
+          "value": "Show Alert",
+          "xywh": [
+            1104,
+            112,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "68",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "68",
+          "parent": "66",
+          "value": "终止工作流执行",
+          "xywh": [
+            1480,
+            112,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "70",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "id": "70",
+          "parent": "66",
+          "value": "type check",
+          "xywh": [
+            400,
+            288,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "84",
+      "kind": "prompt",
+      "ref": "notification",
+      "arguments": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "74",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "68",
-          "parentID": "67"
+          "target": "message",
+          "expr": "\"Cause code，Proposed resolution 或 Cause notes 不能为空\"",
+          "type": "String"
         },
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "86",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "68",
-          "parentID": "84"
-        },
-        {
-          "expr": "record.values.type == \"General\" && record.values.status == \"420524543203934209\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "90",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "88",
-          "parentID": "70"
-        },
-        {
-          "expr": "record.values.type == \"Root Cause Analysis\" && record.values.status == \"420524543203934209\"",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "91",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "89",
-          "parentID": "70"
-        },
-        {
-          "expr": "isEmpty(record.values.closeNotes)",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "93",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "67",
-          "parentID": "88"
-        },
-        {
-          "expr": "isEmpty(record.values.causeCode) || isEmpty(record.values.causeNotes) || isEmpty(record.values.proposedResolution)",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "94",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#1 - If",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "84",
-          "parentID": "89"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "95",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "104",
-          "parentID": "88"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "96",
-              "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#2 - Else (if)",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "104",
-          "parentID": "89"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "99",
-              "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": "#3 - Else (if)",
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "98",
-          "parentID": "70"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "100",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "68",
-          "parentID": "98"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "105",
-              "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "66",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "68",
-          "parentID": "104"
+          "target": "variant",
+          "value": "primary",
+          "type": "String"
         }
       ],
-      "triggers": [
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "id": "84",
+          "parent": "66",
+          "value": "Show Alert",
+          "xywh": [
+            1512,
+            464,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "88",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "88",
+          "parent": "66",
+          "value": "Exclusive",
+          "xywh": [
+            680,
+            128,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "89",
+      "kind": "gateway",
+      "ref": "excl",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "89",
+          "parent": "66",
+          "value": "Exclusive",
+          "xywh": [
+            720,
+            464,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "98",
+      "kind": "prompt",
+      "ref": "notification",
+      "arguments": [
         {
-          "triggerID": "421233675238113281",
-          "resourceType": "compose:record",
-          "eventType": "onManual",
-          "constraints": [],
-          "enabled": true,
-          "stepID": "70",
-          "meta": {
-            "visual": {
-              "id": "69",
-              "xywh": [
-                64,
-                280,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "78",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "66",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "70",
-                  "parentID": "69"
+          "target": "message",
+          "expr": "\"无效操作\"",
+          "type": "String"
+        },
+        {
+          "target": "variant",
+          "value": "primary",
+          "type": "String"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "id": "98",
+          "parent": "66",
+          "value": "invalid option",
+          "xywh": [
+            728,
+            616,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    },
+    {
+      "stepID": "104",
+      "kind": "exec-workflow",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "workflow",
+          "value": "421245192612347905",
+          "type": "ID"
+        },
+        {
+          "target": "scope",
+          "expr": "{\"record\": record,\"selected\":selected}",
+          "type": "Vars"
+        }
+      ],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "104",
+          "parent": "66",
+          "value": "执行工作流并将变量从其范围映射到当前范围",
+          "xywh": [
+            1040,
+            368,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "67",
+      "childID": "68",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "74",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "84",
+      "childID": "68",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "86",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "expr": "record.values.type == \"General\" && record.values.status == \"420524543203934209\"",
+      "parentID": "70",
+      "childID": "88",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "90",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "record.values.type == \"Root Cause Analysis\" && record.values.status == \"420524543203934209\"",
+      "parentID": "70",
+      "childID": "89",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "91",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "expr": "isEmpty(record.values.closeNotes)",
+      "parentID": "88",
+      "childID": "67",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "93",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "expr": "isEmpty(record.values.causeCode) || isEmpty(record.values.causeNotes) || isEmpty(record.values.proposedResolution)",
+      "parentID": "89",
+      "childID": "84",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "94",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#1 - If"
+        }
+      }
+    },
+    {
+      "parentID": "88",
+      "childID": "104",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "95",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "89",
+      "childID": "104",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "96",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#2 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "70",
+      "childID": "98",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "99",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": "#3 - Else (if)"
+        }
+      }
+    },
+    {
+      "parentID": "98",
+      "childID": "68",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "100",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "104",
+      "childID": "68",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "105",
+          "parent": "66",
+          "points": [],
+          "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "409824987139080193",
+  "ownedBy": "415605532309913601",
+  "createdAt": "2024-12-13T03:52:15Z",
+  "createdBy": "415605532309913601",
+  "updatedAt": "2026-03-02T19:12:46Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "421233675238113281",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "420816936775974913",
+      "stepID": "70",
+      "resourceType": "compose:record",
+      "eventType": "onManual",
+      "constraints": [],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": false,
+          "edges": [
+            {
+              "childID": "70",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "78",
+                  "parent": "66",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Start Work",
-              "parent": "66",
-              "defaultName": false
-            },
-            "description": ""
-          }
-        }
-      ],
-      "runAs": "409824987139080193",
-      "ownedBy": "415605532309913601",
-      "createdAt": "2024-12-13T03:52:15.000Z",
-      "updatedAt": "2024-12-18T02:20:19.000Z"
+              },
+              "parentID": "69"
+            }
+          ],
+          "id": "69",
+          "parent": "66",
+          "value": "Start Work",
+          "xywh": [
+            64,
+            280,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2024-12-16T08:20:15Z",
+      "createdBy": "415605532309913601",
+      "updatedAt": "2026-03-02T19:12:46Z"
     }
   ]
 }

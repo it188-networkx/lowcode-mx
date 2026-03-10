@@ -1,135 +1,138 @@
 {
-  "layoutID": "472328423136886785",
+  "pageLayoutID": "472328423136886785",
+  "namespaceID": "409824987081211905",
+  "moduleID": "470138789204393985",
   "pageID": "470138789220515841",
   "parentID": "0",
-  "namespaceID": "409824987081211905",
-  "weight": 3,
   "handle": "isEdit",
+  "primary": false,
+  "weight": 3,
   "meta": {
     "title": "isEdit",
-    "script": "",
     "description": "",
+    "script": "",
     "scriptEnabled": false
   },
   "config": {
+    "visibility": {
+      "expression": "isEdit && record.values.status != 2"
+    },
+    "buttons": {
+      "new": {
+        "enabled": false,
+        "label": "",
+        "actionID": "4",
+        "params": {}
+      },
+      "edit": {
+        "enabled": false,
+        "label": "",
+        "actionID": "5",
+        "params": {}
+      },
+      "submit": {
+        "enabled": false,
+        "label": "",
+        "actionID": "6",
+        "params": {}
+      },
+      "delete": {
+        "enabled": false,
+        "label": "",
+        "actionID": "2",
+        "params": {}
+      },
+      "clone": {
+        "enabled": false,
+        "label": "",
+        "actionID": "3",
+        "params": {}
+      },
+      "back": {
+        "enabled": true,
+        "label": "",
+        "actionID": "1",
+        "params": {}
+      }
+    },
     "actions": [
       {
-        "kind": "api",
+        "actionID": "1",
+        "placement": "end",
         "meta": {
           "label": "保存",
           "style": {
             "variant": "primary"
           }
         },
-        "params": {
-          "loading": true,
-          "refresh": true,
-          "customApi": "/components/schedule/task",
-          "pageLayoutID": ""
-        },
         "enabled": true,
-        "actionID": "1",
-        "placement": "end"
+        "kind": "api",
+        "params": {
+          "customApi": "/components/schedule/task",
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true
+        }
       }
     ],
-    "buttons": {
-      "new": {
-        "label": "",
-        "params": {},
-        "enabled": false,
-        "actionID": "4"
-      },
-      "back": {
-        "label": "",
-        "params": {},
-        "enabled": true,
-        "actionID": "1"
-      },
-      "edit": {
-        "label": "",
-        "params": {},
-        "enabled": false,
-        "actionID": "5"
-      },
-      "clone": {
-        "label": "",
-        "params": {},
-        "enabled": false,
-        "actionID": "3"
-      },
-      "delete": {
-        "label": "",
-        "params": {},
-        "enabled": false,
-        "actionID": "2"
-      },
-      "submit": {
-        "label": "",
-        "params": {},
-        "enabled": false,
-        "actionID": "6"
-      }
-    },
-    "useTitle": false,
-    "visibility": {
-      "expression": "isEdit && record.values.status != 2"
-    }
+    "useTitle": false
   },
   "blocks": [
     {
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-2c09ozhlrqqmiqvccyg"
-      },
+      "blockID": "22",
       "xywh": [
         0,
         0,
         48,
         38
       ],
-      "blockID": "22"
-    },
-    {
       "meta": {
         "hidden": false,
-        "tempID": "tempID-bw2w4rk1tkmiqvccyg"
-      },
+        "tempID": "tempID-2c09ozhlrqqmiqvccyg"
+      }
+    },
+    {
+      "blockID": "23",
       "xywh": [
         0,
         34,
         48,
         33
       ],
-      "blockID": "23"
-    },
-    {
       "meta": {
         "hidden": false,
-        "tempID": "tempID-5xhb4xo5w45miqvccyh"
-      },
+        "tempID": "tempID-bw2w4rk1tkmiqvccyg"
+      }
+    },
+    {
+      "blockID": "24",
       "xywh": [
         0,
         71,
         48,
         79
       ],
-      "blockID": "24"
-    },
-    {
       "meta": {
         "hidden": false,
-        "tempID": "tempID-sb6opsivhw7miqvccyh"
-      },
+        "tempID": "tempID-5xhb4xo5w45miqvccyh"
+      }
+    },
+    {
+      "blockID": "25",
       "xywh": [
         0,
         136,
         48,
         50
       ],
-      "blockID": "25"
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-sb6opsivhw7miqvccyh"
+      }
     }
   ],
   "ownedBy": "0",
-  "createdAt": "2025-12-04T03:20:29.000Z",
-  "updatedAt": "2025-12-25T07:10:12.000Z"
+  "createdAt": "2025-12-04T03:20:29Z",
+  "updatedAt": "2026-03-02T19:12:23Z",
+  "layoutID": "472328423136886785"
 }

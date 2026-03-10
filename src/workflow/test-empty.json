@@ -1,152 +1,169 @@
 {
-  "workflows": [
+  "workflowID": "481437533755015169",
+  "handle": "",
+  "meta": {
+    "name": "test-empty",
+    "description": "",
+    "visual": null,
+    "type": "",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "481437533755015169",
-      "handle": "",
-      "enabled": true,
+      "stepID": "4",
+      "kind": "expressions",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "isEmpty",
+          "expr": "isEmpty(record.values.expectedStart)",
+          "type": "Boolean"
+        },
+        {
+          "target": "isNil",
+          "expr": "isNil(record.values.expectedStart)",
+          "type": "Boolean"
+        }
+      ],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "test-empty",
-        "type": "",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "4",
+          "parent": "1",
+          "value": "Define and mutate scope variables SSSSSSSSSSSSS",
+          "xywh": [
+            2704,
+            2032,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    }
+  ],
+  "paths": [],
+  "runAs": "0",
+  "ownedBy": "472156272836608001",
+  "createdAt": "2026-02-04T07:24:02Z",
+  "createdBy": "472156272836608001",
+  "updatedAt": "2026-03-10T07:19:14Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "481437533889101825",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "481437533755015169",
+      "stepID": "4",
+      "resourceType": "compose:record",
+      "eventType": "afterCreate",
+      "constraints": [
         {
-          "ref": "",
-          "kind": "expressions",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2632,
-                2088,
-                200,
-                80
-              ],
-              "value": "Define and mutate scope variables",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "4",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "isEmpty(record.values.expectedStart)",
-              "type": "Boolean",
-              "target": "isEmpty"
-            },
-            {
-              "expr": "isNil(record.values.expectedStart)",
-              "type": "Boolean",
-              "target": "isNil"
-            }
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
           ],
-          "customName": ""
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": null
         }
       ],
-      "paths": [],
-      "triggers": [
-        {
-          "triggerID": "481437533889101825",
-          "resourceType": "compose:record",
-          "eventType": "onManual",
-          "constraints": [
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
             {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": null
-            }
-          ],
-          "enabled": true,
-          "stepID": "4",
-          "meta": {
-            "days": "",
-            "hours": "",
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2352,
-                2088,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "5",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": null
-                    },
-                    "description": ""
-                  },
-                  "childID": "4",
-                  "parentID": "3"
+              "childID": "4",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "5",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Compose record - onManual",
-              "parent": "1",
-              "defaultName": true
-            },
-            "endTime": "0001-01-01T00:00:00Z",
-            "minutes": "",
-            "moduleID": "",
-            "timeNode": "",
-            "condition": null,
-            "namespace": "",
-            "startTime": "0001-01-01T00:00:00Z",
-            "timeRepeat": "",
-            "description": "",
-            "namespaceID": "",
-            "endTimeCondition": {
-              "kind": "",
-              "name": "",
-              "type": "",
-              "value": null,
-              "oldName": "",
-              "operator": "",
-              "variable": "",
-              "operators": null
-            },
-            "startTimeCondition": {
-              "kind": "",
-              "name": "",
-              "type": "",
-              "value": null,
-              "oldName": "",
-              "operator": "",
-              "variable": "",
-              "operators": null
+              },
+              "parentID": "3"
             }
-          }
-        }
-      ],
-      "ownedBy": "472156272836608001",
-      "createdAt": "2026-02-04T07:24:02.000Z",
-      "updatedAt": "2026-02-04T07:25:44.000Z"
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record - onManual",
+          "xywh": [
+            2352,
+            2088,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2026-02-04T07:25:44Z",
+      "createdBy": "472156272836608001",
+      "updatedAt": "2026-03-10T07:19:14Z"
     }
   ]
 }

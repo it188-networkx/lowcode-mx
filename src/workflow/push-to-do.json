@@ -1,384 +1,477 @@
 {
-  "workflows": [
+  "workflowID": "446616275096305665",
+  "handle": "",
+  "meta": {
+    "name": "push-to-do",
+    "description": "",
+    "visual": null,
+    "type": "Basic",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "446616275096305665",
-      "handle": "",
-      "enabled": true,
+      "stepID": "4",
+      "kind": "PushTodo",
+      "ref": "",
+      "arguments": [
+        {
+          "target": "scope",
+          "expr": "{\"bodyObj\":[{\"varname\":\"record_var_eventId\",\"record\":\"record_var\",\"field\":\"eventId\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_shortDescription\",\"record\":\"record_var\",\"field\":\"shortDescription\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_invokerTime\",\"record\":\"record_var\",\"field\":\"invokerTime\"},{\"varname\":\"record_var_invoker\",\"record\":\"record_var\",\"field\":\"invoker\"},{\"varname\":\"record_var_priority\",\"record\":\"record_var\",\"field\":\"priority\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_assignee\",\"record\":\"record_var\",\"field\":\"assignee\",\"moduleHandle\":\"Incident\"}],\"address\":[],\"node\":[{\"fieldName\":\"assignmentGroup\",\"fieldLabel\":\"处理组\",\"fieldkind\":\"Record\",\"fieldID\":\"409824987072430081\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\",\"field\":\"assignmentGroup\"},{\"fieldName\":\"invoker\",\"fieldLabel\":\"触发人\",\"fieldkind\":\"System\",\"fieldID\":\"invoker\",\"recordText\":\"System\",\"record\":\"record_var\",\"field\":\"invoker\"}],\"user\":[],\"role\":[],\"selected\":\"selected_var\",\"namespaceHandle\":\"itsm\",\"record\":\"record_var\",\"tag\":\"123\",\"ti\":\"<p>有一个新的待办： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_eventId}}\\\">Trigger | 事件ID</span> |&nbsp; <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_shortDescription}}\\\">Trigger | 简述</span>&nbsp;</p>\",\"desc\":\"<p>创建时间： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_invokerTime}}\\\">System | 触发时间</span>&nbsp; | 处理人： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_assignee}}\\\">Trigger | 处理人</span> &nbsp;| 优先级： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_priority}}\\\">Trigger | 优先级</span>&nbsp;</p>\"}",
+          "type": "Vars"
+        },
+        {
+          "target": "workflow",
+          "value": "push-todo",
+          "type": "Handle"
+        }
+      ],
+      "results": [
+        {
+          "target": "PushTodo4_var",
+          "expr": "PushTodo",
+          "type": "Any"
+        }
+      ],
       "meta": {
-        "icon": "",
-        "name": "push-to-do",
-        "type": "Basic",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "4",
+          "parent": "1",
+          "value": "entry a push todo",
+          "xywh": [
+            2120,
+            2128,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": "PushTodo"
+    },
+    {
+      "stepID": "5",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "5",
+          "parent": "1",
+          "value": "终止工作流执行",
+          "xywh": [
+            2120,
+            2328,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": "终止"
+    },
+    {
+      "stepID": "9",
+      "kind": "CloseTodo",
+      "ref": "",
+      "arguments": [
         {
-          "ref": "",
-          "kind": "PushTodo",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2120,
-                2128,
-                200,
-                80
-              ],
-              "value": "entry a push todo",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "4",
-          "results": [
-            {
-              "expr": "PushTodo",
-              "type": "Any",
-              "target": "PushTodo4_var"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "{\"bodyObj\":[{\"varname\":\"record_var_eventId\",\"record\":\"record_var\",\"field\":\"eventId\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_shortDescription\",\"record\":\"record_var\",\"field\":\"shortDescription\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_invokerTime\",\"record\":\"record_var\",\"field\":\"invokerTime\"},{\"varname\":\"record_var_invoker\",\"record\":\"record_var\",\"field\":\"invoker\"},{\"varname\":\"record_var_priority\",\"record\":\"record_var\",\"field\":\"priority\",\"moduleHandle\":\"Incident\"},{\"varname\":\"record_var_assignee\",\"record\":\"record_var\",\"field\":\"assignee\",\"moduleHandle\":\"Incident\"}],\"address\":[],\"node\":[{\"fieldName\":\"assignmentGroup\",\"fieldLabel\":\"处理组\",\"fieldkind\":\"Record\",\"fieldID\":\"409824987072430081\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\",\"field\":\"assignmentGroup\"},{\"fieldName\":\"invoker\",\"fieldLabel\":\"触发人\",\"fieldkind\":\"System\",\"fieldID\":\"invoker\",\"recordText\":\"System\",\"record\":\"record_var\",\"field\":\"invoker\"}],\"user\":[],\"role\":[],\"selected\":\"selected_var\",\"namespaceHandle\":\"itsm\",\"record\":\"record_var\",\"tag\":\"123\",\"ti\":\"<p>有一个新的待办： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_eventId}}\\\">Trigger | 事件ID</span> |&nbsp; <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_shortDescription}}\\\">Trigger | 简述</span>&nbsp;</p>\",\"desc\":\"<p>创建时间： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_invokerTime}}\\\">System | 触发时间</span>&nbsp; | 处理人： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_assignee}}\\\">Trigger | 处理人</span> &nbsp;| 优先级： <span style=\\\"background-color: #e0e0e0; border-radius: 4px; font-size: 16px; height: 30px; padding: 4px 8px;\\\" data-key=\\\"{{.record_var_priority}}\\\">Trigger | 优先级</span>&nbsp;</p>\"}",
-              "type": "Vars",
-              "target": "scope"
-            },
-            {
-              "type": "Handle",
-              "value": "push-todo",
-              "target": "workflow"
-            }
-          ],
-          "customName": "PushTodo"
+          "target": "scope",
+          "expr": "{\"namespaceHandle\":\"itsm\",\"address\":[],\"node\":[{\"fieldName\":\"assignmentGroup\",\"fieldLabel\":\"处理组\",\"fieldkind\":\"Record\",\"fieldID\":\"409824987072430081\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\",\"field\":\"assignmentGroup\"},{\"fieldName\":\"invoker\",\"fieldLabel\":\"触发人\",\"fieldkind\":\"System\",\"fieldID\":\"invoker\",\"recordText\":\"System\",\"record\":\"record_var\",\"field\":\"invoker\"}],\"user\":[],\"role\":[],\"selected\":\"selected_var\",\"record\":\"record_var\",\"tag\":\"123\"}",
+          "type": "Vars"
         },
         {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "5",
-              "xywh": [
-                2120,
-                2328,
-                200,
-                80
-              ],
-              "value": "终止工作流执行",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "5",
-          "results": [],
-          "arguments": [],
-          "customName": "终止"
-        },
-        {
-          "ref": "",
-          "kind": "CloseTodo",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "9",
-              "xywh": [
-                2424,
-                2120,
-                200,
-                80
-              ],
-              "value": "Send a Specified Email to a Specified  User",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "9",
-          "results": [
-            {
-              "expr": "CloseTodo",
-              "type": "Any",
-              "target": "CloseTodo9_var"
-            }
-          ],
-          "arguments": [
-            {
-              "expr": "{\"namespaceHandle\":\"itsm\",\"address\":[],\"node\":[{\"fieldName\":\"assignmentGroup\",\"fieldLabel\":\"处理组\",\"fieldkind\":\"Record\",\"fieldID\":\"409824987072430081\",\"moduleHandle\":\"Incident\",\"recordText\":\"Trigger\",\"record\":\"record_var\",\"field\":\"assignmentGroup\"},{\"fieldName\":\"invoker\",\"fieldLabel\":\"触发人\",\"fieldkind\":\"System\",\"fieldID\":\"invoker\",\"recordText\":\"System\",\"record\":\"record_var\",\"field\":\"invoker\"}],\"user\":[],\"role\":[],\"selected\":\"selected_var\",\"record\":\"record_var\",\"tag\":\"123\"}",
-              "type": "Vars",
-              "target": "scope"
-            },
-            {
-              "type": "Handle",
-              "value": "CloseTodo",
-              "target": "workflow"
-            }
-          ],
-          "customName": "CloseTodo"
-        },
-        {
-          "ref": "",
-          "kind": "termination",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "11",
-              "xywh": [
-                2432,
-                2328,
-                200,
-                80
-              ],
-              "value": "终止工作流执行",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "11",
-          "results": [],
-          "arguments": [],
-          "customName": "终止"
+          "target": "workflow",
+          "value": "CloseTodo",
+          "type": "Handle"
         }
       ],
-      "paths": [
+      "results": [
         {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "7",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "5",
-          "parentID": "4"
-        },
-        {
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "12",
-              "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-              "value": null,
-              "parent": "1",
-              "points": []
-            },
-            "description": ""
-          },
-          "childID": "11",
-          "parentID": "9"
+          "target": "CloseTodo9_var",
+          "expr": "CloseTodo",
+          "type": "Any"
         }
       ],
-      "triggers": [
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "9",
+          "parent": "1",
+          "value": "Send a Specified Email to a Specified  User",
+          "xywh": [
+            2424,
+            2120,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": "CloseTodo"
+    },
+    {
+      "stepID": "11",
+      "kind": "termination",
+      "ref": "",
+      "arguments": [],
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "11",
+          "parent": "1",
+          "value": "终止工作流执行",
+          "xywh": [
+            2432,
+            2328,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": "终止"
+    }
+  ],
+  "paths": [
+    {
+      "parentID": "4",
+      "childID": "5",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "7",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    },
+    {
+      "parentID": "9",
+      "childID": "11",
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "id": "12",
+          "parent": "1",
+          "points": [],
+          "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+          "value": null
+        }
+      }
+    }
+  ],
+  "runAs": "0",
+  "ownedBy": "446228829619617793",
+  "createdAt": "2025-06-09T01:50:17Z",
+  "createdBy": "446228829619617793",
+  "updatedAt": "2026-03-02T19:12:46Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "446616276001947649",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "446616275096305665",
+      "stepID": "4",
+      "resourceType": "compose:record",
+      "eventType": "afterCreate",
+      "constraints": [
         {
-          "triggerID": "446616276001947649",
-          "resourceType": "compose:record",
-          "eventType": "afterCreate",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "namespace.id",
-              "values": [
-                "409824987081211905"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": null
-            },
-            {
-              "op": "expression",
-              "name": "record",
-              "values": [
-                " (  ( record.values.status == \"409824987210317825\" )  ||  ( record.values.status == \"409824987210383361\" )  ) "
-              ],
-              "condition": [
-                {
-                  "list": [
-                    {
-                      "kind": "Record",
-                      "name": "status",
-                      "type": "",
-                      "value": "409824987210317825",
-                      "oldName": "",
-                      "operator": "is",
-                      "operators": null
-                    },
-                    {
-                      "kind": "Record",
-                      "name": "status",
-                      "type": "or",
-                      "value": "409824987210383361",
-                      "oldName": "",
-                      "operator": "is",
-                      "operators": null
-                    }
-                  ],
-                  "type": ""
-                }
-              ]
-            }
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
           ],
-          "enabled": true,
-          "stepID": "4",
-          "meta": {
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2128,
-                1936,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "6",
-                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "4",
-                  "parentID": "3"
-                }
-              ],
-              "value": "根据配置触发工作流执行",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
+          "condition": null
         },
         {
-          "triggerID": "446616276203274241",
-          "resourceType": "compose:record",
-          "eventType": "afterUpdate",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "namespace.id",
-              "values": [
-                "409824987081211905"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "Incident"
-              ],
-              "condition": null
-            },
-            {
-              "op": "expression",
-              "name": "record",
-              "values": [
-                " (  ( record.values.status == \"409824987210645505\" )  ||  ( record.values.status == \"409824987210579969\" )  ) "
-              ],
-              "condition": [
-                {
-                  "list": [
-                    {
-                      "kind": "Record",
-                      "name": "status",
-                      "type": "",
-                      "value": "409824987210645505",
-                      "oldName": "",
-                      "operator": "is",
-                      "operators": null
-                    },
-                    {
-                      "kind": "Record",
-                      "name": "status",
-                      "type": "or",
-                      "value": "409824987210579969",
-                      "oldName": "",
-                      "operator": "is",
-                      "operators": null
-                    }
-                  ],
-                  "type": ""
-                }
-              ]
-            }
+          "name": "namespace.id",
+          "op": "=",
+          "values": [
+            "409824987081211905"
           ],
-          "enabled": true,
-          "stepID": "9",
-          "meta": {
-            "visual": {
-              "id": "8",
-              "xywh": [
-                2424,
-                1936,
-                200,
-                80
-              ],
-              "edges": [
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": null
+        },
+        {
+          "name": "record",
+          "op": "expression",
+          "values": [
+            " (  ( record.values.status == \"409824987210317825\" )  ||  ( record.values.status == \"409824987210383361\" )  ) "
+          ],
+          "condition": [
+            {
+              "list": [
                 {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "10",
-                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "9",
-                  "parentID": "8"
+                  "kind": "Record",
+                  "name": "status",
+                  "oldName": "",
+                  "operator": "is",
+                  "type": "",
+                  "value": "409824987210317825",
+                  "operators": null,
+                  "variable": ""
+                },
+                {
+                  "kind": "Record",
+                  "name": "status",
+                  "oldName": "",
+                  "operator": "is",
+                  "type": "or",
+                  "value": "409824987210383361",
+                  "operators": null,
+                  "variable": ""
                 }
               ],
-              "value": "根据配置触发工作流执行",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
+              "type": ""
+            }
+          ]
         }
       ],
-      "ownedBy": "446228829619617793",
-      "createdAt": "2025-06-09T01:50:17.000Z",
-      "updatedAt": "2025-06-23T09:45:40.000Z"
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "4",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "6",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "3"
+            }
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "根据配置触发工作流执行",
+          "xywh": [
+            2128,
+            1936,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2025-06-09T01:53:00Z",
+      "createdBy": "446228829619617793",
+      "updatedAt": "2026-03-02T19:12:46Z"
+    },
+    {
+      "triggerID": "446616276203274241",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "446616275096305665",
+      "stepID": "9",
+      "resourceType": "compose:record",
+      "eventType": "afterUpdate",
+      "constraints": [
+        {
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
+          ],
+          "condition": null
+        },
+        {
+          "name": "namespace.id",
+          "op": "=",
+          "values": [
+            "409824987081211905"
+          ],
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "Incident"
+          ],
+          "condition": null
+        },
+        {
+          "name": "record",
+          "op": "expression",
+          "values": [
+            " (  ( record.values.status == \"409824987210645505\" )  ||  ( record.values.status == \"409824987210579969\" )  ) "
+          ],
+          "condition": [
+            {
+              "list": [
+                {
+                  "kind": "Record",
+                  "name": "status",
+                  "oldName": "",
+                  "operator": "is",
+                  "type": "",
+                  "value": "409824987210645505",
+                  "operators": null,
+                  "variable": ""
+                },
+                {
+                  "kind": "Record",
+                  "name": "status",
+                  "oldName": "",
+                  "operator": "is",
+                  "type": "or",
+                  "value": "409824987210579969",
+                  "operators": null,
+                  "variable": ""
+                }
+              ],
+              "type": ""
+            }
+          ]
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "9",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "10",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "8"
+            }
+          ],
+          "id": "8",
+          "parent": "1",
+          "value": "根据配置触发工作流执行",
+          "xywh": [
+            2424,
+            1936,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 1,
+      "ownedBy": "0",
+      "createdAt": "2025-06-09T01:54:15Z",
+      "createdBy": "446228829619617793",
+      "updatedAt": "2026-03-02T19:12:46Z"
     }
   ]
 }

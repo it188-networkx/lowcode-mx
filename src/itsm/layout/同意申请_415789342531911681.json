@@ -1,0 +1,598 @@
+{
+  "pageLayoutID": "415789342531911681",
+  "namespaceID": "409824987081211905",
+  "moduleID": "409824987082063873",
+  "pageID": "409824987080753153",
+  "parentID": "0",
+  "handle": "isApproval",
+  "primary": false,
+  "weight": 3,
+  "meta": {
+    "title": "同意申请",
+    "description": "",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\nlet status = record.status\nlet formatRecordValues = \"\"\nlet triggerRecordFieldChange = \"\"\nif(status === \"409824987210645505\" && triggerBy != 'status'){\nthat.$router.push({\nname: \"page.record\",\nparams: { pageID: \"409824987080753153\", recordID:recordId}\n\n})\n}\nif (triggerBy === \"onsiteEngineer\") {\nconsole.log(\"onsiteEngineer:\",record.modalData.onsiteEngineer);\nconsole.log(\"onsiteEngineer11:\", window.recordField.Incident.onsiteEngineer.records)\n\nfor (let index = 0; index < window.recordField.Incident.onsiteEngineer.records.length; index++) {\n\nlet tem_onsiteEngineer = window.recordField.Incident.onsiteEngineer.records[index]\n\nconsole.log(\"onsiteEngineer22:\",tem_onsiteEngineer);\n\nif (tem_onsiteEngineer.recordID === record.modalData.onsiteEngineer) {\n\nconsole.log(\"333:\", tem_onsiteEngineer);\nrecord.modalData = {\n...record.modalData,\ncontactNo: tem_onsiteEngineer.values.phone\n}\n\nconsole.log(\"record.contactNo:\",record.contactNo);\n}\n}\n}\n\nreturn {\nrecord,\nformatRecordValues,\ntriggerRecordFieldChange\n}",
+    "scriptEnabled": true
+  },
+  "config": {
+    "visibility": {
+      "expression": "isApproval"
+    },
+    "buttons": {
+      "new": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "edit": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "submit": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "delete": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "clone": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "back": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      }
+    },
+    "actions": [
+      {
+        "actionID": "1",
+        "placement": "end",
+        "meta": {
+          "label": "Resolve",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "popUpLayout",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "operator": "is not in list",
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
+                  ]
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "isEdit": "editor",
+          "loading": true,
+          "pageLayoutID": "409824987086848001",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "assignee"
+            ],
+            "user": []
+          },
+          "stepID": "68",
+          "workflowID": "409824987020787713"
+        }
+      },
+      {
+        "actionID": "2",
+        "placement": "end",
+        "meta": {
+          "label": "Asscociate Faulty Asset",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "popUpLayout",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "operator": "is not in list",
+                  "operators": [
+                    {
+                      "text": "is",
+                      "value": "is"
+                    },
+                    {
+                      "text": "is not",
+                      "value": "is not"
+                    },
+                    {
+                      "text": "is in list",
+                      "value": "is in list"
+                    },
+                    {
+                      "text": "is not in list",
+                      "value": "is not in list"
+                    },
+                    {
+                      "text": "is empty",
+                      "value": "is empty"
+                    },
+                    {
+                      "text": "is not empty",
+                      "value": "is not empty"
+                    },
+                    {
+                      "text": "等于当前用户",
+                      "value": "等于当前用户"
+                    },
+                    {
+                      "text": "等于组",
+                      "value": "等于组"
+                    }
+                  ],
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
+                  ]
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "isEdit": "base",
+          "loading": true,
+          "moduleID": "410085759912312833",
+          "pageLayoutID": "409987818031480833",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "assignee"
+            ],
+            "user": []
+          },
+          "stepID": "5",
+          "workflowID": "409984726141501441"
+        }
+      },
+      {
+        "actionID": "3",
+        "placement": "end",
+        "meta": {
+          "label": "Request Asset",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "toURL",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "operator": "is not in list",
+                  "operators": [
+                    {
+                      "text": "is",
+                      "value": "is"
+                    },
+                    {
+                      "text": "is not",
+                      "value": "is not"
+                    },
+                    {
+                      "text": "is in list",
+                      "value": "is in list"
+                    },
+                    {
+                      "text": "is not in list",
+                      "value": "is not in list"
+                    },
+                    {
+                      "text": "is empty",
+                      "value": "is empty"
+                    },
+                    {
+                      "text": "is not empty",
+                      "value": "is not empty"
+                    },
+                    {
+                      "text": "等于当前用户",
+                      "value": "等于当前用户"
+                    },
+                    {
+                      "text": "等于组",
+                      "value": "等于组"
+                    }
+                  ],
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
+                  ]
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "loading": true,
+          "openIn": "newTab",
+          "pageLayoutID": "",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "assignee"
+            ],
+            "user": []
+          },
+          "url": "${window.CortezaWebapp==='/'?'':window.CortezaWebapp}/compose/ns/wms/pages/398385133036437505/record?btnVisibleKey=request&isToEdit=false&recordId=${recordID}&number=${record.values.number}&location=${record.values.location}"
+        }
+      },
+      {
+        "actionID": "4",
+        "placement": "end",
+        "meta": {
+          "label": "Transfer to onsite",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "popUpLayout",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "status",
+                  "operator": "is not in list",
+                  "operators": [
+                    {
+                      "text": "is",
+                      "value": "is"
+                    },
+                    {
+                      "text": "is not",
+                      "value": "is not"
+                    },
+                    {
+                      "text": "is in list",
+                      "value": "is in list"
+                    },
+                    {
+                      "text": "is not in list",
+                      "value": "is not in list"
+                    },
+                    {
+                      "text": "is empty",
+                      "value": "is empty"
+                    },
+                    {
+                      "text": "is not empty",
+                      "value": "is not empty"
+                    },
+                    {
+                      "text": "等于当前用户",
+                      "value": "等于当前用户"
+                    },
+                    {
+                      "text": "等于组",
+                      "value": "等于组"
+                    }
+                  ],
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
+                  ]
+                },
+                {
+                  "end": "",
+                  "kind": "Record",
+                  "name": "assignmentGroup",
+                  "operator": "is",
+                  "start": "",
+                  "type": "and",
+                  "value": "414195340296585217"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteArrival",
+                  "operator": "is",
+                  "start": "",
+                  "type": "and",
+                  "value": "0"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "isEdit": "editor",
+          "loading": true,
+          "pageID": "412437053451599873",
+          "pageLayoutID": "415783303557742593",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [
+              "414180191762382849"
+            ],
+            "specialRole": [
+              "assignmentGroup"
+            ],
+            "user": []
+          },
+          "stepID": "4",
+          "workflowID": "414209967059435521"
+        }
+      },
+      {
+        "actionID": "5",
+        "placement": "end",
+        "meta": {
+          "label": "Arrive",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "onlyWork",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onSite",
+                  "operator": "is",
+                  "start": "",
+                  "type": "",
+                  "value": "1"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteArrival",
+                  "operator": "is not",
+                  "start": "",
+                  "type": "and",
+                  "value": "1"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "onsiteEngineer"
+            ],
+            "user": []
+          },
+          "stepID": "5",
+          "workflowID": "414204601370148865"
+        }
+      },
+      {
+        "actionID": "6",
+        "placement": "end",
+        "meta": {
+          "label": "Onsite Resolve",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "onlyWork",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onSite",
+                  "operator": "is",
+                  "start": "",
+                  "type": "",
+                  "value": "1"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteArrival",
+                  "operator": "is",
+                  "start": "",
+                  "type": "and",
+                  "value": "1"
+                },
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onsiteResolution",
+                  "operator": "is",
+                  "start": "",
+                  "type": "and",
+                  "value": "0"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "onsiteEngineer"
+            ],
+            "user": []
+          },
+          "stepID": "4",
+          "workflowID": "414204399926444033"
+        }
+      },
+      {
+        "actionID": "7",
+        "placement": "end",
+        "meta": {
+          "label": "Cancel",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "popUpLayout",
+        "params": {
+          "fieldCondition": [
+            {
+              "list": [
+                {
+                  "end": "",
+                  "kind": "Bool",
+                  "name": "onSite",
+                  "operator": "is",
+                  "start": "",
+                  "type": "",
+                  "value": "1"
+                }
+              ],
+              "type": ""
+            }
+          ],
+          "isEdit": "editor",
+          "loading": true,
+          "pageLayoutID": "415783303557808129",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "onsiteEngineer"
+            ],
+            "user": []
+          },
+          "stepID": "4",
+          "workflowID": "414204179691798529"
+        }
+      },
+      {
+        "actionID": "8",
+        "placement": "end",
+        "meta": {
+          "label": "test-审批勿动",
+          "style": {
+            "variant": "primary"
+          }
+        },
+        "enabled": true,
+        "kind": "onlyWork",
+        "params": {
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "stepID": "5",
+          "workflowID": "415624486098305025"
+        }
+      }
+    ],
+    "useTitle": true
+  },
+  "blocks": [
+    {
+      "blockID": "73",
+      "xywh": [
+        0,
+        0,
+        23,
+        58
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-e7aaves0j6fm38jzo9m"
+      }
+    },
+    {
+      "blockID": "74",
+      "xywh": [
+        23,
+        0,
+        25,
+        58
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-r3b843ihzpnm38jzo9m"
+      }
+    },
+    {
+      "blockID": "75",
+      "xywh": [
+        0,
+        58,
+        48,
+        58
+      ],
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-cug8z6v9joem38jzo9m"
+      }
+    }
+  ],
+  "ownedBy": "0",
+  "createdAt": "2024-11-08T09:47:44Z",
+  "updatedAt": "2026-03-02T19:12:23Z",
+  "layoutID": "415789342531911681"
+}

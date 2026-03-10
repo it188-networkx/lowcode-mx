@@ -1,248 +1,337 @@
 {
-  "workflows": [
+  "workflowID": "410118575845343234",
+  "handle": "ITSM-Change-Comment",
+  "meta": {
+    "name": "ITSM-Change-Comment",
+    "description": "",
+    "visual": null,
+    "type": "",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "410118575845343234",
-      "handle": "ITSM-Change-Comment",
-      "enabled": true,
+      "stepID": "857",
+      "kind": "function",
+      "ref": "commentCreate",
+      "arguments": [
+        {
+          "target": "module",
+          "expr": "module",
+          "type": "ComposeModule"
+        },
+        {
+          "target": "namespace",
+          "expr": "namespace",
+          "type": "ComposeNamespace"
+        },
+        {
+          "target": "record",
+          "expr": "record",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "excludeFieldName",
+          "expr": "[]",
+          "type": "Array"
+        },
+        {
+          "target": "targetModule",
+          "expr": "\"Comment\"",
+          "type": "Handle"
+        }
+      ],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "ITSM-Change-Comment",
-        "type": "",
-        "visual": null,
-        "results": "",
-        "formList": null,
+        "name": "",
         "description": "",
-        "businessType": "",
-        "businessLabel": ""
+        "visual": {
+          "defaultName": true,
+          "id": "857",
+          "parent": "1",
+          "value": "Comment Create",
+          "xywh": [
+            2104,
+            920,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    },
+    {
+      "stepID": "859",
+      "kind": "function",
+      "ref": "commentUpdate",
+      "arguments": [
         {
-          "ref": "commentCreate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "857",
-              "xywh": [
-                2104,
-                920,
-                200,
-                80
-              ],
-              "value": "Comment Create",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "857",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "module",
-              "type": "ComposeModule",
-              "target": "module"
-            },
-            {
-              "expr": "namespace",
-              "type": "ComposeNamespace",
-              "target": "namespace"
-            },
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "record"
-            },
-            {
-              "expr": "[]",
-              "type": "Array",
-              "target": "excludeFieldName"
-            },
-            {
-              "expr": "\"Comment\"",
-              "type": "Handle",
-              "target": "targetModule"
-            }
-          ],
-          "customName": ""
+          "target": "module",
+          "expr": "module",
+          "type": "ComposeModule"
         },
         {
-          "ref": "commentUpdate",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "859",
-              "xywh": [
-                2120,
-                1272,
-                200,
-                80
-              ],
-              "value": "Comment Update",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "859",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "module",
-              "type": "ComposeModule",
-              "target": "module"
-            },
-            {
-              "expr": "namespace",
-              "type": "ComposeNamespace",
-              "target": "namespace"
-            },
-            {
-              "expr": "record",
-              "type": "ComposeRecord",
-              "target": "record"
-            },
-            {
-              "expr": "oldRecord",
-              "type": "ComposeRecord",
-              "target": "oldRecord"
-            },
-            {
-              "expr": "[]",
-              "type": "Array",
-              "target": "excludeFieldName"
-            },
-            {
-              "expr": "\"Comment\"",
-              "type": "Handle",
-              "target": "targetModule"
-            }
-          ],
-          "customName": ""
-        }
-      ],
-      "paths": [],
-      "triggers": [
-        {
-          "triggerID": "414374090392993794",
-          "resourceType": "compose:record",
-          "eventType": "afterCreate",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "ChangeRequest"
-              ],
-              "condition": null
-            }
-          ],
-          "enabled": true,
-          "stepID": "857",
-          "meta": {
-            "visual": {
-              "id": "206",
-              "xywh": [
-                1608,
-                920,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "858",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "857",
-                  "parentID": "206"
-                }
-              ],
-              "value": "Compose record - afterCreate",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
+          "target": "namespace",
+          "expr": "namespace",
+          "type": "ComposeNamespace"
         },
         {
-          "triggerID": "414374090393124866",
-          "resourceType": "compose:record",
-          "eventType": "afterUpdate",
-          "constraints": [
-            {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "ChangeRequest"
-              ],
-              "condition": null
-            }
-          ],
-          "enabled": true,
-          "stepID": "859",
-          "meta": {
-            "visual": {
-              "id": "399",
-              "xywh": [
-                1600,
-                1272,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "860",
-                      "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "859",
-                  "parentID": "399"
-                }
-              ],
-              "value": "Compose record - afterUpdate",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
+          "target": "record",
+          "expr": "record",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "oldRecord",
+          "expr": "oldRecord",
+          "type": "ComposeRecord"
+        },
+        {
+          "target": "excludeFieldName",
+          "expr": "[]",
+          "type": "Array"
+        },
+        {
+          "target": "targetModule",
+          "expr": "\"Comment\"",
+          "type": "Handle"
         }
       ],
-      "ownedBy": "409985028668325889",
-      "createdAt": "2024-09-30T07:16:25.000Z",
-      "updatedAt": "2024-12-30T07:05:49.000Z"
+      "results": [],
+      "meta": {
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "859",
+          "parent": "1",
+          "value": "Comment Update",
+          "xywh": [
+            2120,
+            1272,
+            200,
+            80
+          ]
+        }
+      },
+      "customName": ""
+    }
+  ],
+  "paths": [],
+  "runAs": "0",
+  "ownedBy": "409985028668325889",
+  "createdAt": "2024-09-30T07:16:25Z",
+  "createdBy": "409985028668325889",
+  "updatedAt": "2026-03-02T19:12:43Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "414374090392993794",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "410118575845343234",
+      "stepID": "857",
+      "resourceType": "compose:record",
+      "eventType": "afterCreate",
+      "constraints": [
+        {
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
+          ],
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "ChangeRequest"
+          ],
+          "condition": null
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "857",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "858",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "206"
+            }
+          ],
+          "id": "206",
+          "parent": "1",
+          "value": "Compose record - afterCreate",
+          "xywh": [
+            1608,
+            920,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2024-10-29T15:19:45Z",
+      "createdBy": "409824986979762177",
+      "updatedAt": "2026-03-02T19:12:43Z"
+    },
+    {
+      "triggerID": "414374090393124866",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "410118575845343234",
+      "stepID": "859",
+      "resourceType": "compose:record",
+      "eventType": "afterUpdate",
+      "constraints": [
+        {
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
+          ],
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "ChangeRequest"
+          ],
+          "condition": null
+        }
+      ],
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
+            {
+              "childID": "859",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "860",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;",
+                  "value": null
+                }
+              },
+              "parentID": "399"
+            }
+          ],
+          "id": "399",
+          "parent": "1",
+          "value": "Compose record - afterUpdate",
+          "xywh": [
+            1600,
+            1272,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 1,
+      "ownedBy": "0",
+      "createdAt": "2024-10-29T15:19:45Z",
+      "createdBy": "409824986979762177",
+      "updatedAt": "2026-03-02T19:12:43Z"
     }
   ]
 }

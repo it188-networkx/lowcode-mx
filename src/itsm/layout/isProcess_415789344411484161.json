@@ -1,41 +1,73 @@
 {
-  "layoutID": "415789344411484161",
+  "pageLayoutID": "415789344411484161",
+  "namespaceID": "409824987081211905",
+  "moduleID": "409824987082063873",
   "pageID": "409824987080753153",
   "parentID": "0",
-  "namespaceID": "409824987081211905",
-  "weight": 4,
   "handle": "isProcess",
+  "primary": false,
+  "weight": 4,
   "meta": {
     "title": "isProcess",
-    "script": "const { record, isInit, triggerBy, set = [], that } = this;\nlet status = record.status\nlet formatRecordValues = \"\"\nlet triggerRecordFieldChange = \"\"\nif(status === \"409824987210645505\" && triggerBy != 'status'){\nthat.$router.push({\nname: \"page.record\",\nparams: { pageID: \"409824987080753153\", recordID:recordId}\n\n})\n}\nif (triggerBy === \"onsiteEngineer\") {\nconsole.log(\"onsiteEngineer:\",record.modalData.onsiteEngineer);\nconsole.log(\"onsiteEngineer11:\", window.recordField.Incident.onsiteEngineer.records)\n\nfor (let index = 0; index < window.recordField.Incident.onsiteEngineer.records.length; index++) {\n\nlet tem_onsiteEngineer = window.recordField.Incident.onsiteEngineer.records[index]\n\nconsole.log(\"onsiteEngineer22:\",tem_onsiteEngineer);\n\nif (tem_onsiteEngineer.recordID === record.modalData.onsiteEngineer) {\n\nconsole.log(\"333:\", tem_onsiteEngineer);\nrecord.modalData = {\n...record.modalData,\ncontactNo: tem_onsiteEngineer.values.phone\n}\n\nconsole.log(\"record.contactNo:\",record.contactNo);\n}\n}\n}\n\nreturn {\nrecord,\nformatRecordValues,\ntriggerRecordFieldChange\n}",
     "description": "",
+    "script": "const { record, isInit, triggerBy, set = [], that } = this;\nlet status = record.status\nlet formatRecordValues = \"\"\nlet triggerRecordFieldChange = \"\"\nif(status === \"409824987210645505\" && triggerBy != 'status'){\nthat.$router.push({\nname: \"page.record\",\nparams: { pageID: \"409824987080753153\", recordID:recordId}\n\n})\n}\nif (triggerBy === \"onsiteEngineer\") {\nconsole.log(\"onsiteEngineer:\",record.modalData.onsiteEngineer);\nconsole.log(\"onsiteEngineer11:\", window.recordField.Incident.onsiteEngineer.records)\n\nfor (let index = 0; index < window.recordField.Incident.onsiteEngineer.records.length; index++) {\n\nlet tem_onsiteEngineer = window.recordField.Incident.onsiteEngineer.records[index]\n\nconsole.log(\"onsiteEngineer22:\",tem_onsiteEngineer);\n\nif (tem_onsiteEngineer.recordID === record.modalData.onsiteEngineer) {\n\nconsole.log(\"333:\", tem_onsiteEngineer);\nrecord.modalData = {\n...record.modalData,\ncontactNo: tem_onsiteEngineer.values.phone\n}\n\nconsole.log(\"record.contactNo:\",record.contactNo);\n}\n}\n}\n\nreturn {\nrecord,\nformatRecordValues,\ntriggerRecordFieldChange\n}",
     "scriptEnabled": true
   },
   "config": {
+    "visibility": {
+      "expression": "isProcess"
+    },
+    "buttons": {
+      "new": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "edit": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "submit": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "delete": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "clone": {
+        "enabled": false,
+        "label": "",
+        "actionID": "",
+        "params": null
+      },
+      "back": {
+        "enabled": true,
+        "label": "",
+        "actionID": "",
+        "params": null
+      }
+    },
     "actions": [
       {
-        "kind": "popUpLayout",
+        "actionID": "1",
+        "placement": "end",
         "meta": {
           "label": "Resolve",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "popUpLayout",
         "params": {
-          "isEdit": "editor",
-          "stepID": "68",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "409824987020787713",
-          "pageLayoutID": "409824987086848001",
-          "roleCondition": {
-            "role": [],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "assignee"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -43,48 +75,47 @@
                   "end": "",
                   "kind": "Record",
                   "name": "status",
-                  "type": "",
+                  "operator": "is not in list",
                   "start": "",
+                  "type": "",
                   "value": [
                     "409824987210514433",
                     "409824987210579969",
                     "409824987210645505"
-                  ],
-                  "operator": "is not in list"
+                  ]
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "1",
-        "placement": "end"
+          ],
+          "isEdit": "editor",
+          "loading": true,
+          "pageLayoutID": "409824987086848001",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "assignee"
+            ],
+            "user": []
+          },
+          "stepID": "68",
+          "workflowID": "409824987020787713"
+        }
       },
       {
-        "kind": "popUpLayout",
+        "actionID": "2",
+        "placement": "end",
         "meta": {
           "label": "Asscociate Faulty Asset",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "popUpLayout",
         "params": {
-          "isEdit": "base",
-          "stepID": "5",
-          "loading": true,
-          "refresh": true,
-          "moduleID": "410085759912312833",
-          "workflowID": "409984726141501441",
-          "pageLayoutID": "409987818031480833",
-          "roleCondition": {
-            "role": [],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "assignee"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -92,13 +123,6 @@
                   "end": "",
                   "kind": "Record",
                   "name": "status",
-                  "type": "",
-                  "start": "",
-                  "value": [
-                    "409824987210514433",
-                    "409824987210579969",
-                    "409824987210645505"
-                  ],
                   "operator": "is not in list",
                   "operators": [
                     {
@@ -133,39 +157,48 @@
                       "text": "等于组",
                       "value": "等于组"
                     }
+                  ],
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
                   ]
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "2",
-        "placement": "end"
+          ],
+          "isEdit": "base",
+          "loading": true,
+          "moduleID": "410085759912312833",
+          "pageLayoutID": "409987818031480833",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "assignee"
+            ],
+            "user": []
+          },
+          "stepID": "5",
+          "workflowID": "409984726141501441"
+        }
       },
       {
-        "kind": "toURL",
+        "actionID": "3",
+        "placement": "end",
         "meta": {
           "label": "Request Asset",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "toURL",
         "params": {
-          "url": "${window.CortezaWebapp==='/'?'':window.CortezaWebapp}/compose/ns/wms/pages/398385133036437505/record?btnVisibleKey=request&isToEdit=false&recordId=${recordID}&number=${record.values.number}&location=${record.values.location}",
-          "openIn": "newTab",
-          "loading": true,
-          "refresh": true,
-          "pageLayoutID": "",
-          "roleCondition": {
-            "role": [],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "assignee"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -173,13 +206,6 @@
                   "end": "",
                   "kind": "Record",
                   "name": "status",
-                  "type": "",
-                  "start": "",
-                  "value": [
-                    "409824987210514433",
-                    "409824987210579969",
-                    "409824987210645505"
-                  ],
                   "operator": "is not in list",
                   "operators": [
                     {
@@ -214,43 +240,46 @@
                       "text": "等于组",
                       "value": "等于组"
                     }
+                  ],
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
                   ]
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "3",
-        "placement": "end"
+          ],
+          "loading": true,
+          "openIn": "newTab",
+          "pageLayoutID": "",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "assignee"
+            ],
+            "user": []
+          },
+          "url": "${window.CortezaWebapp==='/'?'':window.CortezaWebapp}/compose/ns/wms/pages/398385133036437505/record?btnVisibleKey=request&isToEdit=false&recordId=${recordID}&number=${record.values.number}&location=${record.values.location}"
+        }
       },
       {
-        "kind": "popUpLayout",
+        "actionID": "4",
+        "placement": "end",
         "meta": {
           "label": "Transfer to onsite",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "popUpLayout",
         "params": {
-          "isEdit": "editor",
-          "pageID": "412437053451599873",
-          "stepID": "4",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "414209967059435521",
-          "pageLayoutID": "415783303557742593",
-          "roleCondition": {
-            "role": [
-              "414180191762382849"
-            ],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "assignmentGroup"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -258,13 +287,6 @@
                   "end": "",
                   "kind": "Record",
                   "name": "status",
-                  "type": "",
-                  "start": "",
-                  "value": [
-                    "409824987210514433",
-                    "409824987210579969",
-                    "409824987210645505"
-                  ],
                   "operator": "is not in list",
                   "operators": [
                     {
@@ -299,57 +321,68 @@
                       "text": "等于组",
                       "value": "等于组"
                     }
+                  ],
+                  "start": "",
+                  "type": "",
+                  "value": [
+                    "409824987210514433",
+                    "409824987210579969",
+                    "409824987210645505"
                   ]
                 },
                 {
                   "end": "",
                   "kind": "Record",
                   "name": "assignmentGroup",
-                  "type": "and",
+                  "operator": "is",
                   "start": "",
-                  "value": "414195340296585217",
-                  "operator": "is"
+                  "type": "and",
+                  "value": "414195340296585217"
                 },
                 {
                   "end": "",
                   "kind": "Bool",
                   "name": "onsiteArrival",
-                  "type": "and",
+                  "operator": "is",
                   "start": "",
-                  "value": "0",
-                  "operator": "is"
+                  "type": "and",
+                  "value": "0"
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "4",
-        "placement": "end"
+          ],
+          "isEdit": "editor",
+          "loading": true,
+          "pageID": "412437053451599873",
+          "pageLayoutID": "415783303557742593",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [
+              "414180191762382849"
+            ],
+            "specialRole": [
+              "assignmentGroup"
+            ],
+            "user": []
+          },
+          "stepID": "4",
+          "workflowID": "414209967059435521"
+        }
       },
       {
-        "kind": "onlyWork",
+        "actionID": "5",
+        "placement": "end",
         "meta": {
           "label": "Arrive",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "onlyWork",
         "params": {
-          "stepID": "5",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "414204601370148865",
-          "pageLayoutID": "",
-          "roleCondition": {
-            "role": [],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "onsiteEngineer"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -357,51 +390,51 @@
                   "end": "",
                   "kind": "Bool",
                   "name": "onSite",
-                  "type": "",
+                  "operator": "is",
                   "start": "",
-                  "value": "1",
-                  "operator": "is"
+                  "type": "",
+                  "value": "1"
                 },
                 {
                   "end": "",
                   "kind": "Bool",
                   "name": "onsiteArrival",
-                  "type": "and",
+                  "operator": "is not",
                   "start": "",
-                  "value": "1",
-                  "operator": "is not"
+                  "type": "and",
+                  "value": "1"
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "5",
-        "placement": "end"
+          ],
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "onsiteEngineer"
+            ],
+            "user": []
+          },
+          "stepID": "5",
+          "workflowID": "414204601370148865"
+        }
       },
       {
-        "kind": "onlyWork",
+        "actionID": "6",
+        "placement": "end",
         "meta": {
           "label": "Onsite Resolve",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "onlyWork",
         "params": {
-          "stepID": "4",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "414204399926444033",
-          "pageLayoutID": "",
-          "roleCondition": {
-            "role": [],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "onsiteEngineer"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -409,61 +442,60 @@
                   "end": "",
                   "kind": "Bool",
                   "name": "onSite",
-                  "type": "",
+                  "operator": "is",
                   "start": "",
-                  "value": "1",
-                  "operator": "is"
+                  "type": "",
+                  "value": "1"
                 },
                 {
                   "end": "",
                   "kind": "Bool",
                   "name": "onsiteArrival",
-                  "type": "and",
+                  "operator": "is",
                   "start": "",
-                  "value": "1",
-                  "operator": "is"
+                  "type": "and",
+                  "value": "1"
                 },
                 {
                   "end": "",
                   "kind": "Bool",
                   "name": "onsiteResolution",
-                  "type": "and",
+                  "operator": "is",
                   "start": "",
-                  "value": "0",
-                  "operator": "is"
+                  "type": "and",
+                  "value": "0"
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "6",
-        "placement": "end"
+          ],
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "onsiteEngineer"
+            ],
+            "user": []
+          },
+          "stepID": "4",
+          "workflowID": "414204399926444033"
+        }
       },
       {
-        "kind": "popUpLayout",
+        "actionID": "7",
+        "placement": "end",
         "meta": {
           "label": "Cancel",
           "style": {
             "variant": "primary"
           }
         },
+        "enabled": true,
+        "kind": "popUpLayout",
         "params": {
-          "isEdit": "editor",
-          "stepID": "4",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "414204179691798529",
-          "pageLayoutID": "415783303557808129",
-          "roleCondition": {
-            "role": [],
-            "user": [],
-            "group": [],
-            "specialRole": [
-              "onsiteEngineer"
-            ]
-          },
           "fieldCondition": [
             {
               "list": [
@@ -471,230 +503,213 @@
                   "end": "",
                   "kind": "Bool",
                   "name": "onSite",
-                  "type": "",
+                  "operator": "is",
                   "start": "",
-                  "value": "1",
-                  "operator": "is"
+                  "type": "",
+                  "value": "1"
                 }
               ],
               "type": ""
             }
-          ]
-        },
-        "enabled": true,
-        "actionID": "7",
-        "placement": "end"
+          ],
+          "isEdit": "editor",
+          "loading": true,
+          "pageLayoutID": "415783303557808129",
+          "refresh": true,
+          "roleCondition": {
+            "group": [],
+            "role": [],
+            "specialRole": [
+              "onsiteEngineer"
+            ],
+            "user": []
+          },
+          "stepID": "4",
+          "workflowID": "414204179691798529"
+        }
       },
       {
-        "kind": "onlyWork",
+        "actionID": "8",
+        "placement": "end",
         "meta": {
           "label": "test-审批勿动",
           "style": {
             "variant": "primary"
           }
         },
-        "params": {
-          "stepID": "5",
-          "loading": true,
-          "refresh": true,
-          "workflowID": "415624486098305025",
-          "pageLayoutID": ""
-        },
         "enabled": true,
-        "actionID": "8",
-        "placement": "end"
+        "kind": "onlyWork",
+        "params": {
+          "loading": true,
+          "pageLayoutID": "",
+          "refresh": true,
+          "stepID": "5",
+          "workflowID": "415624486098305025"
+        }
       }
     ],
-    "buttons": {
-      "new": {
-        "label": "",
-        "enabled": false
-      },
-      "back": {
-        "label": "",
-        "enabled": true
-      },
-      "edit": {
-        "label": "",
-        "enabled": false
-      },
-      "clone": {
-        "label": "",
-        "enabled": false
-      },
-      "delete": {
-        "label": "",
-        "enabled": false
-      },
-      "submit": {
-        "label": "",
-        "enabled": true
-      }
-    },
-    "useTitle": true,
-    "visibility": {
-      "expression": "isProcess"
-    }
+    "useTitle": true
   },
   "blocks": [
     {
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-e7aaves0j6fm38jzo9m"
-      },
+      "blockID": "73",
       "xywh": [
         0,
         0,
         23,
         58
       ],
-      "blockID": "73"
-    },
-    {
       "meta": {
         "hidden": false,
-        "tempID": "tempID-r3b843ihzpnm38jzo9m"
-      },
+        "tempID": "tempID-e7aaves0j6fm38jzo9m"
+      }
+    },
+    {
+      "blockID": "74",
       "xywh": [
         23,
         0,
         25,
         58
       ],
-      "blockID": "74"
-    },
-    {
       "meta": {
         "hidden": false,
-        "tempID": "tempID-cug8z6v9joem38jzo9m"
-      },
+        "tempID": "tempID-r3b843ihzpnm38jzo9m"
+      }
+    },
+    {
+      "blockID": "75",
       "xywh": [
         0,
         58,
         48,
         58
       ],
-      "blockID": "75"
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-cug8z6v9joem38jzo9m"
+      }
     },
     {
-      "meta": {
-        "hidden": true,
-        "tempID": "tempID-fi4ymyqz88om38jzo9m"
-      },
+      "blockID": "76",
       "xywh": [
         0,
         131,
         48,
         41
       ],
-      "blockID": "76"
-    },
-    {
       "meta": {
         "hidden": true,
-        "tempID": "tempID-z885d4wxqprm38jzo9m"
-      },
+        "tempID": "tempID-fi4ymyqz88om38jzo9m"
+      }
+    },
+    {
+      "blockID": "77",
       "xywh": [
         0,
         99,
         48,
         38
       ],
-      "blockID": "77"
-    },
-    {
       "meta": {
         "hidden": true,
-        "tempID": "tempID-je8ag1xc5n9m38jzo9n"
-      },
+        "tempID": "tempID-z885d4wxqprm38jzo9m"
+      }
+    },
+    {
+      "blockID": "78",
       "xywh": [
         0,
         109,
         20,
         15
       ],
-      "blockID": "78"
-    },
-    {
       "meta": {
         "hidden": true,
-        "tempID": "tempID-cahc7s4b2vdm38jzo9n"
-      },
+        "tempID": "tempID-je8ag1xc5n9m38jzo9n"
+      }
+    },
+    {
+      "blockID": "79",
       "xywh": [
         3,
         155,
         20,
         15
       ],
-      "blockID": "79"
+      "meta": {
+        "hidden": true,
+        "tempID": "tempID-cahc7s4b2vdm38jzo9n"
+      }
     },
     {
+      "blockID": "80",
+      "xywh": [
+        0,
+        0,
+        20,
+        15
+      ],
       "meta": {
         "hidden": true,
         "tempID": "tempID-valozj79yqlm38jzo9n"
-      },
+      }
+    },
+    {
+      "blockID": "81",
       "xywh": [
         0,
         0,
         20,
         15
       ],
-      "blockID": "80"
-    },
-    {
       "meta": {
         "hidden": true,
         "tempID": "tempID-lizmfqywpam38jzo9n"
-      },
+      }
+    },
+    {
+      "blockID": "82",
       "xywh": [
         0,
         0,
         20,
         15
       ],
-      "blockID": "81"
-    },
-    {
       "meta": {
         "hidden": true,
         "tempID": "tempID-u9ibh8uq4fm38jzo9n"
-      },
+      }
+    },
+    {
+      "blockID": "83",
       "xywh": [
         0,
         0,
         20,
         15
       ],
-      "blockID": "82"
-    },
-    {
       "meta": {
         "hidden": true,
         "tempID": "tempID-873qupduyglm38jzo9n"
-      },
-      "xywh": [
-        0,
-        0,
-        20,
-        15
-      ],
-      "blockID": "83"
+      }
     },
     {
-      "meta": {
-        "hidden": false,
-        "tempID": "tempID-rx2ndn4h0cm38jzo9n"
-      },
+      "blockID": "84",
       "xywh": [
         0,
         116,
         48,
         98
       ],
-      "blockID": "84"
+      "meta": {
+        "hidden": false,
+        "tempID": "tempID-rx2ndn4h0cm38jzo9n"
+      }
     }
   ],
   "ownedBy": "0",
-  "createdAt": "2024-11-08T09:48:58.000Z",
-  "updatedAt": "2024-11-08T09:49:38.000Z"
+  "createdAt": "2024-11-08T09:48:58Z",
+  "updatedAt": "2026-03-02T19:12:23Z",
+  "layoutID": "415789344411484161"
 }

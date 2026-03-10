@@ -1,146 +1,194 @@
 {
-  "workflows": [
+  "workflowID": "435462893367001089",
+  "handle": "demo_email_comment",
+  "meta": {
+    "name": "demo_email_comment",
+    "description": "aabb",
+    "visual": null,
+    "type": "Advanced",
+    "formList": null,
+    "businessType": "",
+    "businessLabel": "",
+    "results": "",
+    "icon": ""
+  },
+  "enabled": true,
+  "trace": false,
+  "keepSessions": 0,
+  "scope": {},
+  "steps": [
     {
-      "workflowID": "435462893367001089",
-      "handle": "demo_email_comment",
-      "enabled": true,
+      "stepID": "4",
+      "kind": "function",
+      "ref": "emailSendWithComment",
+      "arguments": [
+        {
+          "target": "subject",
+          "expr": "\"我是邮件的标题xXx\"",
+          "type": "String"
+        },
+        {
+          "target": "from",
+          "expr": "\"bot@it188.com\"",
+          "type": "String"
+        },
+        {
+          "target": "to",
+          "expr": "\"dongb@it188.com\"",
+          "type": "String"
+        },
+        {
+          "target": "plain",
+          "expr": "\"dongbin email test xx dongbin email test xx dongbin email test xx dongbin email test xx dongbin email test xx\"",
+          "type": "String"
+        },
+        {
+          "target": "namespace",
+          "expr": "record.namespaceID",
+          "type": "String"
+        },
+        {
+          "target": "module",
+          "expr": "record.moduleID",
+          "type": "String"
+        },
+        {
+          "target": "recordID",
+          "expr": "record.recordID",
+          "type": "String"
+        }
+      ],
+      "results": [],
       "meta": {
-        "icon": "",
-        "name": "demo_email_comment",
-        "type": "Advanced",
-        "visual": null,
-        "results": "",
-        "formList": null,
-        "description": "aabb",
-        "businessType": "",
-        "businessLabel": ""
+        "name": "",
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "id": "4",
+          "parent": "1",
+          "value": "Email send with comment",
+          "xywh": [
+            2288,
+            2192,
+            200,
+            80
+          ]
+        }
       },
-      "keepSessions": 0,
-      "steps": [
+      "customName": ""
+    }
+  ],
+  "paths": [],
+  "runAs": "0",
+  "ownedBy": "421735257987940353",
+  "createdAt": "2025-03-24T03:04:49Z",
+  "createdBy": "421735257987940353",
+  "updatedAt": "2026-03-02T19:12:42Z",
+  "canGrant": true,
+  "canUpdateWorkflow": true,
+  "canDeleteWorkflow": true,
+  "canUndeleteWorkflow": true,
+  "canExecuteWorkflow": true,
+  "canManageWorkflowTriggers": true,
+  "canManageWorkflowSessions": true,
+  "triggers": [
+    {
+      "triggerID": "435463380745060353",
+      "enabled": true,
+      "transaction": true,
+      "async": false,
+      "workflowID": "435462893367001089",
+      "stepID": "4",
+      "resourceType": "compose:record",
+      "eventType": "onManual",
+      "constraints": [
         {
-          "ref": "emailSendWithComment",
-          "kind": "function",
-          "meta": {
-            "name": "",
-            "visual": {
-              "id": "4",
-              "xywh": [
-                2288,
-                2192,
-                200,
-                80
-              ],
-              "value": "Email send with comment",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          },
-          "stepID": "4",
-          "results": [],
-          "arguments": [
-            {
-              "expr": "\"我是邮件的标题xXx\"",
-              "type": "String",
-              "target": "subject"
-            },
-            {
-              "expr": "\"bot@it188.com\"",
-              "type": "String",
-              "target": "from"
-            },
-            {
-              "expr": "\"dongb@it188.com\"",
-              "type": "String",
-              "target": "to"
-            },
-            {
-              "expr": "\"dongbin email test xx dongbin email test xx dongbin email test xx dongbin email test xx dongbin email test xx\"",
-              "type": "String",
-              "target": "plain"
-            },
-            {
-              "expr": "record.namespaceID",
-              "type": "String",
-              "target": "namespace"
-            },
-            {
-              "expr": "record.moduleID",
-              "type": "String",
-              "target": "module"
-            },
-            {
-              "expr": "record.recordID",
-              "type": "String",
-              "target": "recordID"
-            }
+          "name": "namespace.handle",
+          "op": "=",
+          "values": [
+            "itsm"
           ],
-          "customName": ""
+          "condition": null
+        },
+        {
+          "name": "module.handle",
+          "op": "=",
+          "values": [
+            "incident"
+          ],
+          "condition": null
         }
       ],
-      "paths": [],
-      "triggers": [
-        {
-          "triggerID": "435463380745060353",
-          "resourceType": "compose:record",
-          "eventType": "onManual",
-          "constraints": [
+      "input": {},
+      "type": 2,
+      "meta": {
+        "description": "",
+        "visual": {
+          "defaultName": true,
+          "edges": [
             {
-              "op": "=",
-              "name": "namespace.handle",
-              "values": [
-                "itsm"
-              ],
-              "condition": null
-            },
-            {
-              "op": "=",
-              "name": "module.handle",
-              "values": [
-                "incident"
-              ],
-              "condition": null
-            }
-          ],
-          "enabled": true,
-          "stepID": "4",
-          "meta": {
-            "visual": {
-              "id": "3",
-              "xywh": [
-                2288,
-                1976,
-                200,
-                80
-              ],
-              "edges": [
-                {
-                  "meta": {
-                    "label": "",
-                    "visual": {
-                      "id": "5",
-                      "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
-                      "value": null,
-                      "parent": "1",
-                      "points": []
-                    },
-                    "description": ""
-                  },
-                  "childID": "4",
-                  "parentID": "3"
+              "childID": "4",
+              "meta": {
+                "description": "",
+                "label": "",
+                "visual": {
+                  "id": "5",
+                  "parent": "1",
+                  "points": [],
+                  "style": "exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;",
+                  "value": null
                 }
-              ],
-              "value": "Compose record - onManual",
-              "parent": "1",
-              "defaultName": true
-            },
-            "description": ""
-          }
-        }
-      ],
-      "ownedBy": "421735257987940353",
-      "createdAt": "2025-03-24T03:04:49.000Z",
-      "updatedAt": "2025-03-25T02:02:18.000Z"
+              },
+              "parentID": "3"
+            }
+          ],
+          "id": "3",
+          "parent": "1",
+          "value": "Compose record - onManual",
+          "xywh": [
+            2288,
+            1976,
+            200,
+            80
+          ]
+        },
+        "namespace": "",
+        "moduleID": "",
+        "namespaceID": "",
+        "endTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTimeCondition": {
+          "kind": "",
+          "name": "",
+          "oldName": "",
+          "operator": "",
+          "type": "",
+          "value": null,
+          "operators": null,
+          "variable": ""
+        },
+        "startTime": "0001-01-01T00:00:00Z",
+        "endTime": "0001-01-01T00:00:00Z",
+        "timeNode": "",
+        "timeRepeat": "",
+        "days": "",
+        "hours": "",
+        "minutes": "",
+        "condition": null
+      },
+      "weight": 0,
+      "ownedBy": "0",
+      "createdAt": "2025-03-24T03:09:52Z",
+      "createdBy": "421735257987940353",
+      "updatedAt": "2026-03-02T19:12:42Z"
     }
   ]
 }
