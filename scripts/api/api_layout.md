@@ -30,7 +30,7 @@ GET /compose/namespace/{namespaceID}/page-layout
 |--------|------|------|
 | `Authorization` | 是 | Bearer Token |
 | `Content-Type` | 是 | `application/json; charset=utf-8` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱（来自 `env.json → headers`） |
+| `Authorization` | 是 | Bearer Token（来自 `env.json → headers`） |
 | `X-NAMESPACE-ID` | 是 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 语言，如 `en` |
 
@@ -90,7 +90,7 @@ GET /compose/namespace/{namespaceID}/page-layout
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/page-layout?sort=weight+ASC' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --compressed --insecure
@@ -170,7 +170,7 @@ GET /compose/namespace/{namespaceID}/page/{pageID}/layout/
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/page/{pageID}/layout/?sort=weight+ASC' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --compressed --insecure
@@ -197,7 +197,7 @@ POST /compose/namespace/{namespaceID}/page/{pageID}/layout/
 |--------|------|------|
 | `Authorization` | 是 | Bearer Token |
 | `Content-Type` | 是 | `application/json` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱（来自 `env.json → headers`） |
+| `Authorization` | 是 | Bearer Token（来自 `env.json → headers`） |
 | `X-NAMESPACE-ID` | 是 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 语言，如 `en` |
 
@@ -247,7 +247,7 @@ POST /compose/namespace/{namespaceID}/page/{pageID}/layout/
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/page/{pageID}/layout/' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --data-raw '{
@@ -284,7 +284,7 @@ POST /compose/namespace/{namespaceID}/page/{pageID}/layout/{pageLayoutID}
 |--------|------|------|
 | `Authorization` | 是 | Bearer Token |
 | `Content-Type` | 是 | `application/json` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱（来自 `env.json → headers`） |
+| `Authorization` | 是 | Bearer Token（来自 `env.json → headers`） |
 | `X-NAMESPACE-ID` | 是 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 语言，如 `en` |
 
@@ -354,7 +354,7 @@ POST /compose/namespace/{namespaceID}/page/{pageID}/layout/{pageLayoutID}
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/page/{pageID}/layout/{pageLayoutID}' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --data-raw '{
@@ -403,7 +403,7 @@ curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/page/{page
   -X 'DELETE' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --compressed --insecure

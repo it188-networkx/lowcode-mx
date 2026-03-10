@@ -7,7 +7,7 @@
 | Header | 必填 | 说明 |
 |--------|------|------|
 | `Content-Type` | 是 | `application/json; charset=utf-8` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱，从 `env.json → environments.{env}.tenants.{tenant}.headers` 读取 |
+| `Authorization` | 是 | Bearer Token，从 `env.json → environments.{env}.tenants.{tenant}.headers` 读取 |
 | `Content-Language` | 否 | 语言，如 `en` |
 
 ---
@@ -91,7 +91,7 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/workflows/' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --data-raw '{
     "handle": "aaa",
@@ -175,7 +175,7 @@ GET /automation/workflows/{workflowID}
 curl 'http://dev.dms/mx/pionapaas/api/automation/workflows/{workflowID}' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --compressed --insecure
 ```
@@ -286,7 +286,7 @@ GET /automation/workflows/
 curl 'http://dev.dms/mx/pionapaas/api/automation/workflows/?query=&deleted=0&disabled=0&subWorkflow=1&limit=100&incTotal=true&sort=coalesce(deletedAt,+updatedAt,+createdAt)+DESC' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --compressed --insecure
 ```
@@ -413,7 +413,7 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/workflows/{workflowID}' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --data-raw '{
     "handle": "aaa",
@@ -545,7 +545,7 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/triggers/' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --data-raw '{
     "type": "2",
@@ -672,7 +672,7 @@ GET /automation/triggers/
 curl 'http://dev.dms/mx/pionapaas/api/automation/triggers/?workflowID={workflowID}&disabled=1' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --compressed --insecure
 ```
@@ -818,7 +818,7 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/triggers/{triggerID}' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --data-raw '{
     "type": "2",
@@ -869,7 +869,7 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/triggers/{triggerID}' \
   -X 'DELETE' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --compressed --insecure
 ```
@@ -905,7 +905,7 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/workflows/{workflowID}' \
   -X 'DELETE' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --compressed --insecure
 ```
@@ -925,4 +925,4 @@ curl 'http://dev.dms/mx/pionapaas/api/automation/workflows/{workflowID}' \
 9. **Trigger `stepID`** 在列表响应中叫 `stepID`，新增时请求体中叫 `workflowStepID`，注意区别。
 10. **Trigger `type`** 在列表响应中为 `int`（如 `0`），新增时请求体中为 `string`（如 `"2"`），注意类型差异。
 11. **删除接口** Workflow 和 Trigger 均使用 `DELETE` 方法，成功返回 `{"response": true}`。
-12. **请求头必须包含 env.json 中的 headers**：`baseUrl` 和 `headers`（含 `X-SS-EMAIL`、`Content-Type`）均从 `env.json → environments.{env}.tenants.{tenant}` 读取。
+12. **请求头必须包含 env.json 中的 headers**：`baseUrl` 和 `headers`（含 `Authorization`）均从 `env.json → environments.{env}.tenants.{tenant}` 读取。

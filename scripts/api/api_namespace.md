@@ -7,7 +7,7 @@
 | Header | 必填 | 说明 |
 |--------|------|------|
 | `Content-Type` | 是 | `application/json; charset=utf-8` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱，从 `env.json → environments.{env}.tenants.{tenant}.headers` 读取 |
+| `Authorization` | 是 | Bearer Token，从 `env.json → environments.{env}.tenants.{tenant}.headers` 读取 |
 | `Content-Language` | 否 | 语言，如 `en` |
 
 ---
@@ -86,7 +86,7 @@ GET /compose/namespace/
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'Content-Language: en' \
   --compressed --insecure
 ```
@@ -98,4 +98,4 @@ curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/' \
 1. **slug** 是脚本中用来通过 `--namespace-slug` 参数查找 `namespaceID` 的关键字段。
 2. **无需分页**：命名空间数量通常较少，单次请求可获取全部。
 3. **`can*` 权限字段** 可忽略，仅用于前端 UI 权限控制。
-4. **请求头必须包含 env.json 中的 headers**：`baseUrl` 和 `headers`（含 `X-SS-EMAIL`、`Content-Type`）均从 `env.json → environments.{env}.tenants.{tenant}` 读取。
+4. **请求头必须包含 env.json 中的 headers**：`baseUrl` 和 `headers`（含 `Authorization`）均从 `env.json → environments.{env}.tenants.{tenant}` 读取。

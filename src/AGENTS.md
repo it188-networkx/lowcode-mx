@@ -282,16 +282,17 @@ src/
 
 | 脚本 | 功能 |
 |------|------|
-| `module/export_module_from_db.py` | 从数据库导出模块为 JSON |
-| `module/sync_module_to_db.py` | 将模块 JSON 同步到数据库 |
-| `layout/export_layout_from_db.py` | 从数据库导出布局为 JSON |
-| `layout/sync_layout_to_db.py` | 将布局 JSON 同步到数据库 |
-| `page/export_page_from_db.py` | 从数据库导出页面为 JSON |
-| `page/sync_page_to_db.py` | 将页面 JSON 同步到数据库 |
-| `workflow/export_workflow_from_db.py` | 从数据库导出工作流为 JSON |
-| `workflow/sync_workflow_to_db.py` | 将工作流 JSON 同步到数据库 |
+| `export_module_from_api.py` | 从 API 导出模块为 JSON |
+| `sync_module_to_api.py` | 将模块 JSON 通过 API 同步到服务端 |
+| `export_layout_from_api.py` | 从 API 导出布局为 JSON |
+| `sync_layout_to_api.py` | 将布局 JSON 通过 API 同步到服务端 |
+| `export_page_from_api.py` | 从 API 导出页面为 JSON |
+| `sync_page_to_api.py` | 将页面 JSON 通过 API 同步到服务端 |
+| `export_workflow_from_api.py` | 从 API 导出工作流为 JSON |
+| `sync_workflow_to_api.py` | 将工作流 JSON 通过 API 同步到服务端 |
+| `sync_namespace_to_api.py` | 将命名空间配置通过 API 同步到服务端 |
 
-脚本共用 `../../lowcode-base/scripts/db_utils.py`，从 `env.json` 中读取数据库连接参数。
+脚本共用 `api_utils.py`，从 `env.json` 中读取 API 连接参数（baseUrl、Authorization headers）。
 
 ---
 

@@ -49,8 +49,7 @@ def load_api_config(
     Returns:
         dict: {
             "baseUrl": "http://dev.dms/mx/pionapaas/api",
-            "headers": {"X-SS-EMAIL": "...", "Content-Type": "..."},
-            "putHeaders": {"Content-Type": "...", "Authorization": "..."},
+            "headers": {"Authorization": "Bearer ..."},
             "env": "dev.dms",
             "env_dir": "dev.dms",
             "tenant": "mx"
@@ -87,7 +86,6 @@ def load_api_config(
     return {
         "baseUrl": tenant_config.get("baseUrl", ""),
         "headers": dict(tenant_config.get("headers", {})),
-        "putHeaders": dict(tenant_config.get("putHeaders", tenant_config.get("headers", {}))),
         "env": env,
         "env_dir": env_dir,
         "tenant": tenant,
@@ -167,7 +165,7 @@ def api_request(
 
     Args:
         base_url: API 基地址（如 http://dev.dms/mx/pionapaas/api）
-        headers:  公共请求头（如 X-SS-EMAIL, Content-Type）
+        headers:  公共请求头（如 Authorization: Bearer ...）
         method:   HTTP 方法（GET / POST / PUT / DELETE）
         path:     API 路径（如 /compose/namespace/{id}/module/）
         data:     请求体（dict，将被 JSON 序列化）

@@ -119,7 +119,6 @@ def sync_workflow(
     *,
     base_url: str,
     headers: dict,
-    put_headers: dict,
     dry_run: bool = False,
 ) -> dict | None:
     """
@@ -156,7 +155,7 @@ def sync_workflow(
         print(f"  📝 工作流已存在 (workflowID={workflow_id})，执行更新...")
         body = build_workflow_body(wf)
         resp = api_put(
-            base_url, put_headers,
+            base_url, headers,
             f"/automation/workflows/{workflow_id}",
             data=body,
         )
@@ -171,7 +170,7 @@ def sync_workflow(
             print(f"  📝 工作流已存在 (workflowID={workflow_id})，执行更新...")
             body = build_workflow_body(wf)
             resp = api_put(
-                base_url, put_headers,
+                base_url, headers,
                 f"/automation/workflows/{workflow_id}",
                 data=body,
             )
@@ -210,7 +209,7 @@ def sync_workflow(
             # ── 更新已有触发器 ──
             body = build_trigger_body(trigger, workflow_id)
             resp_t = api_put(
-                base_url, put_headers,
+                base_url, headers,
                 f"/automation/triggers/{trigger_id}",
                 data=body,
             )
@@ -225,7 +224,7 @@ def sync_workflow(
                 if et_id not in synced_ids:
                     body = build_trigger_body(trigger, workflow_id)
                     resp_t = api_put(
-                        base_url, put_headers,
+                        base_url, headers,
                         f"/automation/triggers/{et_id}",
                         data=body,
                     )
@@ -292,7 +291,6 @@ def main():
     cfg = load_api_config(env=args.env, tenant=args.tenant)
     base_url = cfg["baseUrl"]
     api_headers = cfg["headers"]
-    api_put_headers = cfg["putHeaders"]
 
     if not base_url:
         print("❌ env.json 中未配置 baseUrl")
@@ -314,7 +312,6 @@ def main():
             wf,
             base_url=base_url,
             headers=api_headers,
-            put_headers=api_put_headers,
             dry_run=args.dry_run,
         )
     except APIError as e:

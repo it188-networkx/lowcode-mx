@@ -30,7 +30,7 @@ GET /compose/namespace/{namespaceID}/module/
 |--------|------|------|
 | `Authorization` | 是 | Bearer Token |
 | `Content-Type` | 是 | `application/json; charset=utf-8` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱（来自 `env.json → headers`） |
+| `Authorization` | 是 | Bearer Token（来自 `env.json → headers`） |
 | `X-NAMESPACE-ID` | 是 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 语言，如 `en` |
 
@@ -115,7 +115,7 @@ GET /compose/namespace/{namespaceID}/module/
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/module/?query=&limit=100&incTotal=true&sort=name+ASC' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --compressed --insecure
@@ -142,7 +142,7 @@ GET /compose/namespace/{namespaceID}/module/{moduleID}
 |--------|------|------|
 | `Authorization` | 是 | Bearer Token |
 | `Content-Type` | 是 | `application/json; charset=utf-8` |
-| `X-SS-EMAIL` | 是 | 操作人邮箱（来自 `env.json → headers`） |
+| `Authorization` | 是 | Bearer Token（来自 `env.json → headers`） |
 | `X-NAMESPACE-ID` | 是 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 语言，如 `en` |
 
@@ -203,7 +203,7 @@ GET /compose/namespace/{namespaceID}/module/{moduleID}
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/module/{moduleID}' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --compressed --insecure
@@ -337,7 +337,7 @@ curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/module/' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --data-raw '{
@@ -373,20 +373,18 @@ POST /compose/namespace/{namespaceID}/module/{moduleID}
 
 | Header | 必填 | 来源 | 说明 |
 |--------|------|------|------|
-| `Authorization` | 是 | 登录获取 | Bearer Token |
-| `Content-Type` | 是 | `env.json` → `environments.{env}.tenants.{tenant}.headers` | `application/json; charset=utf-8` |
-| `X-SS-EMAIL` | 是 | `env.json` → `environments.{env}.tenants.{tenant}.headers` | 操作人邮箱，如 `lyh@it188.com` |
+| `Authorization` | 是 | `env.json` → `environments.{env}.tenants.{tenant}.headers` | Bearer Token |
+| `Content-Type` | 是 | 脚本自动添加 | `application/json; charset=utf-8` |
 | `X-NAMESPACE-ID` | 是 | 手动指定 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 手动指定 | 语言，如 `en` |
 
-> **headers 读取规则**：调用接口时，必须从 `configuration/env.json` 中读取对应环境和租户的 `headers` 配置，合并到请求头中。
+> **headers 读取规则**：调用接口时，必须从 `src/env.json` 中读取对应环境和租户的 `headers` 配置，合并到请求头中。
 > 路径：`env.json → environments.{环境名}.tenants.{租户名}.headers`
 >
 > 示例（dev.dms / mx）：
 > ```json
 > {
->   "X-SS-EMAIL": "lyh@it188.com",
->   "Content-Type": "application/json; charset=utf-8"
+>   "Authorization": "Bearer eyJ..."
 > }
 > ```
 
@@ -570,7 +568,7 @@ POST /compose/namespace/{namespaceID}/module/{moduleID}
 curl 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/module/{moduleID}' \
   -H 'Authorization: Bearer <token>' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   --data-raw '{
     "name": "Group",
@@ -606,7 +604,7 @@ DELETE /compose/namespace/{namespaceID}/module/{moduleID}
 | Header | 必填 | 说明 |
 |--------|------|------|
 | `Authorization` | 是 | Bearer Token |
-| `X-SS-EMAIL` | 是 | 操作人邮箱（来自 `env.json → headers`） |
+| `Authorization` | 是 | Bearer Token（来自 `env.json → headers`） |
 | `X-NAMESPACE-ID` | 是 | 命名空间 ID（与路径中一致） |
 | `Content-Language` | 否 | 语言，如 `en` |
 
@@ -629,7 +627,7 @@ DELETE /compose/namespace/{namespaceID}/module/{moduleID}
 ```bash
 curl -X DELETE 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/module/{moduleID}' \
   -H 'Authorization: Bearer <token>' \
-  -H 'X-SS-EMAIL: lyh@it188.com' \
+  -H 'Authorization: Bearer <token>' \
   -H 'X-NAMESPACE-ID: {namespaceID}' \
   -H 'Content-Language: en' \
   --compressed --insecure
@@ -640,7 +638,7 @@ curl -X DELETE 'http://dev.dms/mx/pionapaas/api/compose/namespace/{namespaceID}/
 ## 注意事项
 
 1. **moduleID 在 URL 路径中传递**，请求体中不包含 `moduleID`。
-2. **请求头必须包含 env.json 中的 headers**：`baseUrl` 和 `headers`（含 `X-SS-EMAIL`、`Content-Type`）均从 `env.json → environments.{env}.tenants.{tenant}` 读取。
+2. **请求头必须包含 env.json 中的 headers**：`baseUrl` 和 `headers`（含 `Authorization`）均从 `env.json → environments.{env}.tenants.{tenant}` 读取。
 3. **systemModuleField** 的 9 个系统字段必须完整传递，`fieldID` 固定为 `"0"`。
 4. **fields** 中的 `fieldID` 是 Sonyflake 生成的唯一 ID，更新时必须保持不变。
 5. **encodingStrategy** 规则：单值用 `{ "plain": {} }`，多值用 `{ "json": { "ident": "<字段name>" } }`，系统字段用 `null`。

@@ -21,11 +21,11 @@
 ## 编写约定
 
 - 每份文档以 `# {Resource} API 接口文档` 作为标题。
-- 公共请求头（Authorization、Content-Type、X-SS-EMAIL 等）在文档顶部或首个接口处统一说明，后续接口不重复。
+- 公共请求头（Authorization、Content-Type 等）在文档顶部或首个接口处统一说明，后续接口不重复。
 - 每个接口包含：请求方法与路径、路径参数表、查询参数表（或请求体）、字段说明表、响应示例。
 - Compose 类资源（module、page、layout）的路径包含 `{namespaceID}`；Automation 类资源（workflow、trigger）的路径不包含。
 
 ## 注意事项
 
 - API baseUrl 和 headers 从 `src/env.json` 中读取，具体路径为 `environments.{env}.tenants.{tenant}`。
-- 写操作（PUT）使用 `putHeaders`，读操作（GET）使用 `headers`。
+- 读写操作统一使用 `headers`（含 `Authorization: Bearer` Token）。
